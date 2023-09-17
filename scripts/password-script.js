@@ -1,21 +1,12 @@
-function showPassword () {
+function showPassword(student = true) {
+    let passwordField = student ? document.getElementById("password-student") : document.getElementById("password-company");
+    let passwordImg = document.getElementById("password-function");
 
-    let password = document.getElementById("password-student");
-    let password_img = document.getElementById("password-function");
-
-    if (password.type == "password") {
-
-        password.type = "text";
-        password_img.scr = "../assets/imgs/hide-password.png"
-
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        passwordImg.src = "../assets/imgs/hide-password.png"; // Defina o caminho correto para a imagem de senha oculta
+    } else {
+        passwordField.type = "password";
+        passwordImg.src = "../assets/imgs/view-password.png"; // Defina o caminho correto para a imagem de senha visível
     }
-
-    else {
-
-        password.type = "password";
-        password_img.scr = "../assets/imgs/view-password.png"
-
-    }
-
-
 }
