@@ -1,0 +1,260 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather Sans', sans-serif;
+
+}
+
+/* HEADER */
+
+/* NAVBAR */
+
+nav {
+
+    display: flex;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(238, 235, 235);
+}
+
+#logo-space {
+
+    width: 55%;
+    display: flex;
+
+}
+
+
+#logo-space img {
+
+    width: 170px;
+
+}
+
+#user-space {
+
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+
+}
+
+#switch-user {
+
+    margin-right: 30px;
+
+}
+
+#switch-user a {
+
+    text-decoration: none;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.2vw;
+    color: black;
+
+}
+
+#login-user span {
+
+    text-decoration: none;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.3vw;
+    color: black;
+    cursor: pointer;
+
+}
+
+#login-user button {
+
+    width: 150px;
+    height: 40px;
+    color: white;
+    border-radius: 60px;
+    background: #30599E;
+    border: none;
+    margin-right: 30px;
+    font-size: 1.2vw;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+#login-user img {
+
+    width: 30px;
+    
+}
+
+/* MAIN */
+
+.sections {
+
+    height: 810px;
+    display: flex;
+
+}
+
+#first-content {
+
+    background-image: url(../imgs/home-background.svg);
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 60%;
+
+
+}
+
+#first-img img {
+
+    width: 700px;
+    display: flex;
+
+}
+
+#text-login-area {
+
+    width: 45%;
+    text-align: center;
+    font-size: 3.8vw;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    animation: fadeInOut 1s ease-in-out;
+
+}
+
+#text-login-area span {
+
+    border-bottom: 2px solid black;
+    width: 480px;
+
+}
+
+#modal-forms-login {
+
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    animation: fadeInOut 0.5s ease-in-out;
+
+}
+
+#form-space {
+
+    width: 500px;
+    height: 490px;
+    background-color: rgb(238, 235, 235);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+
+}
+
+#logo-scorpius {
+
+    width: 200px;
+    margin-bottom: 10px;
+
+}
+
+#form-space form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#form-space h2 {
+
+    margin-bottom: 40px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+
+#form-space form input {
+
+    display: block;
+    margin: 20px 10px;
+    width: 450px;
+    height: 35px;
+    fill: #FFF;
+    border: none;
+    filter: drop-shadow(10px 5px 4px rgba(0, 0, 0, 0.25));
+    padding: 10px;
+    font-size: 1.15vw;
+
+}
+
+
+#form-space form input:focus {
+
+    outline: 2px solid #007bff; /* Cor da borda quando em foco */
+    background-color: #f0f0f0; /* Cor de fundo quando em foco */
+    color: blue; /* Cor do texto quando em foco */
+    outline-style: dashed;
+
+}
+
+
+#password-function {
+
+    width: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+}
+
+#form-space form a {
+
+    text-decoration: none;
+    color: black;
+    font-size: 1.2vw;
+
+} 
+
+#form-space form button {
+
+    width: 180px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: #50A4EC;
+    border: none;
+    color: white;
+    font-size: 1.4vw;
+    font-weight: bold;
+    margin-top: 30px;
+    cursor: pointer;
+
+}
+
+#form-space form button:hover {
+
+    background-color: #348ddb;
+    transition: all 0.3s;
+    border: 6px solid #348ddb;
+    font-size: 1.5vw;
+
+}
+
+/* animação de login */
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+

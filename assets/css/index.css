@@ -1,53 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+
 * {
 
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: 'Merriweather Sans', sans-serif;
 
 }
 
-/* HEADER */
+/* NAVBAR MOBILE */
 
-/* NAVBAR */
+#mobile-navbar {
 
-nav {
+    background-color: rgb(238, 235, 235);
+    height: 80px;
+    display: none;
+}
+
+/* NAVBAR DESKTOP */
+
+#desktop-navbar {
 
     display: flex;
     height: 100px;
     width: 100%;
-    background-color: rgb(238, 235, 235);
+
 }
 
-#logo-space {
+#pags-space {
 
-    width: 55%;
+    margin-right: 40px;
+    width: 70%;
     display: flex;
-
-}
-
-
-#logo-space img {
-
-    width: 170px;
-
-}
-
-#user-space {
-
-    display: flex;
+    height: 100%;
     align-items: center;
-    align-content: space-around;
+    justify-content: space-evenly;
 
 }
 
-#switch-user {
-
-    margin-right: 30px;
-
-}
-
-#switch-user a {
+#pags-space a {
 
     text-decoration: none;
     font-family: 'Merriweather Sans', sans-serif;
@@ -55,6 +46,12 @@ nav {
     color: black;
 
 }
+
+#pags-space a:hover {
+
+    border-bottom: 2px solid #50A4EC;
+}
+
 
 #login-user span {
 
@@ -82,179 +79,251 @@ nav {
 
 }
 
-#login-user img {
+/* NAVBAR GLOBAL CONFIGS */
 
-    width: 30px;
-    
+.logo-space {
+
+    width: 20%;
+    display: flex;
+
+}
+
+#user-space {
+
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    width: 80%;
+    padding-top: 15px;
+
+}
+
+
+.logo-space img {
+
+    width: 170px;
+
 }
 
 /* MAIN */
 
-.sections {
+/* PRIMEIRA SESSÃO */
 
-    height: 810px;
+section {
+
+    width: 100%;
+    height: 600px;
+
+}
+
+#first-area {
+
     display: flex;
 
 }
 
-#first-content {
+#search-area {
 
-    background-image: url(../imgs/home-background.svg);
-    background-size: cover;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    width: 60%;
-
-
-}
-
-#first-img img {
-
-    width: 700px;
-    display: flex;
-
-}
-
-#text-login-area {
-
-    width: 45%;
-    text-align: center;
-    font-size: 3.8vw;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    animation: fadeInOut 1s ease-in-out;
-
-}
-
-#text-login-area span {
-
-    border-bottom: 2px solid black;
-    width: 480px;
-
-}
-
-#modal-forms-login {
-
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    animation: fadeInOut 0.5s ease-in-out;
-
-}
-
-#form-space {
-
-    width: 500px;
-    height: 490px;
-    background-color: rgb(238, 235, 235);
+    background-color: #30599E;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+
+}
+
+#search-area p {
+
+    color: #ffffff;
+    font-size: 2.5vw;
+    font-weight: bold;
+    font-family: 'Merriweather Sans', sans-serif;
+
+}
+
+#search-job {
+
+    padding-top: 80px;
+
+}
+
+#search-job form input {
+
+    fill: #FFF;
+    stroke-width: 3px;
+    stroke: #30599E;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: 350px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    transition: all 0.6s;
+    font-family: 'Merriweather Sans', sans-serif;
+
+}
+
+#search-job form input:focus {
+
+    outline: none;
+    width: 365px;
+    height: 55px;
+    font-size: 1.1vw;
+    font-family: 'Merriweather Sans', sans-serif;
+
+}
+
+#search-job form button {
+
+    width: 110px;
+    height: 30px;
+    margin-left: 25px;
     border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    font-family: 'Merriweather Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.5s;
 
 }
 
-#logo-scorpius {
+#search-job form button:hover {
 
-    width: 200px;
-    margin-bottom: 10px;
+    width: 113px;
+    height: 32px;
+    background-color: #50A4EC;
+    color: white;
+}
+
+#image-area {
+
+    width: 50%;
 
 }
 
-#form-space form {
+#image-area img {
 
+    width: 100%;
+    height: 600px;
+}
+
+/* SEGUNDA SESSÂO */
+
+
+#second-area h1 {
+
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+    font-size: 2.3vw;
+
+}
+
+.swiper {
+    width: 90%;
+    height: 350px;
+    margin-top: 50px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: black;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-
+    width: 50px;
 }
 
-#form-space h2 {
-
-    margin-bottom: 40px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-
-#form-space form input {
+.swiper-slide img {
 
     display: block;
-    margin: 20px 10px;
-    width: 450px;
-    height: 35px;
-    fill: #FFF;
-    border: none;
-    filter: drop-shadow(10px 5px 4px rgba(0, 0, 0, 0.25));
-    padding: 10px;
-    font-size: 1.15vw;
+    width: 40px;
+    object-fit: cover;
 
 }
 
+#second-area-button {
 
-#form-space form input:focus {
-
-    outline: 2px solid #007bff; /* Cor da borda quando em foco */
-    background-color: #f0f0f0; /* Cor de fundo quando em foco */
-    color: blue; /* Cor do texto quando em foco */
-    outline-style: dashed;
-
-}
-
-
-#password-function {
-
-    width: 30px;
-    cursor: pointer;
-    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 
 }
 
-#form-space form a {
+#second-area-button a button {
 
-    text-decoration: none;
-    color: black;
-    font-size: 1.2vw;
-
-} 
-
-#form-space form button {
-
-    width: 180px;
+    width: 300px;
     height: 50px;
-    border-radius: 60px;
-    background-color: #50A4EC;
-    border: none;
     color: white;
-    font-size: 1.4vw;
-    font-weight: bold;
-    margin-top: 30px;
+    background-color: #50A4EC;
+    border-radius: 20px;
+    border: none;
     cursor: pointer;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.3vw;
+    transition: all 0.5s;
 
 }
 
-#form-space form button:hover {
+#second-area-button a button:hover {
 
-    background-color: #348ddb;
-    transition: all 0.3s;
-    border: 6px solid #348ddb;
-    font-size: 1.5vw;
+    width: 310px;
+    height: 55px;
+    background-color: #30599E;
+    border-radius: 23px;
 
 }
 
-/* animação de login */
 
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
+
+@media (max-width:768px ) {
+
+    #desktop-navbar {
+    
+        display: none;
+
     }
-    100% {
-        opacity: 1;
+
+    #mobile-navbar {
+
+        display: flex;
+
     }
+
+    .logo-space {
+
+        width: 82%;
+        display: flex;
+    
+    }
+    
+    .logo-space img {
+    
+        width: 120px;
+        margin: 5px;
+    
+    }
+    
 }
 
+@media (min-width:768px) and (max-width:1024px) {
 
+    .logo-space {
+
+        width: 90%;
+
+    }
+
+    .logo-space img {
+    
+        width: 150px;
+        margin: 5px;
+    
+    }
+
+}
