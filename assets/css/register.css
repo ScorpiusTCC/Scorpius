@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+/* NAVBAR MOBILE */
+
+#mobile-navbar {
+
+    background-color: rgb(238, 235, 235);
+    height: 80px;
+    display: none;
+}
+
+/* NAVBAR DESKTOP */
+
+#desktop-navbar {
+
+    display: flex;
+    height: 100px;
+    width: 100%;
+
+}
+
+#pags-space {
+
+    margin-right: 40px;
+    width: 70%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#pags-space a {
+
+    text-decoration: none;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.2vw;
+    color: black;
+
+}
+
+#pags-space a:hover {
+
+    border-bottom: 2px solid #50A4EC;
+}
+
+
+#login-user span {
+
+    text-decoration: none;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.3vw;
+    color: black;
+    cursor: pointer;
+
+}
+
+#login-user button {
+
+    width: 150px;
+    height: 40px;
+    color: white;
+    border-radius: 60px;
+    background: #30599E;
+    border: none;
+    margin-right: 30px;
+    font-size: 1.2vw;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+
+}
+
+#login-user button:hover {
+
+    background-color: #50A4EC;
+    width: 153px;
+    height: 42px;
+    font-weight: 500;
+}
+
+/* NAVBAR GLOBAL CONFIGS */
+
+.logo-space {
+
+    width: 20%;
+    display: flex;
+
+}
+
+#user-space {
+
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    width: 80%;
+    padding-top: 15px;
+
+}
+
+
+.logo-space img {
+
+    width: 170px;
+
+}
+
+/* MAIN */
+
+/* SWIPER */
+
+main {
+
+    padding-top: 20vh;
+    height: 90vh;
+    background-image: url(../imgs/register/background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.swiper {
+    width: 800px;
+    height: 400px;
+}
+
+.swiper-slide {
+
+    background-color: rgba(48, 89, 158, 0.95);
+    border-radius: 20px;
+    padding: 15px 60px 0 60px;
+
+}
+
+.swiper-slide p {
+
+    color: #FFF;
+    text-shadow: 0px 0px 50px #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 4.8vw;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+}
+
+.swiper-slide h4 {
+
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 20px;
+
+}
+
+.swiper-slide a button {
+
+    background-color: #ffffff;
+    width: 170px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    margin: 30px 0 80px 0;
+    transition: all 0.4s;
+    cursor: pointer;
+    
+}
+
+.swiper-slide a button:hover {
+
+    background-color: #f4f4f4e7;
+    width: 172px;
+    height: 31px;
+
+}
+
+
+#login-area p {
+
+    font-size: 1.2vw;
+    font-weight: 100;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+#login-area p a {
+
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+@media (max-width:768px ) {
+
+    #desktop-navbar {
+    
+        display: none;
+
+    }
+
+    #mobile-navbar {
+
+        display: flex;
+
+    }
+
+    .logo-space {
+
+        width: 82%;
+        display: flex;
+    
+    }
+    
+    .logo-space img {
+    
+        width: 120px;
+        margin: 5px;
+    
+    }
+    
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+
+    .logo-space {
+
+        width: 90%;
+
+    }
+
+    .logo-space img {
+    
+        width: 150px;
+        margin: 5px;
+    
+    }
+
+}
