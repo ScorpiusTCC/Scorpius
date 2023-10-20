@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorpius</title>
-    <link rel="stylesheet" href="assets/css/navbar.css">
-</head>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
+</head>
 <body>
 
     <header>
 
         <nav>
 
-            <div id="navbar-logo">
+            <!-- NAVBAR PARA CELULAR -->
 
-                <img src="assets/imgs/logo-scorpius-lado.svg" alt="">
+            <div id="mobile-navbar">
 
-            </div>
+                <div class="logo-space">
 
-            <div id="navbar-search">
+                    <img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral">
 
-                <form action="">
-
-                    <input type="text" name="" id="" placeholder="Buscar por vagas ou palavra-chave">
-
-                </form>
+                </div>
 
             </div>
 
-            <div id="navbar-icons">
+            <!-- NAVBAR PARA PC -->
 
-                <a href="">
+            <div id="desktop-navbar">
 
-                    <img src="assets/imgs/chat-icon.svg" alt="">    
+                <div class="logo-space">
 
-                </a>
-                               
-                <a href="">
+                    <img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral">
 
-                    <img src="assets/imgs/notification-icon.svg" alt="">
-
-                </a>
-
-                <a href="">
-
-                    <img src="assets/imgs/profile-icon.svg" alt="">
-
-                </a>
+                </div>
             
+                
+                <div id="user-space">
+
+                    <div id="pags-space">
+
+                        <a href="#third-area">Descubra nossas ferramentas</a>
+                        <a href="#fifth-area">Conheça nosso plano</a>
+                        <a href="about-us.html">Sobre nós / SAQ</a>
+
+                    </div>
+        
+                    <div id="login-user">
+        
+                        <a href="register.php"><button>Cadastre-se</button></a>
+
+                        <a href="login.php"><span>Entrar</span></a>
+        
+                    </div>
+
+                </div>
 
             </div>
-
+ 
         </nav>
-
-    </header>
-
-    
-</body>
