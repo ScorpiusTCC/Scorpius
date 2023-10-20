@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scorpius</title>
-    <link rel="stylesheet" href="assets/css/login.css">
+<?php
 
-</head>
-<body>
-
-    <header>
-
-        <nav>
-
-            <a href="index.php"><img src="assets/imgs/logo-scorpius-lado.svg" alt=""></a>
-
-        </nav>
-
-    </header>
+    // incluir navbar
+    include_once 'global-navbar.php';
+    
+?>
+    <!-- chamar o estilo da pagina -->
+    <link rel="stylesheet" href="assets/css/login.css"/>
 
     <main>
 

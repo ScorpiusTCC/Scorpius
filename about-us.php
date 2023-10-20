@@ -1,66 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scorpius</title>
-    <link rel="stylesheet" href="assets/css/about-us.css">
+<?php
 
-</head>
-<body>
-
-    <header>
-
-        <nav>
-
-            <!-- NAVBAR PARA CELULAR -->
-
-            <div id="mobile-navbar">
-
-                <div class="logo-space">
-
-                    <img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral">
-
-                </div>
-
-            </div>
-
-            <!-- NAVBAR PARA PC -->
-
-            <div id="desktop-navbar">
-
-                <div class="logo-space">
-
-                    <a href="index.html"><img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral"></a>
-
-                </div>
-            
-                
-                <div id="user-space">
-
-                    <div id="pags-space">
-
-                        <a href="">O que fazemos</a>
-                        <a href="">Sobre nós</a>
-                        <a href="">SAQ</a>
-
-                    </div>
-        
-                    <div id="login-user">
-        
-                        <a href="register.php"><button>Cadastre-se</button></a>
-
-                        <a href="login.php"><span>Entrar</span></a>
-        
-                    </div>
-
-                </div>
-
-            </div>
- 
-        </nav>
-
-    </header>
+    // incluir navbar
+    include_once 'global-navbar.php';
+    
+?>
+    <!-- chamar o estilo da pagina -->
+    <link rel="stylesheet" href="assets/css/about-us.css"/>
 
     <main>
 

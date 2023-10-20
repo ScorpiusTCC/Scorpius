@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorpius</title>
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
 </head>
@@ -21,7 +21,7 @@
 
                 <div class="logo-space">
 
-                    <img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral">
+                    <a href="index.php"><img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral"></a>
 
                 </div>
 
@@ -33,7 +33,7 @@
 
                 <div class="logo-space">
 
-                    <img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral">
+                    <a href="index.php"><img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral"></a>
 
                 </div>
             
@@ -44,7 +44,7 @@
 
                         <a href="#third-area">Descubra nossas ferramentas</a>
                         <a href="#fifth-area">Conheça nosso plano</a>
-                        <a href="about-us.html">Sobre nós / SAQ</a>
+                        <a href="about-us.php">Sobre nós / SAQ</a>
 
                     </div>
         
