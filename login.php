@@ -13,7 +13,7 @@
 
         <nav>
 
-            <a href="index.html"><img src="assets/imgs/logo-scorpius-lado.svg" alt=""></a>
+            <a href="index.php"><img src="assets/imgs/logo-scorpius-lado.svg" alt=""></a>
 
         </nav>
 

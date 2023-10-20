@@ -50,9 +50,9 @@
         
                     <div id="login-user">
         
-                        <a href="register.html"><button>Cadastre-se</button></a>
+                        <a href="register.php"><button>Cadastre-se</button></a>
 
-                        <a href="login.html"><span>Entrar</span></a>
+                        <a href="login.php"><span>Entrar</span></a>
         
                     </div>
 

@@ -32,7 +32,7 @@
 
                 <div class="logo-space">
 
-                    <a href="index.html"><img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral"></a>
+                    <a href="index.php"><img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral"></a>
 
                 </div>
             
