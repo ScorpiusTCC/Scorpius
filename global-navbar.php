@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+    ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -47,7 +53,13 @@
                         <a href="about-us.php">Sobre nós / SAQ</a>
 
                     </div>
-        
+
+                <?php 
+                // verificar se existe usuario logado, 
+                // se não existir apresenta o código a seguir
+                if(!isset($_SESSION['id_user'])) { 
+                ?>
+
                     <div id="login-user">
         
                         <a href="register.php"><button>Cadastre-se</button></a>
@@ -55,6 +67,21 @@
                         <a href="login.php"><span>Entrar</span></a>
         
                     </div>
+
+                <?php 
+                // se existir usuario logado, apresenta este código
+                } else {
+                ?>
+
+                <div id="login-user">
+        
+                    <h1>Bem vindo usuário <?php echo $_SESSION['id_user']?></h1>
+
+                    <a href="logout.php"><button>Sair</button></a>
+
+                </div>
+
+                <?php } ?>
 
                 </div>
 
