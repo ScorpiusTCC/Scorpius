@@ -91,6 +91,15 @@
 
 /* NAVBAR GLOBAL CONFIGS */
 
+nav {
+
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    background-color: #ffffff;
+
+}
+
 .logo-space {
 
     width: 20%;
@@ -235,6 +244,7 @@ section {
     width: 90%;
     height: 350px;
     margin-top: 50px;
+
 }
 
 .swiper-slide {
