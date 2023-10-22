@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scorpius</title>
-    <link rel="stylesheet" href="assets/css/register-user.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<?php
 
-</head>
-<body>
-
-    <header>
-
-        <nav>
-
-            <img src="assets/imgs/logo-scorpius-lado.svg" alt="">
-
-        </nav>
-
-    </header>
-
+    // incluir navbar
+    include_once 'global-navbar.php';
+    
+?>
+    <!-- chamar o estilo da pagina -->
+    <link rel="stylesheet" href="assets/css/register-user.css"/>
+    
     <main>
 
         <form action="">

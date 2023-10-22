@@ -1,67 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scorpius</title>
-    <link rel="stylesheet" href="assets/css/register.css">
-    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-</head>
+<?php
 
-<body>
-
-    <header>
-
-        <nav>
-
-            <!-- NAVBAR PARA CELULAR -->
-
-            <div id="mobile-navbar">
-
-                <div class="logo-space">
-
-                    <img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral">
-
-                </div>
-
-            </div>
-
-            <!-- NAVBAR PARA PC -->
-
-            <div id="desktop-navbar">
-
-                <div class="logo-space">
-
-                    <a href="index.html"><img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral"></a>
-
-                </div>
-            
-                
-                <div id="user-space">
-
-                    <div id="pags-space">
-
-                        <a href="">Descubra nossas ferramentas</a>
-                        <a href="">Conheça nosso plano</a>
-                        <a href="">Sobre nós / SAQ</a>
-
-                    </div>
-        
-                    <div id="login-user">
-        
-                        <button>Cadastre-se</button>
-
-                        <span>Entrar</span>
-        
-                    </div>
-
-                </div>
-
-            </div>
- 
-        </nav>
-
-    </header>
+    // incluir navbar
+    include_once 'global-navbar.php';
+    
+?>
+    <!-- chamar o estilo da pagina -->
+    <link rel="stylesheet" href="assets/css/register.css"/>
 
     <main>
 
