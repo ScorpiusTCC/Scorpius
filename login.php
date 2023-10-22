@@ -28,7 +28,7 @@
         $result = $querry->fetch();
 
         if($querry->rowCount() == 1 && password_verify($senha, $result['senha'])){
-            $_SESSION['id_user'] = $result['id_usuario'];
+            $_SESSION['id_user'] = $result['id_user'];
             header('location: index.php');
         } else {
             echo 'Usuário ou senha incorreto';
@@ -47,7 +47,7 @@
                 <div id="form-logo-area">
     
                     <img src="assets/imgs/logo-s-scorpius.svg" alt="">
-                    <h1>Acesso para usuários cadastrados</h1>
+                    <h1>Acesse sua conta</h1>
     
                 </div>
     

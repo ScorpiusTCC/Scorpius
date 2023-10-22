@@ -55,7 +55,7 @@
                     </div>
 
                 <?php 
-                // verificar se existe usuario logado, 
+                // verifica se existe usuário logado, 
                 // se não existir apresenta o código a seguir
                 if(!isset($_SESSION['id_user'])) { 
                 ?>
@@ -69,7 +69,7 @@
                     </div>
 
                 <?php 
-                // se existir usuario logado, apresenta este código
+                // se existir usuário logado, apresenta este código
                 } else {
                 ?>
 
