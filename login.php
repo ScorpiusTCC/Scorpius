@@ -5,16 +5,16 @@
     
     require_once 'config/connection.php';
 
-    // // cadastro
-    // if(isset($_POST['enviar'], $_POST['email'], $_POST['senha'])){
-    //     $user = $_POST['email']; 
-    //     $senha = password_hash($_POST['senha'], PASSWORD_BCRYPT);
+    // cadastro
+    if(isset($_POST['enviar'], $_POST['email'], $_POST['senha'])){
+        $user = $_POST['email']; 
+        $senha = password_hash($_POST['senha'], PASSWORD_BCRYPT);
 
-    //     $querry = $conn->prepare('INSERT INTO tb_usuarios(email, senha) VALUES (:user, :senha)');
-    //     $querry->bindParam(':user', $user);
-    //     $querry->bindParam(':senha', $senha);
-    //     $querry->execute();
-    // } 
+    $querry = $conn->prepare('INSERT INTO tb_usuarios(email, senha) VALUES (:user, :senha)');
+    $querry->bindParam(':user', $user);
+    $querry->bindParam(':senha', $senha);
+    $querry->execute();
+    }
     
     // Verificar se o usuário existe
     if(isset($_POST['enviar'], $_POST['email'], $_POST['senha'])) {

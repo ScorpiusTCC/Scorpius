@@ -2,6 +2,7 @@
 
     session_start();
     ob_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorpius</title>
-    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/global_navbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
 </head>
@@ -35,7 +36,7 @@
 
             <!-- NAVBAR PARA PC -->
 
-            <div id="desktop-navbar">
+            <div id="first-navbar">
 
                 <div class="logo-space">
 
@@ -86,5 +87,36 @@
                 </div>
 
             </div>
+
+            <div id="second-navbar">
+
+                <div class="logo-space">
+
+                    <a href="index.php"><img src="assets/imgs/logo-scorpius-lado.svg" alt="Logo da Scorpius completa lateral"></a>
+
+                </div>
+                
+                <div id="form-space">
+
+                    <form action="">
+
+                        <input type="text" placeholder="Buscar por vagas ou palavra-chave">
+
+                    </form>
+
+                </div>
+
+                <div id="icons-space">
+
+                    <a href=""><img src="assets/imgs/chat-icon.svg" alt=""></a>
+                    <a href=""><img src="assets/imgs/notification-icon.svg" alt=""></a>
+                    <a href=""><img src="assets/imgs/profile-icon.svg" alt=""></a>
+                    
+
+                </div>
+
+            </div>
+
+
  
         </nav>

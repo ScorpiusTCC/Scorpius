@@ -21,7 +21,7 @@
                     
                     <h4>Descubra as melhores opotunidades</h4>
 
-                    <a href="student-register.html"><button>Cadastre-se já</button></a>
+                    <a href="student-register.php"><button>Cadastre-se já</button></a>
 
                     <div id="login-area">
 
@@ -38,7 +38,7 @@
                     
                     <h4>Encontre os melhores estagiários da Praia Grande!</h4>
 
-                    <a href="company-register.html"><button>Cadastre-se já</button></a>
+                    <a href="company-register.php"><button>Cadastre-se já</button></a>
 
                     <div id="login-area">
 

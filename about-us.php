@@ -5,7 +5,7 @@
     
 ?>
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="assets/css/about-us.css"/>
+    <link rel="stylesheet" href="assets/css/about.css"/>
 
     <main>
 
