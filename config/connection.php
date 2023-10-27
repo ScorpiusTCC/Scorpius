@@ -1,7 +1,7 @@
 <?php
  
 require_once('global.php');
- 
+
 $host = $_ENV['db_host'];
 $user = $_ENV['db_user'];
 $pass = $_ENV['db_password'];

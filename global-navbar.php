@@ -19,10 +19,16 @@
 <body>
 
     <header>
+            
+            <nav>
 
-        <nav>
+            <?php 
+            // verifica se existe usuário logado, 
+            // se não existir apresenta o código a seguir
+            if(!isset($_SESSION['id_user'])) { 
+            ?>
 
-            <!-- NAVBAR PARA CELULAR -->
+            <!-- NAVBAR PARA CELULAR -->    
 
             <div id="mobile-navbar">
 
@@ -55,11 +61,6 @@
 
                     </div>
 
-                <?php 
-                // verifica se existe usuário logado, 
-                // se não existir apresenta o código a seguir
-                if(!isset($_SESSION['id_user'])) { 
-                ?>
 
                     <div id="login-user">
         
@@ -69,26 +70,18 @@
         
                     </div>
 
-                <?php 
-                // se existir usuário logado, apresenta este código
-                } else {
-                ?>
-
-                <div id="login-user">
-        
-                    <h1>Bem vindo usuário <?php echo $_SESSION['id_user']?></h1>
-
-                    <a href="logout.php"><button>Sair</button></a>
-
-                </div>
-
-                <?php } ?>
-
                 </div>
 
             </div>
+            
+            <?php 
+            // se existir usuário logado, apresenta este código
+            } else {
 
-            <div id="second-navbar">
+            ?>
+
+            
+            <div id="first-navbar">
 
                 <div class="logo-space">
 
@@ -117,6 +110,6 @@
 
             </div>
 
-
+            <?php } ?>        
  
         </nav>
