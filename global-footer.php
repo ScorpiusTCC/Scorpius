@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 <?php
 
     session_start();
     ob_start();
 
 ?>
+=======
+
+    <link rel="stylesheet" href="assets/css/global_footer.css">
+>>>>>>> 1d24fce29882d03383f3eb85d74f363e1415eb55
 
     <footer>
 
