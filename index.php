@@ -46,15 +46,47 @@
             <div class="swiper">
 
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide">Slide 4</div>
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
-                    <div class="swiper-slide">Slide 7</div>
-                    <div class="swiper-slide">Slide 8</div>
-                    <div class="swiper-slide">Slide 9</div>
+
+                    <div class="swiper-slide">
+
+                        <a href="">
+                            <img src="" alt="">
+                        </a>
+                            
+                    </div>
+
+                    <div class="swiper-slide">
+
+                        <a href="">
+                            <img src="" alt="">
+                        </a>
+                            
+                    </div>
+
+                    <div class="swiper-slide">
+
+                        <a href="">
+                            <img src="" alt="">
+                        </a>
+                            
+                    </div>
+
+                    <div class="swiper-slide">
+
+                        <a href="">
+                            <img src="" alt="">
+                        </a>
+                            
+                    </div>
+
+                    <div class="swiper-slide">
+
+                        <a href="">
+                            <img src="" alt="">
+                        </a>
+                            
+                    </div>
+
                 </div>
 
                 <div class="swiper-pagination"></div>
@@ -148,9 +180,16 @@
 
     </main>
 
+    <?php
+
+    // incluir footer
+    include_once 'global-footer.php';
+    
+    ?>
+
     <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="scripts/swiper.js"></script>
+    <script src="scripts/index-swiper.js"></script>
 
 </body>
 </html>

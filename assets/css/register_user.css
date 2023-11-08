@@ -156,38 +156,6 @@ main {
 
 }
 
-/* SEGUNDO SLIDE ESTILIZAÇÕES */
-
-#security-indicator {
-
-    display: flex;
-    width: 100%;
-    margin: 15px 0 15px 0;
-}
-
-#security-indicator h3 {
-
-    font-size: 1.3vw;
-    font-family: 'Inter', sans-serif;
-    margin-right: 10px;
-
-}
-
-#security-indicator span {
-
-    font-size: 1.3vw;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-
-}
-
-#password-rules ul li {
-
-    font-size: 1.2vw;
-    font-family: 'Inter', sans-serif;
-
-}
-
 /* TERCEIRA DIVISÃO */
 
 /* BOTÕES */
@@ -234,6 +202,64 @@ main {
 #next-button:hover {
 
     background-color: #50A4EB;
+
+}
+
+/* SEGUNDO SLIDE ESTILIZAÇÕES */
+
+#security-indicator {
+
+    display: flex;
+    width: 100%;
+    margin: 15px 0 15px 0;
+}
+
+#security-indicator h3 {
+
+    font-size: 1.3vw;
+    font-family: 'Inter', sans-serif;
+    margin-right: 10px;
+
+}
+
+#security-indicator span {
+
+    font-size: 1.3vw;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+
+}
+
+#password-rules ul li {
+
+    font-size: 1.2vw;
+    font-family: 'Inter', sans-serif;
+
+}
+
+/* TERCEIRO SLIDE ESTILIZAÇÕES */
+
+.form select {
+
+    width: 98%;
+    height: 40px;
+    fill: #FFF;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+    background-color: #ffffff;
+    border: 0.002cm solid #50A4EB ;
+    border-radius: 5px;
+    transition: all 0.3s;
+    padding-left: 2%;
+    font-size: 1.1vw;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.form select:focus {
+
+    outline: none;
+    width: 100%;
+    height: 42px;
 
 }
 
