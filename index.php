@@ -190,13 +190,6 @@
     <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="scripts/index-swiper.js"></script>
-
-    <?php
-
-    // incluir footer
-    include_once 'global-footer.php';
-    
-    ?>
     
 </body>
 </html>
