@@ -40,7 +40,7 @@
                     <div>
 
                         <h4>Publicada em 1 de setembro</h4>
-                        <button>Cadastrar-se</button>
+                        <button>Candidatar-se</button>
 
                     </div>
 
@@ -108,7 +108,7 @@
                     <div>
 
                         <h4>Publicada em 1 de setembro</h4>
-                        <button>Cadastrar-se</button>
+                        <button>Candidatar-se</button>
 
                     </div>
 
