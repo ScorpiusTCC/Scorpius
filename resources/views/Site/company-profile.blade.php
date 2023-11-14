@@ -29,7 +29,7 @@
 
                     <div class="text-image">
 
-                        <a href=""><button>+</button></a>
+                        <a href="{{ route ('job-register') }}"><button>+</button></a>
                         <h3>Anunciar Vagas</h3>
 
                     </div>

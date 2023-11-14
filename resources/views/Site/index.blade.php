@@ -107,7 +107,7 @@
 
             <div id="second-area-button">
 
-                <a href=""><button>Encontrar todas as vagas</button></a>
+                <a href="{{ route('vagas') }}"><button>Encontrar todas as vagas</button></a>
                 
             </div>
 
@@ -135,7 +135,7 @@
                 <div id="fourth-area-second-division">
     
                     <h3>Antes de se candidatar a uma oportunidade de estágio, avalie sua pontuação em várias competências em comparação com a dos outros candidatos e veja os principais requisitos exigidos pelas empresas.</h3>
-                    <a href=""><button>Buscar vagas de estágio</button></a>
+                    <a href="{{ route('vagas') }}"><button>Buscar vagas de estágio</button></a>
     
                 </div>
 
