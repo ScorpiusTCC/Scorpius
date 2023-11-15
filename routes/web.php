@@ -54,3 +54,7 @@ Route::get('/profile', function () {
 Route::get('/vagas', function () {
     return view('site/jobs');
 })->name('vagas');
+
+Route::get('/registro-vaga', function () {
+    return view('site/job-register');
+})->name('job-register');
