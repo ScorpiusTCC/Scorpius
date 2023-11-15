@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\EstudanteController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\VagaController;
+use App\Models\Estudante;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Manipular Login, Logout...
+
+Route::get('/login', function () {
+    return view('site/login');
+})->name('login');
+
+Route::get('/auth', [LoginController::class, 'auth'])->name('auth');
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+// Manipular vagas
+
+Route::get('/vagas', [VagaController::class, 'index'])->name('vagas');
+
+Route::get('/filterVaga', [VagaController::class, 'filterName'])->name('filterVaga');
+
+
+// Manipular estudantes
+
+Route::get('/student-register', [EstudanteController::class, 'create'])->name('student-register');
+
+
+// Demais rotas 
+
 Route::get('/', function () {
     return view('site/index');
 })->name('index');
@@ -22,22 +50,10 @@ Route::get('/about-us', function () {
     return view('site/about-us');
 })->name('about-us');
 
-Route::get('/login', function () {
-    return view('site/login');
-})->name('login');
-
-
-Route::get('/auth', [LoginController::class, 'auth'])->name('auth');
-
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
 Route::get('/register', function () {
     return view('site/register');
 })->name('register');
 
-Route::get('/student-register', function () {
-    return view('site/student-register');
-})->name('student-register');
 
 Route::get('/company-register', function () {
     return view('site/company-register');
@@ -51,10 +67,7 @@ Route::get('/profile', function () {
     return view('site/profile');
 })->name('profile');
 
-Route::get('/vagas', function () {
-    return view('site/jobs');
-})->name('vagas');
-
 Route::get('/registro-vaga', function () {
     return view('site/job-register');
 })->name('job-register');
+

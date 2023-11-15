@@ -41,7 +41,7 @@
                 <div id="login-area">
     
                     <button type="submit">Entrar</button>
-                    <span>Não tem uma conta <a href="">Cadastre-se</a></span>
+                    <span>Não tem uma conta <a href="{{ route('register') }}">Cadastre-se</a></span>
     
                 </div>
     

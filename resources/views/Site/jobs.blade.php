@@ -16,98 +16,40 @@
 
         <div id="jobs-division">
 
-            <div class="job-card">
+            @foreach ($vagas as $vaga)
 
-                <div id="text-area-card">
+                <div class="job-card">
 
-                    <h2>Estágio em Tecnologia da informação</h2>
-                    <h3>microsoft informática ltda.</h3>
-                    <h4>Guilhermina</h4>
+                    <div id="text-area-card">
 
-                </div>
+                        <h2>{{ $vaga->titulo }}</h2>
+                        <h3>{{ $vaga->empresa }}</h3>
+                        <h4>{{ $vaga->modalidade }}</h4>
 
-                <div id="image-area-card">
+                    </div>
 
-                    <img src="" alt="Logotipo da empresa">
+                    <div id="image-area-card">
 
-                </div>
+                        <img src="" alt="Logotipo da empresa">
 
-                <div id="interaction-area-card">
+                    </div>
 
-                    <h2>R$ 2.000,00 (Bruto mensal)</h2>
-                    
-                    <div>
+                    <div id="interaction-area-card">
 
-                        <h4>Publicada em 1 de setembro</h4>
-                        <button>Cadastrar-se</button>
+                        <h2>R$ {{ str_replace('.', ',', $vaga->salario) }}  (Bruto mensal)</h2>
+                        
+                        <div>
+
+                            <h4>Publicada em {{ (new DateTime($vaga->created_at))->format('d/m/Y') }}</h4>
+                            <button>Cadastrar-se</button>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
-
-            <div class="job-card">
-
-                <div id="text-area-card">
-
-                    <h2>Estágio em Tecnologia da informação</h2>
-                    <h3>microsoft informática ltda.</h3>
-                    <h4>Guilhermina</h4>
-
-                </div>
-
-                <div id="image-area-card">
-
-                    <img src="" alt="Logotipo da empresa">
-
-                </div>
-
-                <div id="interaction-area-card">
-
-                    <h2>R$ 2.000,00 (Bruto mensal)</h2>
-
-                    <div>
-
-                        <h4>Publicada em 1 de setembro</h4>
-                        <button>Candidatar-se</button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="job-card">
-
-                <div id="text-area-card">
-
-                    <h2>Estágio em Tecnologia da informação</h2>
-                    <h3>microsoft informática ltda.</h3>
-                    <h4>Guilhermina</h4>
-
-                </div>
-
-                <div id="image-area-card">
-
-                    <img src="" alt="Logotipo da empresa">
-
-                </div>
-
-                <div id="interaction-area-card">
-
-                    <h2>R$ 2.000,00 (Bruto mensal)</h2>
-
-                    <div>
-
-                        <h4>Publicada em 1 de setembro</h4>
-                        <button>Cadastrar-se</button>
-
-                    </div>
-
-                </div>
-
-            </div>
+            @endforeach
 
         </div>
 

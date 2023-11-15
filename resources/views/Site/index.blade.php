@@ -27,9 +27,9 @@
 
                 <div id="search-job">
 
-                    <form action="">
+                    <form method="get" action="{{ route('filterVaga')}} ">
 
-                        <input type="text" placeholder="Busca por cargos">
+                        <input type="text" id="searchName" name="searchName" placeholder="Busca por cargos">
                         <button type="submit">Procurar</button>
 
                     </form>
@@ -157,7 +157,7 @@
 
                         <h2>Grátis</h2>
     
-                        <p>Acesso a diversas vagas de estágio<img id="fds" src="{{ asset('imgs/check.png') }}" alt=""></p>
+                        <p>Acesso a diversas vagas de estágio<img src="{{ asset('imgs/check.png') }}" alt=""></p>
                         <p>Área para colocar suas informações pessoais<img src="{{ asset('imgs/check.png') }}" alt=""></p>
                         <p>Maior visibilidade na plataforma<img src="{{ asset('imgs/close.png') }}" alt=""></p>
     
