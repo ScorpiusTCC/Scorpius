@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Curso extends Model
+class Escolaridade extends Model
 {
-    protected $table = 'cursos';
+    protected $table = 'escolaridade';
+
     protected $fillable = [
-        'nome', 
-        'periodo_curso'
+        'instituicao',
+        'curso'
     ];
 
     // Se não houver relacionamentos definidos para esta tabela, remova esta classe.

@@ -12,18 +12,19 @@ class User extends Authenticatable
         'nome', 
         'email', 
         'senha',
+        'tipo',
         'remember_token',
         'verificado_at'
     ];
 
     public function estudante()
     {
-        return $this->hasOne(UsuarioEstudante::class, 'id_user');
+        return $this->hasOne(Estudante::class, 'id_user');
     }
 
     public function empresa()
     {
-        return $this->hasOne(UsuarioEmpresa::class, 'id_user');
+        return $this->hasOne(Empresa::class, 'id_user');
     }
 
     public function mensagens()

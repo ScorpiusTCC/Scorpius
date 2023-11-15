@@ -10,6 +10,7 @@ class CreateEstudantesTable extends Migration
     {
         Schema::create('estudantes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_user')->constrained('users');
             $table->string('nome');
             $table->date('data_de_nascimento');
             $table->char('cpf', 11)->nullable();
