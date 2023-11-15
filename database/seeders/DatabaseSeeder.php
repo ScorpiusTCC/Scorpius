@@ -10,7 +10,10 @@ use App\Models\Empresa;
 use App\Models\Escolaridade;
 use App\Models\Estudante;
 use App\Models\Mensagem;
+use App\Models\ModalidadeVaga;
 use App\Models\ParticipanteConversa;
+use App\Models\PeriodoEscolaridade;
+use App\Models\Status;
 use App\Models\User;
 use App\Models\Vaga;
 use Illuminate\Database\Seeder;
@@ -23,6 +26,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //Inserir modalidades de vagas - tabela 'modalidades_vaga'
+        ModalidadeVaga::insert([
+            ['tipo' => 'Presencial'],
+            ['tipo' => 'Hibrído'],
+            ['tipo' => 'Remoto'],
+        ]);
+
+        PeriodoEscolaridade::insert([
+            ['nome' => 'Integral'],
+            ['nome' => 'Matutino'],
+            ['nome' => 'Vespertino'],
+            ['nome' => 'Noturno']
+        ]);
+
+        //Inserir status de vagas - tabela 'status'
+        Status::insert([
+            ['nome' => 'Ativo'],
+            ['nome' => 'Inativo']
+        ]);
 
         // Inserir dados para a tabela 'users'
         User::insert([
@@ -267,16 +289,19 @@ class DatabaseSeeder extends Seeder
             [
                 'instituicao' => 'Fatec de Praia Grande',
                 'curso' => 'Ciência da Computação', 
+                'id_periodo' => 1,
                 'created_at' => now()
             ],
             [
                 'instituicao' => 'ETEC de Praia Gande',
                 'curso' => 'Administração', 
+                'id_periodo' => 2,
                 'created_at' => now()
             ],
             [
                 'instituicao' => 'PUC SP',
                 'curso' => 'Medicina', 
+                'id_periodo' => 3,
                 'created_at' => now()
             ],
         ]);
@@ -284,26 +309,32 @@ class DatabaseSeeder extends Seeder
         // Inserir dados para a tabela 'vagas'
         Vaga::insert([
             [
+                'id_modalidade' => 2,
                 'id_empresa' => 1, 
+                'id_status' => 1,
                 'titulo' => 'Desenvolvedor Web', 
                 'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
-                'vl_salario' => 5000.00, 
+                'salario' => 5000.00, 
                 'data_expiracao' => '2023-12-01',
                 'created_at' => now()
             ],
             [
+                'id_modalidade' => 1,
                 'id_empresa' => 2, 
+                'id_status' => 1,
                 'titulo' => 'Analista Financeiro', 
                 'descricao' => 'Procuramos um profissional para análise e gestão financeira',
-                'vl_salario' => 4500.00, 
+                'salario' => 4500.00, 
                 'data_expiracao' => '2023-12-15',
                 'created_at' => now()
             ],
             [
+                'id_modalidade' => 3,
                 'id_empresa' => 3, 
+                'id_status' => 1,
                 'titulo' => 'Médico Residente', 
                 'descricao' => 'Vaga para médico residente na especialidade de pediatria',
-                'vl_salario' => 6000.00, 
+                'salario' => 6000.00, 
                 'data_expiracao' => '2023-11-30',
                 'created_at' => now()
             ],

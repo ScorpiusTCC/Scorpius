@@ -8,7 +8,8 @@ class Estudante extends Model
 {
     protected $table = 'estudantes';
 
-    protected $fillable = ['nome', 
+    protected $fillable = [
+        'nome', 
         'data_de_nascimento', 
         'cpf', 
         'ano_cursado', 

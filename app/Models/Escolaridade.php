@@ -10,8 +10,12 @@ class Escolaridade extends Model
 
     protected $fillable = [
         'instituicao',
-        'curso'
+        'curso',
+        'id_periodo'
     ];
 
-    // Se não houver relacionamentos definidos para esta tabela, remova esta classe.
+    public function periodoEstudo()
+    {
+        return $this->belongsTo(PeriodoEscolaridade::class, 'id_periodo');
+    }
 }

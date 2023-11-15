@@ -10,6 +10,7 @@ class CreateEscolaridadeTable extends Migration
     {
         Schema::create('escolaridade', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_periodo')->constrained('periodos_estudo');
             $table->string('instituicao', 80);
             $table->string('curso', 220);
             $table->timestamps();
