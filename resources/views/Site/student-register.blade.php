@@ -36,14 +36,14 @@
                                 <div class="form">
 
                                     <label for=""> <p>Nome Completo <span>*</span> </p> </label>
-                                    <input type="text" name="" id="">
+                                    <input type="text" name="" id="" required>
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>E-mail principal <span>*</span> </p> </label>
-                                    <input type="email" name="" id="">
+                                    <input type="email" name="" id="" required>
 
                                 </div>
 

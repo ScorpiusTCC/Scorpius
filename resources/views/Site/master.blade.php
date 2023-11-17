@@ -11,51 +11,99 @@
 <body>
     <header>
 
+          {{-- navbar logado --}}
+
         @auth
 
-            {{-- navbar sem estar logado --}}
+            {{-- navbar se o usuario é estudante --}}
 
-            <nav>
+            @if(auth()->user()->tipo === 'estudante')
 
-                <div id="first-navbar">
+                <nav>
 
-                    <div class="logo-space">
+                    <div id="first-navbar">
 
-                        <a href="{{ route('index') }}">
+                        <div class="logo-space">
 
-                            <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
+                            <a href="{{ route('index') }}">
 
-                        </a>
+                                <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
+
+                            </a>
+
+                        </div>
+
+                        <div id="form-space">
+
+                            <form action="{{ route('filterVaga') }}">
+
+                                <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
+
+                            </form>
+
+                        </div>
+
+                        <div id="icons-space">
+                            
+                            <a href=""><img src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
+
+                            <a href=""><img src="{{ asset('imgs/notification-icon.svg') }}" alt=""></a>
+
+                            <a href=""><img src="{{ asset('imgs/profile-icon.svg') }}" alt=""></a>
+
+                        </div>
 
                     </div>
 
-                    <div id="form-space">
+                </nav>    
 
-                        <form action="{{ route('filterVaga') }}">
+            @else
 
-                            <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
+            {{-- navbar se o usuario é empresa --}}
+            
+                <nav>
 
-                        </form>
+                    <div id="first-navbar">
+
+                        <div class="logo-space">
+
+                            <a href="{{ route('index') }}">
+
+                                <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
+
+                            </a>
+
+                        </div>
+
+                        <div id="form-space">
+
+                            <form action="{{ route('filterVaga') }}">
+
+                                <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
+
+                            </form>
+
+                        </div>
+
+                        <div id="icons-space">
+                            
+                            <a href=""><img src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
+
+                            <a href=""><img src="{{ asset('imgs/notification-icon.svg') }}" alt=""></a>
+
+                            <a href=""><img src="{{ asset('imgs/profile-icon.svg') }}" alt=""></a>
+
+                        </div>
 
                     </div>
 
-                    <div id="icons-space">
-                        
-                        <a href=""><img src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
-
-                        <a href=""><img src="{{ asset('imgs/notification-icon.svg') }}" alt=""></a>
-
-                        <a href=""><img src="{{ asset('imgs/profile-icon.svg') }}" alt=""></a>
-
-                    </div>
-
-                </div>
-
-            </nav>    
+                </nav>   
+            
+            @endif
 
         @else
 
-            {{-- navbar logado --}}
+            {{-- navbar sem estar logado --}}
 
             <nav>
 

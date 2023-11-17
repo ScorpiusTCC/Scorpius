@@ -30,7 +30,7 @@
 
                     <div id="image-area-card">
 
-                        <img src="{{ $vaga->nm_imgs }}" alt="{{ $vaga->nm_img }}">
+                        <img src="{{ $vaga->nm_img }}" alt="{{ $vaga->nm_img }}">
 
                     </div>
 

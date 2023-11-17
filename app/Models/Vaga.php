@@ -33,6 +33,11 @@ class Vaga extends Model
         return $this->belongsTo(Status::class, 'id_status');
     }
 
+    public function categoria_vaga()
+    {
+        return $this->belongsTo(TipoVaga::class, 'id_categoria_vaga');
+    }
+
     public function candidaturas()
     {
         return $this->hasMany(Candidatura::class, 'id_vaga');

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EstudanteController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\VagaController;
 use App\Models\Estudante;
 use Illuminate\Support\Facades\Route;
@@ -39,12 +40,9 @@ Route::get('/filterVaga', [VagaController::class, 'filterName'])->name('filterVa
 
 Route::get('/student-register', [EstudanteController::class, 'create'])->name('student-register');
 
-
 // Demais rotas 
 
-Route::get('/', function () {
-    return view('site/index');
-})->name('index');
+Route::get('/', [SiteController::class, 'index'])->name('index');
 
 Route::get('/about-us', function () {
     return view('site/about-us');

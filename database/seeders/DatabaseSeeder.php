@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CategoriaVaga;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\ContatoEmpresa;
 use App\Models\ContatoEstudante;
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    function run(): void
     {
         //Inserir modalidades de vagas - tabela 'modalidades_vaga'
         ModalidadeVaga::insert([
@@ -41,6 +42,8 @@ class DatabaseSeeder extends Seeder
         Sexo::insert([
             ['nome' => 'Masculino'],
             ['nome' => 'Feminino'],
+            ['nome' => 'Outro'],
+            ['nome' => 'Helicoptero de combate'],
         ]);
 
         Periodo::insert([
@@ -54,6 +57,34 @@ class DatabaseSeeder extends Seeder
         Status::insert([
             ['nome' => 'Ativo'],
             ['nome' => 'Inativo']
+        ]);
+
+        //Inserir categoria - tabela 'categoria_vaga'
+        CategoriaVaga::insert([
+            [
+                'nome' => 'Tecnologia',
+                'nm_img' => 'imgs/index/tecno-image.jpg'
+            ],
+            [
+                'nome' => 'Marketing',
+                'nm_img' => 'imgs/index/marketing-image.jpg'
+            ],
+            [
+                'nome' => 'Administração',
+                'nm_img' => 'imgs/index/adm-image.jpg'
+            ],
+            [
+                'nome' => 'Logistíca',
+                'nm_img' => 'imgs/index/log-image.jpg'
+            ],
+            [
+                'nome' => 'Química',
+                'nm_img' => 'imgs/index/quimica-image.jpg'
+            ],
+            [
+                'nome' => 'Segurança do Trabalho',
+                'nm_img' => 'imgs/index/seg-image.jpg'
+            ]
         ]);
 
         // Inserir dados para a tabela 'users'
@@ -378,6 +409,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 2,
                 'id_empresa' => 1, 
                 'id_status' => 1,
+                'id_categoria_vaga' => 1,
                 'titulo' => 'Desenvolvedor Web', 
                 'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
                 'salario' => 5000.00, 
@@ -388,6 +420,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 1,
                 'id_empresa' => 2, 
                 'id_status' => 1,
+                'id_categoria_vaga' => 2,
                 'titulo' => 'Analista Financeiro', 
                 'descricao' => 'Procuramos um profissional para análise e gestão financeira',
                 'salario' => 4500.00, 
@@ -398,6 +431,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 3,
                 'id_empresa' => 3, 
                 'id_status' => 1,
+                'id_categoria_vaga' => 1,
                 'titulo' => 'Médico Residente', 
                 'descricao' => 'Vaga para médico residente na especialidade de pediatria',
                 'salario' => 6000.00, 

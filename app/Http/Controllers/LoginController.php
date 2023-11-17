@@ -24,6 +24,7 @@ class LoginController extends Controller
         } else {
             Auth::login($user);
             $request->session()->regenerate();
+
             return redirect()->route('vagas');
         }
     }

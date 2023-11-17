@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Escolaridade;
-use App\Models\PeriodoEscolaridade;
+use App\Models\Curso;
+use App\Models\Escola;
+use App\Models\Periodo;
 use Illuminate\Http\Request;
 
 class EstudanteController extends Controller
 {
     public function create()
     {
-        $escolaridades = Escolaridade::all();
-        $periodos = PeriodoEscolaridade::all();
+        $escolas = Escola::all();
+        $cursos = Curso::all();
+        $periodos = Periodo::all();
         
-        return view('site/student-register', compact('escolaridades', 'periodos'));
+        return view('site/student-register', compact('escolas', 'periodos', 'cursos'));
     }
 
     public function store(Request $request)

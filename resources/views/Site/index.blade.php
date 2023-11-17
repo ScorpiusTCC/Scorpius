@@ -48,57 +48,25 @@
 
         <section id="second-area">
 
-            <h1>Cargos em sua área de atuação</h1>
+            <h1>Procure vagas baseado em categorias</h1>
 
               <!-- Swiper -->
               <div class="swiper">
 
                 <div class="swiper-wrapper">
 
-                    <div class="swiper-slide">
+                    @foreach ($categorias as $categoria)
 
-                        <a href="">
-                            <img src="{{ asset('imgs/index/tecno-image.jpg') }}" alt="Imagem da área de T.I">
-                            <h2>Tecnologia</h2>
-                        </a>
-                            
-                    </div>
+                        <div class="swiper-slide">
 
-                    <div class="swiper-slide">
+                            <a href="">
+                                <img src="{{ $categoria->nm_img }}" alt="{{ $categoria->nm_img }}">
+                                <h2>{{ $categoria->nome }}</h2>
+                            </a>
+                                
+                        </div>
 
-                        <a href="">
-                            <img src="{{ asset('imgs/index/marketing-image.jpg') }}" alt="Imagem da área de Marketing">
-                            <h2>Marketing</h2>
-                        </a>
-                            
-                    </div>
-
-                    <div class="swiper-slide">
-
-                        <a href="">
-                            <img src="{{ asset('imgs/index/adm-image.jpg')}} " alt="Imagem da área de Administração">
-                            <h2>Administração</h2>
-                        </a>
-                            
-                    </div>
-
-                    <div class="swiper-slide">
-
-                        <a href="">
-                            <img src="{{ asset('imgs/index/seg-image.jpg')}} " alt="Imagem da área de Segurança de trabalho">
-                            <h2>Segurança do trabalho</h2>
-                        </a>
-                            
-                    </div>
-
-                    <div class="swiper-slide">
-
-                        <a href="">
-                            <img src="{{ asset('imgs/index/log-image.jpg')}}" alt="Imagem da área de Logistica">
-                            <h2>Logistica</h2>
-                        </a>
-                            
-                    </div>
+                    @endforeach
 
                 </div>
 

@@ -12,6 +12,7 @@ class CreateVagasTable extends Migration
             $table->id();
             $table->foreignId('id_empresa')->constrained('empresas');
             $table->foreignId('id_modalidade')->constrained('modalidades_vaga');
+            $table->foreignId('id_categoria_vaga')->constrained('categoria_vaga');
             $table->foreignId('id_status')->constrained('status');
             $table->string('titulo');
             $table->text('descricao');
