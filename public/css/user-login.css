@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* MAIN */
+
+main {
+
+    height: 700px;
+
+}
+
+#first-division {
+
+    height: 250px;
+    background-color: #30599E;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+
+}
+
+/* FORMULARIO */
+
+form {
+
+    width: 600px;
+    height: 600px;
+    border-radius: 60px;
+    border: 0.5px solid #000;
+    background: #FFF;
+
+
+}
+
+#form-logo-area {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#form-logo-area img {
+
+    width: 150px;
+
+}
+
+#form-logo-area h1 {
+
+    color: #000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 70px;
+}
+
+#login-form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#login-form a {
+
+    color: #0E9DEE;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-decoration: none;
+
+}
+
+
+#login-form img {
+
+    width: 30px;
+    cursor: pointer;
+    transition: width 300ms ease-in-out;
+
+}
+
+#login-form img:hover {
+
+    width: 33px;
+
+}
+
+form input {
+
+    width: 490px;
+    height: 55px;
+    margin-bottom: 20px;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.45));
+    border: none;
+    padding-left: 20px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.2vw;
+    transition: all 0.4s;
+
+}
+
+form input:focus {
+
+    outline: 0.5px solid #50A4EB;
+    width: 500px;
+    height: 58px;
+
+}
+
+#login-area {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+
+}
+
+#login-area button {
+
+    width: 250px;
+    height: 60px;
+    border-radius: 60px;
+    border: none;
+    background-color: #50A4EB;
+    color: #ffffff;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2vw;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin: 0 0 20px 0 ;
+
+}
+
+#login-area button:hover {
+
+    background-color: #30599E;
+    width: 245px;
+    height: 57px;
+
+}
+
+#login-area a {
+
+    color: #0E9DEE;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-decoration-line: underline;
+
+}
+

@@ -133,7 +133,7 @@
 
                 <h3>Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet</h3>
 
-            <a href=""><img src="{{ asset('imgs/footer/instagram-icon.svg') }}" alt="icone de uma camera da rede social Instagram"></a>
+            <a href="https://www.instagram.com/scorpius_enterprises/" target="_blank"><img src="{{ asset('imgs/footer/instagram-icon.svg') }}" alt="icone de uma camera da rede social Instagram"></a>
 
             </div>
         

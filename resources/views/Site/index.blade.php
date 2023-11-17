@@ -14,7 +14,7 @@
 
 @section('content')
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/indexes.css') }}"/>
 
     <main>
 
@@ -58,7 +58,8 @@
                     <div class="swiper-slide">
 
                         <a href="">
-                            <img src="" alt="">
+                            <img src="{{ asset('imgs/index/tecno-image.jpg') }}" alt="Imagem da área de T.I">
+                            <h2>Tecnologia</h2>
                         </a>
                             
                     </div>
@@ -66,7 +67,8 @@
                     <div class="swiper-slide">
 
                         <a href="">
-                            <img src="" alt="">
+                            <img src="{{ asset('imgs/index/marketing-image.jpg') }}" alt="Imagem da área de Marketing">
+                            <h2>Marketing</h2>
                         </a>
                             
                     </div>
@@ -74,7 +76,8 @@
                     <div class="swiper-slide">
 
                         <a href="">
-                            <img src="" alt="">
+                            <img src="{{ asset('imgs/index/adm-image.jpg')}} " alt="Imagem da área de Administração">
+                            <h2>Administração</h2>
                         </a>
                             
                     </div>
@@ -82,7 +85,8 @@
                     <div class="swiper-slide">
 
                         <a href="">
-                            <img src="" alt="">
+                            <img src="{{ asset('imgs/index/seg-image.jpg')}} " alt="Imagem da área de Segurança de trabalho">
+                            <h2>Segurança do trabalho</h2>
                         </a>
                             
                     </div>
@@ -90,7 +94,8 @@
                     <div class="swiper-slide">
 
                         <a href="">
-                            <img src="" alt="">
+                            <img src="{{ asset('imgs/index/log-image.jpg')}}" alt="Imagem da área de Logistica">
+                            <h2>Logistica</h2>
                         </a>
                             
                     </div>
