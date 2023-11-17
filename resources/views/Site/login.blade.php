@@ -15,7 +15,7 @@
 @section('content')
 
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/user-login.css') }}"/>
 
     <main>
 
@@ -30,12 +30,17 @@
     
                 </div>
     
-    
-                <input type="text" name="email" id="email" placeholder="E-mail" required>
-    
-                <input type="text" name="password" id="password" placeholder="Senha" required>
+                <div id="login-form">
 
-                <a href="">Esqueceu sua senha</a>
+                    <input type="text" name="email" id="email" placeholder="E-mail" required>
+
+                    <input type="password" name="password" id="password" placeholder="Senha" required>  
+
+                    <img id="password-img" onclick="passwordView()" src="{{ asset('imgs/login/view-password.png')}}" alt="">
+                    
+                    <a href="">Esqueceu sua senha?</a>
+
+                </div>
 
     
                 <div id="login-area">
@@ -50,5 +55,7 @@
         </div>
 
     </main>
+
+    <script src="{{ asset('js/login.js')}}"></script>
     
 @endsection
