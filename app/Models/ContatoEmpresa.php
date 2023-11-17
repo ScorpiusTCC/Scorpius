@@ -9,8 +9,8 @@ class ContatoEmpresa extends Model
     protected $table = 'contato_empresa';
     
     protected $fillable = [
-        'nm_representante', 
-        'celular', 
+        'telefone_comercial',
+        'telefone_celular',
         'email'
     ];
 

@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PeriodoEscolaridade extends Model
+class Periodo extends Model
 {
     use HasFactory;
 
-    protected $table = 'periodos_estudo';
+    protected $table = 'periodos';
     
     protected $fillable = [
         'nome'
     ];
 
-    public function escolaridade()
+    public function curso()
     {
-        return $this->hasMany(Escolaridade::class, 'id_periodo');
+        return $this->hasMany(Curso::class, 'id_periodo');
     }
 }

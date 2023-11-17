@@ -11,7 +11,8 @@ class CreateContatoEmpresaTable extends Migration
         Schema::create('contato_empresa', function (Blueprint $table) {
             $table->id();
             $table->string('nm_representante')->nullable();
-            $table->string('celular', 20);
+            $table->string('telefone_comercial', 20);
+            $table->string('telefone_celular', 20);
             $table->string('email');
             $table->timestamps();
         });

@@ -88,10 +88,12 @@ class VagaController extends Controller
             'empresas.nm_fantasia as empresa',
             'status.nome as status',
             'modalidades_vaga.tipo as modalidade', 
+            'users.nm_img'
         )
         ->join('status', 'vagas.id_status', 'status.id')
         ->join('modalidades_vaga', 'vagas.id_modalidade', 'modalidades_vaga.id')
-        ->join('empresas', 'vagas.id_empresa', 'empresas.id');
+        ->join('empresas', 'vagas.id_empresa', 'empresas.id')
+        ->join('users', 'empresas.id_user', 'users.id');
         
         return $dadosVaga;
     }

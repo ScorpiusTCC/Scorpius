@@ -30,7 +30,7 @@
 
                     <div id="image-area-card">
 
-                        <img src="" alt="Logotipo da empresa">
+                        <img src="{{ $vaga->nm_imgs }}" alt="{{ $vaga->nm_img }}">
 
                     </div>
 
@@ -54,4 +54,5 @@
         </div>
 
     </main>
+
 @endsection

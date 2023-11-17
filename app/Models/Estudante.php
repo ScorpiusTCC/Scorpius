@@ -18,7 +18,8 @@ class Estudante extends Model
         'experiencias', 
         'endereco',
         'id_contato',
-        'id_user'
+        'id_user',
+        'id_sexo'
     ];
 
     
@@ -37,8 +38,13 @@ class Estudante extends Model
         return $this->hasMany(Candidatura::class, 'id_estudante');
     }
 
-    public function usuarios()
+    public function usuario_estudante()
     {
         return $this->hasMany(UsuarioEstudante::class, 'id_estudante');
+    }
+
+    public function sexo()
+    {
+        return $this->belongsTo(Sexo::class, 'id_sexo');
     }
 }

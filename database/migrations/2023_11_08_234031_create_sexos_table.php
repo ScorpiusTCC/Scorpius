@@ -4,19 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePeriodosEstudoTable extends Migration
+class CreateSexosTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('periodos_estudo', function (Blueprint $table) {
+        Schema::create('sexos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('nome', 100);
             $table->timestamps();
         });
     }
 
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('periodos_estudo');
+        Schema::dropIfExists('sexos');
     }
 }

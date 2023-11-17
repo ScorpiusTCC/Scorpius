@@ -13,6 +13,7 @@ class User extends Authenticatable
         'email', 
         'senha',
         'tipo',
+        'nm_img',
         'remember_token',
         'verificado_at'
     ];
