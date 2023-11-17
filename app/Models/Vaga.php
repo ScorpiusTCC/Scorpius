@@ -10,15 +10,27 @@ class Vaga extends Model
     
     protected $fillable = [
         'id_empresa', 
+        'id_modalidade',
+        'id_status',
         'titulo', 
         'descricao', 
-        'vl_salario', 
+        'salario', 
         'data_expiracao'
     ];
 
     public function empresa()
     {
         return $this->belongsTo(Empresa::class, 'id_empresa');
+    }
+
+    public function modalidade()
+    {
+        return $this->belongsTo(ModalidadeVaga::class, 'id_modalidade');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'id_status');
     }
 
     public function candidaturas()

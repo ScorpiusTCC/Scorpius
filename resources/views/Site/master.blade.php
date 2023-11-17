@@ -10,57 +10,117 @@
 </head>
 <body>
     <header>
-        <nav>
-            @if(!isset($_SESSION['id_user']))
-            <div id="mobile-navbar">
-                <div class="logo-space">
-                    <a href="{{ route('index') }}">
-                        <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
-                    </a>
-                </div>
-            </div>
-            <div id="first-navbar">
-                <div class="logo-space">
-                    <a href="{{ route('index') }}">
-                        <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
-                    </a>
-                </div>
-                <div id="user-space">
-                    <div id="pags-space">
-                        <a href="#third-area">Descubra nossas ferramentas</a>
-                        <a href="#fifth-area">Conheça nosso plano</a>
-                        <a href="{{ route('about-us') }}">Sobre nós / SAQ</a>
-                    </div>
-                    <div id="login-user">
-                        <a href="{{ route('register') }}">
-                            <button>Cadastre-se</button>
+
+        @auth
+
+            {{-- navbar sem estar logado --}}
+
+            <nav>
+
+                <div id="first-navbar">
+
+                    <div class="logo-space">
+
+                        <a href="{{ route('index') }}">
+
+                            <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
+
                         </a>
-                        <a href="{{ route('login') }}">
-                            <span>Entrar</span>
-                        </a>
+
                     </div>
+
+                    <div id="form-space">
+
+                        <form action="{{ route('filterVaga') }}">
+
+                            <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
+
+                        </form>
+
+                    </div>
+
+                    <div id="icons-space">
+                        
+                        <a href=""><img src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
+
+                        <a href=""><img src="{{ asset('imgs/notification-icon.svg') }}" alt=""></a>
+
+                        <a href=""><img src="{{ asset('imgs/profile-icon.svg') }}" alt=""></a>
+
+                    </div>
+
                 </div>
-            </div>
-            @else
-            <div id="first-navbar">
-                <div class="logo-space">
-                    <a href="{{ route('index') }}">
-                        <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
-                    </a>
+
+            </nav>    
+
+        @else
+
+            {{-- navbar logado --}}
+
+            <nav>
+
+                <div id="mobile-navbar">
+
+                    <div class="logo-space">
+
+                        <a href="{{ route('index') }}">
+
+                            <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
+            
+                        </a>
+
+                    </div>
+
                 </div>
-                <div id="form-space">
-                    <form action="">
-                        <input type="text" placeholder="Buscar por vagas ou palavra-chave">
-                    </form>
+
+                <div id="first-navbar">
+
+                    <div class="logo-space">
+
+                        <a href="{{ route('index') }}">
+
+                            <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
+
+                        </a>
+
+                    </div>
+                    
+                    <div id="user-space">
+
+                        <div id="pags-space">
+
+                            <a href="#third-area">Descubra nossas ferramentas</a>
+
+                            <a href="#fifth-area">Conheça nosso plano</a>
+
+                            <a href="{{ route('about-us') }}">Sobre nós / SAQ</a>
+
+                        </div>
+
+                        <div id="login-user">
+
+                            <a href="{{ route('register') }}">
+
+                                <button>Cadastre-se</button>
+
+                            </a>
+
+                            <a href="{{ route('login') }}">
+
+                                <span>Entrar</span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <div id="icons-space">
-                    <a href=""><img src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
-                    <a href=""><img src="{{ asset('imgs/notification-icon.svg') }}" alt=""></a>
-                    <a href=""><img src="{{ asset('imgs/profile-icon.svg') }}" alt=""></a>
-                </div>
-            </div>
-            @endif
-        </nav>
+
+            </nav>
+
+        @endauth
+
     </header>
 
     @yield('content')
@@ -77,9 +137,9 @@
 
                 <p>
                     
-                    <a href="">Home</a> | 
-                    <a href="">Cadastro</a> | 
-                    <a href="">Quem Somos</a> | 
+                    <a href="{{ route('index') }}">Home</a> | 
+                    <a href="{{ route('register') }}">Cadastro</a> | 
+                    <a href="{{ route('about-us') }}">Quem Somos</a> | 
                     <a href="">Fale Conosco</a>
             
                 </p>

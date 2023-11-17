@@ -15,8 +15,20 @@ class Empresa extends Model
         'nm_site_empresa', 
         'descricao', 
         'endereco',
-        'id_contato'
+        'id_contato',
+        'id_user'
     ];
+
+    
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function contato()
+    {
+        return $this->belongsTo(ContatoEmpresa::class, 'id_contato');
+    }
 
     public function vagas()
     {
@@ -26,10 +38,5 @@ class Empresa extends Model
     public function usuarios()
     {
         return $this->hasMany(UsuarioEmpresa::class, 'id_empresa');
-    }
-
-    public function contato()
-    {
-        return $this->belongsTo(ContatoEmpresa::class, 'id_contato');
     }
 }

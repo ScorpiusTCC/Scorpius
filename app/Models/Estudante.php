@@ -8,7 +8,8 @@ class Estudante extends Model
 {
     protected $table = 'estudantes';
 
-    protected $fillable = ['nome', 
+    protected $fillable = [
+        'nome', 
         'data_de_nascimento', 
         'cpf', 
         'ano_cursado', 
@@ -16,8 +17,20 @@ class Estudante extends Model
         'habilidades', 
         'experiencias', 
         'endereco',
-        'id_contato'
+        'id_contato',
+        'id_user'
     ];
+
+    
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+    
+    public function contato()
+    {
+        return $this->belongsTo(ContatoEstudante::class, 'id_contato');
+    }
 
     public function candidaturas()
     {
@@ -28,10 +41,4 @@ class Estudante extends Model
     {
         return $this->hasMany(UsuarioEstudante::class, 'id_estudante');
     }
-
-    public function contato()
-    {
-        return $this->belongsTo(ContatoEstudante::class, 'id_contato');
-    }
-
 }

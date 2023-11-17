@@ -11,9 +11,11 @@ class CreateVagasTable extends Migration
         Schema::create('vagas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_empresa')->constrained('empresas');
+            $table->foreignId('id_modalidade')->constrained('modalidades_vaga');
+            $table->foreignId('id_status')->constrained('status');
             $table->string('titulo');
             $table->text('descricao');
-            $table->decimal('vl_salario', 10, 2)->nullable();
+            $table->decimal('salario', 10, 2)->nullable();
             $table->date('data_expiracao');
             $table->timestamps();
         });

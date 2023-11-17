@@ -6,14 +6,15 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\ContatoEmpresa;
 use App\Models\ContatoEstudante;
 use App\Models\Conversa;
-use App\Models\Curso;
 use App\Models\Empresa;
+use App\Models\Escolaridade;
 use App\Models\Estudante;
 use App\Models\Mensagem;
+use App\Models\ModalidadeVaga;
 use App\Models\ParticipanteConversa;
+use App\Models\PeriodoEscolaridade;
+use App\Models\Status;
 use App\Models\User;
-use App\Models\UserEmpresa;
-use App\Models\UserEstudante;
 use App\Models\Vaga;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -25,91 +26,116 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //Inserir modalidades de vagas - tabela 'modalidades_vaga'
+        ModalidadeVaga::insert([
+            ['tipo' => 'Presencial'],
+            ['tipo' => 'Hibrído'],
+            ['tipo' => 'Remoto'],
+        ]);
+
+        PeriodoEscolaridade::insert([
+            ['nome' => 'Integral'],
+            ['nome' => 'Matutino'],
+            ['nome' => 'Vespertino'],
+            ['nome' => 'Noturno']
+        ]);
+
+        //Inserir status de vagas - tabela 'status'
+        Status::insert([
+            ['nome' => 'Ativo'],
+            ['nome' => 'Inativo']
+        ]);
 
         // Inserir dados para a tabela 'users'
         User::insert([
             [
-                'nome' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'senha' => Hash::make('admin'),
-                'created_at' => now()],
-            [
-
                 'nome' => 'João Silva',
                 'email' => 'joao.silva@exemplo.com',
                 'senha' => Hash::make('123'),
-                'created_at' => now()],
+                'tipo' => 'estudante',
+                'created_at' => now()
+            ],
             [
-
                 'nome' => 'Maria Oliveira',
                 'email' => 'maria.oliveira@exemplo.com',
                 'senha' => Hash::make('123'),
-                'created_at' => now()],
+                'tipo' => 'estudante',
+                'created_at' => now()
+            ],
             [
-
                 'nome' => 'Carlos Santos',
                 'email' => 'carlos.santos@exemplo.com',
-                'senha' => Hash::make('123'),
+                'senha' => Hash::make('123'),                
+                'tipo' => 'estudante',
                 'created_at' => now()],
             [
-
                 'nome' => 'Ana Costa',
                 'email' => 'ana.costa@exemplo.com',
                 'senha' => Hash::make('123'),
-                'created_at' => now()],
+                'tipo' => 'empresa',
+                'created_at' => now()
+            ],
             [
-
                 'nome' => 'Lucas Almeida',
                 'email' => 'lucas.almeida@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'empresa',
                 'created_at' => now()
             ],
             [
                 'nome' => 'Mariana Santos',
                 'email' => 'mariana.santos@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'empresa',
                 'created_at' => now(),
             ],
             [
                 'nome' => 'Rafael Oliveira',
                 'email' => 'rafael.oliveira@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'empresa',
                 'created_at' => now(),
             ],
             [
                 'nome' => 'Amanda Souza',
                 'email' => 'amanda.souza@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'empresa',
                 'created_at' => now(),
             ],
             [
                 'nome' => 'Felipe Lima',
                 'email' => 'felipe.lima@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'esudante',
                 'created_at' => now(),
             ],
             [
                 'nome' => 'Juliana Pereira',
                 'email' => 'juliana.pereira@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'esudante',
                 'created_at' => now(),
             ],
             [
                 'nome' => 'Gustavo Silva',
                 'email' => 'gustavo.silva@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'esudante',
                 'created_at' => now(),
             ],
             [
                 'nome' => 'Camila Santos',
                 'email' => 'camila.santos@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'empresa',
                 'created_at' => now(),
             ],
             [
                 'nome' => 'Pedro Costa',
                 'email' => 'pedro.costa@exemplo.com',
                 'senha' => Hash::make('123'),
+                'tipo' => 'empresa',
                 'created_at' => now(),
             ],
         ]);
@@ -191,6 +217,7 @@ class DatabaseSeeder extends Seeder
                 'experiencias' => 'Estágio na Tech Co', 
                 'endereco' => '456 Rua do Campus', 
                 'id_contato' => 2,
+                'id_user' => 2,
                 'created_at' => now()],
             [
                 'nome' => 'Bob Smith',
@@ -202,6 +229,7 @@ class DatabaseSeeder extends Seeder
                 'experiencias' => 'Trabalho parcial na Finance Corp', 
                 'endereco' => '789 Rua do Estudante', 
                 'id_contato' => 3,
+                'id_user' => 3,
                 'created_at' => now()
             ],
             [
@@ -213,7 +241,8 @@ class DatabaseSeeder extends Seeder
                 'habilidades' => 'Atendimento ao paciente, Pesquisa Médica', 
                 'experiencias' => 'Estágio no Hospital XYZ', 
                 'endereco' => '101 Avenida da Saúde', 
-                'id_contato' => 4,
+                'id_contato' => 1,
+                'id_user' => 4,
                 'created_at' => now()
             ],
         ]);
@@ -228,6 +257,7 @@ class DatabaseSeeder extends Seeder
                 'descricao' => 'Principal provedora de soluções tecnológicas', 
                 'endereco' => '123 Rua da Tecnologia', 
                 'id_contato' => 5,
+                'id_user' => 7,
                 'created_at' => now()
             ],
             [
@@ -238,6 +268,7 @@ class DatabaseSeeder extends Seeder
                 'descricao' => 'Serviços financeiros inovadores', 
                 'endereco' => '456 Avenida Financeira', 
                 'id_contato' => 3,
+                'id_user' => 8,
                 'created_at' => now()
             ],
             [
@@ -248,64 +279,29 @@ class DatabaseSeeder extends Seeder
                 'descricao' => 'Cuidando da sua saúde com excelência', 
                 'endereco' => '789 Rua da Saúde', 
                 'id_contato' => 1,
+                'id_user' => 6, 
                 'created_at' => now()
             ],
         ]);
-
-        // Inserir dados para a tabela 'user_empresa'
-        UserEmpresa::insert([
-            [
-                'id_user' => 7,
-                'id_empresa' => 1,
-                'created_at' => now(),
-            ],
-            [
-                'id_user' => 8,
-                'id_empresa' => 2,
-                'created_at' => now(),
-            ],
-            [
-                'id_user' => 9,
-                'id_empresa' => 3,
-                'created_at' => now(),
-            ],
-        ]);
-
-        // Inserir dados para a tabela 'user_estudante'
-        UserEstudante::insert([
-            [
-                'id_user' => 2,
-                'id_estudante' => 1,
-                'created_at' => now(),
-            ],
-            [
-                'id_user' => 3,
-                'id_estudante' => 2,
-                'created_at' => now(),
-            ],
-            [
-                'id_user' => 4,
-                'id_estudante' => 3,
-                'created_at' => now(),
-            ],
-        ]);
-
 
         // Inserir dados para a tabela 'cursos'
-        Curso::insert([
+        Escolaridade::insert([
             [
-                'nome' => 'Ciência da Computação', 
-                'periodo_curso' => 'Noturno',
+                'instituicao' => 'Fatec de Praia Grande',
+                'curso' => 'Ciência da Computação', 
+                'id_periodo' => 1,
                 'created_at' => now()
             ],
             [
-                'nome' => 'Administração de Empresas', 
-                'periodo_curso' => 'Matutino',
+                'instituicao' => 'ETEC de Praia Gande',
+                'curso' => 'Administração', 
+                'id_periodo' => 2,
                 'created_at' => now()
             ],
             [
-                'nome' => 'Medicina', 
-                'periodo_curso' => 'Integral',
+                'instituicao' => 'PUC SP',
+                'curso' => 'Medicina', 
+                'id_periodo' => 3,
                 'created_at' => now()
             ],
         ]);
@@ -313,26 +309,32 @@ class DatabaseSeeder extends Seeder
         // Inserir dados para a tabela 'vagas'
         Vaga::insert([
             [
+                'id_modalidade' => 2,
                 'id_empresa' => 1, 
+                'id_status' => 1,
                 'titulo' => 'Desenvolvedor Web', 
                 'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
-                'vl_salario' => 5000.00, 
+                'salario' => 5000.00, 
                 'data_expiracao' => '2023-12-01',
                 'created_at' => now()
             ],
             [
+                'id_modalidade' => 1,
                 'id_empresa' => 2, 
+                'id_status' => 1,
                 'titulo' => 'Analista Financeiro', 
                 'descricao' => 'Procuramos um profissional para análise e gestão financeira',
-                'vl_salario' => 4500.00, 
+                'salario' => 4500.00, 
                 'data_expiracao' => '2023-12-15',
                 'created_at' => now()
             ],
             [
+                'id_modalidade' => 3,
                 'id_empresa' => 3, 
+                'id_status' => 1,
                 'titulo' => 'Médico Residente', 
                 'descricao' => 'Vaga para médico residente na especialidade de pediatria',
-                'vl_salario' => 6000.00, 
+                'salario' => 6000.00, 
                 'data_expiracao' => '2023-11-30',
                 'created_at' => now()
             ],
