@@ -35,7 +35,7 @@
 
                         <div id="form-space">
 
-                            <form action="{{ route('filterVaga') }}">
+                            <form action="{{ route('filterNameVaga') }}">
 
                                 <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
 
@@ -77,7 +77,7 @@
 
                         <div id="form-space">
 
-                            <form action="{{ route('filterVaga') }}">
+                            <form action="{{ route('filterNameVaga') }}">
 
                                 <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
 

@@ -27,7 +27,7 @@
 
                 <div id="search-job">
 
-                    <form method="get" action="{{ route('filterVaga')}} ">
+                    <form method="get" action="{{ route('filterNameVaga')}} ">
 
                         <input type="text" id="searchName" name="searchName" placeholder="Busca por cargos">
                         <button type="submit">Procurar</button>
@@ -59,7 +59,7 @@
 
                         <div class="swiper-slide">
 
-                            <a href="">
+                            <a href="{{ route('filterCategoryVaga', $categoria->id) }}"> 
                                 <img src="{{ $categoria->nm_img }}" alt="{{ $categoria->nm_img }}">
                                 <h2>{{ $categoria->nome }}</h2>
                             </a>

@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class VagaController extends Controller
 {
+    public readonly Vaga $vaga;
+    
+    public function __construct()
+    {
+        $this->vaga = new Vaga();
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -64,6 +71,17 @@ class VagaController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function filterCategory($id)
+    {
+        $searchCategory = $id;
+
+        $vagas = $this->DadosVaga()
+                    ->where('vagas.id_categoria_vaga', $searchCategory)
+                    ->paginate(10);
+
+        return view('site/jobs', compact('vagas'));
     }
 
     public function filterName(Request $request)

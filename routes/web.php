@@ -33,7 +33,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/vagas', [VagaController::class, 'index'])->name('vagas');
 
-Route::get('/filterVaga', [VagaController::class, 'filterName'])->name('filterVaga');
+Route::get('/filterNameVaga', [VagaController::class, 'filterName'])->name('filterNameVaga');
+
+Route::get('/filterCategoryVaga/{id}', [VagaController::class, 'filterCategory'])->name('filterCategoryVaga');
 
 
 // Manipular estudantes
