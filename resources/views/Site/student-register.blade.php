@@ -4,11 +4,11 @@
 
 @section('content')
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="{{ asset('css/register-user.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/register-userr.css') }}"/>
 
     <main>
 
-        <form action="">
+        <form method="get" action="">
 
             <!-- Swiper -->
             <div class="swiper mySwiper">
@@ -20,7 +20,7 @@
 
                             <div id="first-division-text-area">
 
-                                <p>Passo <b>1</b> de <b>4</b></p>
+                                <p>Passo <b>1</b> de <b>5</b></p>
                                 <span>Insira seus dados de contato</span>
 
                             </div>
@@ -76,7 +76,7 @@
 
                             <div id="first-division-text-area">
 
-                                <p>Passo <b>2</b> de <b>4</b></p>
+                                <p>Passo <b>2</b> de <b>5</b></p>
                                 <span>Crie sua senha de acesso</span>
 
                             </div>
@@ -122,12 +122,9 @@
 
                         <div id="third-division">
 
-                            <div id="buttons-division">
+                            <button id="prev-button"><</button>
 
-                                <button id="prev-button"><</button>
-                                <button id="next-button">Continuar</button>
-
-                            </div>
+                            <button id="next-button">Continuar</button>
 
                         </div>
 
@@ -139,7 +136,7 @@
 
                             <div id="first-division-text-area">
 
-                                <p>Passo <b>3</b> de <b>4</b></p>
+                                <p>Passo <b>3</b> de <b>5</b></p>
                                 <span>Dados Pessoais</span>
 
                             </div>
@@ -174,6 +171,7 @@
                                         <option value="" disabled selected hidden>Selecione seu gênero</option>
                                         <option value="masculino">Masculino</option>
                                         <option value="feminino">Femino</option>
+                                        <option value="feminino">Helicoptero de Combate</option>
                                         <option value="outro">Outro</option>
 
                                     </select>
@@ -203,7 +201,7 @@
 
                             <div id="first-division-text-area">
 
-                                <p>Passo <b>4</b> de <b>4</b></p>
+                                <p>Passo <b>4</b> de <b>5</b></p>
                                 <span>Dados para recrutadores</span>
 
                             </div>
@@ -216,33 +214,34 @@
 
                             <div id="form-division">
 
-                                <div class="form">
+                                    <div class="form">
 
-                                    <label for=""> <p>Ano/Série cursando <span>*</span> </p> </label>
-                                    <input type="text" name="" id="" >
+                                        <label for=""> <p>CEP <span>*</span> </p> </label>
+                                        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                        onblur="pesquisacep(this.value);">
 
-                                </div>
+                                    </div>
 
-                                <div class="form">
+                                    <div class="form">
 
-                                    <label for=""> <p>Área de atuação <span>*</span> </p> </label>
-                                    <input type="text" name="" id="" maxlength="8" >
+                                        <label for=""> <p>Bairro <span>*</span> </p> </label>
+                                        <input name="bairro" type="text" id="bairro" size="40">
 
-                                </div>
+                                    </div>
 
-                                <div class="form">
+                                    <div class="form">
 
-                                    <label for=""> <p>Estágio desejado <span>*</span></p> </label>
-                                    <select name="" id="">
+                                        <label for=""> <p>Cidade <span>*</span></p> </label>
+                                        <input name="cidade" type="text" id="cidade" size="40">
 
-                                        <option value="" disabled selected hidden>Selecione seu </option>
-                                        <option value="masculino">Masculino</option>
-                                        <option value="feminino">Femino</option>
-                                        <option value="outro">Outro</option>
+                                    </div>
 
-                                    </select>
+                                    <div class="form">
 
-                                </div>
+                                        <label for=""> <p>Estado <span>*</span></p> </label>
+                                        <input name="uf" type="text" id="uf" size="2">
+
+                                    </div>
 
                             </div>
 
@@ -253,7 +252,74 @@
                             <div id="buttons-division">
 
                                 <button id="prev-button"><</button>
-                                <input id="next-button" type="submit" value="Finalizar">
+                                <button id="next-button">Continuar</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-slide 5">
+
+                        <div id="first-division">
+
+                            <div id="first-division-text-area">
+
+                                <p>Passo <b>5</b> de <b>5</b></p>
+                                <span>Dados para recrutadores</span>
+
+                            </div>
+
+                            <img src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
+
+                        </div>
+
+                        <div id="second-division">
+
+                            <div id="form-division">
+
+                                <div id="form-container">
+
+                                    <div id="profile-picture">
+
+                                        <label for=""><p>Imagem de perfil</p></label>
+
+                                        <label class="picture" for="picture__input" tabIndex="0">
+                                            <span class="picture__image"></span>
+                                        </label>
+                                          
+                                        <input type="file" name="picture__input" id="picture__input">
+
+                                    </div>
+
+                                    <div id="profile-information">
+
+                                        <label for=""> <p>Nome de Usuário <span>*</span></p> </label>
+                                        <input name="" type="text" id="" size="">
+
+                                        <label for=""> <p>Escola ou Faculdade atual <span>*</span></p> </label>
+                                        <input name="" type="text" id="" size="">
+
+                                    </div>
+
+
+                                </div>
+
+                                <label for=""> <p>Sobre mim <span>*</span></p> </label>
+                                <textarea name="" id="" cols="30" rows="10"></textarea>
+
+
+                            </div>
+
+                        </div>
+
+                        <div id="third-division">
+
+                            <div id="buttons-division">
+
+                                <button id="prev-button"><</button>
+                                <input id="next-button" type="submit" value="Concluir">
 
                             </div>
 
@@ -276,6 +342,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/register_user-swiper.js') }}"></script>
-    <script src="{{ asset('js/register_user-script.js') }}"></script>
+    <script src="{{ asset('js/register-user-script.js') }}"></script>
 
 @endsection

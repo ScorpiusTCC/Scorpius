@@ -64,8 +64,12 @@ Route::get('/profile-company', function () {
 })->name('profile-company');
 
 Route::get('/profile', function () {
-    return view('site/profile');
+    return view('site/student-profile');
 })->name('profile');
+
+Route::get('/logged-profile', function () {
+    return view('site/logged-student-profile');
+})->name('logged-profile');
 
 Route::get('/registro-vaga', function () {
     return view('site/job-register');
