@@ -86,24 +86,25 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
-        // // Inserir dados para a tabela 'users'
-        // User::insert([
-        //     [
-        //         'nome' => 'João Silva',
-        //         'email' => 'joao.silva@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'estudante',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nome' => 'Maria Oliveira',
-        //         'email' => 'maria.oliveira@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'estudante',
-        //         'created_at' => now()
-        //     ],
+        // Inserir dados para a tabela 'users'
+        User::insert([
+            [
+                'nome' => 'Mateus Sampaio',
+                'email' => 'estudante@gmail.com',
+                'senha' => Hash::make('123'),
+                'nm_img' => 'uploads/estudantes/img-example.jpg',
+                'tipo' => 'estudante',
+                'created_at' => now()
+            ],
+            [
+                'nome' => 'Scorpius Enterprise',
+                'email' => 'empresa@gmail.com',
+                'senha' => Hash::make('123'),
+                'nm_img' => 'uploads/estudantes/img-example.jpg',
+                'tipo' => 'empresa',
+                'created_at' => now()
+            ]
+        ]);
         //     [
         //         'nome' => 'Carlos Santos',
         //         'email' => 'carlos.santos@exemplo.com',
