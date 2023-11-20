@@ -8,8 +8,8 @@
 
     <main>
 
-        <form method="get" action="">
-
+        <form action="{{ route('submitEstudante') }}" method="post" enctype="multipart/form-data">
+            @csrf
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -36,21 +36,21 @@
                                 <div class="form">
 
                                     <label for=""> <p>Nome Completo <span>*</span> </p> </label>
-                                    <input type="text" name="" id="" required>
+                                    <input type="text" name="nome_completo" id="nome_completo" value="Fulano de Tal">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>E-mail principal <span>*</span> </p> </label>
-                                    <input type="email" name="" id="" required>
+                                    <input type="email" name="email" id="email" value="fulano@example.com">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Telefone <span>*</span> (com DD) </p> </label>
-                                    <input type="number" name="" id="">
+                                    <input type="telefone" name="telefone" id="telefone" value="(00) 1234-5678">
 
                                 </div>
 
@@ -91,7 +91,7 @@
 
                                 <div class="form">
 
-                                    <input type="text" name="" id="senha" placeholder="Coloque aqui a sua senha">
+                                    <input type="text" name="password" id="password" placeholder="Coloque aqui a sua senha" value="suasenha123">
 
                                     <div id="security-indicator">
 
@@ -152,27 +152,29 @@
                                 <div class="form">
 
                                     <label for=""> <p>CPF <span>*</span> </p> </label>
-                                    <input type="text" name="" id="" oninput="mascara(this)" maxlength="11">
+                                    <input type="text" name="cpf" id="cpf" oninput="mascara(this)" maxlength="11" value="12345678909">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Data de Nascimento <span>*</span> </p> </label>
-                                    <input type="date" name="" id="" maxlength="8" >
+                                    <input type="date" name="data_nasc" id="data_nasc" maxlength="8" value="19900101">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Gênero <span>*</span></p> </label>
-                                    <select name="" id="">
+                                    <select name="sexo" id="sexo">
 
-                                        <option value="" disabled selected hidden>Selecione seu gênero</option>
-                                        <option value="masculino">Masculino</option>
-                                        <option value="feminino">Femino</option>
-                                        <option value="feminino">Helicoptero de Combate</option>
-                                        <option value="outro">Outro</option>
+                                        <option value="" disabled>Selecionar</option>
+
+                                        @foreach ($sexos as $sexo)
+                                            
+                                            <option value="{{ $sexo->id }}" selected>{{ $sexo->nome }}</option>
+
+                                        @endforeach
 
                                     </select>
 
@@ -214,34 +216,33 @@
 
                             <div id="form-division">
 
-                                    <div class="form">
+                                <div class="form">
 
-                                        <label for=""> <p>CEP <span>*</span> </p> </label>
-                                        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                        onblur="pesquisacep(this.value);">
+                                    <label for=""> <p>CEP <span>*</span> </p> </label>
+                                    <input name="cep" type="text" id="cep" value="12345-678" size="10" maxlength="9" onblur="pesquisacep(this.value);">
 
-                                    </div>
+                                </div>
 
-                                    <div class="form">
+                                <div class="form">
 
-                                        <label for=""> <p>Bairro <span>*</span> </p> </label>
-                                        <input name="bairro" type="text" id="bairro" size="40">
+                                    <label for=""> <p>Bairro <span>*</span> </p> </label>
+                                    <input name="bairro" type="text" id="bairro" size="40" value="Seu Bairro">
 
-                                    </div>
+                                </div>
 
-                                    <div class="form">
+                                <div class="form">
 
-                                        <label for=""> <p>Cidade <span>*</span></p> </label>
-                                        <input name="cidade" type="text" id="cidade" size="40">
+                                    <label for=""> <p>Cidade <span>*</span></p> </label>
+                                    <input name="cidade" type="text" id="cidade" size="40" value="Sua Cidade">
 
-                                    </div>
+                                </div>
 
-                                    <div class="form">
+                                <div class="form">
 
-                                        <label for=""> <p>Estado <span>*</span></p> </label>
-                                        <input name="uf" type="text" id="uf" size="2">
+                                    <label for=""> <p>Estado <span>*</span></p> </label>
+                                    <input name="uf" type="text" id="uf" size="2" value="SE">
 
-                                    </div>
+                                </div>
 
                             </div>
 
@@ -296,19 +297,17 @@
                                     <div id="profile-information">
 
                                         <label for=""> <p>Nome de Usuário <span>*</span></p> </label>
-                                        <input name="" type="text" id="" size="">
+                                        <input name="nome" type="text" id="nome" size="" value="seu_usuario">
 
                                         <label for=""> <p>Escola ou Faculdade atual <span>*</span></p> </label>
-                                        <input name="" type="text" id="" size="">
+                                        <input name="escola" type="text" id="escola" size="" value="Sua Escola/Faculdade">
 
                                     </div>
-
 
                                 </div>
 
                                 <label for=""> <p>Sobre mim <span>*</span></p> </label>
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
-
+                                <textarea name="sobre" id="sobre" cols="30" rows="10">Um pouco sobre mim...</textarea>
 
                             </div>
 
@@ -319,7 +318,7 @@
                             <div id="buttons-division">
 
                                 <button id="prev-button"><</button>
-                                <input id="next-button" type="submit" value="Concluir">
+                                <input id="submit-button" type="submit" value="Concluir">
 
                             </div>
 

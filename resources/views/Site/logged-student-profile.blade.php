@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="{{ asset("css/students-profile.css") }}"/>
+    <link rel="stylesheet" href="{{ asset("css/student-profile.css") }}"/>
 
     <main>
 
@@ -15,15 +15,15 @@
 
                 <div id="profile-img">
 
-                    <img src="{{ asset('imgs/profile/photo-test.svg') }}" alt="foto fornecida pelo usuário">
+                    <img src="{{ $user->nm_img }}" alt="foto fornecida pelo usuário">
     
                 </div>
     
                 <div id="profile-text">
     
-                    <h1>Rodrigo Nascimento</h1>
+                    <h1>{{ $user->nome }}</h1>
     
-                    <h2>Escola ou faculdade atual </h2>
+                    <h2>Escola ou faculdade atual</h2>
     
                     <h3>Esmeralda - Praia Grande - São Paulo</h3>
     
@@ -39,7 +39,7 @@
 
                 <h2>Sobre Mim</h2>
 
-                <h3>Estudante de Ensino Médio apaixonado por tecnologia desde muito jovem. Interessado em linguagens de programação, desenvolvimento web e soluções tecnológicas. Meu objetivo é continuar aprofundando meu conhecimento em T.I e buscar oportunidades práticas para aplicar o que aprendo. Adoraria me conectar com profissionais e estudantes que compartilham os mesmos interesses por esse campo de atuação. Estou em busca da minha primeira oportunidade de emprego na área.</h3>
+                <h3>{{ $user->estudante->sobre }}</h3>
 
             </div>
 
@@ -423,7 +423,6 @@
 
                         </div>
     
-    
                     </div>
 
                     <div class="card">
@@ -482,7 +481,6 @@
                                                         <input class="add-input middle-input" type="number">
     
                                                     </div>
-
 
                                                 </div>
 

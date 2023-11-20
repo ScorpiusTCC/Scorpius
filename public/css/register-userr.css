@@ -370,6 +370,34 @@ main {
 
 }
 
+#submit-button {
+
+    background-color: #fff;
+    width: 180px;
+    height: 55px;
+    font-size: 1.5vw;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    color: #30599E;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    position: relative;
+    float: right;
+
+}
+
+#submit-button:hover {
+
+    width: 183px;
+    height: 56px;
+    font-size: 1.6vw;
+    color: #fff;
+    background-color: #50A4EB;
+
+}
+
 
 
 /* HYPERLINK PARA LOGIN */

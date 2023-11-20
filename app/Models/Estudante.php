@@ -10,13 +10,11 @@ class Estudante extends Model
 
     protected $fillable = [
         'nome', 
-        'data_de_nascimento', 
+        'data_nasc', 
+        'idade', 
         'cpf', 
-        'ano_cursado', 
         'sobre', 
-        'habilidades', 
-        'experiencias', 
-        'endereco',
+        'cep',
         'id_contato',
         'id_user',
         'id_sexo'

@@ -20,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 // Manipular Login, Logout...
 
-Route::get('/login', function () {
-    return view('site/login');
-})->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::get('/auth', [LoginController::class, 'auth'])->name('auth');
 
@@ -41,6 +39,10 @@ Route::get('/filterCategoryVaga/{id}', [VagaController::class, 'filterCategory']
 // Manipular estudantes
 
 Route::get('/student-register', [EstudanteController::class, 'create'])->name('student-register');
+
+Route::post('/submitEstudante', [EstudanteController::class, 'store'])->name('submitEstudante');
+
+Route::get('/MeuPerfil/{id}', [EstudanteController::class, 'showMyProfile'])->name('showMyProfile');
 
 // Demais rotas 
 
@@ -74,4 +76,9 @@ Route::get('/logged-profile', function () {
 Route::get('/registro-vaga', function () {
     return view('site/job-register');
 })->name('job-register');
+
+// Route::get('/teste', function () {
+//     return view('site/teste');
+// })->name('teste');
+
 
