@@ -106,7 +106,7 @@ else {
 
 const inputFile = document.querySelector("#picture__input");
 const pictureImage = document.querySelector(".picture__image");
-const pictureImageTxt = "Choose an image";
+const pictureImageTxt = "Escolha sua imagem de perfil";
 pictureImage.innerHTML = pictureImageTxt;
 
 inputFile.addEventListener("change", function (e) {

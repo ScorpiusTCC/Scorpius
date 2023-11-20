@@ -435,3 +435,149 @@ main {
 
 }
 
+/* MODAL PARA EDITAR PERLFIL */
+
+.edit-profile {
+
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.profile-info {
+
+    width: 80%;
+    height: 250px;
+
+}
+
+#img-form {
+
+   width: 30%; 
+   text-align: center;
+
+}
+
+#info-form {
+
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: space-evenly;
+    padding-left: 30px;
+    
+}
+
+.profile-label {
+
+    color: rgba(0, 0, 0, 0.70);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+
+}
+
+.profile-input {
+
+    display: block;
+    width: 400px;
+    height: 45px;
+    border-radius: 17px;
+    border: 0.5px solid #000;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: all 300ms ease-in-out;
+
+}
+
+.profile-input:focus {
+
+    outline: none;
+    width: 410px;
+    height: 49px;
+
+}
+
+
+
+#picture__input {
+
+    display: none;
+
+}
+  
+.picture {
+
+    width: 230px;
+    height: 230px;
+    border-radius: 150px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 2px dashed currentcolor;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+}
+  
+.picture:hover {
+
+    color: #777;
+    background: #ccc;
+
+}
+  
+.picture:active {
+
+    border-color: turquoise;
+    color: turquoise;
+    background: #eee;
+
+}
+  
+.picture:focus {
+
+    color: #777;
+    background: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+}
+  
+.picture__img {
+
+    max-width: 100%;
+
+}
+
+#about-form {
+
+    width: 80%;
+    margin: 30px 0 30px 0;
+
+}
+
+#about-form textarea {
+
+    display: block;
+    width: 100%;
+    height: 130px;
+    border-radius: 17px;
+    border: 0.5px solid #000;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 8px;
+
+}
+  
+
+
+

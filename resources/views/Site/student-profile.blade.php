@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="{{ asset("css/student-profile.css") }}"/>
+    <link rel="stylesheet" href="{{ asset("css/students-profile.css") }}"/>
 
     <main>
 

@@ -514,7 +514,72 @@
 
             <div id="buttons-container">
 
-                <button>Editar Perfil</button>
+                <button data-bs-toggle="modal" data-bs-target="#profile-edit">Editar Perfil</button>
+
+                <div class="modal fade" id="profile-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+                    <div class="modal-dialog modal-dialog-centered add-modal">
+
+                        <div class="modal-content">
+
+                            <form action="">
+
+                                <div class="edit-profile">
+
+                                    <h1 class="text-add">Editar Perfil</h1>
+
+                                    <div class="profile-info d-flex">
+
+                                        <div id="img-form">
+
+                                            <label class="profile-label" for="">Foto do Perfil</label>
+
+                                            <label class="picture" for="picture__input" tabIndex="0">
+                                                <span class="picture__image"></span>
+                                            </label>
+                                              
+                                            <input type="file" name="picture__input" id="picture__input">
+
+                                        </div>
+
+                                        <div id="info-form">
+
+                                            <div>
+
+                                                <label class="profile-label" for="">Nome de usuário:</label>
+                                                <input class="profile-input" type="text">
+
+                                            </div>
+
+                                            <div>
+
+                                                <label class="profile-label" for="">Escola ou Faculdade atual:</label>
+                                                <input class="profile-input" type="text" name="" id="">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div id="about-form">
+
+                                        <label class="profile-label" for="">Sobre mim:</label>
+                                        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+                                    </div>
+
+                                    <input class="add-button" type="submit" value="Concluir modifições">
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
                 <a href=""><button>Editar Dados</button></a>
                 
@@ -528,5 +593,6 @@
     </main>
 
     <script src="{{ asset('js/modal-forms.js') }}"></script>
+    <script src="{{ asset('js/register-user-script.js') }}"></script>
 
 @endsection
