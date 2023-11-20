@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="{{ asset('css/register-userr.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/register_user.css') }}"/>
 
     <main>
 
