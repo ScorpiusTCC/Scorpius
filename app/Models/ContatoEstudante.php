@@ -9,7 +9,7 @@ class ContatoEstudante extends Model
     protected $table = 'contato_estudante';
     
     protected $fillable = [
-        'celular', 
+        'telefone_celular', 
         'email'
     ];
 

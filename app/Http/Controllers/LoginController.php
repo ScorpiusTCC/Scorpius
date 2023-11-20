@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+    public function index()
+    {
+        // Verificar se o usuário já está autenticado
+        if (Auth::check()) {
+            // Se sim, redirecionar para a página que estava
+            return redirect()->route('index');
+        }
+
+        // Se não, exibir a página de login normalmente
+        return view('site/login');
+    }
 
     public function auth(Request $request)
     {
