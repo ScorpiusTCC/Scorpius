@@ -21,7 +21,7 @@ class Estudante extends Model
     ];
 
     
-    public function usuario()
+    public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
     }
@@ -41,8 +41,18 @@ class Estudante extends Model
         return $this->hasMany(UsuarioEstudante::class, 'id_estudante');
     }
 
+    public function estudante_curso()
+    {
+        return $this->hasMany(estudanteCurso::class, 'id_estudante');
+    }
+
     public function sexo()
     {
         return $this->belongsTo(Sexo::class, 'id_sexo');
+    }
+
+    public function experiencia()
+    {
+        return $this->hasMany(Experiencia::class, 'id_estudante');
     }
 }

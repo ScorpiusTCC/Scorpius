@@ -10,11 +10,16 @@ class ModalidadeVaga extends Model
     protected $table = 'modalidades_vaga';
     
     protected $fillable = [
-        'tipo'
+        'nome'
     ];
 
     public function vaga()
     {
         return $this->hasMany(Vaga::class, 'id_modalidade');
+    }
+
+    public function experiencia()
+    {
+        return $this->hasMany(Experiencia::class, 'id_modalidade');
     }
 }

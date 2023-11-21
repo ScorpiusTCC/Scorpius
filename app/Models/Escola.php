@@ -12,8 +12,8 @@ class Escola extends Model
         'nome',
     ];
 
-    public function cursos()
+    public function escola_curso()
     {
-        return $this->hasMany(Curso::class, 'id_escola');
+        return $this->hasMany(escolaCurso::class, 'id_escola');
     }
 }

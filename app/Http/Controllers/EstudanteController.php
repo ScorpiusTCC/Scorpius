@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\ContatoEstudante;
 use App\Models\Curso;
+use App\Models\Escola;
 use App\Models\Estudante;
+use App\Models\EstudanteCurso;
+use App\Models\Experiencia;
 use App\Models\ModalidadeVaga;
 use App\Models\Periodo;
 use App\Models\Sexo;
@@ -13,6 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use GuzzleHttp\Client;
+
+use function Laravel\Prompts\select;
 
 class EstudanteController extends Controller
 {   
@@ -104,41 +109,57 @@ class EstudanteController extends Controller
         return redirect()->route('index');
     }
 
-    public function showMyProfile($id_user)
+    public function show($id)
     {
+        $cursos = Curso::all();
+        $escolas = Escola::all();
+        $periodos = Periodo::all();
+        $modalidades = ModalidadeVaga::all();
+
+        $user = User::find($id);
+        
+        $cep = $user->estudante->cep;
+
+        $enderecoData = $this->enderecoUser($cep);
+
+        $experiencias = $this->infoExp($user->estudante->id);
+
+        $datacursos = $this->infoCurso($user->estudante->id);
+        
+        return view('site/student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos'));
+
+        // return redirect()->route('index');
+    }
+
+    public function showMyProfile()
+    {
+        $cursos = Curso::all();
+        $escolas = Escola::all();
+        $periodos = Periodo::all();
+        $modalidades = ModalidadeVaga::all();
+
         // Encontrar o usuário pelo ID
-        $user = User::find($id_user);
+        $user = auth()->user();
 
-        // dd($user->estudante->cpf);
+        // Verificar se o usuário foi encontrado
+        if ($user) {
+            // Verificar se o usuário tem um estudante associado
+            if ($user->estudante) {
+                // Se sim, obter o CEP
+                $cep = $user->estudante->cep;
 
-        // // Verificar se o usuário foi encontrado
-        // if ($user) {
-        //     // Verificar se o usuário tem um estudante associado
-        //     if ($user->estudante) {
-        //         // Se sim, obter o CEP
-        //         $cep = $user->estudante->cep;
+                // Chamar a função para obter os dados do endereço
+                $enderecoData = $this->enderecoUser($cep);
 
-        //         dd($cep);
-        //         // // Chamar a função para obter os dados do endereço
-        //         // $enderecoData = $this->enderecoUser($cep);
+                $experiencias = $this->infoExp($user->estudante->id);
 
-        //         // echo '<pre>';
-        //         // var_dump($enderecoData);
-        //         // echo '</pre>';
-        //     } else {
-        //         // Caso o usuário não tenha um estudante associado
-        //         // Faça algo apropriado, como redirecionar para uma página de erro
-        //         return redirect()->route('pagina_de_erro');
-        //     }
-        // } else {
-        //     // Caso o usuário não seja encontrado
-        //     // Faça algo apropriado, como redirecionar para uma página de erro
-        //     return redirect()->route('pagina_de_erro');
-        // }
+                $datacursos = $this->infoCurso($user->estudante->id);
 
-        $estudante = $user->estudante;
-
-        return view('site/logged-student-profile', compact('user'));
+                return view('site/logged-student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos'));
+            }
+        } else {
+            return redirect()->route('index');
+        }
     }
 
 
@@ -146,9 +167,61 @@ class EstudanteController extends Controller
     {
         $data = $request->except('_token');
 
+        $estudante = auth()->user()->estudante;
+
+        $estudante->estudante_curso()->create([
+            'id_estudante' => $estudante->id,
+            'id_curso' => $data['curso'],
+            'id_periodo' => $data['periodo'],
+            'ano_inicio' => $data['ano_inicio'],
+            'ano_fim' => $data['ano_fim']
+        ]);
+
+        return redirect()->back();
     }
 
-    private function dadosEstudante($id_user)
+    private function infoCurso($id)
+    {
+        $dadosCurso = EstudanteCurso::select('estudantes_cursos.*', 'cursos.nome as curso', 'escolas.nome as escola', 'periodos.nome as periodo')
+        ->join('periodos', 'periodos.id', 'estudantes_cursos.id_periodo')
+        ->join('cursos', 'cursos.id', 'estudantes_cursos.id_curso')
+        ->join('escolas_cursos', 'escolas_cursos.id_curso', 'cursos.id')
+        ->join('escolas', 'escolas.id', 'escolas_cursos.id_escola')
+        ->where('estudantes_cursos.id_estudante', $id)
+        ->get();
+
+        return $dadosCurso;
+    }
+
+
+    public function addExp(Request $request)
+    {
+        $data = $request->except('_token');
+
+        $estudante = auth()->user()->estudante;
+
+        $estudante->experiencia()->create([
+            'id_estudante' => $estudante->id,
+            'id_modalidade' => $data['modalidade'],
+            'descricao' => $data['descricao'],
+            'tempo' => $data['tempo'],
+            'empregador' => $data['nm_empresa'],
+        ]);
+
+        return redirect()->back();
+    }
+
+    private function infoExp($id)
+    {
+        $dadosExp = Experiencia::select('experiencias.*', 'modalidades_vaga.nome as modalidade')
+        ->join('modalidades_vaga', 'modalidades_vaga.id', 'experiencias.id_modalidade')
+        ->where('experiencias.id_estudante', $id)
+        ->get();
+
+        return $dadosExp;
+    }
+
+    private function estudanteCurso($id)
     {
         $dadosUser = User::select(
             'users.*',
@@ -162,7 +235,6 @@ class EstudanteController extends Controller
         ->join('users', 'empresas.id_user', 'users.id');
         
         return $dadosUser;
-
     }
 
     private function enderecoUser($cep)

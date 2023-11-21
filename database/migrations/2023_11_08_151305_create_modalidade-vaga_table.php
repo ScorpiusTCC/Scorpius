@@ -10,7 +10,7 @@ class CreateModalidadeVagaTable extends Migration
     {
         Schema::create('modalidades_vaga', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo')->nullable();
+            $table->string('nome')->nullable();
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ use App\Models\Conversa;
 use App\Models\Curso;
 use App\Models\Empresa;
 use App\Models\Escola;
+use App\Models\escolaCurso;
 use App\Models\Estudante;
 use App\Models\Experiencia;
 use App\Models\Mensagem;
@@ -32,17 +33,16 @@ class DatabaseSeeder extends Seeder
     {
         //Inserir modalidades de vagas - tabela 'modalidades_vaga'
         ModalidadeVaga::insert([
-            ['tipo' => 'Presencial'],
-            ['tipo' => 'Hibrído'],
-            ['tipo' => 'Remoto'],
+            ['nome' => 'Presencial'],
+            ['nome' => 'Hibrído'],
+            ['nome' => 'Remoto'],
         ]);
 
         //Inserir sexos - tabela 'sexos'
         Sexo::insert([
             ['nome' => 'Masculino'],
             ['nome' => 'Feminino'],
-            ['nome' => 'Outro'],
-            ['nome' => 'Helicoptero de combate'],
+            ['nome' => 'Outro']
         ]);
 
         Periodo::insert([
@@ -105,6 +105,54 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now()
             ]
         ]);
+
+        Escola::insert([
+            [
+                'nome' => 'Etec de Praia Grande Sede',
+                'created_at' => now()
+            ],
+            [
+                'nome' => 'Etec de Praia Grande Extensão',
+                'created_at' => now()
+            ],
+        ]);
+
+        Curso::insert([
+            ['nome' => 'Informática para a Internet'],
+            ['nome' => 'Administração'],
+            ['nome' => 'Marketing'],
+            ['nome' => 'Segurança do trabalho'],
+            ['nome' => 'Química'],
+            ['nome' => 'Logistica'],
+        ]);
+
+        escolaCurso::insert([
+            [
+                'id_escola' => 2,
+                'id_curso' => 1,
+            ],
+            [
+                'id_escola' => 2,
+                'id_curso' => 2,
+            ],
+            [
+                'id_escola' => 2,
+                'id_curso' => 3,
+            ],
+            [
+                'id_escola' => 2,
+                'id_curso' => 4,
+            ],
+            [
+                'id_escola' => 1,
+                'id_curso' => 5,
+            ],
+            [
+                'id_escola' => 1,
+                'id_curso' => 6,
+            ]
+        ]);
+        
         //     [
         //         'nome' => 'Carlos Santos',
         //         'email' => 'carlos.santos@exemplo.com',
@@ -233,71 +281,62 @@ class DatabaseSeeder extends Seeder
         //     ],
         // ]);
 
-        // // Inserir dados para a tabela 'contato_empresa'
-        // ContatoEstudante::insert([
-        //     [
-        //         'telefone_celular' => '1112223333',
-        //         'email' => 'jose.oliveira@empresa1.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [ 
-        //         'telefone_celular' => '4445556666',
-        //         'email' => 'fernanda.silva@empresa2.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [ 
-        //         'telefone_celular' => '7778889999',
-        //         'email' => 'ricardo.santos@empresa3.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'telefone_celular' => '1234567890',
-        //         'email' => 'amanda.costa@empresa4.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'telefone_celular' => '9876543210',
-        //         'email' => 'lucas.almeida@empresa5.com', 
-        //         'created_at' => now()
-        //     ],
-        // ]);
+        // Inserir dados para a tabela 'contato_empresa'
+        ContatoEstudante::insert([
+            [
+                'telefone_celular' => '1112223333',
+                'email' => 'jose.oliveira@empresa1.com', 
+                'created_at' => now()
+            ],
+            [ 
+                'telefone_celular' => '4445556666',
+                'email' => 'fernanda.silva@empresa2.com', 
+                'created_at' => now()
+            ],
+            [ 
+                'telefone_celular' => '7778889999',
+                'email' => 'ricardo.santos@empresa3.com', 
+                'created_at' => now()
+            ],
+            [
+                'telefone_celular' => '1234567890',
+                'email' => 'amanda.costa@empresa4.com', 
+                'created_at' => now()
+            ],
+            [
+                'telefone_celular' => '9876543210',
+                'email' => 'lucas.almeida@empresa5.com', 
+                'created_at' => now()
+            ],
+        ]);
 
-        // // Inserir dados para a tabela 'estudantes'
-        // Estudante::insert([
-        //     [
-        //         'nome' => 'Alice Johnson',
-        //         'data_nasc' => '1995-03-15', 
-        //         'idade' => 21,
-        //         'cpf' => '12345678901', 
-        //         'sobre' => 'Graduanda em Ciência da Computação',
-        //         'id_contato' => 2,
-        //         'id_user' => 2,
-        //         'id_sexo' => 2,
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nome' => 'Bob Smith',
-        //         'data_nasc' => '1998-06-22', 
-        //         'idade' => 21,
-        //         'cpf' => '98765432109', 
-        //         'sobre' => 'Estudante de Administração de Empresas',
-        //         'id_contato' => 3,
-        //         'id_user' => 3,
-        //         'id_sexo' => 1,
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nome' => 'Clara Oliveira',
-        //         'data_nasc' => '1993-09-18', 
-        //         'idade' => 21,
-        //         'cpf' => '23456789012', 
-        //         'sobre' => 'Estudante de Medicina',
-        //         'id_contato' => 1,
-        //         'id_user' => 4,
-        //         'id_sexo' => 2,
-        //         'created_at' => now()
-        //     ],
-        // ]);
+        // Inserir dados para a tabela 'estudantes'
+        Estudante::insert([
+            [
+                'nome' => 'Alice Johnson',
+                'data_nasc' => '1995-03-15', 
+                'idade' => 21,
+                'cpf' => '12345678901', 
+                'cep' => '11714000', 
+                'sobre' => 'Graduanda em Ciência da Computação',
+                'id_contato' => 2,
+                'id_user' => 1,
+                'id_sexo' => 2,
+                'created_at' => now()
+            ],
+            [
+                'nome' => 'Clara Oliveira',
+                'data_nasc' => '1993-09-18', 
+                'idade' => 21,
+                'cpf' => '23456789012', 
+                'cep' => '11714000', 
+                'sobre' => 'Estudante de Medicina',
+                'id_contato' => 1,
+                'id_user' => 2,
+                'id_sexo' => 2,
+                'created_at' => now()
+            ],
+        ]);
 
         // // Inserir dados para a tabela 'experiencias'
         // Experiencia::insert([

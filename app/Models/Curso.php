@@ -11,13 +11,13 @@ class Curso extends Model
 
     protected $table = 'cursos';
 
-    public function escolas()
+    public function estudante_curso()
     {
-        return $this->belongsTo(Escola::class, 'id_escola');
+        return $this->hasMany(estudanteCurso::class, 'id_curso');
     }
 
-    public function periodo()
+    public function escola_curso()
     {
-        return $this->belongsTo(Periodo::class, 'id_periodo');
+        return $this->hasMany(escolaCurso::class, 'id_curso');
     }
 }

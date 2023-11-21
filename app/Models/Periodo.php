@@ -17,6 +17,6 @@ class Periodo extends Model
 
     public function curso()
     {
-        return $this->hasMany(Curso::class, 'id_periodo');
+        return $this->hasMany(estudanteCurso::class, 'id_periodo');
     }
 }

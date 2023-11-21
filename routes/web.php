@@ -42,7 +42,13 @@ Route::get('/student-register', [EstudanteController::class, 'create'])->name('s
 
 Route::post('/submitEstudante', [EstudanteController::class, 'store'])->name('submitEstudante');
 
-Route::get('/MeuPerfil/{id}', [EstudanteController::class, 'showMyProfile'])->name('showMyProfile');
+Route::get('/MeuPerfil', [EstudanteController::class, 'showMyProfile'])->name('showMyProfile');
+
+Route::get('/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
+
+Route::get('/AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store');
+
+Route::get('/AddExp', [EstudanteController::class, 'addExp'])->name('exp.store');
 
 // Demais rotas 
 

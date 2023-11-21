@@ -10,11 +10,7 @@ class CreateCursosTable extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_escola')->constrained('escolas');
-            $table->foreignId('id_periodo')->constrained('periodos');
             $table->string('nome');
-            $table->integer('ano_inicio');
-            $table->integer('ano_fim');
             $table->timestamps();
         });
     }
