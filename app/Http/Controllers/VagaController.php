@@ -20,9 +20,11 @@ class VagaController extends Controller
     public function index()
     {
         $vagas = $this->DadosVaga()
-                    ->paginate(10);
+                    ->paginate(12);
 
-        return view('site/jobs', compact('vagas'));
+        $ajuste = false;
+
+        return view('site/jobs', compact('vagas', 'ajuste'));
     }
 
     /**
@@ -81,7 +83,11 @@ class VagaController extends Controller
                     ->where('vagas.id_categoria_vaga', $searchCategory)
                     ->paginate(10);
 
-        return view('site/jobs', compact('vagas'));
+        // $vagas['img'] = '../' . $vagas['nm_img'];
+
+        $ajuste = true;
+
+        return view('site/jobs', compact('vagas', 'ajuste'));
     }
 
     public function filterName(Request $request)
@@ -95,8 +101,9 @@ class VagaController extends Controller
         // echo '<pre>';
         // var_dump($vagas);
         // echo '<pre>';
+        $ajuste = false;
 
-        return view('site/jobs', compact('vagas'));
+        return view('site/jobs', compact('vagas', 'ajuste'));
     }
 
     private function DadosVaga()
@@ -106,13 +113,13 @@ class VagaController extends Controller
             'empresas.nm_fantasia as empresa',
             'status.nome as status',
             'modalidades_vaga.nome as modalidade', 
-            'users.nm_img'
+            'users.nm_img as nm_img'
         )
         ->join('status', 'vagas.id_status', 'status.id')
         ->join('modalidades_vaga', 'vagas.id_modalidade', 'modalidades_vaga.id')
         ->join('empresas', 'vagas.id_empresa', 'empresas.id')
         ->join('users', 'empresas.id_user', 'users.id');
-        
+
         return $dadosVaga;
     }
 }

@@ -48,7 +48,11 @@ Route::get('/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
 
 Route::get('/AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store');
 
+Route::delete('/deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete');
+
 Route::get('/AddExp', [EstudanteController::class, 'addExp'])->name('exp.store');
+
+Route::delete('/deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete');
 
 // Demais rotas 
 

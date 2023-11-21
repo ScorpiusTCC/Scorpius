@@ -26,6 +26,7 @@ class EstudanteController extends Controller
     public readonly Curso $curso;
     public readonly ContatoEstudante $contato;
     public readonly Experiencia $exp;
+    public readonly EstudanteCurso $estudante_curso;
 
 
     public function __construct()
@@ -35,6 +36,7 @@ class EstudanteController extends Controller
         $this->curso = new Curso();
         $this->contato = new ContatoEstudante();
         $this->exp = new Experiencia();
+        $this->estudante_curso = new EstudanteCurso();
     }
 
     public function create()
@@ -127,8 +129,10 @@ class EstudanteController extends Controller
         $experiencias = $this->infoExp($user->estudante->id);
 
         $datacursos = $this->infoCurso($user->estudante->id);
+
+        $ajuste = true;
         
-        return view('site/student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos'));
+        return view('site/student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos', 'ajuste'));
 
         // return redirect()->route('index');
     }
@@ -156,7 +160,7 @@ class EstudanteController extends Controller
                 $experiencias = $this->infoExp($user->estudante->id);
 
                 $datacursos = $this->infoCurso($user->estudante->id);
-
+                
                 return view('site/logged-student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos'));
             }
         } else {
@@ -225,7 +229,7 @@ class EstudanteController extends Controller
 
     public function destroyCursos($id)
     {
-        $this->curso->where('id', $id)->delete();
+        $this->estudante_curso->where('id', $id)->delete();
 
         return redirect()->back();
     }
