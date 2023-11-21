@@ -212,7 +212,7 @@ main {
     height: 80%;
 }
 
-#profile-picture label {
+.profile-picture label {
 
     text-align: center;
 
