@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> @yield('title') </title>
-    <link rel="stylesheet" href="{{ asset('css/global_navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global-navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global_footer.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -34,23 +34,29 @@
 
                         </div>
 
-                        <div id="form-space">
+                        <div class="hyperlink-space">
 
-                            <form action="{{ route('filterNameVaga') }}">
-
-                                <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
-
-                            </form>
+                            <a href=" {{ route('vagas') }}">Vagas</a>
+                            <a href="{{ route('about-us')}}">Sobre nós</a>
+                            <a href="">Conheça nosso plano</a>
 
                         </div>
 
                         <div id="icons-space">
                             
-                            <a href=""><img src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
+                            <a href=""><img class="icons-img" src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
 
-                            <a href=""><img src="{{ asset('imgs/notification-icon.svg') }}" alt=""></a>
+                            <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="{{ asset('imgs/profile/photo-test.svg') }}" alt="">
 
-                            <a href=""><img src="{{ asset('imgs/profile-icon.svg') }}" alt=""></a>
+                            <div class="">
+                                
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="{{ route('logged-profile')}}">Meu perfil</a></li>
+                                  <li><a class="dropdown-item" href="#">Candidatações</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
+                                </ul>
+
+                            </div>
 
                         </div>
 
@@ -62,47 +68,52 @@
 
             {{-- navbar se o usuario é empresa --}}
             
-                <nav>
+            <nav>
 
-                    <div id="first-navbar">
+                <div id="first-navbar">
 
-                        <div class="logo-space">
+                    <div class="logo-space">
 
-                            <a href="{{ route('index') }}">
+                        <a href="{{ route('index') }}">
 
-                                <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
+                            <img src="{{ asset('imgs/logo-scorpius-lado.svg') }}" alt="Logo da Scorpius completa lateral">
 
-                            </a>
+                        </a>
 
-                        </div>
+                    </div>
 
-                        <div id="form-space">
+                    <div class="hyperlink-space">
 
-                            <form action="{{ route('filterNameVaga') }}">
+                        <a href="{{ route('about-us')}}">Sobre nós</a>
+                        <a href="">Conheça nosso plano</a>
 
-                                <input type="text" name="searchName" placeholder="Buscar por vagas ou palavra-chave">
+                    </div>
 
-                            </form>
+                    <div id="icons-space">
+                        
+                        <a href=""><img class="icons-img" src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
 
-                        </div>
+                        <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="{{ asset('imgs/profile/photo-test.svg') }}" alt="">
 
-                        <div id="icons-space">
+                        <div class="">
                             
-                            <a href=""><img src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
-
-                            <a href=""><img src="{{ asset('imgs/notification-icon.svg') }}" alt=""></a>
-
-                            <a href=""><img src="{{ asset('imgs/profile-icon.svg') }}" alt=""></a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{{ route('logged-profile')}}">Meu perfil</a></li>
+                              <li><a class="dropdown-item" href="#">Minhas vagas</a></li>
+                              <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
+                            </ul>
 
                         </div>
 
                     </div>
 
-                </nav>   
+                </div>
+
+            </nav>   
             
             @endif
 
-        @else
+            @else
 
             {{-- navbar sem estar logado --}}
 
