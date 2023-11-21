@@ -25,6 +25,7 @@ class EstudanteController extends Controller
     public readonly User $user;
     public readonly Curso $curso;
     public readonly ContatoEstudante $contato;
+    public readonly Experiencia $exp;
 
 
     public function __construct()
@@ -33,6 +34,7 @@ class EstudanteController extends Controller
         $this->user = new User();
         $this->curso = new Curso();
         $this->contato = new ContatoEstudante();
+        $this->exp = new Experiencia();
     }
 
     public function create()
@@ -219,6 +221,20 @@ class EstudanteController extends Controller
         ->get();
 
         return $dadosExp;
+    }
+
+    public function destroyCursos($id)
+    {
+        $this->curso->where('id', $id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function destroyExp($id)
+    {
+        $this->exp->where('id', $id)->delete();
+
+        return redirect()->back();
     }
 
     private function estudanteCurso($id)

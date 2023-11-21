@@ -51,7 +51,7 @@
                             <div class="">
                                 
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="{{ route('logged-profile')}}">Meu perfil</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('showMyProfile')}}">Meu perfil</a></li>
                                   <li><a class="dropdown-item" href="#">Candidatações</a></li>
                                   <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
                                 </ul>

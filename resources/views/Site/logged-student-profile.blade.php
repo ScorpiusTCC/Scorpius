@@ -249,6 +249,7 @@
                 <div class="card-area">
                     
                     @foreach ($experiencias as $experiencia)
+
                         <div class="card">
 
                             <div class="card-text">
@@ -288,7 +289,7 @@
                                 </div>
 
                                 <div class="modal-icons">
-
+                                    
                                     <i class="fa-solid fa-trash fa-shake"  style="color: #ffffff;" data-bs-toggle="modal" data-bs-target=".delete-modal"></i>
                                         
                                     <!-- Modal -->
@@ -315,6 +316,7 @@
                             </div>
         
                         </div>
+                        
                     @endforeach
 
                     <div class="card">

@@ -60,39 +60,21 @@ class DatabaseSeeder extends Seeder
 
         //Inserir categoria - tabela 'categoria_vaga'
         CategoriaVaga::insert([
-            [
-                'nome' => 'Tecnologia',
-                'nm_img' => 'imgs/index/tecno-image.jpg'
-            ],
-            [
-                'nome' => 'Marketing',
-                'nm_img' => 'imgs/index/marketing-image.jpg'
-            ],
-            [
-                'nome' => 'Administração',
-                'nm_img' => 'imgs/index/adm-image.jpg'
-            ],
-            [
-                'nome' => 'Logistíca',
-                'nm_img' => 'imgs/index/log-image.jpg'
-            ],
-            [
-                'nome' => 'Química',
-                'nm_img' => 'imgs/index/quimica-image.jpg'
-            ],
-            [
-                'nome' => 'Segurança do Trabalho',
-                'nm_img' => 'imgs/index/seg-image.jpg'
-            ]
+            ['nome' => 'Tecnologia', 'nm_img' => 'imgs/index/tecno-image.jpg'],
+            ['nome' => 'Marketing', 'nm_img' => 'imgs/index/marketing-image.jpg'],
+            ['nome' => 'Administração', 'nm_img' => 'imgs/index/adm-image.jpg'],
+            ['nome' => 'Logistíca', 'nm_img' => 'imgs/index/log-image.jpg'],
+            ['nome' => 'Química', 'nm_img' => 'imgs/index/quimica-image.jpg'],
+            ['nome' => 'Segurança do Trabalho', 'nm_img' => 'imgs/index/seg-image.jpg']
         ]);
 
         // Inserir dados para a tabela 'users'
         User::insert([
             [
-                'nome' => 'Mateus Sampaio',
+                'nome' => 'Rodrigo Nascimento',
                 'email' => 'estudante@gmail.com',
                 'senha' => Hash::make('123'),
-                'nm_img' => 'uploads/estudantes/img-example.jpg',
+                'nm_img' => 'storage/uploads/estudantes/img-estudante.jpg',
                 'tipo' => 'estudante',
                 'created_at' => now()
             ],
@@ -100,383 +82,326 @@ class DatabaseSeeder extends Seeder
                 'nome' => 'Scorpius Enterprise',
                 'email' => 'empresa@gmail.com',
                 'senha' => Hash::make('123'),
-                'nm_img' => 'uploads/estudantes/img-example.jpg',
+                'nm_img' => 'storage/uploads/estudantes/img-empresa.jpg',
                 'tipo' => 'empresa',
                 'created_at' => now()
-            ]
+            ],
+            [
+                'nome' => 'Matera',
+                'email' => 'empresa1@gmail.com',
+                'senha' => Hash::make('123'),
+                'nm_img' => 'storage/uploads/estudantes/img-empresa.jpg',
+                'tipo' => 'estudante',
+                'created_at' => now()
+            ],
+            [
+                'nome' => 'Nubank',
+                'email' => 'empresa2@gmail.com',
+                'senha' => Hash::make('123'),
+                'nm_img' => 'storage/uploads/estudantes/img-empresa.jpg',
+                'tipo' => 'empresa',
+                'created_at' => now()
+            ],
+            [
+                'nome' => 'Serasa',
+                'email' => 'estudante3@gmail.com',
+                'senha' => Hash::make('123'),
+                'nm_img' => 'storage/uploads/estudantes/img-empresa.jpg',
+                'tipo' => 'estudante',
+                'created_at' => now()
+            ],
         ]);
 
+        // Inserir dados para a tabela 'escolas'
         Escola::insert([
-            [
-                'nome' => 'Etec de Praia Grande Sede',
-                'created_at' => now()
-            ],
-            [
-                'nome' => 'Etec de Praia Grande Extensão',
-                'created_at' => now()
-            ],
+            ['nome' => 'Etec de Praia Grande Sede', 'created_at' => now()],
+            ['nome' => 'Etec de Praia Grande Extensão', 'created_at' => now()],
         ]);
 
+        // Inserir dados para a tabela 'cursos'
         Curso::insert([
             ['nome' => 'Informática para a Internet'],
             ['nome' => 'Administração'],
             ['nome' => 'Marketing'],
             ['nome' => 'Segurança do trabalho'],
             ['nome' => 'Química'],
-            ['nome' => 'Logistica'],
+            ['nome' => 'Logística'],
         ]);
 
-        escolaCurso::insert([
-            [
-                'id_escola' => 2,
-                'id_curso' => 1,
-            ],
-            [
-                'id_escola' => 2,
-                'id_curso' => 2,
-            ],
-            [
-                'id_escola' => 2,
-                'id_curso' => 3,
-            ],
-            [
-                'id_escola' => 2,
-                'id_curso' => 4,
-            ],
-            [
-                'id_escola' => 1,
-                'id_curso' => 5,
-            ],
-            [
-                'id_escola' => 1,
-                'id_curso' => 6,
-            ]
+        // Inserir dados para a tabela 'escola_cursos'
+        EscolaCurso::insert([
+            ['id_escola' => 2, 'id_curso' => 1],
+            ['id_escola' => 2, 'id_curso' => 2],
+            ['id_escola' => 2, 'id_curso' => 3],
+            ['id_escola' => 2, 'id_curso' => 4],
+            ['id_escola' => 1, 'id_curso' => 5],
+            ['id_escola' => 1, 'id_curso' => 6],
         ]);
-        
-        //     [
-        //         'nome' => 'Carlos Santos',
-        //         'email' => 'carlos.santos@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',                
-        //         'tipo' => 'estudante',
-        //         'created_at' => now()],
-        //     [
-        //         'nome' => 'Ana Costa',
-        //         'email' => 'ana.costa@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'empresa',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nome' => 'Lucas Almeida',
-        //         'email' => 'lucas.almeida@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'empresa',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nome' => 'Mariana Santos',
-        //         'email' => 'mariana.santos@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'empresa',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'nome' => 'Rafael Oliveira',
-        //         'email' => 'rafael.oliveira@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'empresa',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'nome' => 'Amanda Souza',
-        //         'email' => 'amanda.souza@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'empresa',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'nome' => 'Felipe Lima',
-        //         'email' => 'felipe.lima@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'esudante',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'nome' => 'Juliana Pereira',
-        //         'email' => 'juliana.pereira@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'esudante',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'nome' => 'Gustavo Silva',
-        //         'email' => 'gustavo.silva@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'esudante',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'nome' => 'Camila Santos',
-        //         'email' => 'camila.santos@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'empresa',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'nome' => 'Pedro Costa',
-        //         'email' => 'pedro.costa@exemplo.com',
-        //         'senha' => Hash::make('123'),
-        //         'nm_img' => 'uploads/estudantes/img-example.jpg',
-        //         'tipo' => 'empresa',
-        //         'created_at' => now(),
-        //     ],
-        // ]);
 
-        // // Inserir dados para a tabela 'contato_estudante'
-        // ContatoEmpresa::insert([
-        //     [
-        //         'nm_representante' => 'José Oliveira',
-        //         'telefone_comercial' => '1112223333',
-        //         'telefone_celular' => '1112223333',
-        //         'email' => 'estudante1@exemplo.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nm_representante' => 'José Oliveira',
-        //         'telefone_comercial' => '4445556666',
-        //         'telefone_celular' => '4445556666',
-        //         'email' => 'estudante2@exemplo.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nm_representante' => 'José Oliveira',
-        //         'telefone_comercial' => '7778889999',
-        //         'telefone_celular' => '7778889999',
-        //         'email' => 'estudante3@exemplo.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nm_representante' => 'José Oliveira',
-        //         'telefone_comercial' => '1234567890',
-        //         'telefone_celular' => '1234567890',
-        //         'email' => 'estudante4@exemplo.com', 
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'nm_representante' => 'José Oliveira',
-        //         'telefone_comercial' => '9876543210',
-        //         'telefone_celular' => '9876543210',
-        //         'email' => 'estudante5@exemplo.com', 
-        //         'created_at' => now()
-        //     ],
-        // ]);
+        // Inserir dados para a tabela 'contato_estudante'
+        ContatoEmpresa::insert([
+            [
+                'nm_representante' => 'José Oliveira',
+                'telefone_comercial' => '1112223333',
+                'telefone_celular' => '1112223333',
+                'email' => 'estudante1@exemplo.com', 
+                'created_at' => now()
+            ],
+            [
+                'nm_representante' => 'José Oliveira',
+                'telefone_comercial' => '4445556666',
+                'telefone_celular' => '4445556666',
+                'email' => 'estudante2@exemplo.com', 
+                'created_at' => now()
+            ],
+            [
+                'nm_representante' => 'José Oliveira',
+                'telefone_comercial' => '7778889999',
+                'telefone_celular' => '7778889999',
+                'email' => 'estudante3@exemplo.com', 
+                'created_at' => now()
+            ],
+        ]);
 
         // Inserir dados para a tabela 'contato_empresa'
         ContatoEstudante::insert([
             [
                 'telefone_celular' => '1112223333',
-                'email' => 'jose.oliveira@empresa1.com', 
+                'email' => 'estudante@empresa1.com', 
                 'created_at' => now()
-            ],
-            [ 
-                'telefone_celular' => '4445556666',
-                'email' => 'fernanda.silva@empresa2.com', 
-                'created_at' => now()
-            ],
-            [ 
-                'telefone_celular' => '7778889999',
-                'email' => 'ricardo.santos@empresa3.com', 
-                'created_at' => now()
-            ],
-            [
-                'telefone_celular' => '1234567890',
-                'email' => 'amanda.costa@empresa4.com', 
-                'created_at' => now()
-            ],
-            [
-                'telefone_celular' => '9876543210',
-                'email' => 'lucas.almeida@empresa5.com', 
-                'created_at' => now()
-            ],
+            ]
         ]);
 
         // Inserir dados para a tabela 'estudantes'
         Estudante::insert([
             [
-                'nome' => 'Alice Johnson',
-                'data_nasc' => '1995-03-15', 
-                'idade' => 21,
-                'cpf' => '12345678901', 
-                'cep' => '11714000', 
+                'nome' => 'Rodrigo Torres do Nascimento',
+                'data_nasc' => '1995-03-15',
+                'idade' => 18,
+                'cpf' => '12345678901',
+                'cep' => '11714000',
                 'sobre' => 'Graduanda em Ciência da Computação',
-                'id_contato' => 2,
+                'id_contato' => 1,
                 'id_user' => 1,
-                'id_sexo' => 2,
+                'id_sexo' => 1,
+                'created_at' => now()
+            ]
+        ]);
+
+        // Inserir dados para a tabela 'empresas'
+        Empresa::insert([
+            [
+                'cnpj' => '12345678901234',
+                'nm_fantasia' => 'Tech Co',
+                'razao_social' => 'Empresa de Tecnologia',
+                'descricao' => 'Principal provedora de soluções tecnológicas', 
+                'endereco' => '123 Rua da Tecnologia', 
+                'id_contato' => 1,
+                'id_user' => 2,
                 'created_at' => now()
             ],
             [
-                'nome' => 'Clara Oliveira',
-                'data_nasc' => '1993-09-18', 
-                'idade' => 21,
-                'cpf' => '23456789012', 
-                'cep' => '11714000', 
-                'sobre' => 'Estudante de Medicina',
-                'id_contato' => 1,
-                'id_user' => 2,
-                'id_sexo' => 2,
+                'cnpj' => '98765432109876',
+                'nm_fantasia' => 'Finance Corp',
+                'razao_social' => 'Corporação Financeira', 
+                'descricao' => 'Serviços financeiros inovadores', 
+                'endereco' => '456 Avenida Financeira', 
+                'id_contato' => 2,
+                'id_user' => 3,
+                'created_at' => now()
+            ],
+            [
+                'cnpj' => '56789012345678',
+                'nm_fantasia' => 'Matera',
+                'razao_social' => 'Economia e Saúde', 
+                'descricao' => 'Cuidando da sua saúde com excelência', 
+                'endereco' => '789 Rua da Saúde', 
+                'id_contato' => 3,
+                'id_user' => 4, 
                 'created_at' => now()
             ],
         ]);
 
-        // // Inserir dados para a tabela 'experiencias'
-        // Experiencia::insert([
-        //     [
-        //         'id_estudante' => 1,
-        //         'id_modalidade' => 1,
-        //         'empregador' => 'Tech Co',
-        //         'descricao' => 'Estágio em desenvolvimento web',
-        //         'tempo' => '6 meses',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'id_estudante' => 2,
-        //         'id_modalidade' => 2,
-        //         'empregador' => 'Finance Corp',
-        //         'descricao' => 'Trabalho parcial em análise financeira',
-        //         'tempo' => '1 ano',
-        //         'created_at' => now(),
-        //     ],
-        //     [
-        //         'id_estudante' => 3,
-        //         'id_modalidade' => 3,
-        //         'empregador' => 'Hospital XYZ',
-        //         'descricao' => 'Estágio em atendimento ao paciente',
-        //         'tempo' => '8 meses',
-        //         'created_at' => now(),
-        //     ],
-        // ]);
-
-
-        // // Inserir dados para a tabela 'empresas'
-        // Empresa::insert([
-        //     [
-        //         'cnpj' => '12345678901234',
-        //         'nm_fantasia' => 'Tech Co',
-        //         'razao_social' => 'Empresa de Tecnologia', 
-        //         'nm_site_empresa' => 'http://techco.com', 
-        //         'descricao' => 'Principal provedora de soluções tecnológicas', 
-        //         'endereco' => '123 Rua da Tecnologia', 
-        //         'id_contato' => 1,
-        //         'id_user' => 7,
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'cnpj' => '98765432109876',
-        //         'nm_fantasia' => 'Finance Corp',
-        //         'razao_social' => 'Corporação Financeira', 
-        //         'nm_site_empresa' => 'http://financecorp.com', 
-        //         'descricao' => 'Serviços financeiros inovadores', 
-        //         'endereco' => '456 Avenida Financeira', 
-        //         'id_contato' => 2,
-        //         'id_user' => 8,
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'cnpj' => '56789012345678',
-        //         'nm_fantasia' => 'Saúde Total',
-        //         'razao_social' => 'Clínica de Saúde', 
-        //         'nm_site_empresa' => 'http://saude-total.com', 
-        //         'descricao' => 'Cuidando da sua saúde com excelência', 
-        //         'endereco' => '789 Rua da Saúde', 
-        //         'id_contato' => 3,
-        //         'id_user' => 6, 
-        //         'created_at' => now()
-        //     ],
-        // ]);
-
-        // // Inserir dados para a tabela 'escolas'
-        // Escola::insert([
-        //     ['nome' => 'Etec de Praia Grande Sede'],
-        //     ['nome' => 'Etec de Praia Grande Extensão']
-        // ]);
-
-        // Curso::insert([
-        //     [
-        //         'id_escola' => 1,
-        //         'id_periodo' => 2,
-        //         'nome' => 'Química',
-        //         'ano_inicio' => 2022,
-        //         'ano_fim' => 2025,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],
-        //     [
-        //         'id_escola' => 2,
-        //         'id_periodo' => 1,
-        //         'nome' => 'Informática para a internet',
-        //         'ano_inicio' => 2021,
-        //         'ano_fim' => 2024,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],
-        //     [
-        //         'id_escola' => 2,
-        //         'id_periodo' => 1,
-        //         'nome' => 'Segurança do Trabalho',
-        //         'ano_inicio' => 2023,
-        //         'ano_fim' => 2026,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ],
-        // ]);
-
-        // // Inserir dados para a tabela 'vagas'
-        // Vaga::insert([
-        //     [
-        //         'id_modalidade' => 2,
-        //         'id_empresa' => 1, 
-        //         'id_status' => 1,
-        //         'id_categoria_vaga' => 1,
-        //         'titulo' => 'Desenvolvedor Web', 
-        //         'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
-        //         'salario' => 5000.00, 
-        //         'data_expiracao' => '2023-12-01',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_modalidade' => 1,
-        //         'id_empresa' => 2, 
-        //         'id_status' => 1,
-        //         'id_categoria_vaga' => 2,
-        //         'titulo' => 'Analista Financeiro', 
-        //         'descricao' => 'Procuramos um profissional para análise e gestão financeira',
-        //         'salario' => 4500.00, 
-        //         'data_expiracao' => '2023-12-15',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_modalidade' => 3,
-        //         'id_empresa' => 3, 
-        //         'id_status' => 1,
-        //         'id_categoria_vaga' => 1,
-        //         'titulo' => 'Médico Residente', 
-        //         'descricao' => 'Vaga para médico residente na especialidade de pediatria',
-        //         'salario' => 6000.00, 
-        //         'data_expiracao' => '2023-11-30',
-        //         'created_at' => now()
-        //     ],
-        // ]);
-
+        // Inserir dados para a tabela 'vagas'
+        Vaga::insert([
+            [
+                'id_modalidade' => 2,
+                'id_empresa' => 1, 
+                'id_status' => 1,
+                'id_categoria_vaga' => 1,
+                'titulo' => 'Desenvolvedor Web', 
+                'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
+                'salario' => 800.00, 
+                'data_expiracao' => '2023-12-01',
+                'created_at' => now()
+            ],
+            [
+                'id_modalidade' => 2,
+                'id_empresa' => 1, 
+                'id_status' => 1,
+                'id_categoria_vaga' => 1,
+                'titulo' => 'Desenvolvedor Web Java', 
+                'descricao' => 'Oportunidade para desenvolver software',
+                'salario' => 500.00, 
+                'data_expiracao' => '2023-12-01',
+                'created_at' => now()
+            ],
+            [
+                'id_modalidade' => 3,
+                'id_empresa' => 1, 
+                'id_status' => 1,
+                'id_categoria_vaga' => 1,
+                'titulo' => 'Suporte TI', 
+                'descricao' => 'Precisando com urgência',
+                'salario' => 1000.00, 
+                'data_expiracao' => '2023-12-01',
+                'created_at' => now()
+            ],
+            [
+                'id_modalidade' => 1,
+                'id_empresa' => 1, 
+                'id_status' => 1,
+                'id_categoria_vaga' => 1,
+                'titulo' => 'Desenvolvedor Web', 
+                'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
+                'salario' => 790.00, 
+                'data_expiracao' => '2023-12-01',
+                'created_at' => now()
+            ],
+            [
+                'id_empresa' => 2,
+                'id_modalidade' => 1,
+                'id_status' => 1,
+                'id_categoria_vaga' => 3,
+                'titulo' => 'Assistente Administrativo',
+                'descricao' => 'Vaga para assistente administrativo. Atividades incluem organização de documentos e atendimento ao cliente.',
+                'salario' => 700.00,
+                'data_expiracao' => now()->addDays(15),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 2,
+                'id_modalidade' => 2,
+                'id_status' => 1,
+                'id_categoria_vaga' => 3,
+                'titulo' => 'Analista de Recursos Humanos',
+                'descricao' => 'Oportunidade para analista de RH. Realizará processos seletivos e atividades relacionadas à gestão de pessoas.',
+                'salario' => 300.00,
+                'data_expiracao' => now()->addDays(20),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 2,
+                'id_modalidade' => 3,
+                'id_status' => 1,
+                'id_categoria_vaga' => 3,
+                'titulo' => 'Gestor Administrativo',
+                'descricao' => 'Buscamos um gestor administrativo para liderar equipes e otimizar processos internos.',
+                'salario' => 600.00,
+                'data_expiracao' => now()->addDays(25),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 2,
+                'id_modalidade' => 1,
+                'id_status' => 1,
+                'id_categoria_vaga' => 3,
+                'titulo' => 'Auxiliar Financeiro',
+                'descricao' => 'Vaga para auxiliar financeiro. Atuará nas atividades relacionadas à área financeira da empresa.',
+                'salario' => 800.00,
+                'data_expiracao' => now()->addDays(18),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 2,
+                'id_modalidade' => 2,
+                'id_status' => 1,
+                'id_categoria_vaga' => 3,
+                'titulo' => 'Coordenador de Logística',
+                'descricao' => 'Coordenará as atividades logísticas da empresa, garantindo eficiência nas operações.',
+                'salario' => 550.00,
+                'data_expiracao' => now()->addDays(22),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 2,
+                'id_modalidade' => 3,
+                'id_status' => 1,
+                'id_categoria_vaga' => 3,
+                'titulo' => 'Especialista em Compras',
+                'descricao' => 'Especialista em compras para gerenciar o processo de aquisição de materiais e serviços.',
+                'salario' => 480.00,
+                'data_expiracao' => now()->addDays(30),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 3,
+                'id_modalidade' => 1,
+                'id_status' => 1,
+                'id_categoria_vaga' => 4,
+                'titulo' => 'Analista de Logística',
+                'descricao' => 'Oportunidade para analista de logística. Responsável pelo planejamento e otimização de processos logísticos.',
+                'salario' => rand(1500, 6000) . '.00',
+                'data_expiracao' => now()->addDays(20),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 3,
+                'id_modalidade' => 2,
+                'id_status' => 1,
+                'id_categoria_vaga' => 4,
+                'titulo' => 'Coordenador de Distribuição',
+                'descricao' => 'Coordenará as atividades de distribuição de produtos, garantindo eficiência e qualidade.',
+                'salario' => rand(1500, 6000) . '.00',
+                'data_expiracao' => now()->addDays(22),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 3,
+                'id_modalidade' => 3,
+                'id_status' => 1,
+                'id_categoria_vaga' => 4,
+                'titulo' => 'Analista de Suprimentos',
+                'descricao' => 'Atuará na gestão de suprimentos, realizando análise e otimização dos processos de compras.',
+                'salario' => rand(1500, 6000) . '.00',
+                'data_expiracao' => now()->addDays(30),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 3,
+                'id_modalidade' => 1,
+                'id_status' => 1,
+                'id_categoria_vaga' => 4,
+                'titulo' => 'Assistente de Estoque',
+                'descricao' => 'Vaga para assistente de estoque. Responsável pelo controle e organização do estoque da empresa.',
+                'salario' => rand(1500, 6000) . '.00',
+                'data_expiracao' => now()->addDays(18),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 3,
+                'id_modalidade' => 2,
+                'id_status' => 1,
+                'id_categoria_vaga' => 4,
+                'titulo' => 'Gerente de Logística',
+                'descricao' => 'Buscamos um profissional para gerenciar toda a área logística da empresa.',
+                'salario' => rand(1500, 6000) . '.00',
+                'data_expiracao' => now()->addDays(25),
+                'created_at' => now(),
+            ],
+            [
+                'id_empresa' => 3,
+                'id_modalidade' => 3,
+                'id_status' => 1,
+                'id_categoria_vaga' => 4,
+                'titulo' => 'Analista de Importação e Exportação',
+                'descricao' => 'Atuará nas atividades de importação e exportação, garantindo conformidade com as normas.',
+                'salario' => rand(1500, 6000) . '.00',
+                'data_expiracao' => now()->addDays(28),
+                'created_at' => now(),
+            ],
+        ]);
+      
         // // Inserir dados para a tabela 'conversas'
         // Conversa::insert([
         //     ['created_at' => now()],

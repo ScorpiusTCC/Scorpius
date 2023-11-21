@@ -15,7 +15,6 @@ class CreateEmpresasTable extends Migration
             $table->char('cnpj', 14);
             $table->string('nm_fantasia');
             $table->string('razao_social');
-            $table->string('nm_site_empresa', 80)->nullable();
             $table->text('descricao')->nullable();
             $table->string('endereco')->nullable();
             $table->timestamps();
