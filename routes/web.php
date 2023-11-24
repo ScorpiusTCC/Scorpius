@@ -62,7 +62,6 @@ Route::get('/register', function () {
     return view('site/register');
 })->name('register');
 
-
 Route::get('/company-register', function () {
     return view('site/company-register');
 })->name('company-register');
@@ -82,6 +81,10 @@ Route::get('/logged-profile', function () {
 Route::get('/registro-vaga', function () {
     return view('site/job-register');
 })->name('job-register');
+
+Route::get('/edit-student', function () {
+    return view('site/edit-student');
+})->name('edit-student');
 
 // Route::get('/teste', function () {
 //     return view('site/teste');

@@ -474,7 +474,7 @@
 
                 </div>
 
-                <a href=""><button>Editar Dados</button></a>
+                <a href="{{ route('edit-student')}}"><button>Editar Dados</button></a>
                 
                 <a href="{{ route('vagas')}}"><button>Ver Vagas</button></a>
 
