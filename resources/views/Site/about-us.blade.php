@@ -19,7 +19,7 @@
 
             <div class="scorpius d-flex justify-content-center align-items-center">
 
-                <h3>Nos da Scorpius Enterprise desenvolvemos plataformas on-line com o intuito de conseguir alcançar grandes e pequenas empresas para mostrar nossos projetos e conseguir oportunidades no mercado de trabalho.</h3>
+                <h3>Nós da Scorpius Enterprise desenvolvemos plataformas on-line com o intuito de conseguir alcançar grandes e pequenas empresas para mostrar nossos projetos e conseguir oportunidades no mercado de trabalho.</h3>
                 <img src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
 
             </div>

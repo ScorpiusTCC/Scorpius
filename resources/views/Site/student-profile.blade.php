@@ -80,7 +80,7 @@
 
                 <div class="professional-text">
 
-                    <span>Empresas que já trabalhou</span>
+                    <span>Experiências</span>
     
                 </div>
     

@@ -13,7 +13,7 @@ class CreateContatoEmpresaTable extends Migration
             $table->string('nm_representante')->nullable();
             $table->string('telefone_comercial', 20);
             $table->string('telefone_celular', 20);
-            $table->string('email');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

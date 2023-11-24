@@ -15,7 +15,8 @@ class Empresa extends Model
         'nm_site_empresa', 
         'descricao', 
         'endereco',
-        'id_user'
+        'id_user',
+        'id_contato'
     ];
 
     

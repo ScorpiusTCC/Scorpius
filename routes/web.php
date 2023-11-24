@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstudanteController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SiteController;
@@ -42,13 +43,28 @@ Route::get('/student-register', [EstudanteController::class, 'create'])->name('s
 
 Route::post('/submitEstudante', [EstudanteController::class, 'store'])->name('submitEstudante');
 
-Route::get('/MeuPerfil', [EstudanteController::class, 'showMyProfile'])->name('showMyProfile');
+Route::get('/Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile');
 
 Route::get('/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
 
 Route::get('/AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store');
 
+Route::delete('/deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete');
+
 Route::get('/AddExp', [EstudanteController::class, 'addExp'])->name('exp.store');
+
+Route::delete('/deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete');
+
+// Manipular Empresas 
+
+Route::get('/student-company', [EmpresaController::class, 'create'])->name('empresa.create');
+
+Route::post('/submitEmpresa', [EmpresaController::class, 'store'])->name('empresa.store');
+
+Route::get('/Empresa/MeuPerfil', [EmpresaController::class, 'showMyProfile'])->name('company.profile');
+
+Route::get('/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
+
 
 // Demais rotas 
 

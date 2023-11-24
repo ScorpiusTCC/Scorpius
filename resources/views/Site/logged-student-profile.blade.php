@@ -73,7 +73,7 @@
                             <div class="card-editor">
 
                                 <div class="modal-icons">
-
+                                        
                                     <i class="fa-solid fa-pen-to-square fa-shake" data-bs-toggle="modal" data-bs-target=".edit-modal"></i>
                                         
                                     <!-- Modal -->
@@ -99,7 +99,14 @@
 
                                 <div class="modal-icons">
 
-                                    <i class="fa-solid fa-trash fa-shake"  style="color: #ffffff;" data-bs-toggle="modal" data-bs-target=".delete-modal"></i>
+                                    <form method="POST" action="{{ route('curso.delete', $datacurso->id ) }}">
+                                        @csrf
+                                        @method('DELETE')
+                            
+                                        <button type="submit" class="fa-solid fa-trash-alt" data-bs-toggle="modal" data-bs-target="#myModal"></button>
+                                    </form>
+
+                                    {{-- <i class="fa-solid fa-trash fa-shake"  style="color: #ffffff;" data-bs-toggle="modal" data-bs-target=".delete-modal"></i>
                                         
                                     <!-- Modal -->
                                     <div class="modal fade delete-modal" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -114,11 +121,11 @@
         
                                                 </div>
         
-                                            </div>
+                                            </div> --}}
         
-                                        </div>
+                                        {{-- </div> --}}
         
-                                    </div>
+                                    {{-- </div> --}}
 
                                 </div>
 
@@ -289,8 +296,15 @@
                                 </div>
 
                                 <div class="modal-icons">
+
+                                    <form method="POST" action="{{ route('exp.delete', $experiencia->id ) }}">
+                                        @csrf
+                                        @method('DELETE')
+                            
+                                        <button type="submit" class="fa-solid fa-trash-alt" data-bs-toggle="modal" data-bs-target="#myModal"></button>
+                                    </form>
                                     
-                                    <i class="fa-solid fa-trash fa-shake"  style="color: #ffffff;" data-bs-toggle="modal" data-bs-target=".delete-modal"></i>
+                                    {{-- <i class="fa-solid fa-trash fa-shake"  style="color: #ffffff;" data-bs-toggle="modal" data-bs-target=".delete-modal"></i>
                                         
                                     <!-- Modal -->
                                     <div class="modal fade delete-modal" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -309,9 +323,9 @@
         
                                         </div>
         
-                                    </div>
+                                    {{-- </div> --}}
 
-                                </div>
+                                </div> 
 
                             </div>
         

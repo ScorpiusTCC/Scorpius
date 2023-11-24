@@ -11,7 +11,7 @@ class CreateContatoEstudanteTable extends Migration
         Schema::create('contato_estudante', function (Blueprint $table) {
             $table->id();
             $table->string('telefone_celular', 20);
-            $table->string('email');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }
