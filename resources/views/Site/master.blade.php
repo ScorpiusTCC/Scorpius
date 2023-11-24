@@ -51,9 +51,9 @@
                             <div class="">
                                 
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="{{ route('showMyProfile')}}">Meu perfil</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('student.profile') }}">Meu perfil</a></li>
                                   <li><a class="dropdown-item" href="#">Candidatações</a></li>
-                                  <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                 </ul>
 
                             </div>
@@ -93,7 +93,7 @@
                         
                         <a href=""><img class="icons-img" src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
 
-                        <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="{{ asset('imgs/profile/photo-test.svg') }}" alt="">
+                        <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="">
 
                         <div class="">
                             

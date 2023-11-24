@@ -12,9 +12,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nome')->nullable();
             $table->string('email')->unique();
-            $table->string('senha');
-            $table->string('nm_img');
-            $table->string('tipo')->enum('estudante', 'empresa');
+            $table->string('senha')->nullable();
+            $table->string('nm_img')->nullable();
+            $table->enum('tipo', ['estudante', 'empresa']);
             $table->rememberToken();
             $table->date('verificado_at')->nullable();
             $table->timestamps();

@@ -12,11 +12,12 @@ class CreateEmpresasTable extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('users');
             $table->foreignId('id_contato')->constrained('contato_empresa');
-            $table->char('cnpj', 14);
+            $table->char('cnpj', 18)->unique();
             $table->string('nm_fantasia');
             $table->string('razao_social');
             $table->text('descricao')->nullable();
             $table->string('endereco')->nullable();
+            $table->string('cep')->nullable();
             $table->timestamps();
         });
     }

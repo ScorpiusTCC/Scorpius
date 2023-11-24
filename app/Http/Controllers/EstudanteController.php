@@ -70,23 +70,37 @@ class EstudanteController extends Controller
 
         $data['idade'] = \Carbon\Carbon::parse($data['data_nasc'])->diffInYears();
 
-        // Obter a imagem do usuário
-        $imagem = $request->file('picture__input');
+        if(!empty($data['picture__input'])) 
+        {
+            // Obter a imagem do usuário
+            $imagem = $request->file('picture__input');
 
-        // Gerar novo nome com extensão original
-        $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
+            // Gerar novo nome com extensão original
+            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
 
-        // Salvar a imagem na pasta storage/app/public/uploads/estudantes
-        $caminhoImagem = $imagem->storeAs('public/uploads/estudantes', $nomeImagem);
+            // Salvar a imagem na pasta storage/app/public/uploads/estudantes
+            $caminhoImagem = $imagem->storeAs('public/uploads/estudantes', $nomeImagem);
 
-        // Criar usuário
-        $create_user = $this->user->create([
-            'nome' => $data['nome'],
-            'email' => $data['email'],
-            'senha' => Hash::make($data['password']),
-            'nm_img' => str_replace('public/', 'storage/', $caminhoImagem), // Corrigindo o caminho
-            'tipo' => 'estudante',
-        ]);
+             // Criar usuário
+             $create_user = $this->user->create([
+                'nome' => $data['nome'],
+                'email' => $data['email'],
+                'senha' => Hash::make($data['password']),
+                'nm_img' => str_replace('public/', 'storage/', $caminhoImagem), // Corrigindo o caminho
+                'tipo' => 'estudante',
+            ]);
+
+        } else {
+
+            // Criar usuário
+            $create_user = $this->user->create([
+                'nome' => $data['nome'],
+                'email' => $data['email'],
+                'senha' => Hash::make($data['password']),
+                'tipo' => 'estudante',
+            ]);
+
+        }
 
         // Criar contato
         $create_contato = ContatoEstudante::create([
@@ -137,7 +151,7 @@ class EstudanteController extends Controller
         // return redirect()->route('index');
     }
 
-    public function showMyProfile()
+    public function showProfile()
     {
         $cursos = Curso::all();
         $escolas = Escola::all();
@@ -239,22 +253,6 @@ class EstudanteController extends Controller
         $this->exp->where('id', $id)->delete();
 
         return redirect()->back();
-    }
-
-    private function estudanteCurso($id)
-    {
-        $dadosUser = User::select(
-            'users.*',
-            'cursos.nome as curso',
-            'escola.nome as status',
-            'modalidades_vaga.tipo as modalidade', 
-        )
-        ->join('status', 'vagas.id_status', 'status.id')
-        ->join('modalidades_vaga', 'vagas.id_modalidade', 'modalidades_vaga.id')
-        ->join('empresas', 'vagas.id_empresa', 'empresas.id')
-        ->join('users', 'empresas.id_user', 'users.id');
-        
-        return $dadosUser;
     }
 
     private function enderecoUser($cep)

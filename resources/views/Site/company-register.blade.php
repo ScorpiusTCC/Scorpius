@@ -8,8 +8,8 @@
     
     <main>
 
-        <form action="">
-
+        <form action="{{ route('empresa.store') }}" method="post">
+            @csrf
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -36,21 +36,29 @@
                                 <div class="form">
 
                                     <label for=""> <p>CNPJ <span>*</span> </p> </label>
-                                    <input type="text" name="" id="">
+                                    <input type="text" name="cnpj" id="cnpj" value="74.233.965/0001-60">
 
                                 </div>
 
                                 <div class="form">
 
+                                    <label for=""> <p>IE <span>*</span> </p> </label>
+                                    <input type="text" name="ie" id="ie" value="594.474.247.589">
+
+                                </div>
+
+
+                                <div class="form">
+
                                     <label for=""> <p>Nome Fantasia <span>*</span> </p> </label>
-                                    <input type="text" name="" id="">
+                                    <input type="text" name="nm_fantasia" id="nm_fantasia" value="Sebastião e Valentina Casa Noturna ME">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Razão Social <span>*</span> </p> </label>
-                                    <input type="text" name="" id="">
+                                    <input type="text" name="razao_social" id="razao_social" value="Casa de Prazeres">
 
                                 </div>
 
@@ -77,7 +85,7 @@
                             <div id="first-division-text-area">
 
                                 <p>Passo <b>2</b> de <b>5</b></p>
-                                <span>Crie sua senha de acesso</span>
+                                <span>Insira os dados da empresa</span>
 
                             </div>
 
@@ -91,28 +99,30 @@
 
                                 <div class="form">
 
-                                    <input type="text" name="" id="senha" placeholder="Coloque aqui a sua senha">
+                                    <label for=""> <p>Nome do representante <span>*</span></p> </label>
+                                    <input type="text" id="nm_representante" name="nm_representante" value="Mateus Sampaio">
 
-                                    <div id="security-indicator">
+                                </div>
 
-                                        <h3>Indicador de Segurança:</h3> <span id="indicador"></span>
+                                <div class="form">
 
-                                    </div>
+                                    <label for=""> <p>E-mail da empresa <span>*</span> </p> </label>
+                                    <input type="email" name="email" id="email" value="contabil@sebastiaoevalentinacasanoturname.com.br">
 
-                                    <div id="password-rules">
+                                </div>
 
-                                        <ul>
 
-                                            <li>Não ter letras e números repetidos ou sequenciais, ex: aaa,123</li>
-                                            <li>Mínimo de 8 caracteres.</li>
-                                            <li>Mínimo de 1 elemento especial (#$%@)</li>
-                                            <li>Mínimo de 1 número.</li>
-                                            <li>Ter letras minúsculas.</li>
-                                            <li>Ter letras MAIÚSCULAS.</li>
+                                <div class="form">
 
-                                        </ul>
+                                    <label for=""> <p>Telefone comercial da empresa <span>*</span> (Com DDD) </p> </label>
+                                    <input type="text" id="tel_empresa" name="tel_empresa" value="(13) 98173-9833"> 
 
-                                    </div>
+                                </div>
+
+                                <div class="form">
+
+                                    <label for=""> <p>Telefone celular do representante <span>*</span> (Com DDD) </p> </label>
+                                    <input type="text" id="tel_representante" name="tel_representante" value="(13) 98173-9957">
 
                                 </div>
 
@@ -132,7 +142,7 @@
                         </div>
 
                     </div>
-
+                    
                     <div class="swiper-slide 3">
 
                         <div id="first-division">
@@ -155,7 +165,7 @@
                                     <div class="form">
 
                                         <label for=""> <p>CEP <span>*</span> </p> </label>
-                                        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                        <input name="cep" type="text" id="cep" value="11714000" size="10" maxlength="9"
                                         onblur="pesquisacep(this.value);">
 
                                     </div>
@@ -176,15 +186,29 @@
 
                                     <div class="form">
 
-                                        <label for=""> <p>Estado <span>*</span></p> </label>
-                                        <input name="uf" type="text" id="uf" size="2">
+                                        <label for=""> <p>UF <span>*</span></p> </label>
+                                        <input name="uf" type="text" id="uf" size="40">
 
                                     </div>
 
                                     <div class="form">
 
-                                        <label for=""> <p>Endereço <span>*</span></p> </label>
-                                        <input name="uf" type="text" id="uf" size="2">
+                                        <label for=""> <p>Rua <span>*</span></p> </label>
+                                        <input name="logradouro" type="text" id="logradouro" size="200" >
+
+                                    </div>
+
+                                    <div class="form">
+
+                                        <label for=""> <p>Número <span>*</span></p> </label>
+                                        <input name="numero" type="text" id="numero" size="2" value="508">
+
+                                    </div>
+
+                                    <div class="form">
+
+                                        <label for=""> <p>Complemento <span>*</span></p> </label>
+                                        <input name="complemento" type="text" id="complemento" size="50" value="complemento">
 
                                     </div>
 
@@ -241,7 +265,7 @@
                                 </div>
 
                                 <label for=""> <p>Sobre mim <span>*</span></p> </label>
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                <textarea name="sobre" id="sobre" cols="30" rows="10"></textarea>
 
                             </div>
 
@@ -252,7 +276,7 @@
                             <div id="buttons-division">
 
                                 <button id="prev-button"><</button>
-                                <input id="next-button" type="submit" value="Concluir">
+                                <button type="submit" id="next-button">Continuar</button>
 
                             </div>
 
@@ -267,7 +291,7 @@
                             <div id="first-division-text-area">
 
                                 <p>Passo <b>5</b> de <b>5</b></p>
-                                <span>Insira os dados da empresa</span>
+                                <span>Crie sua senha de acesso</span>
 
                             </div>
 
@@ -281,30 +305,28 @@
 
                                 <div class="form">
 
-                                    <label for=""> <p>Nome do representante <span>*</span></p> </label>
-                                    <input type="text" id="" name="">
+                                    <input type="text" name="senha" id="senha" value="Admin1525@" placeholder="Coloque aqui a sua senha">
 
-                                </div>
+                                    <div id="security-indicator">
 
-                                <div class="form">
+                                        <h3>Indicador de Segurança:</h3> <span id="indicador"></span>
 
-                                    <label for=""> <p>E-mail da empresa <span>*</span> </p> </label>
-                                    <input type="email" name="" id="">
+                                    </div>
 
-                                </div>
+                                    <div id="password-rules">
 
+                                        <ul>
 
-                                <div class="form">
+                                            <li>Não ter letras e números repetidos ou sequenciais, ex: aaa,123</li>
+                                            <li>Mínimo de 8 caracteres.</li>
+                                            <li>Mínimo de 1 elemento especial (#$%@)</li>
+                                            <li>Mínimo de 1 número.</li>
+                                            <li>Ter letras minúsculas.</li>
+                                            <li>Ter letras MAIÚSCULAS.</li>
 
-                                    <label for=""> <p>Telefone comercial da empresa <span>*</span> (Com DDD) </p> </label>
-                                    <input type="text" id="" name="">
+                                        </ul>
 
-                                </div>
-
-                                <div class="form">
-
-                                    <label for=""> <p>Telefone celular do representante <span>*</span> (Com DDD) </p> </label>
-                                    <input type="text" id="" name="">
+                                    </div>
 
                                 </div>
 
@@ -317,15 +339,13 @@
                             <div id="buttons-division">
 
                                 <button id="prev-button"><</button>
-                                <button type="submit" id="next-button">Concluir</button>
+                                <input id="submit-button" type="submit" value="Concluir">
 
                             </div>
 
                         </div>
 
                     </div>
-
-
 
                 </div>
 
@@ -336,7 +356,7 @@
 
         </form>
 
-        <a id="login-link" href="{{ route('login') }}">Já possuo uma conta na Scorpius</a>
+        <a id="login-link" href="{{ route('login') }}">Já possuo uma conta</a>
 
     </main>
 
