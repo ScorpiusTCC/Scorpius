@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\CategoriaVaga;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Categoria;
 use App\Models\ContatoEmpresa;
 use App\Models\ContatoEstudante;
 use App\Models\Conversa;
@@ -12,9 +11,8 @@ use App\Models\Empresa;
 use App\Models\Escola;
 use App\Models\escolaCurso;
 use App\Models\Estudante;
-use App\Models\Experiencia;
 use App\Models\Mensagem;
-use App\Models\ModalidadeVaga;
+use App\Models\Modalidade;
 use App\Models\ParticipanteConversa;
 use App\Models\Periodo;
 use App\Models\Sexo;
@@ -32,7 +30,7 @@ class DatabaseSeeder extends Seeder
     function run(): void
     {
         //Inserir modalidades de vagas - tabela 'modalidades_vaga'
-        ModalidadeVaga::insert([
+        Modalidade::insert([
             ['nome' => 'Presencial'],
             ['nome' => 'Hibrído'],
             ['nome' => 'Remoto'],
@@ -59,7 +57,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //Inserir categoria - tabela 'categoria_vaga'
-        CategoriaVaga::insert([
+        Categoria::insert([
             ['nome' => 'Tecnologia', 'nm_img' => 'imgs/index/tecno-image.jpg'],
             ['nome' => 'Marketing', 'nm_img' => 'imgs/index/marketing-image.jpg'],
             ['nome' => 'Administração', 'nm_img' => 'imgs/index/adm-image.jpg'],
@@ -228,7 +226,8 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 2,
                 'id_empresa' => 1, 
                 'id_status' => 1,
-                'id_categoria_vaga' => 1,
+                'id_periodo' => 1,
+                'id_categoria' => 1,
                 'titulo' => 'Desenvolvedor Web', 
                 'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
                 'salario' => 800.00, 
@@ -239,7 +238,8 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 2,
                 'id_empresa' => 1, 
                 'id_status' => 1,
-                'id_categoria_vaga' => 1,
+                'id_periodo' => 1,
+                'id_categoria' => 1,
                 'titulo' => 'Desenvolvedor Web Java', 
                 'descricao' => 'Oportunidade para desenvolver software',
                 'salario' => 500.00, 
@@ -250,7 +250,8 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 3,
                 'id_empresa' => 1, 
                 'id_status' => 1,
-                'id_categoria_vaga' => 1,
+                'id_periodo' => 1,
+                'id_categoria' => 1,
                 'titulo' => 'Suporte TI', 
                 'descricao' => 'Precisando com urgência',
                 'salario' => 600.00, 
@@ -261,7 +262,8 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 1,
                 'id_empresa' => 3, 
                 'id_status' => 1,
-                'id_categoria_vaga' => 1,
+                'id_periodo' => 1,
+                'id_categoria' => 1,
                 'titulo' => 'Escritório de Informática', 
                 'descricao' => 'Precisando com urgência',
                 'salario' => 600.00, 
@@ -272,7 +274,8 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 3,
                 'id_empresa' => 3, 
                 'id_status' => 1,
-                'id_categoria_vaga' => 1,
+                'id_periodo' => 1,
+                'id_categoria' => 1,
                 'titulo' => 'Programador PHP Jr', 
                 'descricao' => 'Precisando com urgência',
                 'salario' => 600.00, 
@@ -283,7 +286,8 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 1,
                 'id_empresa' => 1, 
                 'id_status' => 1,
-                'id_categoria_vaga' => 1,
+                'id_periodo' => 1,
+                'id_categoria' => 1,
                 'titulo' => 'Desenvolvedor Phyton', 
                 'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
                 'salario' => 790.00, 
@@ -294,7 +298,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 2,
                 'id_modalidade' => 1,
                 'id_status' => 1,
-                'id_categoria_vaga' => 3,
+                'id_periodo' => 1,
+                'id_categoria' => 3,
                 'titulo' => 'Assistente Administrativo',
                 'descricao' => 'Vaga para assistente administrativo. Atividades incluem organização de documentos e atendimento ao cliente.',
                 'salario' => 700.00,
@@ -305,7 +310,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 2,
                 'id_modalidade' => 2,
                 'id_status' => 1,
-                'id_categoria_vaga' => 3,
+                'id_periodo' => 1,
+                'id_categoria' => 3,
                 'titulo' => 'Analista de Recursos Humanos',
                 'descricao' => 'Oportunidade para analista de RH. Realizará processos seletivos e atividades relacionadas à gestão de pessoas.',
                 'salario' => 300.00,
@@ -316,7 +322,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 2,
                 'id_modalidade' => 3,
                 'id_status' => 1,
-                'id_categoria_vaga' => 3,
+                'id_periodo' => 1,
+                'id_categoria' => 3,
                 'titulo' => 'Auxaliar Administrativo',
                 'descricao' => 'Buscamos um gestor administrativo para liderar equipes e otimizar processos internos.',
                 'salario' => 600.00,
@@ -327,7 +334,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 2,
                 'id_modalidade' => 1,
                 'id_status' => 1,
-                'id_categoria_vaga' => 3,
+                'id_periodo' => 1,
+                'id_categoria' => 3,
                 'titulo' => 'Auxiliar Financeiro',
                 'descricao' => 'Vaga para auxiliar financeiro. Atuará nas atividades relacionadas à área financeira da empresa.',
                 'salario' => 800.00,
@@ -338,7 +346,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 2,
                 'id_modalidade' => 2,
                 'id_status' => 1,
-                'id_categoria_vaga' => 3,
+                'id_periodo' => 1,
+                'id_categoria' => 3,
                 'titulo' => 'Auxiliador de Logística',
                 'descricao' => 'Coordenará as atividades logísticas da empresa, garantindo eficiência nas operações.',
                 'salario' => 550.00,
@@ -349,7 +358,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 2,
                 'id_modalidade' => 3,
                 'id_status' => 1,
-                'id_categoria_vaga' => 3,
+                'id_periodo' => 1,
+                'id_categoria' => 3,
                 'titulo' => 'Auciliar Administrativo',
                 'descricao' => 'Especialista em compras para gerenciar o processo de aquisição de materiais e serviços.',
                 'salario' => 480.00,
@@ -360,7 +370,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3,
                 'id_modalidade' => 1,
                 'id_status' => 1,
-                'id_categoria_vaga' => 4,
+                'id_periodo' => 1,
+                'id_categoria' => 4,
                 'titulo' => 'Analista de Logística',
                 'descricao' => 'Oportunidade para analista de logística. Responsável pelo planejamento e otimização de processos logísticos.',
                 'salario' => rand(500, 800) . '.00',
@@ -371,7 +382,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3,
                 'id_modalidade' => 2,
                 'id_status' => 1,
-                'id_categoria_vaga' => 4,
+                'id_periodo' => 1,
+                'id_categoria' => 4,
                 'titulo' => 'Coordenador de Distribuição',
                 'descricao' => 'Coordenará as atividades de distribuição de produtos, garantindo eficiência e qualidade.',
                 'salario' => rand(500, 800) . '.00',
@@ -382,7 +394,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3,
                 'id_modalidade' => 3,
                 'id_status' => 1,
-                'id_categoria_vaga' => 4,
+                'id_periodo' => 1,
+                'id_categoria' => 4,
                 'titulo' => 'Analista de Suprimentos',
                 'descricao' => 'Atuará na gestão de suprimentos, realizando análise e otimização dos processos de compras.',
                 'salario' => rand(500, 800) . '.00',
@@ -393,7 +406,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3,
                 'id_modalidade' => 1,
                 'id_status' => 1,
-                'id_categoria_vaga' => 4,
+                'id_periodo' => 1,
+                'id_categoria' => 4,
                 'titulo' => 'Assistente de Estoque',
                 'descricao' => 'Vaga para assistente de estoque. Responsável pelo controle e organização do estoque da empresa.',
                 'salario' => rand(500, 800) . '.00',
@@ -404,7 +418,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3,
                 'id_modalidade' => 2,
                 'id_status' => 1,
-                'id_categoria_vaga' => 4,
+                'id_periodo' => 1,
+                'id_categoria' => 4,
                 'titulo' => 'Assistente de Logística',
                 'descricao' => 'Buscamos um profissional para gerenciar toda a área logística da empresa.',
                 'salario' => rand(500, 800) . '.00',
@@ -415,7 +430,8 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3,
                 'id_modalidade' => 3,
                 'id_status' => 1,
-                'id_categoria_vaga' => 4,
+                'id_periodo' => 1,
+                'id_categoria' => 4,
                 'titulo' => 'Analista de Importação e Exportação',
                 'descricao' => 'Atuará nas atividades de importação e exportação, garantindo conformidade com as normas.',
                 'salario' => rand(500, 800) . '.00',

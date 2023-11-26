@@ -19,4 +19,9 @@ class Periodo extends Model
     {
         return $this->hasMany(estudanteCurso::class, 'id_periodo');
     }
+
+    public function vaga()
+    {
+        return $this->hasMany(Vaga::class, 'id_periodo');
+    }
 }

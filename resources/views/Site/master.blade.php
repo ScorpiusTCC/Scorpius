@@ -84,6 +84,7 @@
 
                     <div class="hyperlink-space">
 
+                        <a href="{{ route('show.vagas')}}">Minhas vagas</a>
                         <a href="{{ route('about-us')}}">Sobre nós</a>
                         <a href="">Conheça nosso plano</a>
 

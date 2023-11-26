@@ -11,7 +11,7 @@ class CreateExperienciasTable extends Migration
         Schema::create('experiencias', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_estudante')->constrained('estudantes');
-            $table->foreignId('id_modalidade')->constrained('modalidades_vaga');
+            $table->foreignId('id_modalidade')->constrained('modalidades');
             $table->string('empregador')->nullable();
             $table->string('descricao')->nullable();
             $table->string('tempo')->nullable();

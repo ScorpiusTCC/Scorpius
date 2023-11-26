@@ -168,7 +168,7 @@
                                     <label for=""> <p>Gênero <span>*</span></p> </label>
                                     <select name="sexo" id="sexo">
 
-                                        <option value="" disabled>Selecionar</option>
+                                        <option value="" disabled selected hidden>Selecionar</option>
 
                                         @foreach ($sexos as $sexo)
                                             

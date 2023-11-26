@@ -38,37 +38,33 @@ class EmpresaController extends Controller
 
         //  dd($data);      
 
-        if(empty($data['picture__input'])) 
-        {
+         // Verificar se uma imagem foi enviada
+        if (!empty($data['picture__input'])) {
+            // Obter a imagem do usuário
+            $imagem = $request->file('picture__input');
 
-            // Criar usuário
+            // Gerar novo nome com extensão original
+            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
+
+            // Salvar a imagem na pasta storage/app/public/uploads/empresas
+            $caminhoImagem = $imagem->storeAs('public/uploads/empresas', $nomeImagem);
+
+            // Criar usuário com imagem
             $create_user = $this->user->create([
                 'nome' => $data['nm_fantasia'],
                 'email' => $data['email'],
-                'senha' => Hash::make($data['senha']),  
+                'senha' => Hash::make($data['senha']),
+                'nm_img' => str_replace('public/', 'storage/', $caminhoImagem), // Corrigindo o caminho
                 'tipo' => 'empresa',
             ]);
-
         } else {
-            
-             // Obter a imagem do usuário
-             $imagem = $request->file('picture__input');
-
-             // Gerar novo nome com extensão original
-             $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
- 
-             // Salvar a imagem na pasta storage/app/public/uploads/estudantes
-             $caminhoImagem = $imagem->storeAs('public/uploads/empresas', $nomeImagem);
- 
-             // Criar usuário
-             $create_user = $this->user->create([
-                 'nome' => $data['nm_fantasia'],
-                 'email' => $data['email'],
-                 'senha' => Hash::make($data['senha']),
-                 'nm_img' => str_replace('public/', 'storage/', $caminhoImagem), // Corrigindo o caminho
-                 'tipo' => 'empresa',
-             ]);
-
+            // Criar usuário sem imagem
+            $create_user = $this->user->create([
+                'nome' => $data['nm_fantasia'],
+                'email' => $data['email'],
+                'senha' => Hash::make($data['senha']),
+                'tipo' => 'empresa',
+            ]);
         }
 
         // Criar contato
@@ -105,5 +101,50 @@ class EmpresaController extends Controller
         Auth::login($create_user);
 
         return redirect()->route('index');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        
+        $cep = $user->estudante->cep;
+
+        $enderecoData = $this->enderecoUser($cep);
+
+        $experiencias = $this->infoExp($user->estudante->id);
+
+        $datacursos = $this->infoCurso($user->estudante->id);
+
+        $ajuste = true;
+        
+        return view('site/student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos', 'ajuste'));
+
+        // return redirect()->route('index');
+    }
+
+    public function showProfile()
+    {
+        // Encontrar o usuário pelo ID
+        $user = auth()->user();
+
+        // Verificar se o usuário foi encontrado
+        if ($user) {
+            // Verificar se o usuário tem um estudante associado
+            if ($user->estudante) {
+                // Se sim, obter o CEP
+                $cep = $user->estudante->cep;
+
+                // Chamar a função para obter os dados do endereço
+                $enderecoData = $this->enderecoUser($cep);
+
+                $experiencias = $this->infoExp($user->estudante->id);
+
+                $datacursos = $this->infoCurso($user->estudante->id);
+                
+                return view('site/logged-student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos'));
+            }
+        } else {
+            return redirect()->route('index');
+        }
     }
 }

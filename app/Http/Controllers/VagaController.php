@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
+use App\Models\Modalidade;
+use App\Models\Periodo;
 use App\Models\Vaga;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class VagaController extends Controller
@@ -19,12 +23,11 @@ class VagaController extends Controller
      */
     public function index()
     {
-        $vagas = $this->DadosVaga()
-                    ->paginate(12);
+        $vagas = Vaga::orderBy('created_at', 'desc')->paginate(12);
 
-        $ajuste = false;
+        $ajuste_vaga = false;
 
-        return view('site/jobs', compact('vagas', 'ajuste'));
+        return view('site/jobs', compact('vagas', 'ajuste_vaga'));
     }
 
     /**
@@ -32,7 +35,11 @@ class VagaController extends Controller
      */
     public function create()
     {
-        //
+        $modalidades = Modalidade::all();
+        $categorias = Categoria::all();
+        $periodos = Periodo::all();
+
+        return view('site/job-register', compact('modalidades', 'categorias', 'periodos'));
     }
 
     /**
@@ -40,8 +47,27 @@ class VagaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->except('_token');
+
+        $data['data_exp'] = Carbon::now()->addMonths(2);
+
+        $company = auth()->user()->empresa;
+
+        // dd($data, $company->id);
+
+        $company->vagas()->create([
+            'titulo' => $data['titulo'],
+            'descricao' => $data['descricao'],
+            'data_expiracao' => $data['data_exp'],
+            'salario' => $data['salario'],
+            'id_modalidade' => $data['modalidade'],
+            'id_categoria' => $data['categoria'],
+            'id_periodo' => $data['periodo'],
+            'id_status' => 1,
+        ]);
+
+        return redirect()->route('index');
+    }   
 
     /**
      * Display the specified resource.
@@ -79,31 +105,30 @@ class VagaController extends Controller
     {
         $searchCategory = $id;
 
-        $vagas = $this->DadosVaga()
-                    ->where('vagas.id_categoria_vaga', $searchCategory)
+        $vagas = Vaga::where('vagas.id_categoria', $searchCategory)
                     ->paginate(10);
 
         // $vagas['img'] = '../' . $vagas['nm_img'];
 
+        $ajuste_vaga = true;
         $ajuste = true;
 
-        return view('site/jobs', compact('vagas', 'ajuste'));
+        return view('site/jobs', compact('vagas', 'ajuste_vaga', 'ajuste'));
     }
 
     public function filterName(Request $request)
     {
         $searchName = $request->searchName;
 
-        $vagas = $this->DadosVaga()
-                    ->where('vagas.titulo', 'like', '%' . $searchName . '%')
-                    ->paginate(10);
+        $vagas = Vaga::where('vagas.titulo', 'like', '%' . $searchName . '%')
+                    ->paginate(12);
 
         // echo '<pre>';
         // var_dump($vagas);
         // echo '<pre>';
-        $ajuste = false;
-
-        return view('site/jobs', compact('vagas', 'ajuste'));
+        $ajuste_vaga = false;
+    
+        return view('site/jobs', compact('vagas', 'ajuste_vaga'));
     }
 
     private function DadosVaga()
@@ -112,7 +137,7 @@ class VagaController extends Controller
             'vagas.*',
             'empresas.nm_fantasia as empresa',
             'status.nome as status',
-            'modalidades_vaga.nome as modalidade', 
+            'modalidades.nome as modalidade', 
             'users.nm_img as nm_img'
         )
         ->join('status', 'vagas.id_status', 'status.id')

@@ -20,7 +20,7 @@ class Empresa extends Model
     ];
 
     
-    public function usuario()
+    public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
     }

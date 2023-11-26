@@ -8,7 +8,7 @@
     
     <main>
 
-        <form action="{{ route('empresa.store') }}" method="post">
+        <form action="{{ route('empresa.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- Swiper -->
             <div class="swiper mySwiper">

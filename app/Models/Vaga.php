@@ -12,6 +12,8 @@ class Vaga extends Model
         'id_empresa', 
         'id_modalidade',
         'id_status',
+        'id_categoria',
+        'id_periodo',
         'titulo', 
         'descricao', 
         'salario', 
@@ -25,7 +27,7 @@ class Vaga extends Model
 
     public function modalidade()
     {
-        return $this->belongsTo(ModalidadeVaga::class, 'id_modalidade');
+        return $this->belongsTo(Modalidade::class, 'id_modalidade');
     }
 
     public function status()
@@ -33,9 +35,14 @@ class Vaga extends Model
         return $this->belongsTo(Status::class, 'id_status');
     }
 
-    public function categoria_vaga()
+    public function categoria()
     {
-        return $this->belongsTo(TipoVaga::class, 'id_categoria_vaga');
+        return $this->belongsTo(Categoria::class, 'id_categoria');
+    }
+
+    public function periodo()
+    {
+        return $this->belongsTo(Periodo::class, 'id_periodo');
     }
 
     public function candidaturas()

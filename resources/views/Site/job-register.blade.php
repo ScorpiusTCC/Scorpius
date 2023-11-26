@@ -8,8 +8,8 @@
 
     <main>
 
-        <form action="">
-
+        <form action="{{ route('job.store') }}" method="post">
+            @csrf
             <div class="swiper">
 
                 <!-- Additional required wrapper -->
@@ -20,7 +20,7 @@
 
                         <div class="initial-info">
 
-                            <span>Passo <b>1</b> de <b>4</b></span>
+                            <span>Passo <b>1</b> de <b>3</b></span>
                             <h1>Dados iniciais</h1>
 
                         </div>
@@ -32,7 +32,7 @@
                                 <h1>Qual o título da vaga?</h1>
 
                                 <label for="">Título da vaga<b>*</b> </label>
-                                <input type="text" placeholder="Ex.:  Estágio em Programação Front-End">
+                                <input type="text" name="titulo" id="titulo" placeholder="Ex:  Estágio em Programação Front-End">
 
                             </div>
 
@@ -40,11 +40,29 @@
 
                                 <h1>Descrição da vaga</h1>
 
-                                <label for="">Há algo mais que você gostaria de incluir sobre a vaga?<b>*</b> </label>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Digite aqui informações adicionais sobre a vaga, se precisar."></textarea>
+                                <label for="">Coloque aqui uma descrição detalhada sobre sua vaga?<b>*</b> </label>
+                                <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
 
                             </div>
 
+                            <div class="form">
+
+                                <h1>Bolsa-Auxílio</h1>
+
+                                <label for="">R$ <b>*</b> </label>
+                                <input type="number" name="salario" id="salario">
+
+                                {{-- 
+                                - Adicionar check-box para a opção de não infromar valor 
+                                <label for="nao_informar_valor">
+                                    <input type="checkbox" name="nao_informar_valor" id="nao_informar_valor">
+                                    Não informar valor
+                                </label> 
+                                --}}
+
+                            </div>
+
+                        
                         </div>
 
                         <div class="buttons-division">
@@ -59,8 +77,8 @@
 
                         <div class="initial-info">
 
-                            <span>Passo <b>2</b> de <b>4</b></span>
-                            <h1>Local e horário</h1>
+                            <span>Passo <b>2</b> de <b>3</b></span>
+                            <h1>informações adcicionais</h1>
 
                         </div>
 
@@ -68,47 +86,39 @@
 
                             <div class="form">
 
-                                <h1>Qual a jornada do estágio?</h1>
+                                <h1>Qual a Modalidade do estágio?</h1>
 
-                                <label for="">Período do estágio<b>*</b> </label>
-                                <select name="" id="">
+                                <label for="">Modalidade do estágio<b>*</b> </label>
+                                <select name="modalidade" id="modalidade">
 
-                                    <option value="" disabled selected hidden></option>
-                                    <option value="">Diurno</option>
-                                    <option value="">Vespertino</option>
-                                    <option value="">Noturno</option>
+                                    <option disabled selected hidden>Selecionar</option>
+
+                                    @foreach ($modalidades as $modalidade)
+                                            
+                                    <option value="{{ $modalidade->id }}">{{ $modalidade->nome }}</option>
+
+                                    @endforeach
 
                                 </select>
                                 
-
                             </div>
 
                             <div class="form">
 
                                 <h1>Local de trabalho</h1>
-
+    
                                 <label for="">Onde o profissional irá trabalhar?<b>*</b> </label>
-                                <input type="text" maxlength="9" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
-
+                                <input type="text" name="cep" id="cep" maxlength="9" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
+    
+                            </div>
+    
+                            <div class="buttons-division">
+    
+                                <button class="prev-button"><</button>
+                                <button class="next-button">Continuar</button>
+            
                             </div>
 
-                            <div class="form">
-
-                                <h1>Número de vagas</h1>
-
-                                <label for="">N° de vagas<b>*</b> </label>
-                                <input type="number" placeholder="1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="buttons-division">
-
-                            <button class="prev-button"><</button>
-                            <button class="next-button">Continuar</button>
-        
                         </div>
 
                     </div>
@@ -117,8 +127,8 @@
 
                         <div class="initial-info">
 
-                            <span>Passo <b>3</b> de <b>4</b></span>
-                            <h1>Sobre a vaga</h1>
+                            <span>Passo <b>3</b> de <b>3</b></span>
+                            <h1>informações adcicionais</h1>
 
                         </div>
 
@@ -126,30 +136,47 @@
 
                             <div class="form">
 
-                                <h1>Informações sobre a vaga</h1>
+                                <h1>Em qual categoria essa vaga se encaixa?</h1>
+                                <select name="categoria" id="categoria">
 
-                                <label for="">Quais são as atividades desempenhadas nesta função?<b>*</b> </label>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Digite aqui os papéis e responsabilidades exercidas nesse cargo."></textarea>
+                                    <option value="" disabled selected hidden>Selecionar</option>
 
-                            </div>
+                                    @foreach ($categorias as $categoria)
+                                            
+                                    <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+
+                                    @endforeach
+
+                                </select>
+                            
+                            </div>    
 
                             <div class="form">
 
-                                <h1></h1>
+                                <h1>Qual a jornada do estágio?</h1>
 
-                                <label for="">Há algo mais que você gostaria de incluir sobre a vaga?<b>*</b> </label>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Informe quais cursos o candidato deverá estar cursando e quais os conhecimentos necessários."></textarea>
+                                <label for="">Período do estágio<b>*</b> </label>
+                                <select name="periodo" id="periodo">
 
+                                    <option disabled selected hidden>Selecionar</option>
+
+                                    @foreach ($periodos as $periodo)
+                                            
+                                    <option value="{{ $periodo->id }}">{{ $periodo->nome }}</option>
+
+                                    @endforeach
+
+                                </select>
+                                
+                            </div>
+    
+                            <div class="buttons-division">
+    
+                                <button class="prev-button"><</button>
+                                <button type="submit" class="next-submit">concluir</button>
+            
                             </div>
 
-
-                        </div>
-
-                        <div class="buttons-division">
-
-                            <button class="prev-button"><</button>
-                            <button class="next-button">Continuar</button>
-        
                         </div>
 
                     </div>

@@ -26,6 +26,6 @@ class Experiencia extends Model
     
     public function modalidade()
     {
-        return $this->belongsTo(ModalidadeVaga::class, 'id_modalidade');
+        return $this->belongsTo(Modalidade::class, 'id_modalidade');
     }
 }
