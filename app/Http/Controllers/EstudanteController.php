@@ -8,7 +8,7 @@ use App\Models\Escola;
 use App\Models\Estudante;
 use App\Models\EstudanteCurso;
 use App\Models\Experiencia;
-use App\Models\ModalidadeVaga;
+use App\Models\Modalidade;
 use App\Models\Periodo;
 use App\Models\Sexo;
 use App\Models\User;
@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Storage;
 
 use function Laravel\Prompts\select;
 
@@ -49,7 +50,7 @@ class EstudanteController extends Controller
     public function teste()
     {
         $sexos = Sexo::all();
-        $modalidades = ModalidadeVaga::all();
+        $modalidades = Modalidade::all();
         $periodos = Periodo::all();
 
         return view('site/teste', compact('sexos','modalidades', 'periodos'));  
@@ -132,7 +133,7 @@ class EstudanteController extends Controller
         $cursos = Curso::all();
         $escolas = Escola::all();
         $periodos = Periodo::all();
-        $modalidades = ModalidadeVaga::all();
+        $modalidades = Modalidade::all();
 
         $user = User::find($id);
         
@@ -156,7 +157,7 @@ class EstudanteController extends Controller
         $cursos = Curso::all();
         $escolas = Escola::all();
         $periodos = Periodo::all();
-        $modalidades = ModalidadeVaga::all();
+        $modalidades = Modalidade::all();
 
         // Encontrar o usuário pelo ID
         $user = auth()->user();
@@ -174,8 +175,10 @@ class EstudanteController extends Controller
                 $experiencias = $this->infoExp($user->estudante->id);
 
                 $datacursos = $this->infoCurso($user->estudante->id);
+
+                $ajuste = true;
                 
-                return view('site/logged-student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos'));
+                return view('site/logged-student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos', 'ajuste'));
             }
         } else {
             return redirect()->route('index');
@@ -233,8 +236,8 @@ class EstudanteController extends Controller
 
     private function infoExp($id)
     {
-        $dadosExp = Experiencia::select('experiencias.*', 'modalidades_vaga.nome as modalidade')
-        ->join('modalidades_vaga', 'modalidades_vaga.id', 'experiencias.id_modalidade')
+        $dadosExp = Experiencia::select('experiencias.*', 'modalidades.nome as modalidade')
+        ->join('modalidades', 'modalidades.id', 'experiencias.id_modalidade')
         ->where('experiencias.id_estudante', $id)
         ->get();
 
@@ -254,6 +257,55 @@ class EstudanteController extends Controller
 
         return redirect()->back();
     }
+
+    public function editProfile(Request $request)
+    {
+        // Obter dados do formulário
+        $data = $request->all();
+
+        // Obter o estudante que quer fazer a atualização 
+        $user = auth()->user();
+
+        // Verificar se uma nova imagem foi enviada
+        if (!empty($data['picture__input'])) {
+            // Obter a imagem do usuário
+            $imagem = $request->file('picture__input');
+
+            // Gerar novo nome com extensão original
+            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
+
+            // Salvar a nova imagem na pasta storage/app/public/uploads/estudantes
+            $caminhoNovaImagem = $imagem->storeAs('public/uploads/estudantes', $nomeImagem);
+
+            // Excluir a antiga imagem se ela existir
+            if ($user->nm_img) {
+                Storage::delete(str_replace('storage/', 'public/', $user->nm_img));
+            }
+
+            // Atualizar o usuário com a nova imagem
+            $user->update([
+                'nm_img' => str_replace('public/', 'storage/', $caminhoNovaImagem),
+            ]);
+        }
+
+        if(!empty($data['nome'])){
+            // Atualizar outros campos do usuário, se necessário
+            $user->update([
+                'nome' => $data['nome'],
+            ]);
+        }
+        
+        if(!($data['sobre'])){
+            // Atualizar outros campos do usuário, se necessário
+            $user->estudante()->update([
+                'sobre' => $data['sobre'],
+            ]);
+        }   
+
+        // Redirecionar ou retornar uma resposta, por exemplo:
+        return redirect()->route('index')->with('success', 'Perfil atualizado com sucesso.');
+    }
+    
 
     private function enderecoUser($cep)
     {

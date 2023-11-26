@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ModalidadeVaga extends Model
+class Modalidade extends Model
 {
-    protected $table = 'modalidades_vaga';
+    protected $table = 'modalidades';
     
     protected $fillable = [
         'nome'

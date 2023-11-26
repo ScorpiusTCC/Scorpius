@@ -61,7 +61,7 @@
 
                             <a href="{{ route('filterCategoryVaga', $categoria->id) }}"> 
                                 <img src="{{ $categoria->nm_img }}" alt="{{ $categoria->nm_img }}">
-                                <h2>{{ $categoria->nome }}</h2>
+                                <h3>{{ $categoria->nome }}</h3>
                             </a>
                                 
                         </div>
@@ -75,13 +75,6 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
 
-            </div>
-
-
-            <div id="second-area-button">
-
-                <a href="{{ route('vagas') }}"><button>Encontrar todas as vagas</button></a>
-                
             </div>
 
         </section>
@@ -107,9 +100,8 @@
     
                 <div id="fourth-area-second-division">
     
-                    <h3>Antes de se candidatar a uma oportunidade de estágio, avalie sua pontuação em várias competências em comparação com a dos outros candidatos e veja os principais requisitos exigidos pelas empresas.</h3>
-                    <a href="{{ route('vagas') }}"><button>Buscar vagas de estágio</button></a>
-    
+                    <h3>Aqui na Scorpius suas chances de encontrar seu estágio dos sonhos é muito maior!</h3>
+
                 </div>
 
             </div>

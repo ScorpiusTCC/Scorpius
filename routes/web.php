@@ -30,12 +30,19 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Manipular vagas
 
-Route::get('/vagas', [VagaController::class, 'index'])->name('vagas');
+Route::get('/Vagas', [VagaController::class, 'index'])->name('vagas');
+
+Route::get('/Registro-vaga', [VagaController::class, 'create'])->name('job.create');
+
+Route::post('/Add-vaga', [VagaController::class, 'store'])->name('job.store');
+
+Route::get('/Vaga/{id}', [VagaController::class, 'show'])->name('job.show');
+
+Route::delete('/Vaga-delete/{id}', [VagaController::class, 'delete'])->name('job.delete');
 
 Route::get('/filterNameVaga', [VagaController::class, 'filterName'])->name('filterNameVaga');
 
 Route::get('/filterCategoryVaga/{id}', [VagaController::class, 'filterCategory'])->name('filterCategoryVaga');
-
 
 // Manipular estudantes
 
@@ -46,6 +53,8 @@ Route::post('/submitEstudante', [EstudanteController::class, 'store'])->name('su
 Route::get('/Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile');
 
 Route::get('/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
+
+Route::post('/Edit-Profile', [EstudanteController::class, 'editProfile'])->name('estudante.edit');
 
 Route::get('/AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store');
 
@@ -61,10 +70,9 @@ Route::get('/student-company', [EmpresaController::class, 'create'])->name('empr
 
 Route::post('/submitEmpresa', [EmpresaController::class, 'store'])->name('empresa.store');
 
-Route::get('/Empresa/MeuPerfil', [EmpresaController::class, 'showMyProfile'])->name('company.profile');
+Route::get('/Empresa/MeuPerfil', [EmpresaController::class, 'showProfile'])->name('company.profile');
 
 Route::get('/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
-
 
 // Demais rotas 
 
@@ -98,9 +106,7 @@ Route::get('/logged-profile', function () {
     return view('site/logged-student-profile');
 })->name('logged-profile');
 
-Route::get('/registro-vaga', function () {
-    return view('site/job-register');
-})->name('job-register');
+
 
 Route::get('/edit-student', function () {
     return view('site/edit-student');

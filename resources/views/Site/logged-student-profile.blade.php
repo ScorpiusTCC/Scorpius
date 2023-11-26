@@ -15,7 +15,7 @@
 
                 <div id="profile-img">
 
-                    <img src="{{ $user->nm_img }}" alt="foto fornecida pelo usuário">
+                    <img src="../{{ $user->nm_img }}" alt="foto fornecida pelo usuário">
     
                 </div>
     
@@ -429,7 +429,7 @@
 
                         <div class="modal-content">
 
-                            <form action="">
+                            <form action="{{ route('estudante.edit') }}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 <div class="edit-profile">
 
@@ -454,14 +454,7 @@
                                             <div>
 
                                                 <label class="profile-label" for="">Nome de usuário:</label>
-                                                <input class="profile-input" type="text">
-
-                                            </div>
-
-                                            <div>
-
-                                                <label class="profile-label" for="">Escola ou Faculdade atual:</label>
-                                                <input class="profile-input" type="text" name="" id="">
+                                                <input class="profile-input" name="nome" id="nome" type="text">
 
                                             </div>
 
@@ -472,7 +465,7 @@
                                     <div id="about-form">
 
                                         <label class="profile-label" for="">Sobre mim:</label>
-                                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                                        <textarea name="sobre" id="sobre" cols="30" rows="10"></textarea>
 
                                     </div>
 

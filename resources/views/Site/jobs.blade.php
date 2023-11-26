@@ -24,14 +24,14 @@
                     <div id="text-area-card">
 
                         <h2>{{ $vaga->titulo }}</h2>
-                        <h3>{{ $vaga->empresa }}</h3>
-                        <h4>{{ $vaga->modalidade }}</h4>
+                        <h3>{{ $vaga->empresa->nm_fantasia }}</h3>
+                        <h4>{{ $vaga->modalidade->nome }}({{ $vaga->periodo->nome }}) </h4>
 
                     </div>
 
                     <div id="image-area-card">
 
-                        <img src="{{ $ajuste ? '../' : '' }}{{ $vaga->nm_img }}" alt="{{ $ajuste ? '../' : '' }}{{ $vaga->nm_img }}">
+                        <img src="{{ $ajuste_vaga ? '../' : '' }}{{ $vaga->empresa->user->nm_img }}" alt="{{ $ajuste_vaga ? '../' : '' }}{{ $vaga->empresa->user->nm_img }}">
 
                     </div>
 

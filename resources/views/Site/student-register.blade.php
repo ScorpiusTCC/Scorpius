@@ -168,7 +168,11 @@
                                     <label for=""> <p>Gênero <span>*</span></p> </label>
                                     <select name="sexo" id="sexo">
 
+<<<<<<< HEAD
                                         <option value="" disabled selectd hidden>Selecionar</option>
+=======
+                                        <option value="" disabled selected hidden>Selecionar</option>
+>>>>>>> 1f6280aa31ecaf08b728850c99a9d884016c2c13
 
                                         @foreach ($sexos as $sexo)
                                             
