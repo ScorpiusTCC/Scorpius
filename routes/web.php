@@ -86,6 +86,10 @@ Route::get('/profile-company', function () {
     return view('site/company-profile');
 })->name('profile-company');
 
+Route::get('/logged-profile-company', function () {
+    return view('site/logged-company-profile');
+})->name('logged-profile-company');
+
 Route::get('/profile', function () {
     return view('site/student-profile');
 })->name('profile');
@@ -101,6 +105,10 @@ Route::get('/registro-vaga', function () {
 Route::get('/edit-student', function () {
     return view('site/edit-student');
 })->name('edit-student');
+
+Route::get('/edit-company', function () {
+    return view('site/edit-company');
+})->name('edit-company');
 
 // Route::get('/teste', function () {
 //     return view('site/teste');

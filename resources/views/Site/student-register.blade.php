@@ -339,5 +339,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/register_user-swiper.js') }}"></script>
     <script src="{{ asset('js/register-user-script.js') }}"></script>
+    <script src="{{ asset('js/student-scripts.js') }}"></script>
 
 @endsection

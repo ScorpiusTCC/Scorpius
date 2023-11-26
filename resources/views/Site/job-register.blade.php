@@ -1,10 +1,10 @@
 @extends('site/master')
 
-@section('title', 'Perfil Empresa')
+@section('title', 'Registro de estágio')
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/job-register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/job_register.css') }}">
 
     <main>
 
@@ -20,7 +20,7 @@
 
                         <div class="initial-info">
 
-                            <span>Passo <b>1</b> de <b>4</b></span>
+                            <span>Passo <b>1</b> de <b>3</b></span>
                             <h1>Dados iniciais</h1>
 
                         </div>
@@ -32,7 +32,7 @@
                                 <h1>Qual o título da vaga?</h1>
 
                                 <label for="">Título da vaga<b>*</b> </label>
-                                <input type="text" placeholder="Ex.:  Estágio em Programação Front-End">
+                                <input type="text" placeholder="Ex.:  Estágio em Programação Front-End" class="input-text">
 
                             </div>
 
@@ -41,7 +41,7 @@
                                 <h1>Descrição da vaga</h1>
 
                                 <label for="">Há algo mais que você gostaria de incluir sobre a vaga?<b>*</b> </label>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Digite aqui informações adicionais sobre a vaga, se precisar."></textarea>
+                                <textarea name="" id="" cols="30" rows="10" placeholder="Digite aqui informações adicionais sobre a vaga, se precisar." class="input-text"></textarea>
 
                             </div>
 
@@ -59,7 +59,7 @@
 
                         <div class="initial-info">
 
-                            <span>Passo <b>2</b> de <b>4</b></span>
+                            <span>Passo <b>2</b> de <b>3</b></span>
                             <h1>Local e horário</h1>
 
                         </div>
@@ -71,7 +71,7 @@
                                 <h1>Qual a jornada do estágio?</h1>
 
                                 <label for="">Período do estágio<b>*</b> </label>
-                                <select name="" id="">
+                                <select required name="" id="" class="input-text">
 
                                     <option value="" disabled selected hidden></option>
                                     <option value="">Diurno</option>
@@ -88,16 +88,23 @@
                                 <h1>Local de trabalho</h1>
 
                                 <label for="">Onde o profissional irá trabalhar?<b>*</b> </label>
-                                <input type="text" maxlength="9" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
+                                <select required name="" id="" class="input-text">
+
+                                    <option value="" disabled selected hidden></option>
+                                    <option value="">Presencial</option>
+                                    <option value="">Remoto</option>
+                                    <option value="">Híbrido</option>
+
+                                </select>
 
                             </div>
 
                             <div class="form">
 
-                                <h1>Número de vagas</h1>
+                                <h1>Categoria</h1>
 
-                                <label for="">N° de vagas<b>*</b> </label>
-                                <input type="number" placeholder="1">
+                                <label for="">Qual é a categoria do estágio<b>*</b> </label>
+                                <input required type="text" placeholder="" class="input-text">
 
                             </div>
 
@@ -105,10 +112,10 @@
                         </div>
 
                         <div class="buttons-division">
-
+                                
                             <button class="prev-button"><</button>
                             <button class="next-button">Continuar</button>
-        
+
                         </div>
 
                     </div>
@@ -117,7 +124,7 @@
 
                         <div class="initial-info">
 
-                            <span>Passo <b>3</b> de <b>4</b></span>
+                            <span>Passo <b>3</b> de <b>3</b></span>
                             <h1>Sobre a vaga</h1>
 
                         </div>
@@ -126,19 +133,27 @@
 
                             <div class="form">
 
-                                <h1>Informações sobre a vaga</h1>
+                                <div class="d-flex align-items-center "> 
 
-                                <label for="">Quais são as atividades desempenhadas nesta função?<b>*</b> </label>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Digite aqui os papéis e responsabilidades exercidas nesse cargo."></textarea>
+                                    <h1>Qual o valor da remuneração</h1>  
+                                    <input class="check" type="checkbox" name="" id="">
+                                    <label class="mb-4" for="">Não mostrar</label>
+
+                                </div>
+                                
+                                <label for="">Valor do bolsa-auxílio<b>*</b> </label>
+                                <input class="input-text" type="number" placeholder="R$ 0,00" name="" id="">
 
                             </div>
 
                             <div class="form">
 
-                                <h1></h1>
+                                <div class="d-flex align-items-center "> 
 
-                                <label for="">Há algo mais que você gostaria de incluir sobre a vaga?<b>*</b> </label>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Informe quais cursos o candidato deverá estar cursando e quais os conhecimentos necessários."></textarea>
+                                    <input class="check" type="checkbox" name="" id="">
+                                    <label class="mb-4" for="">Valor a combinar</label>
+
+                                </div>
 
                             </div>
 
@@ -148,7 +163,7 @@
                         <div class="buttons-division">
 
                             <button class="prev-button"><</button>
-                            <button class="next-button">Continuar</button>
+                            <button type="submit" class="next-button">Finalizar</button>
         
                         </div>
 
@@ -164,6 +179,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/job-register_swiper.js') }}"></script>
-
 
 @endsection

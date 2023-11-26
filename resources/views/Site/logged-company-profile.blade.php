@@ -25,27 +25,37 @@
 
                 </div>
 
-                <a class="text-decoration-none" href="">
+                <div class="job-integration p-3 mt-4">
 
-                    <div class="job-integration mt-4 p-2">
+                    <div class="text-image">
 
-                        <h4 class="lead">Acesse o chat com a empresa clicando aqui</h4>
+                        <a href="{{ route ('job-register') }}"><button>+</button></a>
+                        <h3>Anunciar Vagas</h3>
 
                     </div>
 
-                </a>
+                    <h4 class="lead">Divulgue aqui suas vagas de estágio de forma simples e eficaz. Encontre centenas de pessoas.</h4>
+
+                </div>
 
             </div>
 
             <div class="info-area">
 
-                    <h2 class="display-6">Seja bem-vindo a MICROSOFT INFORMÁTICA LTDA.</h2>
+                    <h2 class="display-5">Olá, Microsoft. Boas-vindas à Scorpius!</h2>
 
                     <div class="text-info p-3">
 
-                        <span class="h5 text-nowrap">Tenha acesso as vagas disponiblizadas por essa empresa</span>
-                        
-                        <a href="{{ route('vagas') }}"><button class="btn info-btn btn-lg lead">Acessar vagas</button></a>
+                        <span class="h2">Melhore o processo de seleção de candidatos</span>
+
+                        <div class="text-separation container">
+
+                            <h3 class="lead mt-3">Conheça nosso plano para ter acesso a recursos adicionais, bem como para aumentar a visibilidade de suas oportunidades. Destaque suas vagas de estágio e atraia pessoas qualificadas. </h3>
+                            <img class="img-fluid" src="{{ asset('imgs/company-profile/jornal.svg') }}" alt="imagem de um jornal com uma lupa">
+
+                        </div>
+
+                        <a href="{{ route('index') }}"><button class="btn info-btn btn-lg lead">Saiba Mais</button></a>
                         
                     </div>
 
@@ -60,6 +70,24 @@
 
                 <h2 class=" display-5 mb-3">Sobre a empresa</h2>
                 <h3 class="lead">Nós da Microsoft atuamos de diversas maneiras no Brasil, oferecendo uma ampla gama de produtos e serviços. Como por exemplo fornecendo soluções de software, como o sistema operacional Windows, pacotes de produtividade como o Office, serviços de nuvem como o Azure, além de dispositivos como Xbox. A empresa também está envolvida em iniciativas de educação, capacitação profissional e apoio a startups, buscando contribuições para a inovação tecnológica no país. Além disso, a Microsoft tem parcerias com empresas locais e órgãos governamentais para promover a transformação digital e a inclusão digital no Brasil.</h3>
+
+            </div>
+
+        </div>
+
+        <div class="buttons-area container mt-5">
+
+            <div class="d-flex justify-content-between" >
+
+                <button class="btn btn-final lead btn-lg" data-toggle="modal" data-target=".edit-profile">Editar Perfil</button>
+                
+                <a href="{{ route('edit-company') }}">
+                    
+                    <button class="btn btn-final lead btn-lg">Editar Dados</button>
+                    
+                </a>
+
+                <button class="btn btn-final lead btn-lg">Minhas Vagas</button>
 
             </div>
 

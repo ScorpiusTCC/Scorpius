@@ -98,7 +98,7 @@
                         <div class="">
                             
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{{ route('logged-profile')}}">Meu perfil</a></li>
+                              <li><a class="dropdown-item" href="{{ route('logged-profile-company')}}">Meu perfil</a></li>
                               <li><a class="dropdown-item" href="#">Minhas vagas</a></li>
                               <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
                             </ul>

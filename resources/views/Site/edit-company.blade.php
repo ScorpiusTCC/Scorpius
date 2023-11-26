@@ -1,6 +1,6 @@
 @extends('site/master')
 
-@section('title', 'Edição de dados estudante')
+@section('title', 'Edição de dados empresa')
 
 @section('content')
 
@@ -16,55 +16,54 @@
 
                     <form action="">
 
-                        <h1 class="mt-5 mb-5 display-4">Edite seus dados pessoais</h1>
+                        <h1 class="mt-5 mb-5 display-4">Editar os dados da empresa</h1>
 
                         <div class="form-group">
 
-                            <label for="">Nome Completo</label>
+                            <label for="">Nome fantasia</label>
                             <input class="edit-input form-control" type="text" name="" id="">
 
                         </div>
 
                         <div class="form-group">
 
-                            <label for="">E-mail principal</label>
+                            <label for="">Razão social</label>
+                            <input class="edit-input form-control" type="text" name="" id="">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="">CNPJ</label>
+                            <input class="edit-input form-control" type="text" name="" id="">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="">Nome do representante</label>
+                            <input class="edit-input form-control" type="text" name="" id="">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="">E-mail da empresa</label>
                             <input class="edit-input form-control" type="email" name="" id="">
 
                         </div>
 
                         <div class="form-group">
 
-                            <label for="">Telefone</label>
-                            <input class="edit-input form-control" type="text" name="" id="">
+                            <label for="">Telefone comercial da empresa:</label>
+                            <input class="edit-input form-control" type="number" name="" id="">
 
                         </div>
 
                         <div class="form-group">
 
-                            <label for="">CPF</label>
-                            <input class="edit-input form-control" type="text" name="" id="">
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="">Data de nascimento </label>
-                            <input class="edit-input form-control" type="date" name="" id="">
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="">Gênero</label>
-                            <select class="edit-input form-control" name="" id="">
-
-                                <option value="" disabled selected hidden>Selecionar</option>
-                                <option value="">Muie</option>
-                                <option value="">Homi</option>
-                                <option value="">Outro</option>
-                                <option value="">Lobisomen</option>
-
-                            </select>
+                            <label for="">Telefone celular do representante da empresa:</label>
+                            <input class="edit-input form-control" type="number" name="" id="">
 
                         </div>
 
@@ -72,6 +71,13 @@
 
                             <label for=""> <p>CEP</p> </label>
                             <input class="edit-input form-control" name="cep" type="text" id="cep" value="12345-678" size="10" maxlength="9" onblur="pesquisacep(this.value);">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for=""> <p>Rua</p> </label>
+                            <input class="edit-input form-control" name="logradouro" type="text" id="logradouro" size="40" value="Sua Rua">
 
                         </div>
 
@@ -115,6 +121,6 @@
     </main>
 
     <script src="{{ asset('js/register-user-script.js') }}"></script>
-    <script src="{{ asset('js/student-scripts.js') }}"></script>
+    <script src="{{ asset('js/company-scripts.js') }}"></script>
 
 @endsection
