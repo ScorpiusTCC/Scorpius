@@ -118,7 +118,7 @@
 
             <div class="text-center">
 
-                <h1 class="display-5">Vagas Disponíves</h1>
+                <h1 class="display-5">Vagas que você se candidatou  </h1>
 
             </div>
 

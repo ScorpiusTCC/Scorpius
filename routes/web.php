@@ -107,7 +107,6 @@ Route::get('/logged-profile', function () {
 })->name('logged-profile');
 
 
-
 Route::get('/edit-student', function () {
     return view('site/edit-student');
 })->name('edit-student');
@@ -115,6 +114,18 @@ Route::get('/edit-student', function () {
 Route::get('/edit-company', function () {
     return view('site/edit-company');
 })->name('edit-company');
+
+Route::get('/jobs-student', function () {
+    return view('site/jobs-student');
+})->name('jobs-student');
+
+Route::get('/jobs-company', function () {
+    return view('site/jobs-company');
+})->name('jobs-company');
+
+Route::get('/company-jobs-users', function () {
+    return view('site/company-jobs-users');
+})->name('company-jobs-users');
 
 // Route::get('/teste', function () {
 //     return view('site/teste');
