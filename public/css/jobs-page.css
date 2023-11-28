@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* font-family: 'Inter', sans-serif; */
+
+/* MAIN */
+
+main {
+
+    font-family: 'Inter', sans-serif;
+    padding: 50px 0 50px 0;
+
+}
+
+.filters {
+
+
+}
+
+.check-input {
+
+    width: 30px;
+    height: 30px;
+
+}
+
+.form-norm {
+
+    margin: 0 15px 10px 0;
+
+}
+
