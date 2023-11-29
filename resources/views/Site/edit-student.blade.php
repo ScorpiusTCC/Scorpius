@@ -102,7 +102,7 @@
 
                         <div class="buttons-division mb-5">
 
-                            <a href="{{ route('student.profile') }}"><button class="edit-button btn btn-lg btn-block mb-2"><</button></a>
+                            <a href="{{ route('student.profile') }}" class="btn btn-link btn-lg btn-block mb-2"><</a>
                             <button class="edit-button btn btn-lg btn-block mb-2">Alterar senha</button>
                             <button class="edit-button btn btn-lg btn-block mb-2" type="submit">Concluir</button>
                             

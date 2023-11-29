@@ -96,14 +96,6 @@ Route::get('/register', function () {
     return view('site/register');
 })->name('register');
 
-Route::get('/company-register', function () {
-    return view('site/company-register');
-})->name('company-register');
-
-Route::get('/profile-company', function () {
-    return view('site/company-profile');
-})->name('profile-company');
-
 Route::get('/jobs-student', function () {
     return view('site/jobs-student');
 })->name('jobs-student');
