@@ -104,16 +104,16 @@ Route::get('/profile-company', function () {
     return view('site/company-profile');
 })->name('profile-company');
 
-Route::get('/logged-profile-company', function () {
-    return view('site/logged-company-profile');
-})->name('logged-profile-company');
+Route::get('/jobs-student', function () {
+    return view('site/jobs-student');
+})->name('jobs-student');
 
-Route::get('/profile', function () {
-    return view('site/student-profile');
-})->name('profile');
+Route::get('/jobs-company', function () {
+    return view('site/jobs-company');
+})->name('jobs-company');
 
-Route::get('/logged-profile', function () {
-    return view('site/logged-student-profile');
-})->name('logged-profile');
+Route::get('/company-jobs-users', function () {
+    return view('site/company-jobs-users');
+})->name('company-jobs-users');
 
 

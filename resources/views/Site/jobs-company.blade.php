@@ -118,7 +118,7 @@
 
             <div class="text-center">
 
-                <h1 class="display-5">Vagas Disponíves</h1>
+                <h1 class="display-5">Vagas que sua empresa disponibilizou  </h1>
 
             </div>
 
