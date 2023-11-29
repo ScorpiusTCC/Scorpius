@@ -30,7 +30,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Manipular vagas
 
-Route::get('/Vagas', [VagaController::class, 'index'])->name('vagas');
+Route::get('/Vagas', [VagaController::class, 'index'])->name('index.job');
 
 Route::get('/Registro-vaga', [VagaController::class, 'create'])->name('job.create');
 
@@ -50,29 +50,39 @@ Route::get('/student-register', [EstudanteController::class, 'create'])->name('s
 
 Route::post('/submitEstudante', [EstudanteController::class, 'store'])->name('submitEstudante');
 
-Route::get('/Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile');
+Route::get('Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile');
 
-Route::get('/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
+Route::get('Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
 
-Route::post('/Edit-Profile', [EstudanteController::class, 'editProfile'])->name('estudante.edit');
+Route::post('Estudante/Edit-Profile', [EstudanteController::class, 'editProfile'])->name('estudante.profile-edit');
 
-Route::get('/AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store');
+Route::get('Estudante/Editar-Dados', [EstudanteController::class, 'editData'])->name('estudante.data-edit');
 
-Route::delete('/deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete');
+Route::post('Estudante/Submit-Data', [EstudanteController::class, 'storeData'])->name('estudante.data-store');
 
-Route::get('/AddExp', [EstudanteController::class, 'addExp'])->name('exp.store');
+Route::get('AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store');
 
-Route::delete('/deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete');
+Route::delete('deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete');
+
+Route::get('AddExp', [EstudanteController::class, 'addExp'])->name('exp.store');
+
+Route::delete('deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete');
 
 // Manipular Empresas 
 
-Route::get('/student-company', [EmpresaController::class, 'create'])->name('empresa.create');
+Route::get('student-company', [EmpresaController::class, 'create'])->name('empresa.create');
 
-Route::post('/submitEmpresa', [EmpresaController::class, 'store'])->name('empresa.store');
+Route::post('submitEmpresa', [EmpresaController::class, 'store'])->name('empresa.store');
 
-Route::get('/Empresa/MeuPerfil', [EmpresaController::class, 'showProfile'])->name('company.profile');
+Route::post('Empresa/Edit-Profile', [EmpresaController::class, 'editProfile'])->name('empresa.profile-edit');
 
-Route::get('/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
+Route::get('Empresa/MeuPerfil', [EmpresaController::class, 'showProfile'])->name('company.profile');
+
+Route::get('Empresa/Editar-Dados', [EmpresaController::class, 'editData'])->name('empresa.data-edit');
+
+Route::post('Empresa/Submit-Data', [EmpresaController::class, 'storeData'])->name('empresa.data-store');
+
+Route::get('Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
 
 // Demais rotas 
 
@@ -105,19 +115,5 @@ Route::get('/profile', function () {
 Route::get('/logged-profile', function () {
     return view('site/logged-student-profile');
 })->name('logged-profile');
-
-
-
-Route::get('/edit-student', function () {
-    return view('site/edit-student');
-})->name('edit-student');
-
-Route::get('/edit-company', function () {
-    return view('site/edit-company');
-})->name('edit-company');
-
-// Route::get('/teste', function () {
-//     return view('site/teste');
-// })->name('teste');
 
 

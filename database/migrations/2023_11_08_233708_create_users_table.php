@@ -10,9 +10,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nome')->nullable();
+            $table->string('nome');
             $table->string('email')->unique();
-            $table->string('senha')->nullable();
+            $table->string('senha');
             $table->string('nm_img')->nullable();
             $table->enum('tipo', ['estudante', 'empresa']);
             $table->rememberToken();

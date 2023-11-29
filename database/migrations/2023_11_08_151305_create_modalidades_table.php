@@ -10,7 +10,7 @@ class CreateModalidadesTable extends Migration
     {
         Schema::create('modalidades', function (Blueprint $table) {
             $table->id();
-            $table->string('nome')->nullable();
+            $table->string('nome');
             $table->timestamps();
         });
     }

@@ -58,50 +58,14 @@ class EstudanteController extends Controller
 
     public function store(Request $request)
     {
-        // Recuperar dados do formulário, exceto os que estão em except
+        // Obter dados do formulário, exceto os que estão em except
         $data = $request->except('_token');
 
-        // echo '<pre>';
-        //     dd($data['cep']);
-        // echo '<pre>';
-
-
         // Juntar o valor inteiro e sua unidade para salvar no banco
-        // $data['tempo'] = $data['tempo'] . ' ' . $data['tempo_unidade'];
-
         $data['idade'] = \Carbon\Carbon::parse($data['data_nasc'])->diffInYears();
 
-        if(!empty($data['picture__input'])) 
-        {
-            // Obter a imagem do usuário
-            $imagem = $request->file('picture__input');
-
-            // Gerar novo nome com extensão original
-            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
-
-            // Salvar a imagem na pasta storage/app/public/uploads/estudantes
-            $caminhoImagem = $imagem->storeAs('public/uploads/estudantes', $nomeImagem);
-
-             // Criar usuário
-             $create_user = $this->user->create([
-                'nome' => $data['nome'],
-                'email' => $data['email'],
-                'senha' => Hash::make($data['password']),
-                'nm_img' => str_replace('public/', 'storage/', $caminhoImagem), // Corrigindo o caminho
-                'tipo' => 'estudante',
-            ]);
-
-        } else {
-
-            // Criar usuário
-            $create_user = $this->user->create([
-                'nome' => $data['nome'],
-                'email' => $data['email'],
-                'senha' => Hash::make($data['password']),
-                'tipo' => 'estudante',
-            ]);
-
-        }
+        // Criar usuário
+        $create_user = $this->createUser($data);
 
         // Criar contato
         $create_contato = ContatoEstudante::create([
@@ -109,10 +73,8 @@ class EstudanteController extends Controller
             'email' => $data['email'],
         ]);
 
-        $user = $create_user; // Obtém o estudante recém-criado
-
         // Criar estudante usando o relacionamento
-        $user->estudante()->create([
+        $create_user->estudante()->create([
             'id_sexo' => $data['sexo'],
             'nome' => $data['nome'],
             'cpf' => $data['cpf'],
@@ -172,8 +134,10 @@ class EstudanteController extends Controller
                 // Chamar a função para obter os dados do endereço
                 $enderecoData = $this->enderecoUser($cep);
 
+                // Chamar a função para obter as exoeriências do estudante
                 $experiencias = $this->infoExp($user->estudante->id);
 
+                // Chamar a função para obter os cursos do estudante
                 $datacursos = $this->infoCurso($user->estudante->id);
 
                 $ajuste = true;
@@ -261,32 +225,13 @@ class EstudanteController extends Controller
     public function editProfile(Request $request)
     {
         // Obter dados do formulário
-        $data = $request->all();
+        $data = $request->except('_token');
 
         // Obter o estudante que quer fazer a atualização 
-        $user = auth()->user();
+        $user = User::with('estudante')->find(auth()->user()->id);
 
-        // Verificar se uma nova imagem foi enviada
-        if (!empty($data['picture__input'])) {
-            // Obter a imagem do usuário
-            $imagem = $request->file('picture__input');
-
-            // Gerar novo nome com extensão original
-            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
-
-            // Salvar a nova imagem na pasta storage/app/public/uploads/estudantes
-            $caminhoNovaImagem = $imagem->storeAs('public/uploads/estudantes', $nomeImagem);
-
-            // Excluir a antiga imagem se ela existir
-            if ($user->nm_img) {
-                Storage::delete(str_replace('storage/', 'public/', $user->nm_img));
-            }
-
-            // Atualizar o usuário com a nova imagem
-            $user->update([
-                'nm_img' => str_replace('public/', 'storage/', $caminhoNovaImagem),
-            ]);
-        }
+        // Lógica de upload de imagem
+        $this->uploadImage($request, $user);
 
         if(!empty($data['nome'])){
             // Atualizar outros campos do usuário, se necessário
@@ -295,7 +240,7 @@ class EstudanteController extends Controller
             ]);
         }
         
-        if(!($data['sobre'])){
+        if(!empty($data['sobre'])){
             // Atualizar outros campos do usuário, se necessário
             $user->estudante()->update([
                 'sobre' => $data['sobre'],
@@ -303,9 +248,110 @@ class EstudanteController extends Controller
         }   
 
         // Redirecionar ou retornar uma resposta, por exemplo:
-        return redirect()->route('index')->with('success', 'Perfil atualizado com sucesso.');
+        return redirect()->route('student.profile')->with('success', 'Perfil atualizado com sucesso.');
     }
+
+    private function uploadImage(Request $request, $user)
+    {
+        // Lógica para lidar com a imagem
+        if ($request->hasFile('picture__input')) {
+            // Obter a imagem do usuário
+            $imagem = $request->file('picture__input');
+
+            // Gerar novo nome com extensão original
+            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
+
+            // Salvar a imagem na pasta storage/app/public/uploads/estudantes
+            $caminhoImagem = $imagem->storeAs('public/uploads/estudantes', $nomeImagem);
+
+            $caminhoImagem = str_replace('public/', 'storage/', $caminhoImagem);
+
+            // Excluir imagem antiga
+            if ($user->nm_img) {
+                Storage::delete(str_replace('storage/', 'public/', $user->nm_img));
+            }
+
+            // Atualizar usuário com a nova imagem
+            $user->update([
+                'nm_img' => $caminhoImagem,
+            ]);
+        }
+    }
+
     
+    public function editData()
+    {
+        $user = User::with('estudante')->find(auth()->user()->id);
+        $estudante = $user->estudante;
+        $endereco = $this->enderecoUser($estudante->cep);
+        $sexos = Sexo::all();
+
+        //ajuste no caminho da img para navbar 
+        $ajuste = true;
+
+        return view('site/edit-student', compact('estudante', 'sexos', 'endereco', 'ajuste'));
+    }
+
+    public function storeData(Request $request)
+    {
+        // Obter o estudante que quer fazer a atualização
+        $user = User::with('estudante')->find(auth()->user()->id);
+
+        $data = $request->except('_token');
+
+        // dd($data);   
+
+        // Juntar o valor inteiro e sua unidade para salvar no banco
+        $data['idade'] = \Carbon\Carbon::parse($data['data_nasc'])->diffInYears();
+
+        // Atualizar usuário
+        $user->update([
+            'email' => $data['email']
+        ]);
+
+        // Atualizar contato usando o relacionamento
+        $update_contato = $user->estudante->contato->update([
+            'telefone_celular' => $data['telefone'],
+            'email' => $data['email'],
+        ]);
+
+        // Atualizar estudante usando o relacionamento
+        $user->estudante->update([
+            'nome' => $data['nome'],
+            'id_sexo' => $data['sexo'],
+            'data_nasc' => $data['data_nasc'],
+            'idade' => $data['idade'],
+            'cep' => $data['cep'],
+        ]);
+
+        return redirect()->route('estudante.data-edit');
+    }
+
+    private function createUser($data)
+    {
+        // Lógica para lidar com a imagem
+        if (!empty($data['picture__input'])) {
+            // Obter a imagem do usuário
+            $imagem = $data['picture__input'];
+
+            // Gerar novo nome com extensão original
+            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
+
+            // Salvar a imagem na pasta storage/app/public/uploads/estudantes
+            $caminhoImagem = $imagem->storeAs('public/uploads/estudantes', $nomeImagem);
+    
+            $data['nm_img'] = str_replace('public/', 'storage/', $caminhoImagem);
+        }
+
+        // Criar usuário
+        return $this->user->create([
+            'nome' => $data['nome'],
+            'email' => $data['email'],
+            'senha' => bcrypt($data['password']),
+            'nm_img' => $data['nm_img'] ?? null,
+            'tipo' => 'estudante',
+        ]);
+    }
 
     private function enderecoUser($cep)
     {

@@ -106,6 +106,13 @@
 
                                 <div class="form">
 
+                                    <label for=""> <p>CPF do representante <span>*</span></p> </label>
+                                    <input type="text" id="cpf_representante" name="cpf_representante" value="39491150804">
+
+                                </div>
+
+                                <div class="form">
+
                                     <label for=""> <p>E-mail da empresa <span>*</span> </p> </label>
                                     <input type="email" name="email" id="email" value="contabil@sebastiaoevalentinacasanoturname.com.br">
 
@@ -114,15 +121,15 @@
 
                                 <div class="form">
 
-                                    <label for=""> <p>Telefone comercial da empresa <span>*</span> (Com DDD) </p> </label>
-                                    <input type="text" id="tel_empresa" name="tel_empresa" value="(13) 98173-9833"> 
+                                    <label for=""> <p>Telefone celular <span>*</span> (Com DDD) </p> </label>
+                                    <input type="text" id="tel_celular" name="tel_celular" value="(13) 98173-9833"> 
 
                                 </div>
 
                                 <div class="form">
 
-                                    <label for=""> <p>Telefone celular do representante <span>*</span> (Com DDD) </p> </label>
-                                    <input type="text" id="tel_representante" name="tel_representante" value="(13) 98173-9957">
+                                    <label for=""> <p>Telefone comercial <span>*</span> (Com DDD) </p> </label>
+                                    <input type="text" id="tel_comercial" name="tel_comercial" value="(13) 98173-9957">
 
                                 </div>
 

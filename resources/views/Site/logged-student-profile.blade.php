@@ -429,7 +429,7 @@
 
                         <div class="modal-content">
 
-                            <form action="{{ route('estudante.edit') }}" enctype="multipart/form-data" method="post">
+                            <form action="{{ route('estudante.profile-edit') }}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 <div class="edit-profile">
 
@@ -442,7 +442,9 @@
                                             <label class="profile-label" for="">Foto do Perfil</label>
 
                                             <label class="picture" for="picture__input" tabIndex="0">
-                                                <span class="picture__image"></span>
+                                                <span class="picture__image">
+                                                    <img src="{{ asset($user->nm_img) }}" alt="Imagem do Perfil">
+                                                </span>
                                             </label>
                                               
                                             <input type="file" name="picture__input" id="picture__input">
@@ -454,7 +456,7 @@
                                             <div>
 
                                                 <label class="profile-label" for="">Nome de usuário:</label>
-                                                <input class="profile-input" name="nome" id="nome" type="text">
+                                                <input class="profile-input" name="nome" id="nome" type="text" value="{{ $user->nome }}">
 
                                             </div>
 
@@ -465,11 +467,11 @@
                                     <div id="about-form">
 
                                         <label class="profile-label" for="">Sobre mim:</label>
-                                        <textarea name="sobre" id="sobre" cols="30" rows="10"></textarea>
+                                        <textarea name="sobre" id="sobre" cols="30" rows="10">{{ $user->estudante->sobre }}</textarea>
 
                                     </div>
 
-                                    <input class="add-button" type="submit" value="Concluir modifições">
+                                    <input class="add-button" type="submit" value="Atualizar">
 
                                 </div>
 
@@ -481,9 +483,9 @@
 
                 </div>
 
-                <a href="{{ route('edit-student')}}"><button>Editar Dados</button></a>
+                <a href="{{ route('estudante.data-edit') }}"><button>Editar Dados</button></a>
                 
-                <a href="{{ route('vagas')}}"><button>Ver Vagas</button></a>
+                <a href="{{ route('index.job')}}"><button>Ver Vagas</button></a>
 
             </div>
 

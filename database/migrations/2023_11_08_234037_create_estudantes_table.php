@@ -15,10 +15,10 @@ class CreateEstudantesTable extends Migration
             $table->foreignId('id_sexo')->constrained('sexos');
             $table->string('nome');
             $table->date('data_nasc');
-            $table->integer('idade')->null();
+            $table->integer('idade');
             $table->char('cpf', 11)->unique();
             $table->text('sobre')->nullable();
-            $table->char('cep', 8)->nullable();
+            $table->char('cep', 8);
             $table->timestamps();
         });
     }

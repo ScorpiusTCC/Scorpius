@@ -13,8 +13,8 @@ class CreateResetSenhaTable extends Migration
             $table->foreignId('id_user')->constrained('users');
             $table->string('token');
             $table->boolean('usado');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('expires_at')->nullable();
+            $table->timestamp('created_at');
+            $table->timestamp('expires_at');
         });
     }
 

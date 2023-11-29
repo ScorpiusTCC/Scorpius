@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContatoEmpresa;
+use App\Models\RepresentanteEmpresa;
 use App\Models\Empresa;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class EmpresaController extends Controller
 {
     public readonly Empresa $empresa;
     public readonly User $user;
-    public readonly ContatoEmpresa $contato;
+    public readonly RepresentanteEmpresa $representante;
 
 
     public function __construct()
     {
         $this->empresa = new Empresa();
         $this->user = new User();
-        $this->contato = new ContatoEmpresa();
+        $this->representante = new RepresentanteEmpresa();
     }
 
     public function create()
@@ -34,7 +36,7 @@ class EmpresaController extends Controller
         $data = $request->except('_token');
 
         // Salvar o endereço da empresa
-        $data['endereco'] = $data['logradouro'] . "-" . $data['numero'];
+        $data['endereco'] = $data['logradouro'] . ", " . $data['numero'];
 
         //  dd($data);      
 
@@ -67,26 +69,27 @@ class EmpresaController extends Controller
             ]);
         }
 
-        // Criar contato
-        $create_contato = ContatoEmpresa::create([
+        // Criar representante
+        $create_representante = RepresentanteEmpresa::create([
             'nm_representante' => $data['nm_representante'],
-            'telefone_comercial' => $data['tel_empresa'],
-            'telefone_celular' => $data['tel_representante'],
+            'cpf_representante' => $data['cpf_representante'],
+            'telefone_comercial' => $data['tel_comercial'],
+            'telefone_celular' => $data['tel_celular'],
             'email' => $data['email'],
         ]);
 
         $user = $create_user; // Obtém a empresa recém-criado
 
-        // $contato = $create_contato; // Obtém a empresa recém-criado
+        // $representante = $create_representante; // Obtém a empresa recém-criado
 
-        // dd($create_contato->id,
+        // dd($create_representante->id,
         //     $create_user->id);
 
-        if ($create_contato) {
+        if ($create_representante) {
 
             // dd($data['nm_representante']);
 
-            // Criar estudante usando o relacionamento
+            // Criar empresa usando o relacionamento
             $user->empresa()->create([
                 'nm_fantasia' => $data['nm_fantasia'],
                 'cnpj' => $data['cnpj'],
@@ -94,7 +97,7 @@ class EmpresaController extends Controller
                 'descricao' => $data['sobre'],
                 'endereco' => $data['endereco'],
                 'cep' => $data['cep'],
-                'id_contato' => $create_contato->id,
+                'id_representante' => $create_representante->id,
             ]);
         }
 
@@ -105,15 +108,15 @@ class EmpresaController extends Controller
 
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::with('empresa')->find($id);
         
-        $cep = $user->estudante->cep;
+        $cep = $user->empresa->cep;
 
         $enderecoData = $this->enderecoUser($cep);
 
-        $experiencias = $this->infoExp($user->estudante->id);
+        $experiencias = $this->infoExp($user->empresa->id);
 
-        $datacursos = $this->infoCurso($user->estudante->id);
+        $datacursos = $this->infoCurso($user->empresa->id);
 
         $ajuste = true;
         
@@ -125,26 +128,145 @@ class EmpresaController extends Controller
     public function showProfile()
     {
         // Encontrar o usuário pelo ID
-        $user = auth()->user();
+        $user = User::with('empresa')->find(auth()->user()->id);
+        $empresa = $user->empresa;
 
-        // Verificar se o usuário foi encontrado
-        if ($user) {
-            // Verificar se o usuário tem um estudante associado
-            if ($user->estudante) {
+        // Verificar se a empresa foi encontrada
+        if ($empresa) {
+
                 // Se sim, obter o CEP
-                $cep = $user->estudante->cep;
+                $cep = $empresa->cep;
 
                 // Chamar a função para obter os dados do endereço
                 $enderecoData = $this->enderecoUser($cep);
 
-                $experiencias = $this->infoExp($user->estudante->id);
+                //ajuste no caminho da img para navbar 
+                $ajuste = true;
 
-                $datacursos = $this->infoCurso($user->estudante->id);
-                
-                return view('site/logged-student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos'));
-            }
+                return view('site/logged-company-profile', compact('empresa', 'enderecoData', 'ajuste'));
         } else {
             return redirect()->route('index');
+        }
+    }
+
+    public function editProfile(Request $request)
+    {
+        // Obter dados do formulário
+        $data = $request->except('_token');
+
+        // Obter a empresa que quer fazer a atualização 
+        $user = User::with('empresa')->find(auth()->user()->id);
+
+        // Lógica de upload de imagem
+        $this->uploadImage($request, $user);
+
+        if(!empty($data['descricao'])){
+            // Atualizar outros campos do usuário, se necessário
+            $user->empresa()->update([
+                'descricao' => $data['descricao'],
+            ]);
+        }
+
+        return redirect()->route('company.profile');
+    }
+    
+    public function editData()
+    {
+        $user = User::with('empresa')->find(auth()->user()->id);
+        $empresa = $user->empresa;
+        $empresa->numero = preg_replace('/\D/', '', $empresa->endereco);
+        $enderecoData = $this->enderecoUser($empresa->cep);
+        
+        //ajuste no caminho da img para navbar 
+        $ajuste = true;
+
+        return view('site/edit-company', compact('empresa', 'enderecoData', 'ajuste'));
+    }
+
+    public function storeData(Request $request)
+    {
+        // Obter o empresa que quer fazer a atualização
+        $user = User::with('empresa')->find(auth()->user()->id);
+        
+        $data = $request->except('_token');
+
+        // dd($data['cep']);
+
+        // Salvar o endereço da empresa
+        $data['endereco'] = $data['logradouro'] . ", " . $data['numero'];
+
+        // Atualizar usuário
+        $user->update([
+            'email' => $data['email']
+        ]);
+
+        // Atualizar empresa usando o relacionamento
+        $user->empresa->update([
+            'nm_fantasia' => $data['nm_fantasia'],   
+            'razao_social' => $data['razao_social'], 
+            'cep' => $data['cep'], 
+            'endereco' => $data['endereco'],    
+        ]);
+
+        // Atualizar representante usando o relacionamento
+        $update_representante = $user->empresa->representante_empresa->update([
+            'nm_representante' => $data['nm_representante'],
+            'cpf_representante' => $data['cpf_representante'],
+            'telefone_comercial' => $data['telefone_comercial'],
+            'telefone_celular' => $data['telefone_celular'],
+            'email' => $data['email'],
+        ]);
+
+        return redirect()->route('empresa.data-edit');
+    }
+
+    private function uploadImage(Request $request, $user)
+    {
+        // Lógica para lidar com a imagem
+        if ($request->hasFile('picture__input')) {
+            // Obter a imagem do usuário
+            $imagem = $request->file('picture__input');
+
+            // Gerar novo nome com extensão original
+            $nomeImagem = time() . '_' . $imagem->getClientOriginalName();
+
+            // Salvar a imagem na pasta storage/app/public/uploads/empresas
+            $caminhoImagem = $imagem->storeAs('public/uploads/empresas', $nomeImagem);
+
+            $caminhoImagem = str_replace('public/', 'storage/', $caminhoImagem);
+
+            // Excluir imagem antiga
+            if ($user->nm_img) {
+                Storage::delete(str_replace('storage/', 'public/', $user->nm_img));
+            }
+
+            // Atualizar usuário com a nova imagem
+            $user->update([
+                'nm_img' => $caminhoImagem,
+            ]);
+        }
+    }
+    
+    private function enderecoUser($cep)
+    {
+        // Substitua a URL pelo endpoint real do ViaCEP
+        $viaCepUrl = "https://viacep.com.br/ws/{$cep}/json/";
+
+        // Crie uma instância do cliente Guzzle
+        $client = new Client();
+
+        try {
+            // Faça a requisição à API do ViaCEP
+            $response = $client->get($viaCepUrl);
+
+            // Obtenha os dados da resposta em formato JSON
+            $enderecoData = json_decode($response->getBody(), true);
+
+            // Retorne os dados do endereço
+            return $enderecoData;
+        } catch (\Exception $e) {
+            // Se houver um erro na requisição, você pode lidar com ele aqui
+            return null;
         }
     }
 }

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Categoria;
-use App\Models\ContatoEmpresa;
 use App\Models\ContatoEstudante;
 use App\Models\Conversa;
 use App\Models\Curso;
@@ -15,6 +14,7 @@ use App\Models\Mensagem;
 use App\Models\Modalidade;
 use App\Models\ParticipanteConversa;
 use App\Models\Periodo;
+use App\Models\RepresentanteEmpresa;
 use App\Models\Sexo;
 use App\Models\Status;
 use App\Models\User;
@@ -137,9 +137,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Inserir dados para a tabela 'contato_estudante'
-        ContatoEmpresa::insert([
+        RepresentanteEmpresa::insert([
             [
                 'nm_representante' => 'José Oliveira',
+                'cpf_representante' => '39291149361',
                 'telefone_comercial' => '1112223333',
                 'telefone_celular' => '1112223333',
                 'email' => 'estudante1@exemplo.com', 
@@ -147,6 +148,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nm_representante' => 'José Oliveira',
+                'cpf_representante' => '39291149387',
                 'telefone_comercial' => '4445556666',
                 'telefone_celular' => '4445556666',
                 'email' => 'estudante2@exemplo.com', 
@@ -154,7 +156,8 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nm_representante' => 'José Oliveira',
-                'telefone_comercial' => '7778889999',
+                'cpf_representante' => '39291149371',
+                'telefone_comercial' => '7778889986',
                 'telefone_celular' => '7778889999',
                 'email' => 'estudante3@exemplo.com', 
                 'created_at' => now()
@@ -194,7 +197,8 @@ class DatabaseSeeder extends Seeder
                 'razao_social' => 'Empresa de Tecnologia',
                 'descricao' => 'Principal provedora de soluções tecnológicas', 
                 'endereco' => '123 Rua da Tecnologia', 
-                'id_contato' => 1,
+                'cep' => '88246002', 
+                'id_representante' => 1,
                 'id_user' => 2,
                 'created_at' => now()
             ],
@@ -204,7 +208,8 @@ class DatabaseSeeder extends Seeder
                 'razao_social' => 'Corporação Financeira', 
                 'descricao' => 'Serviços financeiros inovadores', 
                 'endereco' => '456 Avenida Financeira', 
-                'id_contato' => 2,
+                'cep' => '88246002', 
+                'id_representante' => 2,
                 'id_user' => 3,
                 'created_at' => now()
             ],
@@ -214,7 +219,8 @@ class DatabaseSeeder extends Seeder
                 'razao_social' => 'Economia e Saúde', 
                 'descricao' => 'Cuidando da sua saúde com excelência', 
                 'endereco' => '789 Rua da Saúde', 
-                'id_contato' => 3,
+                'cep' => '88246002', 
+                'id_representante' => 3,
                 'id_user' => 4, 
                 'created_at' => now()
             ],

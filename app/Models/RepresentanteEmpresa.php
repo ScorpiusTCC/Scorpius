@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ContatoEmpresa extends Model
+class RepresentanteEmpresa extends Model
 {
-    protected $table = 'contato_empresa';
+    protected $table = 'representantes_empresas';
     
     protected $fillable = [
+        'nm_representante',
+        'cpf_representante',
         'telefone_comercial',
         'telefone_celular',
         'email'
@@ -16,6 +18,6 @@ class ContatoEmpresa extends Model
 
     public function empresa()
     {
-        return $this->hasOne(Empresa::class, 'id_contato');
+        return $this->hasOne(Empresa::class, 'id_representante');
     }
 }

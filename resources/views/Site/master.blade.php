@@ -36,7 +36,7 @@
 
                         <div class="hyperlink-space">
 
-                            <a href=" {{ route('vagas') }}">Vagas</a>
+                            <a href=" {{ route('index.job') }}">Vagas</a>
                             <a href="{{ route('about-us')}}">Sobre nós</a>
                             <a href="">Conheça nosso plano</a>
 
@@ -46,7 +46,7 @@
                             
                             <a href=""><img class="icons-img" src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
 
-                            <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="">
+                            <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 
                             <div class="">
                                 
@@ -84,7 +84,7 @@
 
                     <div class="hyperlink-space">
 
-                        <a href="{{ route('show.vagas')}}">Minhas vagas</a>
+                        {{-- <a href="{{ route('show.vagas')}}">Minhas vagas</a> --}}
                         <a href="{{ route('about-us')}}">Sobre nós</a>
                         <a href="">Conheça nosso plano</a>
 
@@ -94,12 +94,12 @@
                         
                         <a href=""><img class="icons-img" src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
 
-                        <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="">
+                        <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 
                         <div class="">
                             
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{{ route('logged-profile-company')}}">Meu perfil</a></li>
+                              <li><a class="dropdown-item" href="{{ route('company.profile')}}">Meu perfil</a></li>
                               <li><a class="dropdown-item" href="#">Minhas vagas</a></li>
                               <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
                             </ul>

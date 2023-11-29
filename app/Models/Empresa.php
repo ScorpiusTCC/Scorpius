@@ -15,8 +15,9 @@ class Empresa extends Model
         'nm_site_empresa', 
         'descricao', 
         'endereco',
+        'cep',
         'id_user',
-        'id_contato'
+        'id_representante'
     ];
 
     
@@ -30,8 +31,8 @@ class Empresa extends Model
         return $this->hasMany(Vaga::class, 'id_empresa');
     }
 
-    public function usuario_empresa()
+    public function representante_empresa()
     {
-        return $this->hasMany(UsuarioEmpresa::class, 'id_empresa');
+        return $this->belongsTo(RepresentanteEmpresa::class, 'id_representante');
     }
 }

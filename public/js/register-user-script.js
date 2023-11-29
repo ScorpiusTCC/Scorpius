@@ -39,31 +39,40 @@ function mascara(i){
 
 // SCRIPT PARA PREVIEW DE FOTO
 
+// SCRIPT PARA PREVIEW DE FOTO
+
 const inputFile = document.querySelector("#picture__input");
 const pictureImage = document.querySelector(".picture__image");
 const pictureImageTxt = "Escolha sua imagem de perfil";
-pictureImage.innerHTML = pictureImageTxt;
+
+// Verifique se há uma imagem existente
+const existingImage = document.querySelector(".picture__image img");
+if (existingImage) {
+    pictureImage.appendChild(existingImage.cloneNode(true));
+} else {
+    pictureImage.innerHTML = pictureImageTxt;
+}
 
 inputFile.addEventListener("change", function (e) {
-  const inputTarget = e.target;
-  const file = inputTarget.files[0];
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
 
-  if (file) {
-    const reader = new FileReader();
+    if (file) {
+        const reader = new FileReader();
 
-    reader.addEventListener("load", function (e) {
-      const readerTarget = e.target;
+        reader.addEventListener("load", function (e) {
+            const readerTarget = e.target;
 
-      const img = document.createElement("img");
-      img.src = readerTarget.result;
-      img.classList.add("picture__img");
+            const img = document.createElement("img");
+            img.src = readerTarget.result;
+            img.classList.add("picture__img");
 
-      pictureImage.innerHTML = "";
-      pictureImage.appendChild(img);
-    });
+            pictureImage.innerHTML = "";
+            pictureImage.appendChild(img);
+        });
 
-    reader.readAsDataURL(file);
-  } else {
-    pictureImage.innerHTML = pictureImageTxt;
-  }
+        reader.readAsDataURL(file);
+    } else {
+        pictureImage.innerHTML = pictureImageTxt;
+    }
 });

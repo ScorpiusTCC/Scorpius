@@ -14,12 +14,14 @@
 
                 <div class="text-image">
 
-                    <img src="" alt="logotipo da empresa">
+                    <img src="../{{ auth()->user()->nm_img }}" alt="logotipo da empresa">
 
                     <div>
 
-                        <p>MICROSOFT INFORMÁTICA LTDA.</p>
-                        <span>Guilhermina - Praia Grande</span>
+                        <p>{{ $empresa->nm_fantasia }}</p>
+                        <span>{{ $enderecoData['bairro'] . ' - ' . $enderecoData['localidade'] }}</span>
+                        <br>
+                        <span>{{ $empresa->endereco }}</span>
 
                     </div>
 
@@ -29,12 +31,9 @@
 
                     <div class="text-image">
 
-                        <a href="{{ route ('job-register') }}"><button>+</button></a>
-                        <h3>Anunciar Vagas</h3>
+                        <a href="{{ route ('job.create') }}"><h3>Anunciar Vaga</h3></a>
 
                     </div>
-
-                    <h4 class="lead">Divulgue aqui suas vagas de estágio de forma simples e eficaz. Encontre centenas de pessoas.</h4>
 
                 </div>
 
@@ -42,7 +41,8 @@
 
             <div class="info-area">
 
-                    <h2 class="display-5">Olá, Microsoft. Boas-vindas à Scorpius!</h2>
+                    <h2 class="display-5">Olá, {{ $empresa->nm_fantasia }}.</h2>
+                    <h2>Bem-vindo à Scorpius!</h2>
 
                     <div class="text-info p-3">
 
@@ -69,7 +69,7 @@
             <div>
 
                 <h2 class=" display-5 mb-3">Sobre a empresa</h2>
-                <h3 class="lead">Nós da Microsoft atuamos de diversas maneiras no Brasil, oferecendo uma ampla gama de produtos e serviços. Como por exemplo fornecendo soluções de software, como o sistema operacional Windows, pacotes de produtividade como o Office, serviços de nuvem como o Azure, além de dispositivos como Xbox. A empresa também está envolvida em iniciativas de educação, capacitação profissional e apoio a startups, buscando contribuições para a inovação tecnológica no país. Além disso, a Microsoft tem parcerias com empresas locais e órgãos governamentais para promover a transformação digital e a inclusão digital no Brasil.</h3>
+                <h3 class="lead">{{ $empresa->descricao }}</h3>
 
             </div>
 
@@ -81,7 +81,7 @@
 
                 <button class="btn btn-final lead btn-lg" data-toggle="modal" data-target=".edit-profile">Editar Perfil</button>
                 
-                <a href="{{ route('edit-company') }}">
+                <a href="{{ route('empresa.data-edit') }}">
                     
                     <button class="btn btn-final lead btn-lg">Editar Dados</button>
                     
@@ -110,8 +110,8 @@
 
         <div class="modal-body p-3">
 
-            <form class="" action="">
-
+            <form action="{{ route('empresa.profile-edit') }}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="container d-flex flex-column align-items-center">
 
                     <h1 class="display-4 mb-5">Editar perfil da empresa</h1>
@@ -131,7 +131,7 @@
                     <div class="mt-4 mb-4">
     
                         <label class="lead fw-bold" for="exampleTextarea">Sobre a empresa</label>
-                        <textarea class="textarea-style form-control" id="" cols="70"></textarea>
+                        <textarea class="textarea-style form-control" name="descricao" id="descricao" cols="70">{{ $empresa->descricao }}</textarea>
     
                     </div>
     

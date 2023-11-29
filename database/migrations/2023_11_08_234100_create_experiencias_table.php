@@ -12,9 +12,9 @@ class CreateExperienciasTable extends Migration
             $table->id();
             $table->foreignId('id_estudante')->constrained('estudantes');
             $table->foreignId('id_modalidade')->constrained('modalidades');
-            $table->string('empregador')->nullable();
-            $table->string('descricao')->nullable();
-            $table->string('tempo')->nullable();
+            $table->string('empregador');
+            $table->string('descricao');
+            $table->string('tempo');
             $table->timestamps();
         });
     }
