@@ -21,66 +21,68 @@ use Illuminate\Support\Facades\Route;
 
 // Manipular Login, Logout...
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('login', [LoginController::class, 'index'])->name('login');
 
-Route::get('/auth', [LoginController::class, 'auth'])->name('auth');
+Route::get('auth', [LoginController::class, 'auth'])->name('auth');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 // Manipular vagas
 
-Route::get('/Vagas', [VagaController::class, 'index'])->name('index.job');
+Route::get('Vagas', [VagaController::class, 'index'])->name('index.job');
 
-Route::get('/Registro-vaga', [VagaController::class, 'create'])->name('job.create');
+Route::get('Registro-vaga', [VagaController::class, 'create'])->name('job.create');
 
-Route::post('/Add-vaga', [VagaController::class, 'store'])->name('job.store');
+Route::post('Add-vaga', [VagaController::class, 'store'])->name('job.store');
 
-Route::get('/Vaga/{id}', [VagaController::class, 'show'])->name('job.show');
+Route::get('Vaga/{id}', [VagaController::class, 'show'])->name('job.show');
 
-Route::delete('/Vaga-delete/{id}', [VagaController::class, 'delete'])->name('job.delete');
+Route::delete('Vaga-delete/{id}', [VagaController::class, 'delete'])->name('job.delete');
 
-Route::get('/filterNameVaga', [VagaController::class, 'filterName'])->name('filterNameVaga');
+Route::get('filtrarNomeVaga', [VagaController::class, 'filterName'])->name('filterNameVaga');
 
-Route::get('/filterCategoryVaga/{id}', [VagaController::class, 'filterCategory'])->name('filterCategoryVaga');
+Route::get('filtrosVagas', [VagaController::class, 'filtersVagas'])->name('filter.jobs');
+
+Route::get('filtrarVagaCategoria/{id}', [VagaController::class, 'filterCategory'])->name('filterCategoryVaga');
 
 // Manipular estudantes
 
-Route::get('/student-register', [EstudanteController::class, 'create'])->name('student-register');
+Route::get('Registro-estudante', [EstudanteController::class, 'create'])->name('student-register');
 
-Route::post('/submitEstudante', [EstudanteController::class, 'store'])->name('submitEstudante');
+Route::post('Add-estudante', [EstudanteController::class, 'store'])->name('submitEstudante');
 
-Route::get('Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile');
+Route::get('Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile')->middleware('auth', 'estudante');
 
 Route::get('Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
 
-Route::post('Estudante/Edit-Profile', [EstudanteController::class, 'editProfile'])->name('estudante.profile-edit');
+Route::post('Estudante/EditarPerfil', [EstudanteController::class, 'editProfile'])->name('estudante.profile-edit')->middleware('auth', 'estudante');
 
-Route::get('Estudante/Editar-Dados', [EstudanteController::class, 'editData'])->name('estudante.data-edit');
+Route::get('Estudante/EditarDados', [EstudanteController::class, 'editData'])->name('estudante.data-edit')->middleware('auth', 'estudante');
 
-Route::post('Estudante/Submit-Data', [EstudanteController::class, 'storeData'])->name('estudante.data-store');
+Route::post('Estudante/AtualizarDados', [EstudanteController::class, 'storeData'])->name('estudante.data-store')->middleware('auth', 'estudante');
 
-Route::get('AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store');
+Route::get('AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store')->middleware('auth', 'estudante');
 
-Route::delete('deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete');
+Route::delete('deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete')->middleware('auth', 'estudante');
 
-Route::get('AddExp', [EstudanteController::class, 'addExp'])->name('exp.store');
+Route::get('AddExp', [EstudanteController::class, 'addExp'])->name('exp.store')->middleware('auth', 'estudante');
 
-Route::delete('deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete');
+Route::delete('deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete')->middleware('auth', 'estudante');
 
 // Manipular Empresas 
 
-Route::get('student-company', [EmpresaController::class, 'create'])->name('empresa.create');
+Route::get('Registro-empresa', [EmpresaController::class, 'create'])->name('empresa.create');
 
-Route::post('submitEmpresa', [EmpresaController::class, 'store'])->name('empresa.store');
+Route::post('Add-empresa', [EmpresaController::class, 'store'])->name('empresa.store');
 
-Route::post('Empresa/Edit-Profile', [EmpresaController::class, 'editProfile'])->name('empresa.profile-edit');
+Route::post('Empresa/EditarPerfil', [EmpresaController::class, 'editProfile'])->name('empresa.profile-edit')->middleware('auth', 'empresa');
 
-Route::get('Empresa/MeuPerfil', [EmpresaController::class, 'showProfile'])->name('company.profile');
+Route::get('Empresa/MeuPerfil', [EmpresaController::class, 'showProfile'])->name('company.profile')->middleware('auth', 'empresa');
 
-Route::get('Empresa/Editar-Dados', [EmpresaController::class, 'editData'])->name('empresa.data-edit');
+Route::get('Empresa/EditarDados', [EmpresaController::class, 'editData'])->name('empresa.data-edit')->middleware('auth', 'empresa');
 
-Route::post('Empresa/Submit-Data', [EmpresaController::class, 'storeData'])->name('empresa.data-store');
+Route::post('Empresa/AtualizarDados', [EmpresaController::class, 'storeData'])->name('empresa.data-store')->middleware('auth', 'empresa');
 
 Route::get('Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
 
@@ -88,13 +90,9 @@ Route::get('Perfil/{id}', [EmpresaController::class, 'show'])->name('company.sho
 
 Route::get('/', [SiteController::class, 'index'])->name('index');
 
-Route::get('/about-us', function () {
-    return view('site/about-us');
-})->name('about-us');
+Route::get('Sobre-Nós', [SiteController::class, 'about_us'])->name('about-us');
 
-Route::get('/register', function () {
-    return view('site/register');
-})->name('register');
+Route::get('Cadastrar-se', [SiteController::class, 'register'])->name('register');
 
 Route::get('/company-register', function () {
     return view('site/company-register');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Modalidade;
 use App\Models\Periodo;
+use App\Models\Status;
 use App\Models\Vaga;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -23,11 +24,12 @@ class VagaController extends Controller
      */
     public function index()
     {
-        $vagas = Vaga::orderBy('created_at', 'desc')->paginate(12);
+        $vagas = Vaga::orderBy('created_at', 'desc')->paginate(8);
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
 
-        $ajuste_vaga = false;
-
-        return view('site/jobs', compact('vagas', 'ajuste_vaga'));
+        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
     }
 
     /**
@@ -101,34 +103,84 @@ class VagaController extends Controller
         //
     }
 
+    public function filtersVagas(Request $request)
+    {
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
+
+        // Lógica de filtro
+        $vagas = Vaga::where('id_status', 1);
+
+        // Filtro de busca por título
+        if ($request->filled('searchName')) {
+            $vagas->where('titulo', 'like', '%' . $request->input('searchName') . '%');
+        }
+
+        // Filtro por período de estágio
+        $periodosSelected = (array) request('periodos', []);
+        if (!empty($periodosSelected)) {
+            $vagas->whereIn('id_periodo', $periodosSelected);
+        }
+
+        // Filtro por modalidade de estágio
+        $modalidadesSelected = (array) request('modalidades', []);
+        if (!empty($modalidadesSelected)) {
+            $vagas->whereIn('id_modalidade', $modalidadesSelected);
+        }
+
+        // Filtro por categoria de estágio
+        $categoriaSelected = request('categoria');
+        if ($categoriaSelected) {
+            $vagas->where('id_categoria', $categoriaSelected);
+        }
+
+        // Filtro por valor mínimo
+        $valorMinimo = request('valor_minimo');
+        if ($valorMinimo !== null) {
+            $vagas->where('salario', '>=', $valorMinimo);
+        }
+
+        // Filtro por valor máximo
+        $valorMaximo = request('valor_maximo');
+        if ($valorMaximo !== null) {
+            $vagas->where('salario', '<=', $valorMaximo);
+        }
+
+        // Execute a consulta
+        $vagas = $vagas->paginate(8);
+
+        // Retorne a view com os resultados
+        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+    }
+
+
+
     public function filterCategory($id)
     {
         $searchCategory = $id;
-
-        $vagas = Vaga::where('vagas.id_categoria', $searchCategory)
-                    ->paginate(10);
-
-        // $vagas['img'] = '../' . $vagas['nm_img'];
-
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
         $ajuste_vaga = true;
         $ajuste = true;
 
-        return view('site/jobs', compact('vagas', 'ajuste_vaga', 'ajuste'));
+        $vagas = Vaga::where('vagas.id_categoria', $searchCategory)
+                    ->paginate(8);
+
+        return view('site/jobs', compact('vagas', 'ajuste_vaga', 'ajuste', 'periodos', 'categorias', 'modalidades'));
     }
 
     public function filterName(Request $request)
     {
         $searchName = $request->searchName;
-
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
         $vagas = Vaga::where('vagas.titulo', 'like', '%' . $searchName . '%')
-                    ->paginate(12);
-
-        // echo '<pre>';
-        // var_dump($vagas);
-        // echo '<pre>';
-        $ajuste_vaga = false;
+                    ->paginate(8);
     
-        return view('site/jobs', compact('vagas', 'ajuste_vaga'));
+        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
     }
 
     private function DadosVaga()

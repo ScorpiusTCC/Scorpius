@@ -37,7 +37,7 @@
                     
                     <h4>Encontre os melhores estagiários da Praia Grande!</h4>
 
-                    <a href="{{ route('company-register') }}"><button>Cadastre-se já</button></a>
+                    <a href="{{ route('empresa.create') }}"><button>Cadastre-se já</button></a>
 
                     <div id="login-area">
 
