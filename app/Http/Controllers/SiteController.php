@@ -15,4 +15,14 @@ class SiteController extends Controller
 
         return view('site/index', compact('categorias'));
     }
+
+    public function about_us()
+    {
+        return view('site/about-us');
+    }
+
+    public function register()
+    {
+        return view('site/register');
+    }
 }
