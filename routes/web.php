@@ -96,6 +96,10 @@ Route::get('/register', function () {
     return view('site/register');
 })->name('register');
 
+Route::get('/company-register', function () {
+    return view('site/company-register');
+})->name('company-register');
+
 Route::get('/jobs-student', function () {
     return view('site/jobs-student');
 })->name('jobs-student');
@@ -107,5 +111,17 @@ Route::get('/jobs-company', function () {
 Route::get('/company-jobs-users', function () {
     return view('site/company-jobs-users');
 })->name('company-jobs-users');
+
+Route::get('/jobs-profile', function () {
+    return view('site/jobs-profile');
+})->name('jobs-profile');
+
+Route::get('/logged-jobs-profile', function () {
+    return view('site/logged-jobs-profile');
+})->name('logged-jobs-profile');
+
+Route::get('/edit-jobs', function () {
+    return view('site/edit-jobs');
+})->name('edit-jobs');
 
 

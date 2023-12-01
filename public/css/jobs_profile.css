@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* font-family: 'Inter', sans-serif; */
+
+/* MAIN */
+
+main {
+
+    font-family: 'Inter', sans-serif;
+    padding: 50px 0 50px 0;
+
+}
+
+.profile-info {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.profile-info img {
+
+    width: 230px;
+    height: 230px;
+    border-radius: 150px;
+
+}
+
+.text-space h3 {
+
+    color: #000;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+.text-space h4 {
+
+    color: rgba(0, 0, 0, 0.90);
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+.text-space h5 {
+
+    color: rgba(0, 0, 0, 0.80);
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.text-space h6 {
+
+    color: rgba(0, 0, 0, 0.70);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.text-space span {
+
+    color: rgba(0, 0, 0, 0.60);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.main-btn {
+
+    color: #fff;
+    background-color: #30599E;
+    border-radius: 20px;
+    transition: background-color 300ms ease-in-out;
+
+}
+
+.main-btn:hover {
+
+    background-color: #50A4EC;
+    color: #fff;
+
+}
+
+.profile-about {
+
+    background-color: #FFF;
+    filter: drop-shadow(0px 5px 30px rgba(0, 0, 0, 0.15));
+    border-radius: 20px;
+
+}
+
+
+.profile-date h5 {
+
+    color: rgba(0, 0, 0, 0.50);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.salary {
+
+    float: left;
+
+}
+
+.date {
+
+    float: right;
+
+}
