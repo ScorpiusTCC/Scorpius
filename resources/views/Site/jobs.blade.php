@@ -126,7 +126,7 @@
 
                 @foreach ($vagas as $vaga)
 
-                    <div class="card container  ">
+                    <div class="card container ">
 
                         <div class="info-space mb-4">
 
@@ -141,7 +141,7 @@
 
                             <img class="w-25 img-fluid" src="@if(isset($ajuste_vaga))../@endif{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
 
-                            <div>
+                            <div class="p-4">
 
                                 <h4>{{ $vaga->empresa->nm_fantasia }}</h4>
                                 <h5>{{ $vaga->empresa->endereco }}</h5>
@@ -149,9 +149,9 @@
 
                             </div>
 
-                            <a href=""><button class="btn-card btn">Candidatar-se</button></a>
-
                         </div>
+
+                        <a href="#" class="btn-card btn bottom-0">Mais sobre</a>
 
                     </div>
 

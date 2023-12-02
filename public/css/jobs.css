@@ -107,7 +107,9 @@ main {
 .btn-card {
 
     border-radius: 60px;
-
+    background-color: #30599E;
+    color: #fff;
+    
 }
 
 

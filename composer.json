@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "cboden/ratchet": "^0.4.4",
         "doctrine/dbal": "3.5.1",
         "guzzlehttp/guzzle": "^7.8",
         "laravel/framework": "^10.10",
@@ -25,7 +26,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Api\\WebSocket\\": "src/"
         }
     },
     "autoload-dev": {

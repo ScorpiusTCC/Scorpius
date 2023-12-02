@@ -15,7 +15,7 @@
 
                 <div id="profile-img">
 
-                    <img src="{{ '../' . $user->nm_img }}" alt="foto fornecida pelo usuário">
+                    <img src="{{ '../../' . $user->nm_img }}" alt="foto fornecida pelo usuário">
 
                 </div>
     

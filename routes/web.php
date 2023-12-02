@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// Site 
+
 // Manipular Login, Logout...
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -26,6 +29,9 @@ Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::get('auth', [LoginController::class, 'auth'])->name('auth');
 
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
+// Manipular Chat...
+
 
 
 // Manipular vagas
@@ -54,7 +60,7 @@ Route::post('Add-estudante', [EstudanteController::class, 'store'])->name('submi
 
 Route::get('Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile')->middleware('auth', 'estudante');
 
-Route::get('Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
+Route::get('Estudante/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
 
 Route::post('Estudante/EditarPerfil', [EstudanteController::class, 'editProfile'])->name('estudante.profile-edit')->middleware('auth', 'estudante');
 
@@ -84,7 +90,7 @@ Route::get('Empresa/EditarDados', [EmpresaController::class, 'editData'])->name(
 
 Route::post('Empresa/AtualizarDados', [EmpresaController::class, 'storeData'])->name('empresa.data-store')->middleware('auth', 'empresa');
 
-Route::get('Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
+Route::get('Empresa/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
 
 // Demais rotas 
 
@@ -106,4 +112,22 @@ Route::get('/company-jobs-users', function () {
     return view('site/company-jobs-users');
 })->name('company-jobs-users');
 
+
+// Admin
+
+Route::get('admin-login/', function () {
+    return view('admin/home-admin');
+})->name('admin.index');
+
+Route::get('admin/students', function () {
+    return view('admin/students');
+})->name('admin.students');
+
+Route::get('admin/jobs', function () {
+    return view('admin/jobs');
+})->name('admin.jobs');
+
+Route::get('admin/companys', function () {
+    return view('admin/companys');
+})->name('admin.companys');
 

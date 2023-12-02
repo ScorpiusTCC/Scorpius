@@ -110,17 +110,15 @@ class EmpresaController extends Controller
     {
         $user = User::with('empresa')->find($id);
         
+        $empresa = $user->empresa;
+
         $cep = $user->empresa->cep;
 
         $enderecoData = $this->enderecoUser($cep);
 
-        $experiencias = $this->infoExp($user->empresa->id);
-
-        $datacursos = $this->infoCurso($user->empresa->id);
-
         $ajuste = true;
         
-        return view('site/student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos', 'ajuste'));
+        return view('site/company-profile', compact('user', 'empresa', 'enderecoData', 'ajuste'));
 
         // return redirect()->route('index');
     }
