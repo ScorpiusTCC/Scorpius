@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/edit-student.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/edit-page.css') }}"/>
 
     <main>
 

@@ -12,14 +12,96 @@ main {
 
 }
 
+.card-area {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
 .card {
 
+    max-width: 30%;
+    background-color: #FFF;
+    stroke-width: 3px;
+    border: 2px solid #30599E;
+    border-radius: 25px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding: 10px;
+    transition: all 200ms ease-in-out;
+
+}
+
+.card:hover {
+
     max-width: 31%;
+    padding: 15px;
+
+}
+
+.card h3 {
+
+    color: #30599E;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+.card span {
+
+    color: rgba(0, 0, 0, 0.70);
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+.card h4 {
+
+    color: rgba(0, 0, 0, 0.82);
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;   
+
+}
+
+.card h6 {
+
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 
 }
 
 .card img {
 
-    border-radius: 250px;
+    width: 230px;
+    height: 230px;
+    border-radius: 150px;
 
 }
+
+.btn-card {
+
+    border-radius: 60px;
+    background: #FFF;
+    border: 0.5px dashed #30599E;
+    transition: all 300ms ease-in-out;
+
+}
+
+.btn-card:hover {
+
+    color: #fff;
+    background-color: #30599E;
+    border: 0.5px solid #30599E;
+
+}
+
+
+

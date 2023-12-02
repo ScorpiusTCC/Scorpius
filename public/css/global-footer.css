@@ -20,7 +20,7 @@ footer {
 
 /* PRIMEIRA DIVISÃO */
 
-#first-division-footer {
+.first-division-footer {
 
     height: 90%;
     width: 100%;
@@ -29,22 +29,22 @@ footer {
 
 }
 
-#hyperlinks-area {
+.hyperlinks-area {
 
     width: 40%;
 
 }
 
-#hyperlinks-area img {
+.hyperlinks-area img {
 
     width: 200px;
     margin-bottom: 3%;
 
 }
 
-#hyperlinks-area p a {
+.hyperlinks-area p a {
 
-    color: #000;
+    color: .000;
     font-size: 1.3vw;
     font-style: normal;
     font-weight: 300;
@@ -53,7 +53,7 @@ footer {
 
 }
 
-#information-area {
+.information-area {
 
     width: 30%;
     padding-top: 5%;
@@ -70,7 +70,7 @@ footer {
 
 .content-text p {
 
-    color: #000;
+    color: .000;
     font-family: 'Inter', sans-serif;
     font-size: 1vw;
     font-style: normal;
@@ -79,14 +79,14 @@ footer {
 
 }
 
-#information-area img {
+.information-area img {
 
     width: 35px;
     margin-right: 5px;
 
 }
 
-#social-area {
+.social-area {
 
     width: 30%;
     height: 70%;
@@ -97,9 +97,9 @@ footer {
 
 }
 
-#social-area h2 {
+.social-area h2 {
 
-    color: #000;
+    color: .000;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
     font-style: normal;
@@ -108,9 +108,9 @@ footer {
 
 }
 
-#social-area h3 {
+.social-area h3 {
 
-    color: #000;
+    color: .000;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -119,7 +119,7 @@ footer {
 
 }
 
-#social-area a img {
+.social-area a img {
 
     width: 35px;
 
@@ -127,16 +127,16 @@ footer {
 
 /* SEGUNDA DIVISÃO */
 
-#second-division-footer {
+.second-division-footer {
 
     height: 10%;
     text-align: center;
 
 }
 
-#second-division-footer h4 {
+.second-division-footer h4 {
 
-    color: #000;
+    color: .000;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-style: normal;
