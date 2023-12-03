@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* font-family: 'Inter', sans-serif; */
+
+
+/* MAIN */
+
+.card {
+
+    font-family: 'Inter', sans-serif;
+    border-radius: 40px;
+    background-color: #e4e4e4;
+
+}
+
+
+.edit-input {
+
+    display: block;
+    flex-shrink: 0;
+    background-color: #FFF;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+    border: none;
+    margin: 5px 0 30px 0;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 14px;
+
+}
+
+.buttons-division {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.edit-button {
+
+    background-color: #30599E;
+    border-radius: 50px;
+    color: #fff;
+    margin-top: 30px;
+
+}
+
+.edit-button:hover {
+
+    background-color: #50A4EC;
+    color: #fff;
+
+}
+
+.text-camp {
+
+    display: block;
+    flex-shrink: 0;
+    background-color: #FFF;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+    border: none;
+    margin: 5px 0 30px 0;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 14px;
+
+}
+
+.checkb {
+
+    float: right;
+
+}

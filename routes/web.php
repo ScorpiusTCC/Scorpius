@@ -66,6 +66,8 @@ Route::post('Estudante/EditarPerfil', [EstudanteController::class, 'editProfile'
 
 Route::get('Estudante/EditarDados', [EstudanteController::class, 'editData'])->name('estudante.data-edit')->middleware('auth', 'estudante');
 
+Route::get('Estudante/EditarDados', [EstudanteController::class, 'editData'])->name('admin.estudante.data-edit')->middleware('auth', 'estudante');
+
 Route::post('Estudante/AtualizarDados', [EstudanteController::class, 'storeData'])->name('estudante.data-store')->middleware('auth', 'estudante');
 
 Route::get('AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store')->middleware('auth', 'estudante');

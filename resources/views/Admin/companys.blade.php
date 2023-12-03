@@ -29,63 +29,63 @@
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                             <tr>
                                 <td>fulano</td>
                                 <td>fulanodetal@gmail.com</td>
                                 <td>1111111</td>
                                 <td><i class="fa-regular fa-pen-to-square"></i></td>
-                                <td><i class="fa-solid fa-trash"></i></td>
+                                <td><i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target=".exampleModal"></i></td>
                             </tr>
                         </tbody>
                     </table>

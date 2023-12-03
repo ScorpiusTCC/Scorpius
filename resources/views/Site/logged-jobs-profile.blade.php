@@ -31,8 +31,8 @@
                     
                     <div class="d-flex align-items-center">
                         
-                        <a href=""><i class="fa-solid fa-trash-can" style="color: #30599E;"></i></a>
-                        <a href=""><button class="btn main-btn m-2">Editar vaga</button></a>
+                        <i class="fa-solid fa-trash-can" style="color: #30599E;" data-bs-toggle="modal" data-bs-target=".exampleModalExit"></i>
+                        <a href="{{ route('edit-jobs') }}"><button class="btn main-btn m-2">Editar vaga</button></a>
 
                     </div>
 
@@ -59,6 +59,32 @@
                 <div class="date">
 
                     <h5 class="lead">Publicada em 1 de setembro</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal fade exampleModalExit" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                <div class="modal-content p-4">
+
+                    <div class="modal-body text-center">
+
+                        <h2 class="display-6">Tem certeza que deseja excluir essa vaga?</h2>
+
+                        <div class="mt-5">
+
+                            <a class="" href=""><button class="btn btn-lg btn-success">Sim</button></a>
+
+                            <button class="btn btn-lg btn-danger m-4" data-bs-dismiss="modal">Não</button>
+
+                        </div>
+
+                    </div>
 
                 </div>
 

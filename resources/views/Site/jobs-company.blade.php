@@ -146,7 +146,7 @@
 
                         </div>
 
-                        <a href=""><button class="btn-card btn">Candidatar-se</button></a>
+                        <a href=""><button class="btn-card btn">Visualizar</button></a>
 
                     </div>
 
@@ -175,7 +175,7 @@
 
                         </div>
 
-                        <a href=""><button class="btn-card btn">Candidatar-se</button></a>
+                        <a href=""><button class="btn-card btn">Visualizar</button></a>
 
                     </div>
 
@@ -204,7 +204,7 @@
 
                         </div>
 
-                        <a href=""><button class="btn-card btn">Candidatar-se</button></a>
+                        <a href=""><button class="btn-card btn">Visualizar</button></a>
 
                     </div>
 
@@ -233,7 +233,7 @@
 
                         </div>
 
-                        <a href=""><button class="btn-card btn">Candidatar-se</button></a>
+                        <a href=""><button class="btn-card btn">Visualizar</button></a>
 
                     </div>
 
