@@ -17,7 +17,7 @@ class ParticipanteConversa extends Model
         return $this->belongsTo(Conversa::class, 'id_conversa');
     }
 
-    public function usuario()
+    public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
     }

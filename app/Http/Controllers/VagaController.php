@@ -154,8 +154,6 @@ class VagaController extends Controller
         return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
     }
 
-
-
     public function filterCategory($id)
     {
         $searchCategory = $id;
@@ -181,22 +179,5 @@ class VagaController extends Controller
                     ->paginate(8);
     
         return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
-    }
-
-    private function DadosVaga()
-    {
-        $dadosVaga = Vaga::select(
-            'vagas.*',
-            'empresas.nm_fantasia as empresa',
-            'status.nome as status',
-            'modalidades.nome as modalidade', 
-            'users.nm_img as nm_img'
-        )
-        ->join('status', 'vagas.id_status', 'status.id')
-        ->join('modalidades_vaga', 'vagas.id_modalidade', 'modalidades_vaga.id')
-        ->join('empresas', 'vagas.id_empresa', 'empresas.id')
-        ->join('users', 'empresas.id_user', 'users.id');
-
-        return $dadosVaga;
     }
 }
