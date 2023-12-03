@@ -3,17 +3,6 @@
 
 /* font-family: 'Inter', sans-serif; */
 
-/* NAVBAR GLOBAL CONFIGS FIXED*/
-
-nav {
-
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    background-color: #ffffff;
-
-}
-
 /* MAIN */
 
 /* PRIMEIRA SESSÃO */
@@ -21,7 +10,6 @@ nav {
 section {
 
     width: 100%;
-    height: 600px;
 
 }
 
@@ -119,11 +107,16 @@ section {
 
 /* SEGUNDA SESSÂO */
 
+#second-area {
+
+   padding: 100px 0 100px 0;
+
+}
+
 
 #second-area h1 {
 
     text-align: center;
-    margin-top: 50px;
     font-family: 'Merriweather Sans', sans-serif;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
     font-size: 2.3vw;
@@ -164,46 +157,12 @@ section {
 
 }
 
-#second-area-button {
-
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-
-}
-
-#second-area-button a button {
-
-    width: 300px;
-    height: 50px;
-    color: white;
-    background-color: #50A4EC;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1.4vw;
-    transition: all 0.5s;
-
-}
-
-#second-area-button a button:hover {
-
-    width: 310px;
-    height: 55px;
-    background-color: #30599E;
-    border-radius: 23px;
-
-}
 
 /* TERCEIRA SESSÃO */
 
 #third-area {
 
     background-color: #30599E;
-    height: 650px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -228,9 +187,8 @@ section {
     display: flex;
     width: 100%;
     justify-content: center;
-    height: 550px;
     align-items: center;
-    padding-top: 20px;
+    padding: 100px 0 100px 0;    
 
 }
 
@@ -278,7 +236,7 @@ section {
 #fourth-area-second-division h3{
 
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1.6vw;
+    font-size: 2.3vw;
     width: 85%;
     margin-bottom: 40px;
     font-weight: 300;
@@ -313,8 +271,7 @@ section {
 
 #fifth-area {
 
-    padding: 0 10% 0 10%;
-    height: 850px;
+    padding: 20px 0 100px 0;
 
 }
 
@@ -323,7 +280,6 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
 
 }
 
@@ -333,6 +289,7 @@ section {
     font-size: 2.2vw;
     width: 40%;
     text-align: center;
+    margin-bottom: 20px;
 
 }
 
@@ -353,10 +310,11 @@ section {
 .fifth-area-plans-division {
 
     border: 3px solid #30599E;
-    margin-top: 20px;
     border-radius: 30px;
     width: 450px;
-    height: 500px;
+    padding: 50px 0 50px 0;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -368,25 +326,34 @@ section {
     font-size: 2.6vw;
     font-weight: bold;
     font-family: 'Merriweather Sans', sans-serif;
-    margin-top: 20px;
+    margin-bottom: 20px;
 
 }
 
-.fifth-area-plans-division p {
+
+.plan-info {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 7%;
+
+}
+
+.plan-info i {
+
+    font-size: 60px;
+
+}
+
+.plan-span {
 
     font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1.6vw;
-    margin: 30px 0 40px 25px;
-    width: 80%;
-    display: flex;
+    font-size: 24px;
+    width: 75%;
 
 }
 
-.fifth-area-plans-division p img {
-
-    width: 50px;
-
-}
 
 
 #fifth-area-plans-buy {
@@ -401,7 +368,6 @@ section {
 
     font-size: 2vw;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-    margin-bottom: 20px;
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: bold;
 
@@ -427,6 +393,259 @@ section {
     background-color: #50A4EC;
     width: 153px;
     height: 31px;
+
+}
+
+@media (max-width: 567px) {
+
+    /* PRIMEIRA SESSÃO RESPONSIVIDADE */
+
+    #search-area {
+
+        width: 100%;
+        padding: 50px 5px 50px 5px;
+        
+
+    }
+
+    #search-area p {
+
+        font-size: 17px;
+
+    }
+
+    #search-job form {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0;
+
+
+    }
+
+    #search-job form input {
+
+        width: 210px;
+        height: 40px;
+
+    }
+
+    
+    #search-job form input:focus {
+
+        outline: none;
+        width: 213px;
+        height: 42px;
+        font-family: 'Merriweather Sans', sans-serif;
+        font-size: 16px;
+
+    }
+
+
+    #search-job form button {
+
+       margin: 20px 0 0 0;
+       height: 27px;
+
+    }
+
+
+    #image-area {
+
+        display: none;
+
+    }
+
+    /* SEGUNDA SESSÃO RESPONSIVIDADE */
+
+    #second-area {
+
+        padding: 50px 0 50px 0;
+
+    }
+    
+    #second-area h1 {
+
+        font-size: 26px;
+
+    }
+
+    .swiper {
+
+        height: 250px;
+
+    }
+
+    /* TERCEIRA SESSÃO RESPONSIVIDADE */
+    
+    #third-area h1 {
+
+        font-size: 16px;
+
+    }
+
+    /* QUARTA SESSÃO RESPONSIVIDADE */
+
+    #fourth-area {
+
+        padding: 50px 0 0 0;
+        flex-direction: column;
+
+    }
+
+    #fourth-area-main-division {
+
+        align-items: center;
+        height: 100%;
+        flex-direction: column;
+    
+    }
+
+    #fourth-area-first-division {
+
+        width: 80%;
+        text-align: center;
+    
+    }
+
+    #fourth-area-first-division h2 {
+
+        font-size: 26px;
+        margin-bottom: 30px;
+        font-family: 'Merriweather Sans', sans-serif;
+    
+    }
+
+    #fourth-area-second-division{
+
+        width: 90%;
+
+    }
+
+    #fourth-area-second-division h3{
+
+        font-family: 'Merriweather Sans', sans-serif;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 20px;
+        font-weight: 300;
+    
+    }
+
+    /* QUINTA SESSÃO RESPONSIVIDADE */
+
+    #fifth-area {
+
+        padding: 50px 0 50px 0;
+
+    }
+
+    #fifth-area-logo-image {
+
+        width: 200px;
+    
+    }
+
+    #fifth-area-main-division h1 {
+
+        font-size: 22px;
+        width: 90%;
+
+    }
+
+    #fifth-area-first-division {
+
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .fifth-area-plans-division {
+
+        border: 3px solid #30599E;
+        margin-top: 20px;
+        border-radius: 30px;
+        width: 90%;
+        padding: 15px 0 15px 0;
+    
+    }
+
+    .fifth-area-plans-division h2 {
+
+        font-size: 20px;
+        margin-bottom: 20px;
+    
+    }
+
+    .plan-info {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 7%;
+    
+    }
+    
+    .plan-info i {
+    
+        font-size: 30px;
+    
+    }
+    
+    .plan-span {
+    
+        font-family: 'Merriweather Sans', sans-serif;
+        font-size: 16px;
+        width: 75%;
+    
+    }
+    
+    
+    
+    #fifth-area-plans-buy {
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    
+    #fifth-area-plans-buy span {
+    
+        font-size: 16px;
+        margin-bottom: 10px;
+    
+    }
+    
+    #fifth-area-plans-buy a button {
+    
+        width: 120px;
+        height: 24px;
+        font-size: 14px;
+        color: #FFF;
+    
+    }
+    
+    #fifth-area-plans-buy a button:hover {
+    
+        background-color: #50A4EC;
+        width: 122px;
+        height: 25px;
+    
+    }
+
+    #fifth-area-plans-buy a button:active {
+    
+        background-color: #50A4EC;
+        width: 122px;
+        height: 25px;
+    
+    }
+
+    
+
 
 }
 
