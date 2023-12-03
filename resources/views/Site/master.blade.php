@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> @yield('title') </title>
-    <link rel="stylesheet" href="{{ asset('css/global_navba.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global_navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global-footer.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -53,15 +53,15 @@
                                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home</a>
+                                                <a class="nav-link active hyper" aria-current="page" href="{{ route('index') }}">Home</a>
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="">Vagas</a>
+                                                <a class="nav-link active hyper" aria-current="page" href="">Vagas</a>
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="{{ route('about-us') }}">Sobre nós</a>
+                                                <a class="nav-link active hyper" aria-current="page" href="{{ route('about-us') }}">Sobre nós</a>
                                             </li>
 
                                             <li class="nav-item">
@@ -69,7 +69,7 @@
                                             </li>
 
                                             <li class="nav-item mb-3">
-                                                <a class="nav-link active" aria-current="page" href="#">Conheça nosso plano</a>
+                                                <a class="nav-link active hyper" aria-current="page" href="#">Conheça nosso plano</a>
                                             </li>
 
                                         </ul>
@@ -204,11 +204,11 @@
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="{{ route('index') }}">Home</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="{{ route('about-us') }}">Sobre nós</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="{{ route('about-us') }}">Sobre nós</a>
                                     </li>
 
                                     <li class="nav-item">
@@ -216,7 +216,7 @@
                                     </li>
 
                                     <li class="nav-item mb-3">
-                                        <a class="nav-link active" aria-current="page" href="#">Conheça nosso plano</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="#">Conheça nosso plano</a>
                                     </li>
 
                                 </ul>
@@ -327,7 +327,7 @@
                         <div class="mnav-content">
 
                             <i class="fa-solid fa-bars fa-3x" style="color: #000000;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"></i>
-                            <img class="w-50 float-right" src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
+                            <img class="float-right" src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
 
                         </div>
 
@@ -342,15 +342,15 @@
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="Vagas">Vagas</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="Vagas">Vagas</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="about-us">Sobre nós</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="about-us">Sobre nós</a>
                                     </li>
 
                                     <li class="nav-item mb-3">
-                                        <a class="nav-link active" aria-current="page" href="#">Conheça nosso plano</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="#">Conheça nosso plano</a>
                                     </li>
 
                                     <li class="d-flex">
