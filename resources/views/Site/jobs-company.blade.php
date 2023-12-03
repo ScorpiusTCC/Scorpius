@@ -11,9 +11,9 @@
 
         <div class="filter-area container mb-4 ">
 
-            <form class="d-flex" action="">
+            <form id="filtroForm" class="d-flex" action="{{ route('filter.jobs-company') }}" method="get">
 
-                <input class="search form-control flex-grow-1" placeholder="Buscar vaga" type="text" name="" id="">
+                <input class="search form-control flex-grow-1" placeholder="Buscar vaga" type="text" name="searchName" id="searchName" value="{{ request('searchName') }}">
 
                 <div class="dropdown">
 
@@ -31,19 +31,12 @@
 
                                     <div class="d-flex mb-2">
 
-                                        <input type="checkbox" class="check-input form-check-input" id="dropdownCheck">
-                                        <label class="form-check-label lead filter-label" for="dropdownCheck">Matutino</label>
+                                        @foreach ($periodos as $periodo)
+                                            
+                                            <input type="checkbox" class="check-input form-check-input" id="periodo{{ $periodo->id }}" name="periodos[]" value="{{ $periodo->id }}" {{ in_array($periodo->id, (array) request('periodos', [])) ? 'checked' : '' }}>
+                                            <label class="form-check-label lead filter-label" for="periodo{{ $periodo->id }}">{{ $periodo->nome }}</label>
 
-                                        <input type="checkbox" class="check-input form-check-input" id="dropdownCheck">
-                                        <label class="form-check-label lead filter-label" for="dropdownCheck">Vespertino</label>
-
-                                    </div>
-                                    
-
-                                    <div>
-
-                                        <input type="checkbox" class="check-input form-check-input" id="dropdownCheck">
-                                        <label class="form-check-label lead filter-label" for="dropdownCheck">Noturno</label>
+                                        @endforeach
 
                                     </div>
                                 
@@ -59,19 +52,12 @@
 
                                     <div class="d-flex mb-2">
 
-                                        <input type="checkbox" class="check-input form-check-input" id="dropdownCheck">
-                                        <label class="form-check-label lead filter-label" for="dropdownCheck">Remoto</label>
+                                        @foreach ($modalidades as $modalidade)
+                                            
+                                            <input type="checkbox" class="check-input form-check-input" id="modalidade{{ $modalidade->id }}" name="modalidades[]" value="{{ $modalidade->id }}" {{ in_array($modalidade->id, (array) request('modalidades', [])) ? 'checked' : '' }}>
+                                            <label class="form-check-label lead filter-label" for="modalidade{{ $modalidade->id }}">{{ $modalidade->nome }}</label>
 
-                                        <input type="checkbox" class="check-input form-check-input" id="dropdownCheck">
-                                        <label class="form-check-label lead filter-label" for="dropdownCheck">Híbrido</label>
-
-                                    </div>
-                                    
-
-                                    <div>
-
-                                        <input type="checkbox" class="check-input form-check-input" id="dropdownCheck">
-                                        <label class="form-check-label lead filter-label" for="dropdownCheck">Presencial</label>
+                                        @endforeach
 
                                     </div>
                                 
@@ -81,36 +67,51 @@
                             
                             <div class="form-group mb-3">
                                 <h4>Categoria do estágio:</h4>
-                                <input type="text" class="form-control" id="">
+
+                                <select name="categoria" id="categoria">
+
+                                    <option disabled selected hidden>Selecionar</option>
+
+                                    @foreach ($categorias as $categoria)
+                                            
+                                        <option value="{{ $categoria->id }}" @if(request('categoria') == $categoria->id) selected @endif>{{ $categoria->nome }}</option>
+
+                                    @endforeach
+
+                                </select>
+
                             </div>
                     
                             <div class="form-group text-center mb-3">
-                                <h4>Valor aproximado:</h4>
 
                                 <div class="mb-3">
 
                                     <label class="form-check-label lead filter-label" for="dropdownCheck">Valor mínimo:</label>
-                                    <input type="number" class="form-control" id="">
+                                    <input type="number" class="form-control" id="valorMinimo" name="valor_minimo" value="{{ request('valor_minimo') }}">
 
                                 </div>
 
                                 <div>
 
                                     <label class="form-check-label lead filter-label" for="dropdownCheck">Valor máximo:</label>
-                                    <input type="number" class="form-control" id="">
+                                    <input type="number" class="form-control" id="valorMaximo" name="valor_maximo" value="{{ request('valor_maximo') }}">
 
                                 </div>
 
                             </div>
- 
-                            <button type="submit" class="filter-btn btn btn-lg">Confirmar filtro</button>
-    
+                            
+                            <button type="reset" class="filter-btn btn btn-lg" onclick="resetCheckboxes()">Limpar</button>
+
                         </div>
     
                     </div>
+
                 </div>
 
+                <button type="submit" class="filter-btn btn btn-lg">Pesquisar</button>
+
             </form>
+
 
         </div>
 
@@ -118,133 +119,47 @@
 
             <div class="text-center">
 
-                <h1 class="display-5">Vagas que sua empresa disponibilizou  </h1>
+                <h1 class="display-5">Suas vagas:</h1>
 
             </div>
 
             <div class="card-area d-flex">
 
-                <div class="card container">
+                @foreach ($vagas as $vaga)
 
-                    <div class="info-space mb-4">
+                    <div class="card container ">
 
-                        <h4>Estágio em Tecnologia da Informação</h4>
-                        <h5>R$ 2.200,00 (Bruto mensal)</h5>
-                        <h6>Presencial (Matutino)</h6>
+                        <div class="info-space mb-4">
 
-                    </div>
-
-                    <div class="btn-space d-flex justify-content-around align-items-center">
-
-                        <img class="w-25 img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
-
-                        <div>
-
-                            <h4>ITAÚ UNIBANCO S.A.</h4>
-                            <h5>Aviação</h5>
-                            <h6>Publicada em 1 de setembro</h6>
+                            <h4>{{ $vaga->titulo }}</h4>
+                            <h5>{{ str_replace('.', ',', $vaga->salario) }} (Bruto mensal)</h5>
+                            <h6>{{ $vaga->modalidade->nome . '  (' . $vaga->periodo->nome . ')' }}</h6>
 
                         </div>
 
-                        <a href=""><button class="btn-card btn">Visualizar</button></a>
 
-                    </div>
+                        <div class="btn-space d-flex justify-content-around align-items-center">
 
+                            <img class="w-25 img-fluid" src="@if(isset($ajuste_vaga))../@endif{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
 
-                </div>
+                            <div class="p-4">
 
-                <div class="card container">
+                                <h4>{{ $vaga->empresa->nm_fantasia }}</h4>
+                                <h5>{{ $vaga->empresa->endereco }}</h5>
+                                <h6>Publicado em: {{ $vaga->created_at->format('d/m/Y') }}</h6>
 
-                    <div class="info-space mb-4">
-
-                        <h4>Estágio em Tecnologia da Informação</h4>
-                        <h5>R$ 2.200,00 (Bruto mensal)</h5>
-                        <h6>Presencial (Matutino)</h6>
-
-                    </div>
-
-                    <div class="btn-space d-flex justify-content-around align-items-center">
-
-                        <img class="w-25 img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
-
-                        <div>
-
-                            <h4>ITAÚ UNIBANCO S.A.</h4>
-                            <h5>Aviação</h5>
-                            <h6>Publicada em 1 de setembro</h6>
+                            </div>
 
                         </div>
 
-                        <a href=""><button class="btn-card btn">Visualizar</button></a>
+                        <a href="#" class="btn-card btn bottom-0">excluir</a>
+                        <a href="#" class="btn-card btn bottom-0">Editar</a>    
 
                     </div>
 
-
-                </div>
-
-                <div class="card container">
-
-                    <div class="info-space mb-4">
-
-                        <h4>Estágio em Tecnologia da Informação</h4>
-                        <h5>R$ 2.200,00 (Bruto mensal)</h5>
-                        <h6>Presencial (Matutino)</h6>
-
-                    </div>
-
-                    <div class="btn-space d-flex justify-content-around align-items-center">
-
-                        <img class="w-25 img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
-
-                        <div>
-
-                            <h4>ITAÚ UNIBANCO S.A.</h4>
-                            <h5>Aviação</h5>
-                            <h6>Publicada em 1 de setembro</h6>
-
-                        </div>
-
-                        <a href=""><button class="btn-card btn">Visualizar</button></a>
-
-                    </div>
-
-
-                </div>
-
-                <div class="card container">
-
-                    <div class="info-space mb-4">
-
-                        <h4>Estágio em Tecnologia da Informação</h4>
-                        <h5>R$ 2.200,00 (Bruto mensal)</h5>
-                        <h6>Presencial (Matutino)</h6>
-
-                    </div>
-
-                    <div class="btn-space d-flex justify-content-around align-items-center">
-
-                        <img class="w-25 img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
-
-                        <div>
-
-                            <h4>ITAÚ UNIBANCO S.A.</h4>
-                            <h5>Aviação</h5>
-                            <h6>Publicada em 1 de setembro</h6>
-
-                        </div>
-
-                        <a href=""><button class="btn-card btn">Visualizar</button></a>
-
-                    </div>
-
-
-                </div>
-
-
+                @endforeach
 
             </div>
-
-
 
         </div>
 

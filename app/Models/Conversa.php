@@ -16,5 +16,5 @@ class Conversa extends Model
     public function participantes()
     {
         return $this->hasMany(ParticipanteConversa::class, 'id_conversa');
-    }
+    }    
 }

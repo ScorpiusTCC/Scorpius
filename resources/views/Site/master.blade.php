@@ -65,7 +65,7 @@
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class="nav-link active hyper" aria-current="page" href="about-us">Chat</a>
+                                                <a class="nav-link active" aria-current="page" href="{{ route('chat') }}">Chat</a>
                                             </li>
 
                                             <li class="nav-item mb-3">
@@ -103,7 +103,7 @@
 
                             <div class="user-area">
 
-                                <a href=""><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
+                                <a href="{{ route('chat') }}"><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
 
                                 <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
     
@@ -212,7 +212,7 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link active hyper" aria-current="page" href="about-us">Chat</a>
+                                        <a class="nav-link active" aria-current="page" href="{{ route('chat') }}">Chat</a>
                                     </li>
 
                                     <li class="nav-item mb-3">
@@ -249,7 +249,7 @@
 
                         <div class="user-area">
 
-                            <a href=""><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
+                            <a href="{{ route('chat') }}"><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
 
                             <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 
@@ -257,7 +257,7 @@
                                 
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('company.profile')}}">Meu perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Minhas vagas</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('company.jobs')}}">Minhas vagas</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
                                 </ul>
 

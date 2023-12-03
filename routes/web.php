@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstudanteController;
 use App\Http\Controllers\LoginController;
@@ -94,6 +95,10 @@ Route::post('Empresa/AtualizarDados', [EmpresaController::class, 'storeData'])->
 
 Route::get('Empresa/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
 
+Route::get('/jobs-company', [EmpresaController::class, 'jobsCompany'])->name('company.jobs');
+
+Route::get('filtrosVagasEmpresa', [EmpresaController::class, 'filtersVagas'])->name('filter.jobs-company');
+
 // Demais rotas 
 
 Route::get('/', [SiteController::class, 'index'])->name('index');
@@ -110,9 +115,6 @@ Route::get('/jobs-student', function () {
     return view('site/jobs-student');
 })->name('jobs-student');
 
-Route::get('/jobs-company', function () {
-    return view('site/jobs-company');
-})->name('jobs-company');
 
 Route::get('/company-jobs-users', function () {
     return view('site/company-jobs-users');
@@ -149,3 +151,10 @@ Route::get('admin/companys', function () {
     return view('admin/companys');
 })->name('admin.companys');
 
+// Demais rotas 
+
+Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+
+Route::get('/obter-dados-conversas', [ChatController::class, 'obterDadosConversas'])->name('obter-dados');
+
+Route::get('/carregar-mensagens', [ChatController::class, 'carregarMensagens']);

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\RepresentanteEmpresa;
 use App\Models\Empresa;
+use App\Models\Modalidade;
+use App\Models\Periodo;
 use App\Models\User;
+use App\Models\Vaga;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -266,5 +270,71 @@ class EmpresaController extends Controller
             // Se houver um erro na requisição, você pode lidar com ele aqui
             return null;
         }
+    }
+
+    public function filtersVagas(Request $request)
+    {
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
+
+        // Lógica de filtro
+        $vagas = Vaga::where('id_status', 1);
+
+        // Filtro de busca por título
+        if ($request->filled('searchName')) {
+            $vagas->where('titulo', 'like', '%' . $request->input('searchName') . '%');
+        }
+
+        // Filtro por período de estágio
+        $periodosSelected = (array) request('periodos', []);
+        if (!empty($periodosSelected)) {
+            $vagas->whereIn('id_periodo', $periodosSelected);
+        }
+
+        // Filtro por modalidade de estágio
+        $modalidadesSelected = (array) request('modalidades', []);
+        if (!empty($modalidadesSelected)) {
+            $vagas->whereIn('id_modalidade', $modalidadesSelected);
+        }
+
+        // Filtro por categoria de estágio
+        $categoriaSelected = request('categoria');
+        if ($categoriaSelected) {
+            $vagas->where('id_categoria', $categoriaSelected);
+        }
+
+        // Filtro por valor mínimo
+        $valorMinimo = request('valor_minimo');
+        if ($valorMinimo !== null) {
+            $vagas->where('salario', '>=', $valorMinimo);
+        }
+
+        // Filtro por valor máximo
+        $valorMaximo = request('valor_maximo');
+        if ($valorMaximo !== null) {
+            $vagas->where('salario', '<=', $valorMaximo);
+        }
+
+        // Execute a consulta
+        $vagas = $vagas->paginate(8);
+
+        // Retorne a view com os resultados
+        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+    }
+
+    public function jobsCompany()
+    {
+        $company = auth()->user()->empresa;
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
+        
+        $vagas = Vaga::where('id_empresa', $company->id)
+                ->paginate(8);
+        
+        // echo '<pre>';
+        // var_dump($vagas);
+        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades'));
     }
 }
