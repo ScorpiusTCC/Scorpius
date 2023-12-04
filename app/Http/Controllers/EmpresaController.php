@@ -84,11 +84,6 @@ class EmpresaController extends Controller
 
         $user = $create_user; // Obtém a empresa recém-criado
 
-        // $representante = $create_representante; // Obtém a empresa recém-criado
-
-        // dd($create_representante->id,
-        //     $create_user->id);
-
         if ($create_representante) {
 
             // dd($data['nm_representante']);

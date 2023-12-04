@@ -10,8 +10,8 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users');
-            $table->foreignId('id_representante')->constrained('representantes_empresas');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');;
+            $table->foreignId('id_representante')->constrained('representantes_empresas')->onDelete('cascade');
             $table->char('cnpj', 18)->unique();
             $table->string('nm_fantasia');
             $table->string('razao_social');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstudanteController;
@@ -67,8 +68,6 @@ Route::post('Estudante/EditarPerfil', [EstudanteController::class, 'editProfile'
 
 Route::get('Estudante/EditarDados', [EstudanteController::class, 'editData'])->name('estudante.data-edit')->middleware('auth', 'estudante');
 
-Route::get('Estudante/EditarDados', [EstudanteController::class, 'editData'])->name('admin.estudante.data-edit')->middleware('auth', 'estudante');
-
 Route::post('Estudante/AtualizarDados', [EstudanteController::class, 'storeData'])->name('estudante.data-store')->middleware('auth', 'estudante');
 
 Route::get('AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.store')->middleware('auth', 'estudante');
@@ -135,26 +134,43 @@ Route::get('/edit-jobs', function () {
 
 // Admin
 
-Route::get('admin-login/', function () {
-    return view('admin/home-admin');
-})->name('admin.index');
+Route::get('admin/home', [AdminController::class, 'index'])->name('admin.index');
 
-Route::get('admin/students', function () {
-    return view('admin/students');
-})->name('admin.students');
+// Estudantes
 
-Route::get('admin/jobs', function () {
-    return view('admin/jobs');
-})->name('admin.jobs');
+Route::get('Admin/Estudantes', [AdminController::class, 'index_students'])->name('admin.students');
 
-Route::get('admin/companys', function () {
-    return view('admin/companys');
-})->name('admin.companys');
+Route::get('Admin/Estudante/{id}/EditarDados', [AdminController::class, 'editDataStudent'])->name('admin.student.data-edit');
 
-// Demais rotas 
+Route::post('Admin/Estudante/Atualizardados', [AdminController::class, 'storeDataStudent'])->name('admin.student.data-store');
+
+Route::delete('Admin/Estudante/{id}/Delete', [AdminController::class, 'destroyStudent'])->name('admin.student.delete');
+
+// Empresa
+
+Route::get('Admin/Empresas', [AdminController::class, 'index_companys'])->name('admin.companys');
+
+Route::get('Admin/Empresa/{id}/EditarDados', [AdminController::class, 'editDataCompany'])->name('admin.empresa.data-edit');
+
+Route::post('Admin/Empresa/AtualizarDados', [AdminController::class, 'storeDataCompany'])->name('admin.empresa.data-store');
+
+Route::delete('Admin/Empresa/{id}/Delete', [AdminController::class, 'destroyCompany'])->name('admin.company.delete');
+
+// Vagas
+
+Route::get('Admin/Vagas', [AdminController::class, 'index_jobs'])->name('admin.jobs');
+
+Route::get('Admin/Vaga/{id}/EditarDados', [AdminController::class, 'editDataJob'])->name('admin.job.data-edit');
+
+Route::post('Admin/Vaga/AtualizarDados', [AdminController::class, 'storeDataJob'])->name('admin.job.data-store');
+
+Route::delete('Admin/Vaga/{id}/Delete', [AdminController::class, 'destroyJob'])->name('admin.job.delete');
+
+// Manipular chat 
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 
 Route::get('/obter-dados-conversas', [ChatController::class, 'obterDadosConversas'])->name('obter-dados');
 
 Route::get('/carregar-mensagens', [ChatController::class, 'carregarMensagens']);
+

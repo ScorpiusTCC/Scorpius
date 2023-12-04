@@ -14,6 +14,6 @@ class Escola extends Model
 
     public function escola_curso()
     {
-        return $this->hasMany(escolaCurso::class, 'id_escola');
+        return $this->hasMany(EscolaCurso::class, 'id_escola');
     }
 }

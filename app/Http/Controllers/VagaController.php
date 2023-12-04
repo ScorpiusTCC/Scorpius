@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Modalidade;
 use App\Models\Periodo;
-use App\Models\Status;
 use App\Models\Vaga;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

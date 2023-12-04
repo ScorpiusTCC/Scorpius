@@ -173,7 +173,7 @@
                         <div class="buttons-division">
 
                             <button class="prev-button"><</button>
-                            <button type="submit" class="next-button">Finalizar</button>
+                            <button type="submit" class="submit-button">Finalizar</button>
         
                         </div>
 

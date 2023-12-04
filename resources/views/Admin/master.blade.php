@@ -61,32 +61,6 @@
 
             @yield('content')
             
-            <!-- Modal -->
-            <div class="modal fade exampleModal" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-
-                    <div class="modal-content p-4">
-
-                        <div class="modal-body text-center">
-
-                            <h2 class="display-6">Tem certeza que deseja excluir?</h2>
-
-                            <div class="mt-5">
-
-                                <a class="" href=""><button class="btn btn-lg btn-success">Sim</button></a>
-
-                                <button class="btn btn-lg btn-danger m-4" data-bs-dismiss="modal">Não</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
 
             <div class="modal fade exampleModalExit" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
@@ -100,7 +74,7 @@
 
                             <div class="mt-5">
 
-                                <a class="" href="{{ route('index')}}"><button class="btn btn-lg btn-success">Sim</button></a>
+                                <a class="" href="{{ route('logout')}}"><button class="btn btn-lg btn-success">Sim</button></a>
 
                                 <button class="btn btn-lg btn-danger m-4" data-bs-dismiss="modal">Não</button>
 
