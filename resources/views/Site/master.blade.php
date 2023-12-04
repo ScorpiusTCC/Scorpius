@@ -27,14 +27,14 @@
                                 <div class="mnav-content">
 
                                     <i class="fa-solid fa-bars fa-3x" style="color: #000000;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"></i>
-                                    <img class="w-50 float-right" src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
-                                    <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
+                                    <img class="w-50 float-right" src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt=""> 
+                                    <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste)){{$ajuste}}@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
     
                                     <div class="">
                                         
                                         <ul class="dropdown-menu">
                                           <li><a class="dropdown-item" href="{{ route('student.profile') }}">Meu perfil</a></li>
-                                          <li><a class="dropdown-item" href="#">Candidatações</a></li>
+                                          <li><a class="dropdown-item" href="{{ route('candidaturas.show')}}">Candidatações</a></li>
                                           <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                         </ul>
         
@@ -57,7 +57,7 @@
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class="nav-link active hyper" aria-current="page" href="">Vagas</a>
+                                                <a class="nav-link active hyper" aria-current="page" href="{{ route('index.job') }}">Vagas</a>
                                             </li>
 
                                             <li class="nav-item">
@@ -95,8 +95,8 @@
 
                             <div class="hyper-area">
 
-                                <a class="hyper" href="Vagas">Vagas</a>
-                                <a class="hyper" href="about-us">Sobre nós</a>
+                                <a class="hyper" href="{{ route('index.job') }}">Vagas</a>
+                                <a class="hyper" href="{{ route('about-us') }}">Sobre nós</a>
                                 <a class="hyper" href="">Conheça nosso plano</a>
 
                             </div>
@@ -105,13 +105,13 @@
 
                                 <a href="{{ route('chat') }}"><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
 
-                                <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
+                                <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste)){{$ajuste}}@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
     
                                 <div class="">
                                     
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="{{ route('student.profile') }}">Meu perfil</a></li>
-                                      <li><a class="dropdown-item" href="#">Candidatações</a></li>
+                                      <li><a class="dropdown-item" href="{{ route('candidaturas.show') }}">Candidatações</a></li>
                                       <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                     </ul>
     
@@ -149,13 +149,13 @@
                             
                             <a href=""><img class="icons-img" src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
 
-                            <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
+                            <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste)){{$ajuste}}@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 
                             <div class="">
                                 
                                 <ul class="dropdown-menu">
                                   <li><a class="dropdown-item" href="{{ route('student.profile') }}">Meu perfil</a></li>
-                                  <li><a class="dropdown-item" href="#">Candidatações</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('candidaturas.show')}}">Candidatações</a></li>
                                   <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                 </ul>
 
@@ -179,7 +179,7 @@
 
                             <i class="fa-solid fa-bars fa-3x" style="color: #000000;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"></i>
                             <img class="w-50 float-right" src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
-                            <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
+                            <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste)){{$ajuste}}@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 
                             <div class="">
                                 
@@ -242,7 +242,7 @@
 
                         <div class="hyper-area">
 
-                            <a class="hyper" href="about-us">Sobre nós</a>
+                            <a class="hyper" href="{{ route('about-us') }}">Sobre nós</a>
                             <a class="hyper" href="">Conheça nosso plano</a>
 
                         </div>
@@ -251,7 +251,7 @@
 
                             <a href="{{ route('chat') }}"><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
 
-                            <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
+                            <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste)){{$ajuste}}@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 
                             <div class="">
                                 
@@ -296,7 +296,7 @@
                             
                             <a href=""><img class="icons-img" src="{{ asset('imgs/chat-icon.svg') }}" alt=""></a>
 
-                            <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
+                            <img class="dropdown-toggle icons-img border rounded-circle" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste)){{$ajuste}}@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 
                             <div class="">
                                 
@@ -388,8 +388,8 @@
     
                     <div class="hyper-area">
     
-                        <a class="hyper" href="Vagas">Vagas</a>
-                        <a class="hyper" href="about-us">Sobre nós</a>
+                        <a class="hyper" href="{{ route('index.job') }}">Vagas</a>
+                        <a class="hyper" href="{{ route('about-us') }}">Sobre nós</a>
                         <a class="hyper" href="">Conheça nosso plano</a>
     
                     </div>

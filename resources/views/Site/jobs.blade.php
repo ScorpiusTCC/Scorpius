@@ -151,7 +151,7 @@
 
                         </div>
 
-                        <a href="#" class="btn-card btn bottom-0">Mais sobre</a>
+                        <a href="{{ route('job.show', $vaga->id) }}" class="btn-card btn bottom-0">Mais sobre</a>
 
                     </div>
 
@@ -193,13 +193,7 @@
             @endif
         
         </nav>
-
-        <div class="jobs-area container">
-
-            
-
-        </div>
-
+        
     </main>
 
 @endsection

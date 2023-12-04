@@ -75,7 +75,11 @@ class VagaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $vaga = Vaga::find($id);
+
+        $ajuste = '../';
+
+        return view('site/jobs-profile', compact('vaga', 'ajuste'));
     }
 
     /**

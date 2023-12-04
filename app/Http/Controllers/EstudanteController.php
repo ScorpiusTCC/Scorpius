@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidatura;
 use App\Models\ContatoEstudante;
 use App\Models\Curso;
 use App\Models\Escola;
@@ -12,11 +13,13 @@ use App\Models\Modalidade;
 use App\Models\Periodo;
 use App\Models\Sexo;
 use App\Models\User;
+use App\Models\Vaga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Stmt\Return_;
 
 class EstudanteController extends Controller
 {   
@@ -105,7 +108,7 @@ class EstudanteController extends Controller
 
         $datacursos = $this->infoCurso($user->estudante->id);
 
-        $ajuste = true;
+        $ajuste = '../';
         
         return view('site/student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos', 'ajuste'));
 
@@ -138,7 +141,7 @@ class EstudanteController extends Controller
                 // Chamar a função para obter os cursos do estudante
                 $datacursos = $this->infoCurso($user->estudante->id);
 
-                $ajuste = true;
+                $ajuste = '../';
                 
                 return view('site/logged-student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos', 'ajuste'));
             }
@@ -194,6 +197,19 @@ class EstudanteController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function editExp($id, Request $request)
+    {
+        $data = $request->all;
+
+        dd($data);
+        
+        $exp = Experiencia::find($id);
+        
+        $exp->update([
+            'id_empregador' => $data['empregador'],
+        ]);
     }
 
     private function infoExp($id)
@@ -285,7 +301,7 @@ class EstudanteController extends Controller
         $sexos = Sexo::all();
 
         //ajuste no caminho da img para navbar 
-        $ajuste = true;
+        $ajuste = '../';
 
         return view('site/edit-student', compact('estudante', 'sexos', 'endereco', 'ajuste'));
     }
@@ -372,6 +388,40 @@ class EstudanteController extends Controller
             // Se houver um erro na requisição, você pode lidar com ele aqui
             return null;
         }
+    }
+
+    public function jobCandidatar($id)
+    {
+        $estudante = auth()->user()->estudante;
+        $vaga = Vaga::find($id);
+
+        $insertCandidatura = Candidatura::insert([
+            'id_estudante' => $estudante->id,
+            'id_vaga' => $vaga->id
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function showCandidaturas()
+    {
+        $estudante = auth()->user()->estudante;
+
+        $candidaturas = Candidatura::where('id_estudante', $estudante->id)
+                                    ->paginate(1);
+           
+        $ajuste = '../';
+
+        return view('site/jobs-student', compact('candidaturas', 'ajuste'));
+    }
+
+    public function deleteCandidatura($id)
+    {
+        $candidatura = Candidatura::find($id);
+
+        $delete = $candidatura->delete();
+
+        return redirect()->route('candidaturas.show');
     }
 }
 

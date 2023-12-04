@@ -64,6 +64,12 @@ Route::get('Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->
 
 Route::get('Estudante/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
 
+Route::get('Estudante/Canditar/{id}', [EstudanteController::class, 'jobCandidatar'])->name('candidatura.student');
+
+Route::get('Estudante/Minhas-Candidaturas', [EstudanteController::class, 'showCandidaturas'])->name('candidaturas.show');
+
+Route::match(['get', 'delete'], 'Estudante/Candidatura/Delete/{id}', [EstudanteController::class, 'deleteCandidatura'])->name('candidatura.delete');
+
 Route::post('Estudante/EditarPerfil', [EstudanteController::class, 'editProfile'])->name('estudante.profile-edit')->middleware('auth', 'estudante');
 
 Route::get('Estudante/EditarDados', [EstudanteController::class, 'editData'])->name('estudante.data-edit')->middleware('auth', 'estudante');
@@ -75,6 +81,8 @@ Route::get('AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.st
 Route::delete('deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete')->middleware('auth', 'estudante');
 
 Route::get('AddExp', [EstudanteController::class, 'addExp'])->name('exp.store')->middleware('auth', 'estudante');
+
+// Route::put('EditExp/{id}', [EstudanteController::class, 'editExp'])->name('edit.exp')->middleware('auth', 'estudante');
 
 Route::delete('deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete')->middleware('auth', 'estudante');
 

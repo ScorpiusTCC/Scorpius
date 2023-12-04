@@ -271,31 +271,10 @@
                             <div class="card-editor">
 
                                 <div class="modal-icons">
-
-                                    <i class="fa-solid fa-pen-to-square fa-shake" data-bs-toggle="modal" data-bs-target=".edit-experience-modal"></i>
-                                        
-                                    <!-- Modal -->
-                                    <div class="modal fade edit-experience-modal" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        
-                                        <div class="modal-dialog modal-dialog-centered">
-        
-                                            <div class="modal-content">
-        
-                                                <div class="modal-body">
-        
-
-        
-                                                </div>
-        
-                                            </div>
-        
-                                        </div>
-        
-                                    </div>
-
+                                    <i class="fa-solid fa-pen-to-square fa-shake" data-bs-toggle="modal" data-bs-target="#editExperienceModal{{ $experiencia->id }}"></i>
                                 </div>
 
-                                <div class="modal-icons">
+                                <div class="modal-icons">   
 
                                     <form method="POST" action="{{ route('exp.delete', $experiencia->id ) }}">
                                         @csrf
@@ -303,10 +282,9 @@
                             
                                         <button type="submit" class="fa-solid fa-trash-alt" data-bs-toggle="modal" data-bs-target="#myModal"></button>
                                     </form>
-                                    
-                                    {{-- <i class="fa-solid fa-trash fa-shake"  style="color: #ffffff;" data-bs-toggle="modal" data-bs-target=".delete-modal"></i>
+                                
                                         
-                                    <!-- Modal -->
+                                    {{-- <!-- Modal -->
                                     <div class="modal fade delete-modal" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         
                                         <div class="modal-dialog modal-dialog-centered">
@@ -323,9 +301,50 @@
         
                                         </div>
         
-                                    {{-- </div> --}}
+                                    </div> --}}
 
                                 </div> 
+                            </div>
+                
+                            <!-- Edit Experience Modal -->
+                            <div class="modal fade" id="editExperienceModal{{ $experiencia->id }}" tabindex="-1" aria-labelledby="editExperienceModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editExperienceModalLabel">Editar Experiência</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Formulário para editar experiência -->
+                                            <form action="" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                
+                                                <div class="mb-3">
+                                                    <label for="empregador" class="form-label">Empregador</label>
+                                                    <input type="text" class="form-control" id="empregador" name="empregador" value="{{ $experiencia->empregador }}">
+                                                </div>
+                
+                                                <div class="mb-3">
+                                                    <label for="descricao" class="form-label">Descrição</label>
+                                                    <input type="text" class="form-control" id="descricao" name="descricao" value="{{ $experiencia->descricao }}">
+                                                </div>
+                
+                                                <div class="mb-3">
+                                                    <label for="modalidade" class="form-label">Modalidade</label>
+                                                    <input type="text" class="form-control" id="modalidade" name="modalidade" value="{{ $experiencia->modalidade }}">
+                                                </div>
+                
+                                                <div class="mb-3">
+                                                    <label for="tempo" class="form-label">Tempo</label>
+                                                    <input type="text" class="form-control" id="tempo" name="tempo" value="{{ $experiencia->tempo }}">
+                                                </div>
+                
+                                                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
         

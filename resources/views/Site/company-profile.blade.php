@@ -14,7 +14,7 @@
 
                 <div class="text-image">
 
-                    <img src="{{ $user->nm_img}}" alt="logotipo da empresa">
+                    <img src="../../{{ $user->nm_img}}" alt="logotipo da empresa">
 
                     <div>
 
