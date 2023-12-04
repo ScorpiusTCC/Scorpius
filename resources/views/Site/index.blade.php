@@ -14,7 +14,7 @@
 
 @section('content')
     <!-- chamar o estilo da pagina -->
-    <link rel="stylesheet" href="{{ asset('css/indexes.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}"/>
 
     <main>
 
@@ -22,7 +22,7 @@
 
             <div id="search-area">
 
-                <p>Encontre as melhores vagas de estágio.</p>
+                <p>Encontre as melhores vagas de estágio</p>
                 <p>Seu primeiro emprego é aqui!</p>
 
                 <div id="search-job">
@@ -118,13 +118,30 @@
 
                 <div id="fifth-area-first-division">
 
-                    <div class="fifth-area-plans-division">
+                    <div class="fifth-area-plans-division ">
 
                         <h2>Grátis</h2>
     
-                        <p>Acesso a diversas vagas de estágio<img src="{{ asset('imgs/check.png') }}" alt=""></p>
-                        <p>Área para colocar suas informações pessoais<img src="{{ asset('imgs/check.png') }}" alt=""></p>
-                        <p>Maior visibilidade na plataforma<img src="{{ asset('imgs/close.png') }}" alt=""></p>
+                        <div class="plan-info">
+
+                            <span class="plan-span">Acesso a diversas vagas de estágio</span>
+                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                        </div>
+
+                        <div class="plan-info">
+
+                            <span class="plan-span">Área para colocar suas informações pessoais</span>
+                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                        </div>
+
+                        <div class="plan-info">
+
+                            <span class="plan-span">Maior visibilidade na plataforma</span>
+                            <i class="fa-solid fa-xmark" style="color: #c32c2c;"></i>
+                            
+                        </div>
     
                     </div>
     
@@ -132,10 +149,26 @@
     
                         <h2>Premium</h2>
     
-                        <p>Acesso a diversas vagas de estágio<img src="{{ asset('imgs/check.png') }}" alt=""></p>
-                        <p>Área para colocar suas informações pessoais<img src="{{ asset('imgs/check.png') }}" alt=""></p>
-                        <p>Maior visibilidade na plataforma<img src="{{ asset('imgs/check.png') }}" alt=""></p>
+                        <div class="plan-info">
 
+                            <span class="plan-span">Acesso a diversas vagas de estágio</span>
+                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                        </div>
+
+                        <div class="plan-info">
+
+                            <span class="plan-span">Área para colocar suas informações pessoais</span>
+                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                        </div>
+
+                        <div class="plan-info">
+
+                            <span class="plan-span">Maior visibilidade na plataforma</span>
+                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                        </div>
 
                         <div id="fifth-area-plans-buy">
 
@@ -156,6 +189,6 @@
 
     <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="{{ asset('js/index-swiper.js') }}"></script>
+    <script src="{{ asset('js/index_swiper.js') }}"></script>
 
 @endsection
