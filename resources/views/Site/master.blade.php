@@ -103,7 +103,7 @@
 
                             <div class="user-area">
 
-                                <a href="{{ route('chat') }}"><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
+                                <a href="{{ route('chat') }}"><i class="fa-solid fa-message fa-3x" style="color: #30599E;"></i></a>
 
                                 <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
     
@@ -249,7 +249,7 @@
 
                         <div class="user-area">
 
-                            <a href="{{ route('chat') }}"><i class="fa-solid fa-comments fa-3x" style="color: #30599E;"></i></a>
+                            <a href="{{ route('chat') }}"><i class="fa-solid fa-message fa-3x" style="color: #30599E;"></i></a>
 
                             <img class="dropdown-toggle profile-icon" data-bs-toggle="dropdown" aria-expanded="false" src="@if(isset($ajuste))../@endif{{auth()->user()->nm_img }}" alt="Foto de Perfil">
 

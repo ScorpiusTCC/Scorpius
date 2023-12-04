@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* font-family: 'Inter', sans-serif; */
+
+/* MAIN */
+
+main {
+
+    font-family: 'Inter', sans-serif;
+    padding: 50px 0 50px 0;
+
+}
+
+.chat {
+
+    display: flex;
+    border-radius: 15px;
+    border: 1px solid #D9D9D9;
+    background-color: #FFF;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+    height: 80vh;
+
+}
+
+/* LISTA DE USUÁRIos */
+
+.user-list {
+
+    width: 35%;
+    overflow-y: scroll;
+
+}
+
+.user {
+
+    display: flex;
+    align-items: center;
+    border: 3px solid #f7f7f7;
+    background-color: #FFF;
+    height: 100px;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+
+}
+
+.img-user {
+
+    width: 25%;
+
+}
+
+.img-user img {
+
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin-right: 2%;
+}
+
+.info-user {
+
+    width: 60%;
+
+}
+
+.conversa-item {
+
+    color: #000;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.info-msg {
+
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+
+
+}
+
+/* CHAT BOX */
+
+
+.chat-box {
+
+    padding: 3%;
+    height: 100%;
+    width: 65%;
+
+}
+
+.message-area {
+
+    height: 90%;
+    overflow-y: scroll;
+    margin-bottom: 4%;
+
+}
+
+.other-msg {
+
+    display: flex;
+    margin-bottom: 3%;
+
+}
+
+.other-msg img {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+
+}
+
+.other-msg h4 {
+
+    padding: 2.5%;
+    background-color: #3C85FF;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 40px;
+    width: 45%;
+
+}
+
+.user-msg {
+
+    margin-bottom: 3%;
+    background-color: red;
+
+}
+
+.user-msg h4 {
+
+    padding: 2.5%;
+    background-color: #30599E;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 40px;
+    width: 45%;
+    float: right;
+
+}
+
+.message-chat {
+
+    display: flex;
+    height: 5%;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+
+.msg-input {
+
+    width: 90%;
+    background-color: red;
+    border-radius: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.30);
+    background: #FFF;
+    
+}
+
+.send-btn {
+
+    background-color:#fff;
+    border: 0;
+
+}
+
+.send-btn i {
+
+    font-size: 30px;
+
+}
