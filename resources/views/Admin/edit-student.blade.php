@@ -4,11 +4,9 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/edit-page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('admin/css/editar-page.css') }}"/>
 
-    <main>
-
-        <div class="card container mt-5 mb-5">
+        <div class="card">
 
             <div class="row justify-content-center">
 
@@ -117,8 +115,6 @@
             </div>
 
         </div>
-
-    </main>
 
     <script src="{{ asset('js/register-user-script.js') }}"></script>
     <script src="{{ asset('js/student-scripts.js') }}"></script>

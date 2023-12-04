@@ -4,11 +4,9 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/edit-page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('admin/css/editar-page.css') }}"/>
 
-    <main>
-
-        <div class="card container mt-5 mb-5">
+        <div class="card container">
 
             <div class="row justify-content-center">
 
@@ -35,7 +33,7 @@
                         <div class="form-group">
 
                             <label for="">Período de estágio:</label>
-                            <select name="periodo" id="periodo">
+                            <select class="edit-select form-group"ame="periodo" id="periodo">
 
                                 <option disabled selected hidden>Selecionar</option>
 
@@ -56,7 +54,7 @@
                         <div class="form-group">
 
                             <label for="">Local de trabalho:</label>
-                            <select name="modalidade" id="modalidade">
+                            <select class="edit-select form-group" name="modalidade" id="modalidade">
 
                                 <option disabled selected hidden>Selecionar</option>
 
@@ -78,7 +76,7 @@
                         <div class="form-group">
 
                             <label for="">Categoria do estágio:</label>
-                            <select name="categoria" id="categoria">
+                            <select class="edit-select form-group" name="categoria" id="categoria">
 
                                 <option value="" disabled selected hidden>Selecionar</option>
 
@@ -130,8 +128,6 @@
             </div>
 
         </div>
-
-    </main>
 
     <script src="{{ asset('js/register-user-script.js') }}"></script>
     <script src="{{ asset('js/student-scripts.js') }}"></script>

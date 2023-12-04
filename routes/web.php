@@ -40,7 +40,7 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('Vagas', [VagaController::class, 'index'])->name('index.job');
 
-Route::get('Registro-vaga', [VagaController::class, 'create'])->name('job.create');
+Route::get('registro-vaga', [VagaController::class, 'create'])->name('job.create');
 
 Route::post('Add-vaga', [VagaController::class, 'store'])->name('job.store');
 
