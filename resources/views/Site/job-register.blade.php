@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/job_register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jobs-register.css') }}">
 
     <main>
 
@@ -25,14 +25,14 @@
 
                         </div>
 
-                        <div class="forms-content">
+                        <div class="forms-content container">
 
                             <div class="form">
 
                                 <h1>Qual o título da vaga?</h1>
 
                                 <label for="">Título da vaga<b>*</b> </label>
-                                <input type="text" name="titulo" id="titulo" placeholder="Ex:  Estágio em Programação Front-End">
+                                <input class="input-text form-control" type="text" name="titulo" id="titulo" placeholder="Ex:  Estágio em Programação Front-End">
 
                             </div>
 
@@ -41,7 +41,7 @@
                                 <h1>Descrição da vaga</h1>
 
                                 <label for="">Coloque aqui uma descrição detalhada sobre sua vaga?<b>*</b> </label>
-                                <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10"></textarea>
 
                             </div>
 
@@ -50,7 +50,7 @@
                                 <h1>Bolsa-Auxílio</h1>
 
                                 <label for="">R$ <b>*</b> </label>
-                                <input type="number" name="salario" id="salario">
+                                <input class="input-text form-control" type="number" name="salario" id="salario">
 
                                 <div class="d-flex align-items-center "> 
 
@@ -60,11 +60,10 @@
                                 </div>
 
                             </div>
-
                         
                         </div>
 
-                        <div class="buttons-division">
+                        <div class="buttons-division container">
 
                             <button class="next-button">Continuar</button>
         
@@ -81,7 +80,7 @@
 
                         </div>
 
-                        <div class="forms-content">
+                        <div class="forms-content container">
 
                             <div class="form">
 
@@ -107,7 +106,7 @@
                                 <h1>Local de trabalho</h1>
     
                                 <label for="">Onde o profissional irá trabalhar?<b>*</b> </label>
-                                <input type="text" name="cep" id="cep" maxlength="9" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
+                                <input class="input-text form-control" type="text" name="cep" id="cep" maxlength="9" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
     
                             </div>
     
@@ -131,7 +130,7 @@
 
                         </div>
 
-                        <div class="forms-content">
+                        <div class="forms-content container">
 
                             <div class="form">
 
@@ -170,10 +169,10 @@
     
                         </div>
 
-                        <div class="buttons-division">
+                        <div class="buttons-division container">
 
                             <button class="prev-button"><</button>
-                            <button type="submit" class="submit-button">Finalizar</button>
+                            <button type="submit" class="next-button">Finalizar</button>
         
                         </div>
 

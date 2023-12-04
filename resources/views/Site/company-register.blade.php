@@ -169,55 +169,71 @@
 
                             <div id="form-division">
 
-                                    <div class="form">
+                                <div class="d-flex ">
 
-                                        <label for=""> <p>CEP <span>*</span> </p> </label>
-                                        <input name="cep" type="text" id="cep" value="11714000" size="10" maxlength="9"
-                                        onblur="pesquisacep(this.value);">
 
+                                    <div>
+    
+                                        <div class="form m-3">
+        
+                                            <label for=""> <p>CEP <span>*</span> </p> </label>
+                                            <input name="cep" type="text" id="cep" value="11714000" size="10" maxlength="9"
+                                            onblur="pesquisacep(this.value);">
+        
+                                        </div>
+        
+                                        <div class="form m-3">
+        
+                                            <label for=""> <p>Bairro <span>*</span> </p> </label>
+                                            <input name="bairro" type="text" id="bairro" size="40">
+        
+                                        </div>
+        
+                                        <div class="form m-3">
+        
+                                            <label for=""> <p>Cidade <span>*</span></p> </label>
+                                            <input name="cidade" type="text" id="cidade" size="40">
+        
+                                        </div>
+        
+                                        <div class="form m-3">
+        
+                                            <label for=""> <p>UF <span>*</span></p> </label>
+                                            <input name="uf" type="text" id="uf" size="40">
+        
+                                        </div>
+    
+                                    </div>
+    
+                                    <div>
+    
+                                        <div class="form m-3">
+        
+                                            <label for=""> <p>Rua <span>*</span></p> </label>
+                                            <input name="logradouro" type="text" id="logradouro" size="200" >
+        
+                                        </div>
+        
+                                        <div class="form m-3">
+        
+                                            <label for=""> <p>Número <span>*</span></p> </label>
+                                            <input name="numero" type="text" id="numero" size="2" value="508">
+        
+                                        </div>
+        
+                                        <div class="form m-3">
+        
+                                            <label for=""> <p>Complemento <span>*</span></p> </label>
+                                            <input name="complemento" type="text" id="complemento" size="50" value="complemento">
+        
+                                        </div>
+    
                                     </div>
 
-                                    <div class="form">
+                                </div>
 
-                                        <label for=""> <p>Bairro <span>*</span> </p> </label>
-                                        <input name="bairro" type="text" id="bairro" size="40">
 
-                                    </div>
 
-                                    <div class="form">
-
-                                        <label for=""> <p>Cidade <span>*</span></p> </label>
-                                        <input name="cidade" type="text" id="cidade" size="40">
-
-                                    </div>
-
-                                    <div class="form">
-
-                                        <label for=""> <p>UF <span>*</span></p> </label>
-                                        <input name="uf" type="text" id="uf" size="40">
-
-                                    </div>
-
-                                    <div class="form">
-
-                                        <label for=""> <p>Rua <span>*</span></p> </label>
-                                        <input name="logradouro" type="text" id="logradouro" size="200" >
-
-                                    </div>
-
-                                    <div class="form">
-
-                                        <label for=""> <p>Número <span>*</span></p> </label>
-                                        <input name="numero" type="text" id="numero" size="2" value="508">
-
-                                    </div>
-
-                                    <div class="form">
-
-                                        <label for=""> <p>Complemento <span>*</span></p> </label>
-                                        <input name="complemento" type="text" id="complemento" size="50" value="complemento">
-
-                                    </div>
 
                             </div>
 
