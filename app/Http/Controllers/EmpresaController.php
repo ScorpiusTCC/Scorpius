@@ -329,6 +329,9 @@ class EmpresaController extends Controller
         
         // echo '<pre>';
         // var_dump($vagas);
-        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+
+        $ajuste = '../';
+
+        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades', 'ajuste'));
     }
 }

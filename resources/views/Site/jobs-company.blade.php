@@ -9,117 +9,11 @@
 
     <main>
 
-        <div class="filter-area container mb-4 ">
-
-            <form id="filtroForm" class="d-flex" action="{{ route('filter.jobs-company') }}" method="get">
-
-                <input class="search form-control flex-grow-1" placeholder="Buscar vaga" type="text" name="searchName" id="searchName" value="{{ request('searchName') }}">
-
-                <div class="dropdown">
-
-                    <button class="dropdown-toggle btn btn-large" data-bs-toggle="dropdown" aria-expanded="false">Mais filtros</button>
-                    
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    
-                        <div class="filters container d-flex flex-column justify-content-center align-items-center">
-    
-                            <div class="form-group text-center mb-3 mt-4">
-    
-                                <h3>Período de estágio:</h3>
-
-                                <div class="d-flex flex-wrap">
-
-                                    <div class="d-flex mb-2">
-
-                                        @foreach ($periodos as $periodo)
-                                            
-                                            <input type="checkbox" class="check-input form-check-input" id="periodo{{ $periodo->id }}" name="periodos[]" value="{{ $periodo->id }}" {{ in_array($periodo->id, (array) request('periodos', [])) ? 'checked' : '' }}>
-                                            <label class="form-check-label lead filter-label" for="periodo{{ $periodo->id }}">{{ $periodo->nome }}</label>
-
-                                        @endforeach
-
-                                    </div>
-                                
-                                </div>
-
-                            </div>
-
-                            <div class="form-group text-center mb-3 mt-4">
-    
-                                <h3>Período de estágio:</h3>
-
-                                <div class="d-flex flex-wrap">
-
-                                    <div class="d-flex mb-2">
-
-                                        @foreach ($modalidades as $modalidade)
-                                            
-                                            <input type="checkbox" class="check-input form-check-input" id="modalidade{{ $modalidade->id }}" name="modalidades[]" value="{{ $modalidade->id }}" {{ in_array($modalidade->id, (array) request('modalidades', [])) ? 'checked' : '' }}>
-                                            <label class="form-check-label lead filter-label" for="modalidade{{ $modalidade->id }}">{{ $modalidade->nome }}</label>
-
-                                        @endforeach
-
-                                    </div>
-                                
-                                </div>
-
-                            </div>
-                            
-                            <div class="form-group mb-3">
-                                <h4>Categoria do estágio:</h4>
-
-                                <select name="categoria" id="categoria">
-
-                                    <option disabled selected hidden>Selecionar</option>
-
-                                    @foreach ($categorias as $categoria)
-                                            
-                                        <option value="{{ $categoria->id }}" @if(request('categoria') == $categoria->id) selected @endif>{{ $categoria->nome }}</option>
-
-                                    @endforeach
-
-                                </select>
-
-                            </div>
-                    
-                            <div class="form-group text-center mb-3">
-
-                                <div class="mb-3">
-
-                                    <label class="form-check-label lead filter-label" for="dropdownCheck">Valor mínimo:</label>
-                                    <input type="number" class="form-control" id="valorMinimo" name="valor_minimo" value="{{ request('valor_minimo') }}">
-
-                                </div>
-
-                                <div>
-
-                                    <label class="form-check-label lead filter-label" for="dropdownCheck">Valor máximo:</label>
-                                    <input type="number" class="form-control" id="valorMaximo" name="valor_maximo" value="{{ request('valor_maximo') }}">
-
-                                </div>
-
-                            </div>
-                            
-                            <button type="reset" class="filter-btn btn btn-lg" onclick="resetCheckboxes()">Limpar</button>
-
-                        </div>
-    
-                    </div>
-
-                </div>
-
-                <button type="submit" class="filter-btn btn btn-lg">Pesquisar</button>
-
-            </form>
-
-
-        </div>
-
         <div class="text-area container">
 
             <div class="text-center">
 
-                <h1 class="display-5">Suas vagas:</h1>
+                <h1 class="display-5">Suas vagas</h1>
 
             </div>
 
@@ -140,7 +34,7 @@
 
                         <div class="btn-space d-flex justify-content-around align-items-center">
 
-                            <img class="w-25 img-fluid" src="@if(isset($ajuste_vaga))../@endif{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
+                            <img class="w-25 img-fluid" src="../{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
 
                             <div class="p-4">
 
@@ -151,9 +45,9 @@
                             </div>
 
                         </div>
-
-                        <a href="#" class="btn-card btn bottom-0">excluir</a>
-                        <a href="#" class="btn-card btn bottom-0">Editar</a>    
+                        
+                        {{-- <a href="#" class="btn-card btn bottom-0 delete-btn" data-job-id="{{ $vaga->id }}">Excluir</a> --}}
+                        <a href="{{ route('profile.job', $vaga->id) }}" class="btn-card btn bottom-0">Ver mais</a>    
 
                     </div>
 
@@ -163,11 +57,24 @@
 
         </div>
 
-        <div class="jobs-area container">
-
-
-
-        </div>
+        {{-- <!-- Modal de confirmação de exclusão -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Confirmação de Exclusão</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Tem certeza que deseja excluir esta vaga?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="#" id="confirmDelete" class="btn btn-danger">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
 
     </main>
 

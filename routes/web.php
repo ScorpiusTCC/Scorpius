@@ -46,7 +46,13 @@ Route::post('Add-vaga', [VagaController::class, 'store'])->name('job.store');
 
 Route::get('Vaga/{id}', [VagaController::class, 'show'])->name('job.show');
 
-Route::delete('Vaga-delete/{id}', [VagaController::class, 'delete'])->name('job.delete');
+Route::get('Vaga/Editar/{id}', [VagaController::class, 'edit'])->name('job.edit');
+
+Route::post('Vaga/Atualizar/{id}', [VagaController::class, 'update'])->name('job.update');
+
+Route::delete('Vaga-delete/{id}', [VagaController::class, 'destroy'])->name('job.destroy');
+
+Route::get('Integra/Sua-vaga/{id}', [VagaController::class, 'profileJob'])->name('profile.job');
 
 Route::get('filtrarNomeVaga', [VagaController::class, 'filterName'])->name('filterNameVaga');
 
@@ -102,7 +108,7 @@ Route::post('Empresa/AtualizarDados', [EmpresaController::class, 'storeData'])->
 
 Route::get('Empresa/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
 
-Route::get('/jobs-company', [EmpresaController::class, 'jobsCompany'])->name('company.jobs');
+Route::get('Empresa/Minhas-vagas', [EmpresaController::class, 'jobsCompany'])->name('company.jobs');
 
 Route::get('filtrosVagasEmpresa', [EmpresaController::class, 'filtersVagas'])->name('filter.jobs-company');
 
@@ -130,10 +136,6 @@ Route::get('/company-jobs-users', function () {
 Route::get('/jobs-profile', function () {
     return view('site/jobs-profile');
 })->name('jobs-profile');
-
-Route::get('/logged-jobs-profile', function () {
-    return view('site/logged-jobs-profile');
-})->name('logged-jobs-profile');
 
 Route::get('/edit-jobs', function () {
     return view('site/edit-jobs');

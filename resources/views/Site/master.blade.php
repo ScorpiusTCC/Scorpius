@@ -185,7 +185,7 @@
                                 
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('company.profile')}}">Meu perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Minhas vagas</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('company.jobs')}}">Minhas vagas</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout')}}">Sair</a></li>
                                 </ul>
 
