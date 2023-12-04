@@ -139,7 +139,7 @@
 
                         <div class="btn-space d-flex justify-content-around align-items-center">
 
-                            <img class="w-25 img-fluid" src="@if(isset($ajuste_vaga))../@endif{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
+                            <img class="w-25 img-fluid" src="@if(isset($ajuste_vaga)){{$ajuste_vaga}}@endif{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
 
                             <div class="p-4">
 
@@ -151,7 +151,7 @@
 
                         </div>
 
-                        <a href="#" class="btn-card btn bottom-0">Mais sobre</a>
+                        <a href="{{ route('job.show', $vaga->id) }}" class="btn-card btn bottom-0">Mais sobre</a>
 
                     </div>
 
@@ -193,13 +193,7 @@
             @endif
         
         </nav>
-
-        <div class="jobs-area container">
-
-            
-
-        </div>
-
+        
     </main>
 
 @endsection

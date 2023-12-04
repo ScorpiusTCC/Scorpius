@@ -7,6 +7,7 @@ use App\Models\Modalidade;
 use App\Models\Periodo;
 use App\Models\Vaga;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class VagaController extends Controller
@@ -75,7 +76,11 @@ class VagaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $vaga = Vaga::find($id);
+
+        $ajuste = '../';
+
+        return view('site/jobs-profile', compact('vaga', 'ajuste'));
     }
 
     /**
@@ -83,7 +88,14 @@ class VagaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $vaga = Vaga::find($id);
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
+
+        $ajuste = '../../';
+
+        return view('site/edit-jobs', compact('vaga', 'periodos', 'categorias', 'modalidades', 'ajuste'));
     }
 
     /**
@@ -91,15 +103,52 @@ class VagaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+
+        $vaga = Vaga::find($id);
+
+        $data['data_exp'] = Carbon::now()->addMonths(2);
+
+        $vaga->update([
+            'titulo' => $data['titulo'],
+            'descricao' => $data['descricao'],
+            'data_expiracao' => $data['data_exp'],
+            'salario' => $data['salario'],
+            'id_modalidade' => $data['modalidade'],
+            'id_categoria' => $data['categoria'],
+            'id_periodo' => $data['periodo'],
+            'id_status' => 1,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $vaga = Vaga::findOrFail($id);
+
+        // Excluir todas as candidaturas associadas à vaga
+        $vaga->candidaturas->each(function ($candidatura) {
+            $candidatura->delete();
+        }); 
+        
+        $vaga->delete();
+        
+        return redirect()->route('company.jobs');
+    }
+
+    public function profileJob($id)
+    {
+        $vaga = Vaga::find($id);
+
+        $enderecoData = $this->enderecoUser($vaga->empresa->cep);
+
+        $ajuste = '../../';
+
+        return view('site/logged-jobs-profile', compact('vaga', 'enderecoData', 'ajuste'));
     }
 
     public function filtersVagas(Request $request)
@@ -159,8 +208,8 @@ class VagaController extends Controller
         $modalidades = Modalidade::all();
         $periodos = Periodo::all();
         $categorias = Categoria::all();
-        $ajuste_vaga = true;
-        $ajuste = true;
+        $ajuste_vaga = '../';
+        $ajuste = '../';
 
         $vagas = Vaga::where('vagas.id_categoria', $searchCategory)
                     ->paginate(8);
@@ -178,5 +227,28 @@ class VagaController extends Controller
                     ->paginate(8);
     
         return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+    }
+
+    private function enderecoUser($cep)
+    {
+        // Substitua a URL pelo endpoint real do ViaCEP
+        $viaCepUrl = "https://viacep.com.br/ws/{$cep}/json/";
+
+        // Crie uma instância do cliente Guzzle
+        $client = new Client();
+
+        try {
+            // Faça a requisição à API do ViaCEP
+            $response = $client->get($viaCepUrl);
+
+            // Obtenha os dados da resposta em formato JSON
+            $enderecoData = json_decode($response->getBody(), true);
+
+            // Retorne os dados do endereço
+            return $enderecoData;
+        } catch (\Exception $e) {
+            // Se houver um erro na requisição, você pode lidar com ele aqui
+            return null;
+        }
     }
 }

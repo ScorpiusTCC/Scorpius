@@ -46,7 +46,13 @@ Route::post('Add-vaga', [VagaController::class, 'store'])->name('job.store');
 
 Route::get('Vaga/{id}', [VagaController::class, 'show'])->name('job.show');
 
-Route::delete('Vaga-delete/{id}', [VagaController::class, 'delete'])->name('job.delete');
+Route::get('Vaga/Editar/{id}', [VagaController::class, 'edit'])->name('job.edit');
+
+Route::post('Vaga/Atualizar/{id}', [VagaController::class, 'update'])->name('job.update');
+
+Route::delete('Vaga-delete/{id}', [VagaController::class, 'destroy'])->name('job.destroy');
+
+Route::get('Integra/Sua-vaga/{id}', [VagaController::class, 'profileJob'])->name('profile.job');
 
 Route::get('filtrarNomeVaga', [VagaController::class, 'filterName'])->name('filterNameVaga');
 
@@ -64,6 +70,12 @@ Route::get('Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->
 
 Route::get('Estudante/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
 
+Route::get('Estudante/Canditar/{id}', [EstudanteController::class, 'jobCandidatar'])->name('candidatura.student');
+
+Route::get('Estudante/Minhas-Candidaturas', [EstudanteController::class, 'showCandidaturas'])->name('candidaturas.show');
+
+Route::match(['get', 'delete'], 'Estudante/Candidatura/Delete/{id}', [EstudanteController::class, 'deleteCandidatura'])->name('candidatura.delete');
+
 Route::post('Estudante/EditarPerfil', [EstudanteController::class, 'editProfile'])->name('estudante.profile-edit')->middleware('auth', 'estudante');
 
 Route::get('Estudante/EditarDados', [EstudanteController::class, 'editData'])->name('estudante.data-edit')->middleware('auth', 'estudante');
@@ -75,6 +87,8 @@ Route::get('AddCurso', [EstudanteController::class, 'addCurso'])->name('curso.st
 Route::delete('deleteCurso/{id}', [EstudanteController::class, 'destroyCursos'])->name('curso.delete')->middleware('auth', 'estudante');
 
 Route::get('AddExp', [EstudanteController::class, 'addExp'])->name('exp.store')->middleware('auth', 'estudante');
+
+// Route::put('EditExp/{id}', [EstudanteController::class, 'editExp'])->name('edit.exp')->middleware('auth', 'estudante');
 
 Route::delete('deleteExp/{id}', [EstudanteController::class, 'destroyExp'])->name('exp.delete')->middleware('auth', 'estudante');
 
@@ -94,7 +108,7 @@ Route::post('Empresa/AtualizarDados', [EmpresaController::class, 'storeData'])->
 
 Route::get('Empresa/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
 
-Route::get('/jobs-company', [EmpresaController::class, 'jobsCompany'])->name('company.jobs');
+Route::get('Empresa/Minhas-vagas', [EmpresaController::class, 'jobsCompany'])->name('company.jobs');
 
 Route::get('filtrosVagasEmpresa', [EmpresaController::class, 'filtersVagas'])->name('filter.jobs-company');
 
@@ -122,10 +136,6 @@ Route::get('/company-jobs-users', function () {
 Route::get('/jobs-profile', function () {
     return view('site/jobs-profile');
 })->name('jobs-profile');
-
-Route::get('/logged-jobs-profile', function () {
-    return view('site/logged-jobs-profile');
-})->name('logged-jobs-profile');
 
 Route::get('/edit-jobs', function () {
     return view('site/edit-jobs');

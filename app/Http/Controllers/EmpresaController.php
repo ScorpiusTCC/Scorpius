@@ -115,11 +115,10 @@ class EmpresaController extends Controller
 
         $enderecoData = $this->enderecoUser($cep);
 
-        $ajuste = true;
+        $ajuste = '../../';
         
         return view('site/company-profile', compact('user', 'empresa', 'enderecoData', 'ajuste'));
 
-        // return redirect()->route('index');
     }
 
     public function showProfile()
@@ -138,7 +137,7 @@ class EmpresaController extends Controller
                 $enderecoData = $this->enderecoUser($cep);
 
                 //ajuste no caminho da img para navbar 
-                $ajuste = true;
+                $ajuste = '../';
 
                 return view('site/logged-company-profile', compact('empresa', 'enderecoData', 'ajuste'));
         } else {
@@ -175,7 +174,7 @@ class EmpresaController extends Controller
         $enderecoData = $this->enderecoUser($empresa->cep);
         
         //ajuste no caminho da img para navbar 
-        $ajuste = true;
+        $ajuste = '../';
 
         return view('site/edit-company', compact('empresa', 'enderecoData', 'ajuste'));
     }
@@ -330,6 +329,9 @@ class EmpresaController extends Controller
         
         // echo '<pre>';
         // var_dump($vagas);
-        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+
+        $ajuste = '../';
+
+        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades', 'ajuste'));
     }
 }
