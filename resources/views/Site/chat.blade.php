@@ -45,43 +45,269 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/chat.css') }}">
+<link rel="stylesheet" href="{{ asset('css/cha.css') }}">
 
-<h1>Chat</h1>
+    <main class="container">
 
-<h3>Bem-vindo <span id="usuario">{{ $user->nome }}</span></h3>
+        <div class="chat">
+        
+            <div class="user-list">
 
-<div class="chat-container">
+                <div class="user container">
 
-    <div class="user-list">
-        <h2>Usuários</h2>
-        <ul id="user-list">
-            <li class="conversa-item" data-conversa-id="1">Usuário 1</li>
-            <li class="conversa-item" data-conversa-id="2">Usuário 2</li>
-            <li class="conversa-item" data-conversa-id="3">Usuário 3</li>
-        </ul>
-    </div>
+                    <div class="img-user">
 
-    <div class="chat-box" id="chat-box">
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
 
-        <div class="chat-header">
-            <h2>Conversa com <span id="nome_usuario">Usuario 1</span></h2>
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+                <div class="user container">
+
+                    <div class="img-user">
+
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+                <div class="user container">
+
+                    <div class="img-user">
+
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+                <div class="user container">
+
+                    <div class="img-user">
+
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+                <div class="user container">
+
+                    <div class="img-user">
+
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+                <div class="user container">
+
+                    <div class="img-user">
+
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+                <div class="user container">
+
+                    <div class="img-user">
+
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+                <div class="user container">
+
+                    <div class="img-user">
+
+                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+
+                    </div>
+
+
+                    <div class="info-user">
+
+                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h3 class="info-msg">Valeu irmão...</h3>
+
+                    </div>
+
+
+                    <div class="date-msg">
+
+                        <span class="msg-hour">13:59</span>
+                    
+                    </div>
+                    
+                </div>
+
+            </div>
+        
+            <div class="chat-box" id="chat-box">
+        
+                <div class="message-area" id="mensagem-chat">
+
+                    <div class="other-msg">
+
+                        <img src="{{ asset('imgs/profile/venom.png')}}" alt="">
+                        <h4>
+                            
+                            Seja bem-vindo à nossa plataforma! Estamos empolgados por você ter se juntado à nossa comunidade de talentos em busca de oportunidades profissionais emocionantes. 
+
+                            Aqui, você terá acesso a uma ampla variedade de estágios que podem ser o primeiro passo em sua jornada profissional.
+                            
+                            Nossa missão é ajudar estudantes e jovens talentos a encontrar oportunidades de estágio que se alinhem com seus objetivos acadêmicos e profissionais. Queremos que você aproveite ao máximo a sua experiência conosco.
+                            
+                            Estamos ansiosos para sermos parte do seu sucesso profissional e para ajudá-lo a encontrar o estágio dos seus sonhos. Explore as oportunidades, aprenda e cresça conosco!
+                            
+                            
+                            Atenciosamente, 
+                            A Equipe da Scorpius Enterprises.
+
+                        </h4>
+
+                    </div>
+
+                    <div class="user-msg">
+
+                        <h4>
+                            
+                            foda-se malandro, ta nas ideia xará!
+
+                        </h4>
+
+                    </div>
+
+                </div>
+
+                <form class="" id="message-chat">
+        
+                    <div class="message-chat">
+
+                        
+                        <input class="msg-input form-control" type="text" name="mensagem" id="mensagem" placeholder="Insira sua mensagem aqui">
+                        <input type="hidden" name="id_user" id="id_user" value="{{ $user->id }}">
+                        <button class="send-btn" id="enviar-btn">
+
+                            <i  class="fa-solid fa-share" style="color: #30599E;"></i>
+
+                        </button>
+
+
+                    </div>
+
+                </form>
+        
+            </div>
+        
         </div>
 
-        <div class="mensagem-chat" id="mensagem-chat">
-            <p>Usuário 1: Olá! Como você está?</p>
-            <p>Seu Nome: Oi! Estou bem, obrigado.</p>
-            <p>Usuário 1: Que bom ouvir isso.</p>
-        </div>
+    </main>
 
-        <form class="message-chat" id="message-chat">
-            <input type="text" name="mensagem" id="mensagem" placeholder="Digite a mensagem...">
-            <input type="hidden" name="id_user" id="id_user" value="{{ $user->id }}">
-            <input type="button" id="enviar-btn" value="Enviar">
-        </form>
-
-    </div>
-
-</div>
 
 @endsection
