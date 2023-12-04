@@ -1,4 +1,4 @@
-@extends('site/master')
+@extends('admin/master')
 
 @section('title', 'Atualizar Dados')
 
@@ -21,26 +21,33 @@
                         <div class="form-group">
 
                             <label for="">Titulo da vaga:</label>
-                            <input class="edit-input form-control" type="text" name="nome" id="nome" value="">
+                            <input class="edit-input form-control" type="text" name="nome" id="nome" value="{{ $vaga->titulo }}">
 
                         </div>
 
                         <div class="form-group">
 
                             <label for="">Descrição da vaga:</label>
-                            <textarea class="text-camp form-control" name="" id="" cols="65" rows="10"></textarea>
+                            <textarea class="text-camp form-control" name="" id="" cols="65" rows="10">{{ $vaga->descricao }}</textarea>
 
                         </div>
 
                         <div class="form-group">
 
                             <label for="">Período de estágio:</label>
-                            <select class="edit-input form-control" name="" id="">
+                            <select name="periodo" id="periodo">
 
-                                <option value="" hidden selected disabled></option>
-                                <option value="">Matutino</option>
-                                <option value="">Vespertino</option>
-                                <option value="">Noturno</option>
+                                <option disabled selected hidden>Selecionar</option>
+
+                                @foreach ($periodos as $periodo)
+                                        
+                                    <option value="{{ $periodo->id }}"
+                                        @if ($periodo->id === $vaga->periodo->id)
+                                        selected
+                                        @endif
+                                    >{{ $periodo->nome }}</option>
+
+                                @endforeach
 
                             </select>
 
@@ -49,12 +56,19 @@
                         <div class="form-group">
 
                             <label for="">Local de trabalho:</label>
-                            <select class="edit-input form-control" name="" id="">
+                            <select name="modalidade" id="modalidade">
 
-                                <option value="" hidden selected disabled></option>
-                                <option value="">Presencial</option>
-                                <option value="">Remoto</option>
-                                <option value="">Híbrido</option>
+                                <option disabled selected hidden>Selecionar</option>
+
+                                @foreach ($modalidades as $modalidade)
+                                        
+                                    <option value="{{ $modalidade->id }}"
+                                        @if ($modalidade->id === $vaga->modalidade->id)
+                                        selected
+                                        @endif
+                                    >{{ $modalidade->nome }}</option>
+
+                                @endforeach
 
                             </select>
 
@@ -63,8 +77,22 @@
                         
                         <div class="form-group">
 
-                            <label for="">Categoria do estagio:</label>
-                            <input class="edit-input form-control" type="text" name="" id="" value="">
+                            <label for="">Categoria do estágio:</label>
+                            <select name="categoria" id="categoria">
+
+                                <option value="" disabled selected hidden>Selecionar</option>
+
+                                @foreach ($categorias as $categoria)
+                                        
+                                    <option value="{{ $categoria->id }}"
+                                        @if ($categoria->id === $vaga->categoria->id)
+                                        selected
+                                        @endif
+                                    >{{ $categoria->nome }}</option>
+
+                                @endforeach
+
+                            </select>
 
                         </div>
 
@@ -83,13 +111,13 @@
 
                             </div>
 
-                            <input class="edit-input form-control" type="number" name="" id="" value="">
+                            <input class="edit-input form-control" type="number" name="" id="" value="{{ $vaga->salario }}">
 
                         </div>
 
                         <div class="buttons-division mb-5">
 
-                            <a href="{{ route('logged-jobs-profile') }}"><button class="btn edit-button"><</button></a>
+                            <button class="btn edit-button"><a href="{{ route('admin.jobs') }}"><</a></button>
                         
                             <button class="edit-button btn btn-lg btn-block mb-2" type="submit">Concluir</button>
                             

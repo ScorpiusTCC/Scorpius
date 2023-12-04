@@ -31,19 +31,14 @@ class Estudante extends Model
         return $this->belongsTo(ContatoEstudante::class, 'id_contato');
     }
 
-    public function candidaturas()
+    public function candidatura()
     {
         return $this->hasMany(Candidatura::class, 'id_estudante');
     }
 
-    public function usuario_estudante()
-    {
-        return $this->hasMany(UsuarioEstudante::class, 'id_estudante');
-    }
-
     public function estudante_curso()
     {
-        return $this->hasMany(estudanteCurso::class, 'id_estudante');
+        return $this->hasMany(EstudanteCurso::class, 'id_estudante');
     }
 
     public function sexo()

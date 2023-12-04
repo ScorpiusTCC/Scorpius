@@ -1,4 +1,4 @@
-@extends('site/master')
+@extends('admin/master')
 
 @section('title', 'Atualizar Dados')
 
@@ -14,10 +14,12 @@
 
                 <div class="col-md-6">
 
-                    <form action="{{ route('estudante.data-store') }}" method="post">
+                    <form action="{{ route('admin.student.data-store') }}" method="post">
                         @csrf
-                        <h1 class="mt-5 mb-5 display-4">Edite seus dados pessoais</h1>
+                        <h1 class="mt-5 mb-5 display-4">Editar dados do estudante</h1>
 
+
+                        <input type="hidden" name="id_estudante" value="{{ $estudante->id }}">
                         <div class="form-group">
 
                             <label for="">Nome Completo</label>
@@ -98,11 +100,11 @@
                             <label for=""> <p>Estado</p> </label>
                             <input class="edit-input form-control" name="uf" type="text" id="uf" value="{{ $endereco['uf'] }}" size="2">
 
-                        </div>
+                        </div>  
 
                         <div class="buttons-division mb-5">
 
-                            <a href="{{ route('student.profile') }}" class="btn edit-button"><</a>
+                            <a href="{{ route('admin.students') }}" class="btn edit-button"><</a>
                             <button class="edit-button btn btn-lg btn-block mb-2">Alterar senha</button>
                             <button class="edit-button btn btn-lg btn-block mb-2" type="submit">Concluir</button>
                             

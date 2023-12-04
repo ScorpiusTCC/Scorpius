@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Hash;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
 
-use function Laravel\Prompts\select;
-
 class EstudanteController extends Controller
 {   
     public readonly Estudante $estudante;

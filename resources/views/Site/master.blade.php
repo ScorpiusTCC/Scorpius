@@ -342,11 +342,11 @@
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
                                     <li class="nav-item">
-                                        <a class="nav-link active hyper" aria-current="page" href="Vagas">Vagas</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="{{ route('index.job')}}">Vagas</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link active hyper" aria-current="page" href="about-us">Sobre nós</a>
+                                        <a class="nav-link active hyper" aria-current="page" href="{{ route('about-us')}}">Sobre nós</a>
                                     </li>
 
                                     <li class="nav-item mb-3">
@@ -355,11 +355,11 @@
 
                                     <li class="d-flex">
 
-                                        <a href="register" class="register-btn text-decoration-none">
+                                        <a href="{{ route('register')}}" class="register-btn text-decoration-none">
                                             <button class="btn">Cadastro</button>
                                         </a>
                                     
-                                        <a href="login" class="login-btn text-decoration-none">
+                                        <a href="{{ route('login')}}" class="login-btn text-decoration-none">
                                             <button class="btn">Login</button>
                                         </a>
 
@@ -396,11 +396,11 @@
     
                     <div class="user-area">
     
-                        <a href="register" class="register-btn text-decoration-none">
+                        <a href="{{ route('register')}}" class="register-btn text-decoration-none">
                             <button class="btn btn-lg ">Cadastro</button>
                         </a>
                     
-                        <a href="login" class="login-btn text-decoration-none">
+                        <a href="{{ route('login')}}" class="login-btn text-decoration-none">
                             <button class="btn btn-lg">Login</button>
                         </a>
                         

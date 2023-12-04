@@ -31,7 +31,7 @@ class Empresa extends Model
         return $this->hasMany(Vaga::class, 'id_empresa');
     }
 
-    public function representante_empresa()
+    public function representante()
     {
         return $this->belongsTo(RepresentanteEmpresa::class, 'id_representante');
     }

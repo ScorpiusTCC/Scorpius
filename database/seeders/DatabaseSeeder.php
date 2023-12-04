@@ -108,6 +108,22 @@ class DatabaseSeeder extends Seeder
                 'tipo' => 'empresa',
                 'created_at' => now()
             ],
+            [
+                'nome' => 'Ana Silva',
+                'email' => 'ana.silva@example.com',
+                'senha' => Hash::make('senha123'),
+                'nm_img' => 'storage/uploads/estudantes/img-ana.jpg',
+                'tipo' => 'estudante',
+                'created_at' => now()
+            ],
+            [
+                'nome' => 'Carlos Oliveira',
+                'email' => 'carlos.oliveira@example.com',
+                'senha' => Hash::make('senha456'),
+                'nm_img' => 'storage/uploads/estudantes/img-carlos.jpg',
+                'tipo' => 'estudante',
+                'created_at' => now()
+            ],
         ]);
 
         // Inserir dados para a tabela 'escolas'
@@ -143,7 +159,7 @@ class DatabaseSeeder extends Seeder
                 'cpf_representante' => '39291149361',
                 'telefone_comercial' => '1112223333',
                 'telefone_celular' => '1112223333',
-                'email' => 'estudante1@exemplo.com', 
+                'email' => 'empresa1@exemplo.com', 
                 'created_at' => now()
             ],
             [
@@ -151,7 +167,7 @@ class DatabaseSeeder extends Seeder
                 'cpf_representante' => '39291149387',
                 'telefone_comercial' => '4445556666',
                 'telefone_celular' => '4445556666',
-                'email' => 'estudante2@exemplo.com', 
+                'email' => 'empresa2@exemplo.com', 
                 'created_at' => now()
             ],
             [
@@ -159,7 +175,15 @@ class DatabaseSeeder extends Seeder
                 'cpf_representante' => '39291149371',
                 'telefone_comercial' => '7778889986',
                 'telefone_celular' => '7778889999',
-                'email' => 'estudante3@exemplo.com', 
+                'email' => 'empresa3@exemplo.com', 
+                'created_at' => now()
+            ],
+            [
+                'nm_representante' => 'José Oliveira',
+                'cpf_representante' => '39291149370',
+                'telefone_comercial' => '7778889986',
+                'telefone_celular' => '7778889999',
+                'email' => 'empresa4@exemplo.com', 
                 'created_at' => now()
             ],
         ]);
@@ -169,6 +193,16 @@ class DatabaseSeeder extends Seeder
             [
                 'telefone_celular' => '1112223333',
                 'email' => 'estudante@empresa1.com', 
+                'created_at' => now()
+            ],
+            [
+                'telefone_celular' => '2223334444',
+                'email' => 'ana.silva@example.com',
+                'created_at' => now()
+            ],
+            [
+                'telefone_celular' => '5556667777',
+                'email' => 'carlos.oliveira@example.com',
                 'created_at' => now()
             ]
         ]);
@@ -186,7 +220,31 @@ class DatabaseSeeder extends Seeder
                 'id_user' => 1,
                 'id_sexo' => 1,
                 'created_at' => now()
-            ]
+            ],
+            [
+                'nome' => 'Ana Silva',
+                'data_nasc' => '1998-05-20',
+                'idade' => 23,
+                'cpf' => '98765432109',
+                'cep' => '11713000',
+                'sobre' => 'Estudante de Marketing buscando oportunidades inovadoras.',
+                'id_contato' => 2,
+                'id_user' => 5,
+                'id_sexo' => 2,
+                'created_at' => now()
+            ],
+            [
+                'nome' => 'Carlos Oliveira',
+                'data_nasc' => '1997-09-15',
+                'idade' => 24,
+                'cpf' => '87654321098',
+                'cep' => '11713000',
+                'sobre' => 'Estudante de Logística interessado em processos eficientes.',
+                'id_contato' => 3,
+                'id_user' => 7,
+                'id_sexo' => 1,
+                'created_at' => now()
+            ],
         ]);
 
         // Inserir dados para a tabela 'empresas'
@@ -197,7 +255,7 @@ class DatabaseSeeder extends Seeder
                 'razao_social' => 'Empresa de Tecnologia',
                 'descricao' => 'Principal provedora de soluções tecnológicas', 
                 'endereco' => '123 Rua da Tecnologia', 
-                'cep' => '88246002', 
+                'cep' => '11713000', 
                 'id_representante' => 1,
                 'id_user' => 2,
                 'created_at' => now()
@@ -208,7 +266,7 @@ class DatabaseSeeder extends Seeder
                 'razao_social' => 'Corporação Financeira', 
                 'descricao' => 'Serviços financeiros inovadores', 
                 'endereco' => '456 Avenida Financeira', 
-                'cep' => '88246002', 
+                'cep' => '11713000', 
                 'id_representante' => 2,
                 'id_user' => 3,
                 'created_at' => now()
@@ -219,9 +277,20 @@ class DatabaseSeeder extends Seeder
                 'razao_social' => 'Economia e Saúde', 
                 'descricao' => 'Cuidando da sua saúde com excelência', 
                 'endereco' => '789 Rua da Saúde', 
-                'cep' => '88246002', 
+                'cep' => '11713000', 
                 'id_representante' => 3,
                 'id_user' => 4, 
+                'created_at' => now()
+            ],
+            [
+                'cnpj' => '567890123489078',
+                'nm_fantasia' => 'Serasa',
+                'razao_social' => 'Finanças e dinheiro', 
+                'descricao' => 'Cuidando do seu dinheiro', 
+                'endereco' => '789 Rua da Saúde', 
+                'cep' => '11713000', 
+                'id_representante' => 3,
+                'id_user' => 5, 
                 'created_at' => now()
             ],
         ]);
@@ -366,7 +435,7 @@ class DatabaseSeeder extends Seeder
                 'id_status' => 1,
                 'id_periodo' => 1,
                 'id_categoria' => 3,
-                'titulo' => 'Auciliar Administrativo',
+                'titulo' => 'Auxiliar Administrativo',
                 'descricao' => 'Especialista em compras para gerenciar o processo de aquisição de materiais e serviços.',
                 'salario' => 480.00,
                 'data_expiracao' => now()->addDays(30),
@@ -446,59 +515,65 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
       
-        // // Inserir dados para a tabela 'conversas'
-        // Conversa::insert([
-        //     ['created_at' => now()],
-        //     ['created_at' => now()],  
-        //     ['created_at' => now()],
-        // ]);
+        // Inserir dados para a tabela 'conversas'
+        // Inserir dados para a tabela 'conversas'
+        Conversa::insert([
+            ['created_at' => now()],
+            ['created_at' => now()],  
+            ['created_at' => now()],
+        ]);
 
-        // // Inserir dados para a tabela 'participantes_conversa'
-        // ParticipanteConversa::insert([
-        //     [
-        //         'id_conversa' => 1, 
-        //         'id_user' => 2,
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_conversa' => 1, 
-        //         'id_user' => 7,
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_conversa' => 2, 
-        //         'id_user' => 3,
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_conversa' => 3, 
-        //         'id_user' => 4,
-        //         'created_at' => now()
-        //     ],
-        // ]);
+        // Inserir dados para a tabela 'participantes_conversa'
+        ParticipanteConversa::insert([
+            [
+                'id_conversa' => 1, 
+                'id_user' => 2,
+                'created_at' => now()
+            ],
+            [
+                'id_conversa' => 1, 
+                'id_user' => 7,
+                'created_at' => now()
+            ],
+            [
+                'id_conversa' => 2, 
+                'id_user' => 3,
+                'created_at' => now()
+            ],
+            [
+                'id_conversa' => 3, 
+                'id_user' => 4,
+                'created_at' => now()
+            ],
+        ]);
 
-        // // Inserir dados para a tabela 'mensagens'
-        // Mensagem::insert([
-        //     [
-        //         'id_conversa' => 1, 
-        //         'id_user' => 2, 'texto' => 'Olá, estamos interessados na sua vaga!',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_conversa' => 1, 
-        //         'id_user' => 7, 'texto' => 'Ótimo! Podemos agendar uma entrevista?',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_conversa' => 2, 
-        //         'id_user' => 3, 'texto' => 'Qual é a carga horária do trabalho?',
-        //         'created_at' => now()
-        //     ],
-        //     [
-        //         'id_conversa' => 3, 
-        //         'id_user' => 4, 'texto' => 'Gostaríamos de saber mais sobre a vaga de médico residente.',
-        //         'created_at' => now()
-        //     ],
-        // ]);
+        // Inserir dados para a tabela 'mensagens'
+        Mensagem::insert([
+            [
+                'id_conversa' => 1, 
+                'id_user' => 2, 
+                'texto' => 'Olá, estamos interessados na sua vaga!',
+                'created_at' => now()
+            ],
+            [
+                'id_conversa' => 1, 
+                'id_user' => 7, 
+                'texto' => 'Ótimo! Podemos agendar uma entrevista?',
+                'created_at' => now()
+            ],
+            [
+                'id_conversa' => 2, 
+                'id_user' => 3, 
+                'texto' => 'Qual é a carga horária do trabalho?',
+                'created_at' => now()
+            ],
+            [
+                'id_conversa' => 3, 
+                'id_user' => 4, 
+                'texto' => 'Gostaríamos de saber mais sobre a vaga de médico residente.',
+                'created_at' => now()
+            ],
+        ]);
+
     }
 }
