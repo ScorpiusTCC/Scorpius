@@ -57,11 +57,8 @@
                                             </li>
 
                                             <li class="nav-item">
-<<<<<<< HEAD
                                                 <a class="nav-link active hyper" aria-current="page" href="{{ route('index.job')}}">Vagas</a>
-=======
                                                 <a class="nav-link active hyper" aria-current="page" href="{{ route('index.job') }}">Vagas</a>
->>>>>>> 4ba9c7b1cfbe6e6eed2db096261b526d3d8458bd
                                             </li>
 
                                             <li class="nav-item">
@@ -99,13 +96,8 @@
 
                             <div class="hyper-area">
 
-<<<<<<< HEAD
                                 <a class="hyper" href="{{ route('index.job')}}">Vagas</a>
                                 <a class="hyper" href="{{ route('about-us')}}">Sobre nós</a>
-=======
-                                <a class="hyper" href="{{ route('index.job') }}">Vagas</a>
-                                <a class="hyper" href="{{ route('about-us') }}">Sobre nós</a>
->>>>>>> 4ba9c7b1cfbe6e6eed2db096261b526d3d8458bd
                                 <a class="hyper" href="">Conheça nosso plano</a>
 
                             </div>

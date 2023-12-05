@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/jobs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/job.css') }}">
 
     <main>
 
@@ -168,22 +168,22 @@
         
                 <ul class="pagination justify-content-end pt-4 pb-2"> 
         
-                    <li class="page-item @if ($vagas->onFirstPage()) disabled @endif">
-                        <a class="page-link link border-dark link-light" style="color: #000;" href="{{ $vagas->previousPageUrl() }}" aria-label="Anterior">
+                    <li class="prev page-item @if ($vagas->onFirstPage()) disabled @endif">
+                        <a class="page-link link border-dark" style="color: #000;" href="{{ $vagas->previousPageUrl() }}" aria-label="Anterior">
                             Anterior
                         </a>
                     </li>
         
                     @foreach (range(1, $vagas->lastPage()) as $page)
                         <li class="page-item @if ($page === $vagas->currentPage()) active @endif">
-                            <a class="page-link link border-dark link-light" style="color: #000;" href="{{ $vagas->url($page) }}">
+                            <a class="page-link link border-dark" style="color: #000;" href="{{ $vagas->url($page) }}">
                                 {{ $page }}
                             </a>
                         </li>
                     @endforeach
         
                     <li class="page-item @if (!$vagas->hasMorePages()) disabled @endif">
-                        <a class="page-link link border-dark link-light" style="color: #000;" href="{{ $vagas->nextPageUrl() }}" aria-label="Próximo">
+                        <a class="page-link link border-dark" style="color: #000;" href="{{ $vagas->nextPageUrl() }}" aria-label="Próximo">
                             Próximo
                         </a>
                     </li>
