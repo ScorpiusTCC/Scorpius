@@ -163,7 +163,7 @@
 
                 <div>
 
-                    <a href="{{ route('company-jobs-users') }}"><button class="btn main-btn">Ver candidatos</button></a>
+                    <a href="{{ route('show.candidatos', $vaga->id) }}"><button class="btn main-btn">Ver candidatos</button></a>
                     
                     <div class="d-flex align-items-center">
                         

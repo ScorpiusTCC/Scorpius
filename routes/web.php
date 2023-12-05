@@ -68,7 +68,7 @@ Route::post('Add-estudante', [EstudanteController::class, 'store'])->name('submi
 
 Route::get('Estudante/MeuPerfil', [EstudanteController::class, 'showProfile'])->name('student.profile')->middleware('auth', 'estudante');
 
-Route::get('Estudante/Perfil/{id}', [EstudanteController::class, 'show'])->name('show');
+Route::get('Estudante/Perfil/{id}', [EstudanteController::class, 'show'])->name('student.show');
 
 Route::get('Estudante/Canditar/{id}', [EstudanteController::class, 'jobCandidatar'])->name('candidatura.student');
 
@@ -109,6 +109,8 @@ Route::post('Empresa/AtualizarDados', [EmpresaController::class, 'storeData'])->
 Route::get('Empresa/Perfil/{id}', [EmpresaController::class, 'show'])->name('company.show');
 
 Route::get('Empresa/Minhas-vagas', [EmpresaController::class, 'jobsCompany'])->name('company.jobs');
+
+Route::get('Empresa/Vaga/{id}/Candidatos', [EmpresaController::class, 'showCandidatos'])->name('show.candidatos');
 
 Route::get('filtrosVagasEmpresa', [EmpresaController::class, 'filtersVagas'])->name('filter.jobs-company');
 

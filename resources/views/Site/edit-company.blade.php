@@ -42,35 +42,35 @@
                         <div class="form-group">
 
                             <label for="">E-mail</label>
-                            <input class="edit-input form-control" type="email" name="email" id="email" value="{{ $empresa->representante_empresa->email}}">
+                            <input class="edit-input form-control" type="email" name="email" id="email" value="{{ $empresa->representante->email}}">
 
                         </div>
 
                         <div class="form-group">
 
                             <label for="">Nome do representante</label>
-                            <input class="edit-input form-control" type="text" name="nm_representante" id="nm_representante" value="{{ $empresa->representante_empresa->nm_representante}}">
+                            <input class="edit-input form-control" type="text" name="nm_representante" id="nm_representante" value="{{ $empresa->representante->nm_representante}}">
 
                         </div>
             
                         <div class="form-group">
 
                             <label for="">CPF do representante</label>
-                            <input class="edit-input form-control" type="text" name="cpf_representante" id="cpf_representante" value="{{ $empresa->representante_empresa->cpf_representante}}">
+                            <input class="edit-input form-control" type="text" name="cpf_representante" id="cpf_representante" value="{{ $empresa->representante->cpf_representante}}">
 
                         </div>
 
                         <div class="form-group">
 
                             <label for="">Telefone comercial da empresa:</label>
-                            <input class="edit-input form-control" type="text" name="telefone_comercial" id="telefone_comercial" value="{{ $empresa->representante_empresa->telefone_comercial}}">
+                            <input class="edit-input form-control" type="text" name="telefone_comercial" id="telefone_comercial" value="{{ $empresa->representante->telefone_comercial}}">
 
                         </div>
 
                         <div class="form-group">
 
                             <label for="">Telefone celular do representante da empresa:</label>
-                            <input class="edit-input form-control" type="text" name="telefone_celular" id="telefone_celular" value="{{ $empresa->representante_empresa->telefone_celular}}">
+                            <input class="edit-input form-control" type="text" name="telefone_celular" id="telefone_celular" value="{{ $empresa->representante->telefone_celular}}">
 
                         </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidatura;
 use App\Models\Categoria;
 use App\Models\RepresentanteEmpresa;
 use App\Models\Empresa;
@@ -14,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\ViewServiceProvider;
 
 class EmpresaController extends Controller
 {
@@ -205,7 +207,7 @@ class EmpresaController extends Controller
         ]);
 
         // Atualizar representante usando o relacionamento
-        $update_representante = $user->empresa->representante_empresa->update([
+        $update_representante = $user->empresa->representante->update([
             'nm_representante' => $data['nm_representante'],
             'cpf_representante' => $data['cpf_representante'],
             'telefone_comercial' => $data['telefone_comercial'],
@@ -333,5 +335,15 @@ class EmpresaController extends Controller
         $ajuste = '../';
 
         return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades', 'ajuste'));
+    }
+
+    public function showCandidatos($id)
+    {
+        $candidatos = Candidatura::where('id_vaga', $id)
+                                    ->get();
+        
+        $ajuste = '../../../';
+
+        return view('site/company-jobs-users', compact('candidatos', 'ajuste'));
     }
 }

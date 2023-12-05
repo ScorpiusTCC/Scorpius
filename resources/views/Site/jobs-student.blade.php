@@ -46,13 +46,8 @@
 
                         </div>
 
-                        <form action="{{ route('candidatura.delete', $candidatura->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn-card btn bottom-0">Desfazer candidatura</button>
-                        </form>
-
                         <a href="{{ route('job.show', $candidatura->vaga->id) }}" class="btn-card btn bottom-0">Ver vaga</a>
+                        
                     </div>
 
                 @endforeach

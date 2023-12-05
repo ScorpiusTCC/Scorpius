@@ -108,7 +108,7 @@ class EstudanteController extends Controller
 
         $datacursos = $this->infoCurso($user->estudante->id);
 
-        $ajuste = '../';
+        $ajuste = '../../';
         
         return view('site/student-profile', compact('user', 'enderecoData', 'cursos', 'escolas', 'periodos', 'modalidades', 'experiencias', 'datacursos', 'ajuste'));
 
@@ -397,10 +397,11 @@ class EstudanteController extends Controller
 
         $insertCandidatura = Candidatura::insert([
             'id_estudante' => $estudante->id,
-            'id_vaga' => $vaga->id
+            'id_vaga' => $vaga->id,
+            'created_at' => now()
         ]);
 
-        return redirect()->back();
+        return redirect()->route('index.job');
     }
 
     public function showCandidaturas()
@@ -408,7 +409,7 @@ class EstudanteController extends Controller
         $estudante = auth()->user()->estudante;
 
         $candidaturas = Candidatura::where('id_estudante', $estudante->id)
-                                    ->paginate(1);
+                                    ->paginate(8);
            
         $ajuste = '../';
 

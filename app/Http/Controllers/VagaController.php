@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidatura;
 use App\Models\Categoria;
 use App\Models\Modalidade;
 use App\Models\Periodo;
@@ -24,13 +25,28 @@ class VagaController extends Controller
      */
     public function index()
     {
-        $vagas = Vaga::orderBy('created_at', 'desc')->paginate(8);
+        if (auth()->check() && auth()->user()->estudante) {
+            // Usuário logado, filtra as vagas que o estudante ainda não se candidatou
+            $vagas = Vaga::orderBy('created_at', 'desc')
+                ->whereNotIn('id', function ($query) {
+                    $query->select('id_vaga')
+                        ->from('candidaturas')
+                        ->where('id_estudante', auth()->user()->estudante->id);
+                })
+                ->paginate(8);
+        } else {
+            // Nenhum usuário logado, mostra todas as vagas
+            $vagas = Vaga::orderBy('created_at', 'desc')->paginate(8);
+        }
+
         $modalidades = Modalidade::all();
         $periodos = Periodo::all();
         $categorias = Categoria::all();
 
         return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -77,11 +93,29 @@ class VagaController extends Controller
     public function show(string $id)
     {
         $vaga = Vaga::find($id);
-
+    
+        // Verificar se o usuário está conectado a esta vaga
+        $candidatado = false;
+        $idCandidatura = null;
+    
+        if (auth()->check() && auth()->user()->estudante) {
+            $estudanteId = auth()->user()->estudante->id;
+    
+            $candidatura = Candidatura::where('id_estudante', $estudanteId)
+                ->where('id_vaga', $id)
+                ->first();
+    
+            if ($candidatura !== null) {
+                $candidatado = true;
+                $idCandidatura = $candidatura->id;
+            }
+        }
+    
         $ajuste = '../';
-
-        return view('site/jobs-profile', compact('vaga', 'ajuste'));
+    
+        return view('site/jobs-profile', compact('vaga', 'ajuste', 'candidatado', 'idCandidatura'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -145,7 +179,7 @@ class VagaController extends Controller
         $vaga = Vaga::find($id);
 
         $enderecoData = $this->enderecoUser($vaga->empresa->cep);
-
+        
         $ajuste = '../../';
 
         return view('site/logged-jobs-profile', compact('vaga', 'enderecoData', 'ajuste'));

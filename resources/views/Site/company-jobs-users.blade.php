@@ -19,176 +19,37 @@
 
             <div class="card-area">
 
-                <div class="card mb-4"> 
+                @foreach ($candidatos as $candidato)
+                    
+                    <div class="card mb-4"> 
 
-                    <div class="mb-3">
+                        <div class="mb-3">
 
-                        <h3>Guilhermina - Praia Grande - São Paulo</h3>
-                        <span>Etec de Praia Grande</span>
+                            <h3>{{ $candidato->estudante->nome}}</h3>
+                            <span>Email: {{ $candidato->estudante->contato->email}}</span>
+                            <br>
+                            <span>Telefone: {{ $candidato->estudante->contato->telefone_celular}}</span>
 
-                    </div>
+                        </div>
 
-                    <div class="text-center mb-2">
+                        <div class="text-center mb-2">
 
-                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png') }}" alt="">
-                        <h4 class="mt-2">Mateus Pereira</h4>
-                        <h6 class="">Se candidatou dia 2 de setembro</h6>
+                            <img class="img-fluid" src="@if(isset($ajuste)){{$ajuste}}@endif{{ $candidato->estudante->user->nm_img }}" alt="">
+                            <h6 class="">Se candidatou em {{ $candidato->created_at->format('d/m/Y') }}</h6>
 
-                    </div>
+                        </div>
 
-                    <div class="d-flex justify-content-evenly align-items-center">
+                        <div class="d-flex justify-content-evenly align-items-center">
 
-                        <a href=""><i class="fa-solid fa-2x fa-circle-check" style="color: #36db14;"></i></a>
+                            <a href="{{ route('student.show', $candidato->estudante->user->id) }}"><button class="btn btn-card">Abrir perfil</button></a>
 
-                        <a href=""><button class="btn btn-card">Abrir perfil</button></a>
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-xmark" style="color: #b32323;"></i></a>
-
-                    </div>
-
-                </div>
-                <div class="card mb-4"> 
-
-                    <div class="mb-3">
-
-                        <h3>Guilhermina - Praia Grande - São Paulo</h3>
-                        <span>Etec de Praia Grande</span>
-
-                    </div>
-
-                    <div class="text-center mb-2">
-
-                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png') }}" alt="">
-                        <h4 class="mt-2">Mateus Pereira</h4>
-                        <h6 class="">Se candidatou dia 2 de setembro</h6>
-
-                    </div>
-
-                    <div class="d-flex justify-content-evenly align-items-center">
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-check" style="color: #36db14;"></i></a>
-
-                        <a href=""><button class="btn btn-card">Abrir perfil</button></a>
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-xmark" style="color: #b32323;"></i></a>
+                        </div>
 
                     </div>
 
                 </div>
-                <div class="card mb-4"> 
 
-                    <div class="mb-3">
-
-                        <h3>Guilhermina - Praia Grande - São Paulo</h3>
-                        <span>Etec de Praia Grande</span>
-
-                    </div>
-
-                    <div class="text-center mb-2">
-
-                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png') }}" alt="">
-                        <h4 class="mt-2">Mateus Pereira</h4>
-                        <h6 class="">Se candidatou dia 2 de setembro</h6>
-
-                    </div>
-
-                    <div class="d-flex justify-content-evenly align-items-center">
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-check" style="color: #36db14;"></i></a>
-
-                        <a href=""><button class="btn btn-card">Abrir perfil</button></a>
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-xmark" style="color: #b32323;"></i></a>
-
-                    </div>
-
-                </div>
-                <div class="card mb-4"> 
-
-                    <div class="mb-3">
-
-                        <h3>Guilhermina - Praia Grande - São Paulo</h3>
-                        <span>Etec de Praia Grande</span>
-
-                    </div>
-
-                    <div class="text-center mb-2">
-
-                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png') }}" alt="">
-                        <h4 class="mt-2">Mateus Pereira</h4>
-                        <h6 class="">Se candidatou dia 2 de setembro</h6>
-
-                    </div>
-
-                    <div class="d-flex justify-content-evenly align-items-center">
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-check" style="color: #36db14;"></i></a>
-
-                        <a href=""><button class="btn btn-card">Abrir perfil</button></a>
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-xmark" style="color: #b32323;"></i></a>
-
-                    </div>
-
-                </div>
-                <div class="card mb-4"> 
-
-                    <div class="mb-3">
-
-                        <h3>Guilhermina - Praia Grande - São Paulo</h3>
-                        <span>Etec de Praia Grande</span>
-
-                    </div>
-
-                    <div class="text-center mb-2">
-
-                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png') }}" alt="">
-                        <h4 class="mt-2">Mateus Pereira</h4>
-                        <h6 class="">Se candidatou dia 2 de setembro</h6>
-
-                    </div>
-
-                    <div class="d-flex justify-content-evenly align-items-center">
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-check" style="color: #36db14;"></i></a>
-
-                        <a href=""><button class="btn btn-card">Abrir perfil</button></a>
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-xmark" style="color: #b32323;"></i></a>
-
-                    </div>
-
-                </div>
-                <div class="card mb-4"> 
-
-                    <div class="mb-3">
-
-                        <h3>Guilhermina - Praia Grande - São Paulo</h3>
-                        <span>Etec de Praia Grande</span>
-
-                    </div>
-
-                    <div class="text-center mb-2">
-
-                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png') }}" alt="">
-                        <h4 class="mt-2">Mateus Pereira</h4>
-                        <h6 class="">Se candidatou dia 2 de setembro</h6>
-
-                    </div>
-
-                    <div class="d-flex justify-content-evenly align-items-center">
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-check" style="color: #36db14;"></i></a>
-
-                        <a href=""><button class="btn btn-card">Abrir perfil</button></a>
-
-                        <a href=""><i class="fa-solid fa-2x fa-circle-xmark" style="color: #b32323;"></i></a>
-
-                    </div>
-
-                </div>
-
-            </div>
+            @endforeach
 
         </div>
 

@@ -27,6 +27,16 @@
 
                 <div>
 
+                    @if($candidatado === true)
+
+                        <form action="{{ route('candidatura.delete', $idCandidatura) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn main-btn m-2">Desfazer candidatura</button>
+                        </form>
+
+                    @else
+
                     <div class="d-flex align-items-center">
                         
                         <a href="{{ route('candidatura.student', $vaga->id) }}">
@@ -36,6 +46,8 @@
                         </a>
 
                     </div>
+
+                    @endif
 
                 </div>
 
