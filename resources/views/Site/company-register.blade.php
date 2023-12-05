@@ -36,7 +36,7 @@
                                 <div class="form">
 
                                     <label for=""> <p>CNPJ <span>*</span> </p> </label>
-                                    <input type="text" name="cnpj" id="cnpj" value="74.233.965/0001-60">
+                                    <input type="text" name="cnpj" id="cnpj" value="04.712.500/0001-07.">
 
                                 </div>
 
@@ -51,14 +51,14 @@
                                 <div class="form">
 
                                     <label for=""> <p>Nome Fantasia <span>*</span> </p> </label>
-                                    <input type="text" name="nm_fantasia" id="nm_fantasia" value="Sebastião e Valentina Casa Noturna ME">
+                                    <input type="text" name="nm_fantasia" id="nm_fantasia" value="Microsoft Corporation">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Razão Social <span>*</span> </p> </label>
-                                    <input type="text" name="razao_social" id="razao_social" value="Casa de Prazeres">
+                                    <input type="text" name="razao_social" id="razao_social" value="MICROSOFT DO BRASIL IMPORTACAO E COMERCIO DE SOFTWARE E VIDEO GAMES LTDA">
 
                                 </div>
 
@@ -107,14 +107,14 @@
                                 <div class="form">
 
                                     <label for=""> <p>CPF do representante <span>*</span></p> </label>
-                                    <input type="text" id="cpf_representante" name="cpf_representante" value="39491150804">
+                                    <input type="text" id="cpf_representante" name="cpf_representante" value="89214627839">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>E-mail da empresa <span>*</span> </p> </label>
-                                    <input type="email" name="email" id="email" value="contabil@sebastiaoevalentinacasanoturname.com.br">
+                                    <input type="email" name="email" id="email" value="microsoft@gmail.com">
 
                                 </div>
 
@@ -224,7 +224,7 @@
                                         <div class="form m-3">
         
                                             <label for=""> <p>Complemento <span>*</span></p> </label>
-                                            <input name="complemento" type="text" id="complemento" size="50" value="complemento">
+                                            <input name="complemento" type="text" id="complemento" size="50">
         
                                         </div>
     
@@ -288,7 +288,7 @@
                                 </div>
 
                                 <label for=""> <p>Sobre mim <span>*</span></p> </label>
-                                <textarea name="sobre" id="sobre" cols="30" rows="10"></textarea>
+                                <textarea name="sobre" id="sobre" cols="30" rows="10">A Microsoft, fundada em 1975 por Bill Gates e Paul Allen, é uma potência global na tecnologia. Conhecida pelo MS-DOS e Windows, expandiu para áreas como Office, Xbox e Azure. Sob a liderança de Satya Nadella desde 2014, foca em inovação, inteligência artificial e computação em nuvem. Além do impacto nos negócios, é reconhecida por iniciativas filantrópicas, como a Fundação Bill e Melinda Gates.</textarea>
 
                             </div>
 
@@ -328,7 +328,7 @@
 
                                 <div class="form">
 
-                                    <input type="text" name="senha" id="senha" value="Admin1525@" placeholder="Coloque aqui a sua senha">
+                                    <input type="text" name="senha" id="senha" placeholder="Coloque aqui a sua senha">
 
                                     <div id="security-indicator">
 

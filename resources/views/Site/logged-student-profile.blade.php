@@ -165,7 +165,7 @@
 
                                                         @foreach ($cursos as $curso)
                                                          
-                                                            <option value="{{ $curso->id }}">{{ $curso->nome }}</option>    
+                                                            <option value="{{ $curso->id }}" selected>{{ $curso->nome }}</option>    
                                                         
                                                         @endforeach
 
@@ -182,7 +182,7 @@
 
                                                         @foreach ($escolas as $escola)
                                                          
-                                                            <option value="{{ $escola->id }}">{{ $escola->nome }}</option>    
+                                                            <option value="{{ $escola->id }}" selected>{{ $escola->nome }}</option>    
                                                         
                                                         @endforeach
 
@@ -199,7 +199,7 @@
 
                                                         @foreach ($periodos as $periodo)
                                                          
-                                                            <option value="{{ $periodo->id }}">{{ $periodo->nome }}</option>    
+                                                            <option value="{{ $periodo->id }}" selected>{{ $periodo->nome }}</option>    
                                                         
                                                         @endforeach
 
@@ -212,14 +212,14 @@
                                                     <div class="add-form">
 
                                                         <label for="ano_inicio">Ano de início:</label>
-                                                        <input class="add-input middle-input" type="number" name="ano_inicio">
+                                                        <input class="add-input middle-input" type="number" name="ano_inicio" value="2020">
     
                                                     </div>
 
                                                     <div class="add-form">
 
                                                         <label for="ano_fim">Ano de termino:</label>
-                                                        <input class="add-input middle-input" type="number" name="ano_fim">
+                                                        <input class="add-input middle-input" type="number" name="ano_fim" value="2023">
     
                                                     </div>
 
@@ -375,14 +375,14 @@
                                                 <div class="add-form">
 
                                                     <label for="">Nome da empresa ou lugar:</label>
-                                                    <input class="add-input full-input" type="text" name="nm_empresa">
+                                                    <input class="add-input full-input" type="text" name="nm_empresa" value="Google Company">
 
                                                 </div>
 
                                                 <div class="add-form">
 
                                                     <label class="add-label" for="">Descrição:</label>
-                                                    <input class="add-input full-input" type="text" name="descricao">
+                                                    <input class="add-input full-input" type="text" name="descricao" value="Atuei como Full Stack Developer para a Sede da Google">
 
                                                 </div>
 
@@ -395,7 +395,7 @@
 
                                                         @foreach ($modalidades as $modalidade)
                                                          
-                                                            <option value="{{ $modalidade->id }}">{{ $modalidade->nome }}</option>    
+                                                            <option value="{{ $modalidade->id }}" selected>{{ $modalidade->nome }}</option>    
                                                         
                                                         @endforeach
 
@@ -408,7 +408,7 @@
                                                     <div class="add-form">
 
                                                         <label for="">Tempo:</label>
-                                                        <input class="add-input middle-input" type="text" name="tempo">
+                                                        <input class="add-input middle-input" type="text" name="tempo" value="1 ano">
     
                                                     </div>
 

@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/jobs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/job.css') }}">
 
     <main>
 

@@ -57,14 +57,14 @@
 
                     <div class="img-user">
 
-                        <img class="img-fluid" src="{{ asset('imgs/profile/venom.png')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('imgs/profile/microsoft.png')}}" alt="">
 
                     </div>
 
 
                     <div class="info-user">
 
-                        <h2 class="conversa-item" data-conversa-id="1">Usuário 1</h2>
+                        <h2 class="conversa-item" data-conversa-id="1">Microsoft</h2>
 
                     </div>
                     
@@ -78,30 +78,11 @@
 
                     <div class="other-msg">
 
-                        <img src="{{ asset('imgs/profile/venom.png')}}" alt="">
+                        <img src="{{ asset('imgs/profile/microsoft.png')}}" alt="">
                         <h4>
                             
-                            Seja bem-vindo à nossa plataforma! Estamos empolgados por você ter se juntado à nossa comunidade de talentos em busca de oportunidades profissionais emocionantes. 
-
-                            Aqui, você terá acesso a uma ampla variedade de estágios que podem ser o primeiro passo em sua jornada profissional.
-                            
-                            Nossa missão é ajudar estudantes e jovens talentos a encontrar oportunidades de estágio que se alinhem com seus objetivos acadêmicos e profissionais. Queremos que você aproveite ao máximo a sua experiência conosco.
-                            
-                            Estamos ansiosos para sermos parte do seu sucesso profissional e para ajudá-lo a encontrar o estágio dos seus sonhos. Explore as oportunidades, aprenda e cresça conosco!
-                            
-                            
-                            Atenciosamente, 
-                            A Equipe da Scorpius Enterprises.
-
-                        </h4>
-
-                    </div>
-
-                    <div class="user-msg">
-
-                        <h4>
-                            
-                            Obrigado!
+                            Olá, vimos que você se candidatou a nossa vaga, aguarde por mais informações no seu email ou telefone de contato.
+                            Boa sorte!
 
                         </h4>
 
@@ -133,5 +114,37 @@
 
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const mensagemInput = document.getElementById('mensagem');
+        const mensagemForm = document.getElementById('message-chat');
+        const mensagemChat = document.getElementById('mensagem-chat');
 
+        function enviar() {
+            const mensagem = mensagemInput.value.trim();
+
+            if (mensagem !== '') {
+                adicionarMensagemUsuario(mensagem);
+                mensagemInput.value = ''; // Limpar o campo de entrada após o envio da mensagem
+            }
+        }
+
+        function adicionarMensagemUsuario(mensagem) {
+            const mensagemDiv = document.createElement('div');
+            mensagemDiv.classList.add('user-msg');
+            mensagemDiv.innerHTML = `<h4>${mensagem}</h4>`;
+            mensagemChat.appendChild(mensagemDiv);
+        }
+
+        mensagemForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            enviar();
+        });
+
+        document.getElementById('enviar-btn').addEventListener('click', enviar);
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{ asset('js/custom-chat.js') }}"></script>
+    
 @endsection

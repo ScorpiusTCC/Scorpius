@@ -253,7 +253,7 @@ class DatabaseSeeder extends Seeder
                 'cnpj' => '12345678901234',
                 'nm_fantasia' => 'Google',
                 'razao_social' => 'Empresa de Tecnologia',
-                'descricao' => 'Principal provedora de soluções tecnológicas', 
+                'descricao' => 'Junte-se a uma das empresas mais inovadoras do mundo! No Google, estamos comprometidos em criar um impacto positivo através da tecnologia. Nossa cultura é baseada na colaboração, criatividade e diversidade. Se você procura desafios e oportunidades de crescimento, queremos conhecê-lo!', 
                 'endereco' => '123 Rua da Tecnologia', 
                 'cep' => '11713000', 
                 'id_representante' => 1,
@@ -304,7 +304,7 @@ class DatabaseSeeder extends Seeder
                 'id_periodo' => 1,
                 'id_categoria' => 1,
                 'titulo' => 'Desenvolvedor Web', 
-                'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
+                'descricao' => 'Junte-se a nós e faça parte de uma equipe inovadora! Estamos em busca de um Desenvolvedor Web apaixonado por criar soluções incríveis. Se você é apaixonado por programação, tem habilidades em HTML, CSS, JavaScript e experiência em desenvolvimento web, esta é a oportunidade perfeita para você!',
                 'salario' => 800.00, 
                 'data_expiracao' => '2023-12-01',
                 'created_at' => now()

@@ -93,7 +93,7 @@ class EmpresaController extends Controller
             // Criar empresa usando o relacionamento
             $user->empresa()->create([
                 'nm_fantasia' => $data['nm_fantasia'],
-                'cnpj' => $data['cnpj'],
+                'cnpj' => preg_replace("/[^0-9]/", "", $data['cnpj']),
                 'razao_social' => $data['razao_social'],
                 'descricao' => $data['sobre'],
                 'endereco' => $data['endereco'],

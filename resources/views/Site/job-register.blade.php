@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/jobs-register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jobs-registe.css') }}">
 
     <main>
 
@@ -32,7 +32,7 @@
                                 <h1>Qual o título da vaga?</h1>
 
                                 <label for="">Título da vaga<b>*</b> </label>
-                                <input class="input-text form-control" type="text" name="titulo" id="titulo" placeholder="Ex:  Estágio em Programação Front-End">
+                                <input class="input-text form-control" type="text" name="titulo" id="titulo" value="Estágio de Back-end" placeholder="Ex:  Estágio em Programação Front-End">
 
                             </div>
 
@@ -41,7 +41,13 @@
                                 <h1>Descrição da vaga</h1>
 
                                 <label for="">Coloque aqui uma descrição detalhada sobre sua vaga?<b>*</b> </label>
-                                <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10">Qual o tamanho dos seus objetivos? Deseja novos desafios? Então, vem para TQI! Você fará parte de times diversos e de alta performance, em um ambiente descontraído, dinâmico e colaborativo. Para nós, a voz e contribuição de todos é fundamental para a construção das nossas soluções e para nossas tomadas de decisões. Aqui, as pessoas são o diferencial. Somos apaixonados por tecnologia, inovação e evolução constante. Você precisa saber:
+                                    Superior em Ciência da Computação, Engenharias, Sistemas da Informação ou áreas
+                                    correlatas; Linguagem de programação Python FastApi ou Flask; Experiência com
+                                    metodologias ágeis Scrum e Kanban; Azure DevOps; Conhecimento em arquitetura de
+                                    sistemas back-end; Testes unitários; Cloud AWS; Banco de dados relacional;
+                                    Experiência com GIT; Padrões de Projetos e Microserviços Apis REST; Especificações
+                                    Openid Connect e OAuth 2.0; Identity and Access Management (IAM); Access Control</textarea>
 
                             </div>
 
@@ -50,7 +56,7 @@
                                 <h1>Bolsa-Auxílio</h1>
 
                                 <label for="">R$ <b>*</b> </label>
-                                <input class="input-text form-control" type="number" name="salario" id="salario">
+                                <input class="input-text form-control" type="number" name="salario" id="salario" value="1900">
 
                                 <div class="d-flex align-items-center "> 
 
@@ -93,7 +99,7 @@
 
                                     @foreach ($modalidades as $modalidade)
                                             
-                                        <option value="{{ $modalidade->id }}">{{ $modalidade->nome }}</option>
+                                        <option value="{{ $modalidade->id }}" selected>{{ $modalidade->nome }}</option>
 
                                     @endforeach
 
@@ -106,7 +112,7 @@
                                 <h1>Local de trabalho</h1>
     
                                 <label for="">Onde o profissional irá trabalhar?<b>*</b> </label>
-                                <input class="input-text form-control" type="text" name="cep" id="cep" maxlength="9" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
+                                <input class="input-text form-control" type="text" name="cep" id="cep" maxlength="9" value="11714000" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
     
                             </div>
     
@@ -141,7 +147,7 @@
 
                                     @foreach ($categorias as $categoria)
                                             
-                                        <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                                        <option value="{{ $categoria->id }}" selected>{{ $categoria->nome }}</option>
 
                                     @endforeach
 
@@ -159,7 +165,7 @@
 
                                     @foreach ($periodos as $periodo)
                                             
-                                        <option value="{{ $periodo->id }}">{{ $periodo->nome }}</option>
+                                        <option value="{{ $periodo->id }}" selected>{{ $periodo->nome }}</option>
 
                                     @endforeach
 
@@ -172,7 +178,7 @@
                         <div class="buttons-division container">
 
                             <button class="prev-button"><</button>
-                            <button type="submit" class="next-button">Finalizar</button>
+                            <button type="submit" class="submit-button">Finalizar</button>
         
                         </div>
 
