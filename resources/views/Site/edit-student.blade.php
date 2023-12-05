@@ -118,7 +118,7 @@
 
     </main>
 
-    <script src="{{ asset('js/register-user-script.js') }}"></script>
+    <script src="{{ asset('js/register-user_script.js') }}"></script>
     <script src="{{ asset('js/student-scripts.js') }}"></script>
 
 @endsection

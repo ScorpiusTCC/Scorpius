@@ -514,6 +514,6 @@
     </main>
 
     <script src="{{ asset('js/modal-forms.js') }}"></script>
-    <script src="{{ asset('js/register-user-script.js') }}"></script>
+    <script src="{{ asset('js/register-user_script.js') }}"></script>
 
 @endsection
