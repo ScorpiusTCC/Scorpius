@@ -46,7 +46,7 @@
 
                             <div class="form-group text-center mb-3 mt-4">
     
-                                <h3>Período de estágio:</h3>
+                                <h3>Modalidade de estágio:</h3>
 
                                 <div class="d-flex flex-wrap">
 

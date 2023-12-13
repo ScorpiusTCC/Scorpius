@@ -13,7 +13,7 @@
 
             <div class="text-center">
 
-                <h1 class="display-5">Vagas que você se candidatou  </h1>
+                <h1 class="display-5">Vagas que você se candidatou </h1>
 
             </div>
 
@@ -42,12 +42,22 @@
                                 <h5>{{ $candidatura->vaga->empresa->endereco }}</h5>
                                 <h6>Publicado em: {{ $candidatura->vaga->created_at->format('d/m/Y') }}</h6>
 
+                                @if($candidatura->vaga->id_status == 2)
+                                    <h6 style="color: rgb(236, 11, 11)">Finalizada em: {{ $candidatura->vaga->updated_at->format('d/m/Y') }}</h6>
+                                @else
+                                    <h6 style="color: rgb(6, 243, 85)">Em andamento</h6>
+                                @endif
+
                             </div>
 
                         </div>
 
-                        <a href="{{ route('job.show', $candidatura->vaga->id) }}" class="btn-card btn bottom-0">Ver vaga</a>
-                        
+                        @if($candidatura->vaga->id_status == 2)
+                            <h1 class="btn-card btn bottom-0" style="background-color: rgb(76, 90, 105)">Vaga fechada pela empresa</h1>
+                        @else
+                            <a href="{{ route('job.show', $candidatura->vaga->id) }}" class="btn-card btn bottom-0">Ver vaga</a>
+                        @endif
+
                     </div>
 
                 @endforeach

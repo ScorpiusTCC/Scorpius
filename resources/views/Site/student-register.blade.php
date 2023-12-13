@@ -77,66 +77,6 @@
                             <div id="first-division-text-area">
 
                                 <p>Passo <b>2</b> de <b>5</b></p>
-                                <span>Crie sua senha de acesso</span>
-
-                            </div>
-
-                            <img src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
-
-                        </div>
-
-                        <div id="second-division">
-
-                            <div id="form-division">
-
-                                <div class="form">
-
-                                    <input type="text" name="password" id="password" placeholder="Coloque aqui a sua senha" value="123">
-
-                                    <div id="security-indicator">
-
-                                        <h3>Indicador de Segurança:</h3> <span id="indicador"></span>
-
-                                    </div>
-
-                                    <div id="password-rules">
-
-                                        <ul>
-
-                                            <li>Não ter letras e números repetidos ou sequenciais, ex: aaa,123</li>
-                                            <li>Mínimo de 8 caracteres.</li>
-                                            <li>Mínimo de 1 elemento especial (#$%@)</li>
-                                            <li>Mínimo de 1 número.</li>
-                                            <li>Ter letras minúsculas.</li>
-                                            <li>Ter letras MAIÚSCULAS.</li>
-
-                                        </ul>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div id="third-division">
-
-                            <button id="prev-button"><</button>
-
-                            <button id="next-button">Continuar</button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide 3">
-
-                        <div id="first-division">
-
-                            <div id="first-division-text-area">
-
-                                <p>Passo <b>3</b> de <b>5</b></p>
                                 <span>Dados Pessoais</span>
 
                             </div>
@@ -197,13 +137,13 @@
 
                     </div>
 
-                    <div class="swiper-slide 4">
+                    <div class="swiper-slide 3">
 
                         <div id="first-division">
 
                             <div id="first-division-text-area">
 
-                                <p>Passo <b>4</b> de <b>5</b></p>
+                                <p>Passo <b>3</b> de <b>5</b></p>
                                 <span>Dados para recrutadores</span>
 
                             </div>
@@ -219,7 +159,7 @@
                                 <div class="form">
 
                                     <label for=""> <p>CEP <span>*</span> </p> </label>
-                                    <input name="cep" type="text" id="cep" value="11714000" size="10" maxlength="9" onblur="pesquisacep(this.value);">
+                                    <input name="cep" type="text" id="cep" value="11714000" size="10" maxlength="9" onblur="pesquisacep(this.value)">
 
                                 </div>
 
@@ -261,13 +201,13 @@
 
                     </div>
 
-                    <div class="swiper-slide 5">
+                    <div class="swiper-slide 4">
 
                         <div id="first-division">
 
                             <div id="first-division-text-area">
 
-                                <p>Passo <b>5</b> de <b>5</b></p>
+                                <p>Passo <b>4</b> de <b>5</b></p>
                                 <span>Dados para recrutadores</span>
 
                             </div>
@@ -305,6 +245,69 @@
 
                                 <label for=""> <p>Sobre mim <span>*</span></p> </label>
                                 <textarea name="sobre" id="sobre" cols="30" rows="10">Sou um estudante, buscando um estágio na área de programação para aperfeiçõar minhas habilidades</textarea>
+
+                                <label for="curriculo">Currículo:</label>
+                                <input type="file" name="curriculo" accept=".pdf, .doc, .docx" required>
+                                
+                            </div>
+
+                        </div>
+
+                        <div id="third-division">
+
+                            <button id="prev-button"><</button>
+
+                            <button id="next-button">Continuar</button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-slide 5">
+
+                        <div id="first-division">
+
+                            <div id="first-division-text-area">
+
+                                <p>Passo <b>5</b> de <b>5</b></p>
+                                <span>Crie sua senha de acesso</span>
+
+                            </div>
+
+                            <img src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
+
+                        </div>
+
+                        <div id="second-division">
+
+                            <div id="form-division">
+
+                                <div class="form">
+
+                                    <input type="text" name="password" id="password" placeholder="Coloque aqui a sua senha" value="123">
+
+                                    <div id="security-indicator">
+
+                                        <h3>Indicador de Segurança:</h3> <span id="indicador"></span>
+
+                                    </div>
+
+                                    <div id="password-rules">
+
+                                        <ul>
+
+                                            <li>Não ter letras e números repetidos ou sequenciais, ex: aaa,123</li>
+                                            <li>Mínimo de 8 caracteres.</li>
+                                            <li>Mínimo de 1 elemento especial (#$%@)</li>
+                                            <li>Mínimo de 1 número.</li>
+                                            <li>Ter letras minúsculas.</li>
+                                            <li>Ter letras MAIÚSCULAS.</li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
 
                             </div>
 

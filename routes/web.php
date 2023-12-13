@@ -50,7 +50,7 @@ Route::get('Vaga/Editar/{id}', [VagaController::class, 'edit'])->name('job.edit'
 
 Route::post('Vaga/Atualizar/{id}', [VagaController::class, 'update'])->name('job.update');
 
-Route::delete('Vaga-delete/{id}', [VagaController::class, 'destroy'])->name('job.destroy');
+Route::post('Vaga-editStatus/{id}', [VagaController::class, 'editStatus'])->name('job.status');
 
 Route::get('Integra/Sua-vaga/{id}', [VagaController::class, 'profileJob'])->name('profile.job');
 

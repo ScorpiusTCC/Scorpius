@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Bairro;
 use App\Models\Categoria;
 use App\Models\ContatoEstudante;
 use App\Models\Conversa;
@@ -65,6 +66,43 @@ class DatabaseSeeder extends Seeder
             ['nome' => 'Química', 'nm_img' => 'imgs/index/quimica-image.jpg'],
             ['nome' => 'Segurança do Trabalho', 'nm_img' => 'imgs/index/seg-image.jpg']
         ]);
+
+        //Inserir bairros - tabela 'bairros'
+        Bairro::insert([
+            ['nome' => 'Andaraguá'],
+            ['nome' => 'Anhanguera'],
+            ['nome' => 'Antartica'],
+            ['nome' => 'Aviação'],
+            ['nome' => 'Boqueirão'],
+            ['nome' => 'Caiçara'],
+            ['nome' => 'Canto do Forte'],
+            ['nome' => 'Cidade da Criança'],
+            ['nome' => 'Flórida'],
+            ['nome' => 'Guilhermina'],
+            ['nome' => 'Maracanã'],
+            ['nome' => 'Melvi'],
+            ['nome' => 'Militar'],
+            ['nome' => 'Mirim'],
+            ['nome' => 'Ocian'],
+            ['nome' => 'Princesa'],
+            ['nome' => 'Quietude'],
+            ['nome' => 'Real'],
+            ['nome' => 'Ribeirópolis'],
+            ['nome' => 'Samambaia'],
+            ['nome' => 'Santa Marina'],
+            ['nome' => 'Sítio do Campo'],
+            ['nome' => 'Solemar'],
+            ['nome' => 'Tupiry'],
+            ['nome' => 'Tupi'],
+            ['nome' => 'Vila Sônia'],
+            ['nome' => 'Xixová'],
+            ['nome' => 'Esmeralda'],
+            ['nome' => 'Glória'],
+            ['nome' => 'Imperador'],
+            ['nome' => 'Nova Mirim'],
+            ['nome' => 'Serra do Mar'],
+        ]);
+
 
         // Inserir dados para a tabela 'users'
         User::insert([
@@ -219,6 +257,7 @@ class DatabaseSeeder extends Seeder
                 'id_contato' => 1,
                 'id_user' => 1,
                 'id_sexo' => 1,
+                'id_bairro' => 17,
                 'created_at' => now()
             ],
             [
@@ -231,6 +270,7 @@ class DatabaseSeeder extends Seeder
                 'id_contato' => 2,
                 'id_user' => 5,
                 'id_sexo' => 2,
+                'id_bairro' => 17,
                 'created_at' => now()
             ],
             [
@@ -243,6 +283,7 @@ class DatabaseSeeder extends Seeder
                 'id_contato' => 3,
                 'id_user' => 7,
                 'id_sexo' => 1,
+                'id_bairro' => 17,
                 'created_at' => now()
             ],
         ]);
@@ -302,6 +343,7 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 1, 
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 16,
                 'id_categoria' => 1,
                 'titulo' => 'Desenvolvedor Web', 
                 'descricao' => 'Junte-se a nós e faça parte de uma equipe inovadora! Estamos em busca de um Desenvolvedor Web apaixonado por criar soluções incríveis. Se você é apaixonado por programação, tem habilidades em HTML, CSS, JavaScript e experiência em desenvolvimento web, esta é a oportunidade perfeita para você!',
@@ -314,6 +356,7 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 1, 
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 12,
                 'id_categoria' => 1,
                 'titulo' => 'Desenvolvedor Web Java', 
                 'descricao' => 'Oportunidade para desenvolver software',
@@ -326,6 +369,7 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 1, 
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 3,
                 'id_categoria' => 1,
                 'titulo' => 'Suporte TI', 
                 'descricao' => 'Precisando com urgência',
@@ -338,6 +382,7 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3, 
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 4,
                 'id_categoria' => 1,
                 'titulo' => 'Escritório de Informática', 
                 'descricao' => 'Precisando com urgência',
@@ -350,6 +395,7 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 3, 
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 5,
                 'id_categoria' => 1,
                 'titulo' => 'Programador PHP Jr', 
                 'descricao' => 'Precisando com urgência',
@@ -362,6 +408,7 @@ class DatabaseSeeder extends Seeder
                 'id_empresa' => 1, 
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 31,
                 'id_categoria' => 1,
                 'titulo' => 'Desenvolvedor Phyton', 
                 'descricao' => 'Oportunidade para desenvolver aplicações web inovadoras',
@@ -374,6 +421,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 1,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 8,
                 'id_categoria' => 3,
                 'titulo' => 'Assistente Administrativo',
                 'descricao' => 'Vaga para assistente administrativo. Atividades incluem organização de documentos e atendimento ao cliente.',
@@ -386,6 +434,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 2,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 30,
                 'id_categoria' => 3,
                 'titulo' => 'Analista de Recursos Humanos',
                 'descricao' => 'Oportunidade para analista de RH. Realizará processos seletivos e atividades relacionadas à gestão de pessoas.',
@@ -398,6 +447,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 3,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 20,
                 'id_categoria' => 3,
                 'titulo' => 'Auxaliar Administrativo',
                 'descricao' => 'Buscamos um gestor administrativo para liderar equipes e otimizar processos internos.',
@@ -410,6 +460,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 1,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 14,
                 'id_categoria' => 3,
                 'titulo' => 'Auxiliar Financeiro',
                 'descricao' => 'Vaga para auxiliar financeiro. Atuará nas atividades relacionadas à área financeira da empresa.',
@@ -422,6 +473,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 2,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' =>  11,
                 'id_categoria' => 3,
                 'titulo' => 'Auxiliador de Logística',
                 'descricao' => 'Coordenará as atividades logísticas da empresa, garantindo eficiência nas operações.',
@@ -434,6 +486,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 3,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 9,
                 'id_categoria' => 3,
                 'titulo' => 'Auxiliar Administrativo',
                 'descricao' => 'Especialista em compras para gerenciar o processo de aquisição de materiais e serviços.',
@@ -446,6 +499,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 1,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 6,
                 'id_categoria' => 4,
                 'titulo' => 'Analista de Logística',
                 'descricao' => 'Oportunidade para analista de logística. Responsável pelo planejamento e otimização de processos logísticos.',
@@ -458,6 +512,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 2,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 8,
                 'id_categoria' => 4,
                 'titulo' => 'Coordenador de Distribuição',
                 'descricao' => 'Coordenará as atividades de distribuição de produtos, garantindo eficiência e qualidade.',
@@ -470,6 +525,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 3,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 3,
                 'id_categoria' => 4,
                 'titulo' => 'Analista de Suprimentos',
                 'descricao' => 'Atuará na gestão de suprimentos, realizando análise e otimização dos processos de compras.',
@@ -482,6 +538,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 1,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 2,
                 'id_categoria' => 4,
                 'titulo' => 'Assistente de Estoque',
                 'descricao' => 'Vaga para assistente de estoque. Responsável pelo controle e organização do estoque da empresa.',
@@ -494,6 +551,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 2,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 1,
                 'id_categoria' => 4,
                 'titulo' => 'Assistente de Logística',
                 'descricao' => 'Buscamos um profissional para gerenciar toda a área logística da empresa.',
@@ -506,6 +564,7 @@ class DatabaseSeeder extends Seeder
                 'id_modalidade' => 3,
                 'id_status' => 1,
                 'id_periodo' => 1,
+                'id_bairro' => 10,
                 'id_categoria' => 4,
                 'titulo' => 'Analista de Importação e Exportação',
                 'descricao' => 'Atuará nas atividades de importação e exportação, garantindo conformidade com as normas.',

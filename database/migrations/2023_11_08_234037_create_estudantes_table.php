@@ -13,8 +13,10 @@ class CreateEstudantesTable extends Migration
             $table->foreignId('id_user')->constrained('users');
             $table->foreignId('id_contato')->constrained('contato_estudante')->unique();
             $table->foreignId('id_sexo')->constrained('sexos');
+            $table->foreignId('id_bairro')->constrained('bairros');
             $table->string('nome');
-            $table->date('data_nasc');
+            $table->string('curriculo')->nullable();
+            $table->date('data_nasc');  
             $table->integer('idade');
             $table->char('cpf', 11)->unique();
             $table->text('sobre')->nullable();

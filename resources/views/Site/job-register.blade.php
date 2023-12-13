@@ -82,7 +82,7 @@
                         <div class="initial-info">
 
                             <span>Passo <b>2</b> de <b>3</b></span>
-                            <h1>informações adcicionais</h1>
+                            <h1>Informações adicicionais</h1>
 
                         </div>
 
@@ -106,37 +106,6 @@
                                 </select>
                                 
                             </div>
-
-                            <div class="form">
-
-                                <h1>Local de trabalho</h1>
-    
-                                <label for="">Onde o profissional irá trabalhar?<b>*</b> </label>
-                                <input class="input-text form-control" type="text" name="cep" id="cep" maxlength="9" value="11714000" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875">
-    
-                            </div>
-    
-                            <div class="buttons-division">
-    
-                                <button class="prev-button"><</button>
-                                <button class="next-button">Continuar</button>
-            
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-slide 3">
-
-                        <div class="initial-info">
-
-                            <span>Passo <b>3</b> de <b>3</b></span>
-                            <h1>Sobre a vaga</h1>
-
-                        </div>
-
-                        <div class="forms-content container">
 
                             <div class="form">
 
@@ -173,6 +142,58 @@
                                 
                             </div>
     
+                            <div class="buttons-division">
+    
+                                <button class="prev-button"><</button>
+                                <button class="next-button">Continuar</button>
+            
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-slide 3">
+
+                        <div class="initial-info">
+
+                            <span>Passo <b>3</b> de <b>3</b></span>
+                            <h1>Sobre a vaga</h1>
+
+                        </div>
+
+                        <div class="forms-content container">
+
+                            <div class="form">
+
+                                <h1>Local de trabalho</h1>
+    
+                                <label for="">Onde o profissional irá trabalhar?<b>*</b> </label>
+                                <input class="input-text form-control" type="text" name="cep" id="cep" maxlength="9" value="11714000" onkeypress="cepMascara(this)" placeholder="Informe o CEP. Ex.: 10882-875" onblur="pesquisacep(this.value)">
+    
+                            </div>  
+
+                            <div class="form">
+
+                                <label for="">Bairro<b>*</b> </label>
+                                <input class="input-text form-control" name="bairro" type="text" id="bairro" size="40">
+    
+                            </div>  
+
+                            <div class="form">
+    
+                                <label for="">Cidade<b>*</b> </label>
+                                <input class="input-text form-control" name="cidade" type="text" id="cidade" size="40">
+    
+                            </div>  
+
+                            <div class="form">
+    
+                                <label for="">Estado<b>*</b> </label>
+                                <input class="input-text form-control" name="uf" type="text" id="uf" size="40">
+    
+                            </div>  
+    
                         </div>
 
                         <div class="buttons-division container">
@@ -194,5 +215,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/job-register_swiper.js') }}"></script>
+    <script src="{{ asset('js/vagas-script.js') }}"></script>
 
 @endsection

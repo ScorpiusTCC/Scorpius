@@ -15,9 +15,11 @@ class Estudante extends Model
         'cpf', 
         'sobre', 
         'cep',
+        'curriculo',
         'id_contato',
         'id_user',
-        'id_sexo'
+        'id_sexo',
+        'id_bairro'
     ];
 
     
@@ -41,13 +43,18 @@ class Estudante extends Model
         return $this->hasMany(EstudanteCurso::class, 'id_estudante');
     }
 
-    public function sexo()
-    {
-        return $this->belongsTo(Sexo::class, 'id_sexo');
-    }
-
     public function experiencia()
     {
         return $this->hasMany(Experiencia::class, 'id_estudante');
+    }
+    
+    public function bairro()
+    {
+        return $this->belongsTo(Bairro::class, 'id_bairro');
+    }
+
+    public function sexo()
+    {
+        return $this->belongsTo(Sexo::class, 'id_sexo');
     }
 }

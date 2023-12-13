@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bairro;
 use App\Models\Candidatura;
 use App\Models\ContatoEstudante;
 use App\Models\Curso;
@@ -16,10 +17,8 @@ use App\Models\User;
 use App\Models\Vaga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
-use PhpParser\Node\Stmt\Return_;
 
 class EstudanteController extends Controller
 {   
@@ -48,15 +47,6 @@ class EstudanteController extends Controller
         return view('site/student-register', compact('sexos'));
     }
 
-    public function teste()
-    {
-        $sexos = Sexo::all();
-        $modalidades = Modalidade::all();
-        $periodos = Periodo::all();
-
-        return view('site/teste', compact('sexos','modalidades', 'periodos'));  
-    }
-
     public function store(Request $request)
     {
         // Obter dados do formulário, exceto os que estão em except
@@ -64,6 +54,13 @@ class EstudanteController extends Controller
 
         // Juntar o valor inteiro e sua unidade para salvar no banco
         $data['idade'] = \Carbon\Carbon::parse($data['data_nasc'])->diffInYears();
+
+        $curriculo = $request->file('curriculo');
+
+        $curriculoPath = $curriculo->storeAs('public/uploads/estudantes/curriculos', 'curriculo_' . time() . '.' . $curriculo->getClientOriginalExtension(), 'local');
+
+        //Pegar o id do bairro 
+        $bairro = Bairro::where('nome', $data['bairro'])->first();
 
         // Criar usuário
         $create_user = $this->createUser($data);
@@ -82,8 +79,10 @@ class EstudanteController extends Controller
             'data_nasc' => $data['data_nasc'],
             'idade' => $data['idade'],
             'sobre' => $data['sobre'],
+            'curriculo' => $curriculoPath,
             'cep' => $data['cep'],
             'id_contato' => $create_contato->id,
+            'id_bairro' => $bairro->id
         ]);
 
         Auth::login($create_user);
@@ -409,6 +408,7 @@ class EstudanteController extends Controller
         $estudante = auth()->user()->estudante;
 
         $candidaturas = Candidatura::where('id_estudante', $estudante->id)
+                                    ->orderBy('created_at', 'desc')
                                     ->paginate(8);
            
         $ajuste = '../';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bairro;
 use App\Models\Candidatura;
 use App\Models\Categoria;
 use App\Models\Modalidade;
@@ -28,6 +29,7 @@ class VagaController extends Controller
         if (auth()->check() && auth()->user()->estudante) {
             // Usuário logado, filtra as vagas que o estudante ainda não se candidatou
             $vagas = Vaga::orderBy('created_at', 'desc')
+                ->where('id_status', 1)
                 ->whereNotIn('id', function ($query) {
                     $query->select('id_vaga')
                         ->from('candidaturas')
@@ -36,7 +38,9 @@ class VagaController extends Controller
                 ->paginate(8);
         } else {
             // Nenhum usuário logado, mostra todas as vagas
-            $vagas = Vaga::orderBy('created_at', 'desc')->paginate(8);
+            $vagas = Vaga::orderBy('created_at', 'desc')
+                    ->where('id_status', 1)
+                    ->paginate(8);
         }
 
         $modalidades = Modalidade::all();
@@ -71,7 +75,8 @@ class VagaController extends Controller
 
         $company = auth()->user()->empresa;
 
-        // dd($data, $company->id);
+        // Pegar o id do bairro 
+        $bairro = Bairro::where('nome', $data['bairro'])->first();
 
         $company->vagas()->create([
             'titulo' => $data['titulo'],
@@ -81,6 +86,7 @@ class VagaController extends Controller
             'id_modalidade' => $data['modalidade'],
             'id_categoria' => $data['categoria'],
             'id_periodo' => $data['periodo'],
+            'id_bairro' => $bairro->id,
             'id_status' => 1,
         ]);
 
@@ -174,6 +180,17 @@ class VagaController extends Controller
         return redirect()->route('company.jobs');
     }
 
+    public function editStatus($id)
+    {
+        $vaga = Vaga::findOrFail($id);
+
+        $vaga->update([
+            'id_status' => '2'
+        ]); 
+        
+        return redirect()->route('company.jobs');
+    }
+ 
     public function profileJob($id)
     {
         $vaga = Vaga::find($id);
@@ -227,6 +244,11 @@ class VagaController extends Controller
         $valorMaximo = request('valor_maximo');
         if ($valorMaximo !== null) {
             $vagas->where('salario', '<=', $valorMaximo);
+        }
+
+        $bairro = request('bairro');
+        if ($bairro !== null) {
+            $vagas->where('cd_bairro', '<=', $bairro);
         }
 
         // Execute a consulta

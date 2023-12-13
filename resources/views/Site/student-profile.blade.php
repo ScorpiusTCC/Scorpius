@@ -106,7 +106,23 @@
                 </div>
 
             </div>
+            
+            @if ($user->estudante->curriculo)
+
+                <div class="user-experiences">
+
+                    <div class="professional-text">
+
+                        <span>Curriculo</span>
         
+                    </div>
+
+                    <a href="{{ asset($user->estudante->curriculo) }}" target="_blank">Abrir Currículo</a>
+
+                </div>
+
+            @endif
+
         </div>
 
     </main>

@@ -34,7 +34,7 @@
                                         
                                         <ul class="dropdown-menu">
                                           <li><a class="dropdown-item" href="{{ route('student.profile') }}">Meu perfil</a></li>
-                                          <li><a class="dropdown-item" href="{{ route('candidaturas.show')}}">Candidatações</a></li>
+                                          <li><a class="dropdown-item" href="{{ route('candidaturas.show')}}">Candidaturas</a></li>
                                           <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                         </ul>
         
@@ -111,7 +111,7 @@
                                     
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="{{ route('student.profile') }}">Meu perfil</a></li>
-                                      <li><a class="dropdown-item" href="{{ route('candidaturas.show') }}">Candidatações</a></li>
+                                      <li><a class="dropdown-item" href="{{ route('candidaturas.show') }}">Candidaturas</a></li>
                                       <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                     </ul>
     
@@ -155,7 +155,7 @@
                                 
                                 <ul class="dropdown-menu">
                                   <li><a class="dropdown-item" href="{{ route('student.profile') }}">Meu perfil</a></li>
-                                  <li><a class="dropdown-item" href="{{ route('candidaturas.show')}}">Candidatações</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('candidaturas.show')}}">Candidaturas</a></li>
                                   <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                 </ul>
 

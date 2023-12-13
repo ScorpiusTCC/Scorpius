@@ -14,6 +14,7 @@ class Vaga extends Model
         'id_status',
         'id_categoria',
         'id_periodo',
+        'id_bairro',
         'titulo', 
         'descricao', 
         'salario', 
@@ -43,6 +44,11 @@ class Vaga extends Model
     public function periodo()
     {
         return $this->belongsTo(Periodo::class, 'id_periodo');
+    }
+
+    public function bairro()
+    {
+        return $this->belongsTo(Bairro::class, 'id_bairro');
     }
 
     public function candidaturas()

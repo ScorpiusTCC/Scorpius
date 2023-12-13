@@ -287,7 +287,7 @@
 
                                 </div>
 
-                                <label for=""> <p>Sobre mim <span>*</span></p> </label>
+                                <label for=""> <p>Sobre a empresa <span>*</span></p> </label>
                                 <textarea name="sobre" id="sobre" cols="30" rows="10">A Microsoft, fundada em 1975 por Bill Gates e Paul Allen, é uma potência global na tecnologia. Conhecida pelo MS-DOS e Windows, expandiu para áreas como Office, Xbox e Azure. Sob a liderança de Satya Nadella desde 2014, foca em inovação, inteligência artificial e computação em nuvem. Além do impacto nos negócios, é reconhecida por iniciativas filantrópicas, como a Fundação Bill e Melinda Gates.</textarea>
 
                             </div>
