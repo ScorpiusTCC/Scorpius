@@ -99,6 +99,19 @@
                                 </div>
 
                             </div>
+
+                            <div class="form-group mb-3">
+                                
+                                <h4>Bairros Praia Grande</h4>
+
+                                <select name="" id="">
+
+                                    <option disabled selected hidden>Selecionar</option>
+
+                                </select>
+
+                            </div>
+
                             
                             <button type="reset" class="filter-btn btn btn-lg" onclick="resetCheckboxes()">Limpar</button>
 
