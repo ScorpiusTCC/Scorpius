@@ -13,7 +13,17 @@
 
             <div class="text-center">
 
-                <h1 class="display-5">Suas vagas</h1>
+                <h1 class="display-5 mb-4">Suas vagas</h1>
+
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Filtre suas vagas
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Vagas ativas</a></li>
+                      <li><a class="dropdown-item" href="#">Vagas desativadas</a></li>
+                    </ul>
+                  </div>
 
             </div>
 

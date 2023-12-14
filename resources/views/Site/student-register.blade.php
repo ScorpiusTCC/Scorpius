@@ -50,7 +50,7 @@
                                 <div class="form">
 
                                     <label for=""> <p>Telefone <span>*</span> (com DD) </p> </label>
-                                    <input type="telefone" name="telefone" id="telefone" value="(13) 99130-3424">
+                                    <input type="telefone" name="telefone" id="telefone" maxlength="15" placeholder="(XX) XXXXX-XXXX" oninput="formatarTelefone(this)">
 
                                 </div>
 
@@ -99,7 +99,7 @@
                                 <div class="form">
 
                                     <label for=""> <p>Data de Nascimento <span>*</span> </p> </label>
-                                    <input type="date" name="data_nasc" id="data_nasc" maxlength="8">
+                                    <input type="date" name="data_nasc" id="data_nasc" maxlength="10" oninput="aplicarMascara(this)" onblur="validarIdade(this, 14, 100)">
 
                                 </div>
 
@@ -239,15 +239,15 @@
                                         <label for=""> <p>Nome de Usuário <span>*</span></p> </label>
                                         <input name="nome" type="text" id="nome" size="" value="Rodrigo Nascimento">
 
+                                        <label for="curriculo">Currículo:</label>
+                                        <input class="form-control" type="file" name="curriculo" accept=".pdf, .doc, .docx" required>
+
                                     </div>
 
                                 </div>
 
                                 <label for=""> <p>Sobre mim <span>*</span></p> </label>
-                                <textarea name="sobre" id="sobre" cols="30" rows="10">Sou um estudante, buscando um estágio na área de programação para aperfeiçõar minhas habilidades</textarea>
-
-                                <label for="curriculo">Currículo:</label>
-                                <input type="file" name="curriculo" accept=".pdf, .doc, .docx" required>
+                                <textarea name="soz'bre" id="sobre" cols="30" rows="10">Sou um estudante, buscando um estágio na área de programação para aperfeiçõar minhas habilidades</textarea>
                                 
                             </div>
 
@@ -341,7 +341,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/register_user-swiper.js') }}"></script>
-    <script src="{{ asset('js/register-user_script.js') }}"></script>
     <script src="{{ asset('js/student-scripts.js') }}"></script>
 
 @endsection

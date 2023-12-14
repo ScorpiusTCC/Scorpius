@@ -36,14 +36,14 @@
                                 <div class="form">
 
                                     <label for=""> <p>CNPJ <span>*</span> </p> </label>
-                                    <input type="text" name="cnpj" id="cnpj" value="04.712.500/0001-07.">
+                                    <input type="text" name="cnpj" id="cnpj" value="04.712.500/0001-07." maxlength="18" oninput="aplicarMascaraCNPJ(this)">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>IE <span>*</span> </p> </label>
-                                    <input type="text" name="ie" id="ie" value="594.474.247.589">
+                                    <input type="text" name="ie" id="ie" value="594.474.247.589" maxlength="15" oninput="aplicarMascaraIE(this)">
 
                                 </div>
 
@@ -107,7 +107,7 @@
                                 <div class="form">
 
                                     <label for=""> <p>CPF do representante <span>*</span></p> </label>
-                                    <input type="text" id="cpf_representante" name="cpf_representante" value="89214627839">
+                                    <input type="text" id="cpf_representante" name="cpf_representante" oninput="mascara(this)" maxlength="11" value="89214627839">
 
                                 </div>
 
@@ -385,7 +385,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/register_user-swiper.js') }}"></script>
-    <script src="{{ asset('js/register-user_script.js') }}"></script>
     <script src="{{ asset('js/company-scripts.js') }}"></script>
 
     
