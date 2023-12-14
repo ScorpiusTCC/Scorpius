@@ -45,7 +45,7 @@ main {
     flex-direction: column;
     justify-content: space-around;
     height: 150px;
-    margin-left: 50px;
+    margin: 0 50px 0 50px;
 
 }
 
@@ -76,6 +76,32 @@ main {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+}
+
+.curriculum-space {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.curriculum-space button {
+
+    background-color: #30599E;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    transition: background-color 300ms ease-in-out;
+
+}
+
+.curriculum-space button:hover {
+
+    background-color: #50A4EC;
+    color: #fff;
 
 }
 

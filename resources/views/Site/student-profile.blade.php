@@ -29,6 +29,19 @@
     
                 </div>
 
+                <div class="curriculum-space">
+
+                    @if ($user->estudante->curriculo)
+
+                        <span class="lead">Curriculo</span>
+
+                        <a href="{{ asset($user->estudante->curriculo) }}" target="_blank"><button class="btn ">Abrir Currículo</button></a>
+
+                    @endif
+
+
+                </div>
+
             </div>
 
         </div>
@@ -106,22 +119,6 @@
                 </div>
 
             </div>
-            
-            @if ($user->estudante->curriculo)
-
-                <div class="user-experiences">
-
-                    <div class="professional-text">
-
-                        <span>Curriculo</span>
-        
-                    </div>
-
-                    <a href="{{ asset($user->estudante->curriculo) }}" target="_blank">Abrir Currículo</a>
-
-                </div>
-
-            @endif
 
         </div>
 
