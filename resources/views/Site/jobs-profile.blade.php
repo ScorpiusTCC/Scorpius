@@ -19,7 +19,7 @@
 
                     <h3>{{ $vaga->titulo }}</h3>
                     <h4><a href="{{ route('company.show', $vaga->empresa->user->id) }}" > {{ $vaga->empresa->nm_fantasia }} </a></h4>
-                    <h5>Guilhermina - Praia Grande - São Paulo</h5>
+                    <h5>{{ $vaga->bairro->nome }} - Praia Grande</h5>
                     <h6>{{ $vaga->modalidade->nome . '(' . $vaga->periodo->nome . ')' }}</h6>
                     <span>{{ $vaga->categoria->nome }}</span>
 

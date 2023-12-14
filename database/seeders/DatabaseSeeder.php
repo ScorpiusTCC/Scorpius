@@ -110,7 +110,7 @@ class DatabaseSeeder extends Seeder
                 'nome' => 'Rodrigo Nascimento',
                 'email' => 'estudante@gmail.com',
                 'senha' => Hash::make('123'),
-                'nm_img' => 'storage/uploads/estudantes/img-estudante.svg',
+                'nm_img' => 'storage/uploads/estudantes/1702505962_img-estudante.svg',
                 'tipo' => 'estudante',
                 'created_at' => now()
             ],
@@ -254,11 +254,11 @@ class DatabaseSeeder extends Seeder
                 'cpf' => '12345678901',
                 'cep' => '11714000',
                 'sobre' => 'Estudante de programação, visando um futuro na área',
+                'curriculo' => 'storage/uploads/estudantes/curriculos/Curriculo.pdf',
                 'id_contato' => 1,
                 'id_user' => 1,
                 'id_sexo' => 1,
                 'id_bairro' => 17,
-                'created_at' => now()
             ],
             [
                 'nome' => 'Ana Silva',
@@ -633,6 +633,5 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now()
             ],
         ]);
-
     }
 }

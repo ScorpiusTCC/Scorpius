@@ -41,6 +41,11 @@
                                 <h4>{{ $vaga->empresa->nm_fantasia }}</h4>
                                 <h5>{{ $vaga->empresa->endereco }}</h5>
                                 <h6>Publicado em: {{ $vaga->created_at->format('d/m/Y') }}</h6>
+                                @if($vaga->id_status == 2)
+                                    <h6 style="color: rgb(236, 11, 11)">Finalizada em: {{ $vaga->updated_at->format('d/m/Y') }}</h6>
+                                @else
+                                    <h6 style="color: rgb(6, 243, 85)">Em aberto</h6>
+                                @endif
 
                             </div>
 

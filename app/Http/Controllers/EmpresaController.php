@@ -326,6 +326,8 @@ class EmpresaController extends Controller
         $categorias = Categoria::all();
         
         $vagas = Vaga::where('id_empresa', $company->id)
+                ->orderBy('id_status', 'asc')
+                ->orderBy('created_at', 'desc')
                 ->paginate(8);
         
         // echo '<pre>';

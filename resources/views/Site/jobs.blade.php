@@ -81,6 +81,23 @@
                                 </select>
 
                             </div>
+
+                            <div class="form-group mb-3">
+                                <h4>Bairro:</h4>
+
+                                <select name="bairro" id="bairro">
+
+                                    <option disabled selected hidden>Selecionar</option>
+
+                                    @foreach ($bairros as $bairro)
+                                            
+                                        <option value="{{ $bairro->id }}" @if(request('bairro') == $bairro->id) selected @endif>{{ $bairro->nome }}</option>
+
+                                    @endforeach
+
+                                </select>
+
+                            </div>
                     
                             <div class="form-group text-center mb-3">
 
@@ -144,7 +161,7 @@
                             <div class="p-4">
 
                                 <h4>{{ $vaga->empresa->nm_fantasia }}</h4>
-                                <h5>{{ $vaga->empresa->endereco }}</h5>
+                                <h5>{{ $vaga->bairro->nome }} - Praia Grande</h5>
                                 <h6>Publicado em: {{ $vaga->created_at->format('d/m/Y') }}</h6>
 
                             </div>

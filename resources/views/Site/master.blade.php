@@ -68,10 +68,6 @@
                                                 <a class="nav-link active" aria-current="page" href="{{ route('chat') }}">Chat</a>
                                             </li>
 
-                                            <li class="nav-item mb-3">
-                                                <a class="nav-link active hyper" aria-current="page" href="#">Conheça nosso plano</a>
-                                            </li>
-
                                         </ul>
 
                                     </div>
@@ -97,8 +93,7 @@
 
                                 <a class="hyper" href="{{ route('index.job')}}">Vagas</a>
                                 <a class="hyper" href="{{ route('about-us')}}">Sobre nós</a>
-                                <a class="hyper" href="">Conheça nosso plano</a>
-
+                                
                             </div>
 
                             <div class="user-area">

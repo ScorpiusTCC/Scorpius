@@ -108,82 +108,85 @@
 
         </section>
 
-        <section id="fifth-area">
+        @if(auth()->user()->tipo != 'estudante')
 
-            <div id="fifth-area-main-division">
+            <section id="fifth-area">
 
-                <img id="fifth-area-logo-image" src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
+                <div id="fifth-area-main-division">
 
-                <h1>Seja premium e tenha acesso a vários benefícios:</h1>
+                    <img id="fifth-area-logo-image" src="{{ asset('imgs/logo-s-scorpius.svg') }}" alt="">
 
-                <div id="fifth-area-first-division">
+                    <h1>Seja premium e tenha acesso a vários benefícios:</h1>
 
-                    <div class="fifth-area-plans-division ">
+                    <div id="fifth-area-first-division">
 
-                        <h2>Grátis</h2>
-    
-                        <div class="plan-info">
+                        <div class="fifth-area-plans-division ">
 
-                            <span class="plan-span">Acesso a diversas vagas de estágio</span>
-                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+                            <h2>Grátis</h2>
+        
+                            <div class="plan-info">
 
+                                <span class="plan-span">Anunciar suas vagas</span>
+                                <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                            </div>
+
+                            <div class="plan-info">
+
+                                <span class="plan-span">Criação de perfil para sua empresa</span>
+                                <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                            </div>
+
+                            <div class="plan-info">
+
+                                <span class="plan-span">Visibilidade privile    giada do seu perfil e vagas</span>
+                                <i class="fa-solid fa-xmark" style="color: #c32c2c;"></i>
+                                
+                            </div>
+        
+                        </div>
+        
+                        <div class="fifth-area-plans-division">
+        
+                            <h2>Premium</h2>
+        
+                            <div class="plan-info">
+
+                                <span class="plan-span">Anunciar suas vagas</span>
+                                <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                            </div>
+
+                            <div class="plan-info">
+
+                                <span class="plan-span">Criação de perfil para sua empresa</span>
+                                <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                            </div>
+
+                            <div class="plan-info">
+
+                                <span class="plan-span">Visibilidade privilégiada do seu perfil e vagas</span>
+                                <i class="fa-solid fa-check" style="color: #69d72d;"></i>
+
+                            </div>
+
+                            <div id="fifth-area-plans-buy">
+
+                                <span>R$ 39,99</span>
+                                <a href=""><button>Assine já</button></a>
+                
+                            </div>
+        
                         </div>
 
-                        <div class="plan-info">
-
-                            <span class="plan-span">Área para colocar suas informações pessoais</span>
-                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
-
-                        </div>
-
-                        <div class="plan-info">
-
-                            <span class="plan-span">Maior visibilidade na plataforma</span>
-                            <i class="fa-solid fa-xmark" style="color: #c32c2c;"></i>
-                            
-                        </div>
-    
-                    </div>
-    
-                    <div class="fifth-area-plans-division">
-    
-                        <h2>Premium</h2>
-    
-                        <div class="plan-info">
-
-                            <span class="plan-span">Acesso a diversas vagas de estágio</span>
-                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
-
-                        </div>
-
-                        <div class="plan-info">
-
-                            <span class="plan-span">Área para colocar suas informações pessoais</span>
-                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
-
-                        </div>
-
-                        <div class="plan-info">
-
-                            <span class="plan-span">Maior visibilidade na plataforma</span>
-                            <i class="fa-solid fa-check" style="color: #69d72d;"></i>
-
-                        </div>
-
-                        <div id="fifth-area-plans-buy">
-
-                            <span>R$ 39,99</span>
-                            <a href=""><button>Assine já</button></a>
-            
-                        </div>
-    
                     </div>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
+        @endif
 
     </main>
 

@@ -43,11 +43,12 @@ class VagaController extends Controller
                     ->paginate(8);
         }
 
+        $bairros = Bairro::all();
         $modalidades = Modalidade::all();
         $periodos = Periodo::all();
         $categorias = Categoria::all();
 
-        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades', 'bairros'));
     }
 
 
@@ -180,13 +181,19 @@ class VagaController extends Controller
         return redirect()->route('company.jobs');
     }
 
-    public function editStatus($id)
+    public function editStatus(string $id, string $action)
     {
         $vaga = Vaga::findOrFail($id);
 
-        $vaga->update([
-            'id_status' => '2'
-        ]); 
+        if($action == 'Ativar'){
+            $vaga->update([
+                'id_status' => '1'
+            ]); 
+        } else {
+            $vaga->update([
+                'id_status' => '2'
+            ]); 
+        }
         
         return redirect()->route('company.jobs');
     }
@@ -207,6 +214,7 @@ class VagaController extends Controller
         $modalidades = Modalidade::all();
         $periodos = Periodo::all();
         $categorias = Categoria::all();
+        $bairros = Bairro::all();
 
         // Lógica de filtro
         $vagas = Vaga::where('id_status', 1);
@@ -248,14 +256,14 @@ class VagaController extends Controller
 
         $bairro = request('bairro');
         if ($bairro !== null) {
-            $vagas->where('cd_bairro', '<=', $bairro);
+            $vagas->where('id_bairro', $bairro);
         }
 
         // Execute a consulta
         $vagas = $vagas->paginate(8);
 
         // Retorne a view com os resultados
-        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades', 'bairros'));
     }
 
     public function filterCategory($id)
@@ -264,13 +272,14 @@ class VagaController extends Controller
         $modalidades = Modalidade::all();
         $periodos = Periodo::all();
         $categorias = Categoria::all();
+        $bairros = Bairro::all();
         $ajuste_vaga = '../';
         $ajuste = '../';
 
         $vagas = Vaga::where('vagas.id_categoria', $searchCategory)
                     ->paginate(8);
 
-        return view('site/jobs', compact('vagas', 'ajuste_vaga', 'ajuste', 'periodos', 'categorias', 'modalidades'));
+        return view('site/jobs', compact('vagas', 'ajuste_vaga', 'ajuste', 'periodos', 'categorias', 'modalidades', 'bairros'));
     }
 
     public function filterName(Request $request)
@@ -279,10 +288,12 @@ class VagaController extends Controller
         $modalidades = Modalidade::all();
         $periodos = Periodo::all();
         $categorias = Categoria::all();
+        $bairros = Bairro::all();
+
         $vagas = Vaga::where('vagas.titulo', 'like', '%' . $searchName . '%')
                     ->paginate(8);
     
-        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades'));
+        return view('site/jobs', compact('vagas', 'periodos', 'categorias', 'modalidades', 'bairros'));
     }
 
     private function enderecoUser($cep)

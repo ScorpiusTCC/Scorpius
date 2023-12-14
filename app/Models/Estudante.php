@@ -19,7 +19,8 @@ class Estudante extends Model
         'id_contato',
         'id_user',
         'id_sexo',
-        'id_bairro'
+        'id_bairro',
+        'created_at'
     ];
 
     

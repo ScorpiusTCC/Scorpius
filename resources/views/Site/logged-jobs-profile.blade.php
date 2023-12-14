@@ -31,7 +31,15 @@
 
                         <a href="{{ route('show.candidatos', $vaga->id) }}"><button class="btn main-btn">Ver candidatos</button></a>
                             
-                        <button class="btn main-btn m-2" data-bs-toggle="modal" data-bs-target="#exampleModalExit">Fechar vaga</button>
+                        @if($vaga->id_status == 2)
+
+                            <button class="btn main-btn m-2" data-bs-toggle="modal" data-bs-target="#exampleModalExit">Reativar vaga</button>
+
+                        @elseif($vaga->id_status == 1)
+
+                            <button class="btn main-btn m-2" data-bs-toggle="modal" data-bs-target="#exampleModalExit">Fechar vaga</button>
+
+                        @endif
 
                         <a href="{{ route('job.edit', $vaga->id) }}"><button class="btn main-btn m-2">Editar vaga</button></a>
 
@@ -71,14 +79,28 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content p-4">
                     <div class="modal-body text-center">
-                        <h2 class="display-6">Tem certeza que deseja fechar essa vaga?</h2>
+
+                    @if($vaga->id_status == 2)
+                        <h2 class="display-6">Tem certeza que deseja ativar essa vaga?</h2>
                         <div class="mt-5">
-                            <form action="{{ route('job.status', $vaga->id)}}" method="POST">
+                            <form action="{{ route('job.status', ['id' => $vaga->id, 'action' => 'Ativar']) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-lg btn-success">Sim</button>
                                 <button class="btn btn-lg btn-danger m-4" data-bs-dismiss="modal">Não</button>
                             </form>
                         </div>
+                    @elseif($vaga->id_status == 1)
+                        <h2 class="display-6">Tem certeza que deseja fechar essa vaga?</h2>
+                        <div class="mt-5">
+                            <form action="{{ route('job.status', ['id' => $vaga->id, 'action' => 'Desativar']) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-lg btn-success">Sim</button>
+                                <button class="btn btn-lg btn-danger m-4" data-bs-dismiss="modal">Não</button>
+                            </form>
+                        </div>
+                    @endif
+                    
+
                     </div>
                 </div>
             </div>

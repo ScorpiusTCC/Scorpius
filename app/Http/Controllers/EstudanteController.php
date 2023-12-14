@@ -58,6 +58,8 @@ class EstudanteController extends Controller
         $curriculo = $request->file('curriculo');
 
         $curriculoPath = $curriculo->storeAs('public/uploads/estudantes/curriculos', 'curriculo_' . time() . '.' . $curriculo->getClientOriginalExtension(), 'local');
+        
+        $curriculoPath = str_replace('public/', 'storage/', $curriculoPath);
 
         //Pegar o id do bairro 
         $bairro = Bairro::where('nome', $data['bairro'])->first();
