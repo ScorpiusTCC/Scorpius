@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bairro;
 use App\Models\Candidatura;
 use App\Models\Categoria;
 use App\Models\RepresentanteEmpresa;
@@ -338,13 +339,67 @@ class EmpresaController extends Controller
         return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades', 'ajuste'));
     }
 
+    public function jobsCompanyActive()
+    {
+        $company = auth()->user()->empresa;
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
+        $ajuste = '../../';
+
+        $vagas = Vaga::where('id_empresa', $company->id)
+                ->where('id_status', 1)
+                ->orderBy('created_at', 'desc')
+                ->paginate(8);
+        
+        // echo '<pre>';
+        // var_dump($vagas);
+
+        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades', 'ajuste'));
+    }
+
+    public function jobsCompanyInactive()
+    {
+        $company = auth()->user()->empresa;
+        $modalidades = Modalidade::all();
+        $periodos = Periodo::all();
+        $categorias = Categoria::all();
+        $ajuste = '../../';
+
+        $vagas = Vaga::where('id_empresa', $company->id)
+                ->where('id_status', 2)
+                ->orderBy('created_at', 'desc')
+                ->paginate(8);
+        
+        // echo '<pre>';
+        // var_dump($vagas);
+
+        return view('site/jobs-company', compact('vagas', 'periodos', 'categorias', 'modalidades', 'ajuste'));
+    }
+
     public function showCandidatos($id)
     {
-        $candidatos = Candidatura::where('id_vaga', $id)
-                                    ->get();
-        
+        $bairros = Bairro::all();
         $ajuste = '../../../';
+        $id_vaga = $id;
+        
+        $candidatos = Candidatura::where('id_vaga', $id_vaga)
+                                    ->get();
 
-        return view('site/company-jobs-users', compact('candidatos', 'ajuste'));
+        return view('site/company-jobs-users', compact('candidatos', 'ajuste', 'bairros', 'id_vaga'));
+    }
+
+    public function showCandidatosBairro($id_vaga, $id_bairro)
+    {
+        $bairros = Bairro::all();
+        $ajuste = '../../../../';
+        
+        $candidatos = Candidatura::where('id_vaga', $id_vaga)
+            ->whereHas('estudante', function ($query) use ($id_bairro) {
+                $query->where('id_bairro', $id_bairro);
+            })
+            ->get();
+
+        return view('site/company-jobs-users', compact('candidatos', 'ajuste', 'bairros', 'id_vaga'));
     }
 }

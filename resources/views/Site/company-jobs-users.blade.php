@@ -1,4 +1,3 @@
-
 @extends('site/master')
 
 @section('title', 'Candidatos para vaga')
@@ -14,6 +13,18 @@
             <div class="text-center mb-4">
 
                 <h1 class="display-5">Candidatos a sua vaga</h1>
+
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Pesquise candidatos por bairro 
+                    </button>
+                    <ul class="dropdown-menu" style="max-height: 200px; overflow-y: auto;">
+                        @foreach ($bairros as $bairro)
+                            <li><a class="dropdown-item" href="{{ route('show.candidatos.bairro', ['id_vaga' => $id_vaga, 'id_bairro' => $bairro->id]) }}">{{ $bairro->nome }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+                
 
             </div>
 

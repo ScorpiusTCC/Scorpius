@@ -20,10 +20,10 @@
                       Filtre suas vagas
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Vagas ativas</a></li>
-                      <li><a class="dropdown-item" href="#">Vagas desativadas</a></li>
+                      <li><a class="dropdown-item" href="{{ route('company.jobs.active') }}">Vagas ativas</a></li>
+                      <li><a class="dropdown-item" href="{{ route('company.jobs.inactive') }}">Vagas desativadas</a></li>
                     </ul>
-                  </div>
+                </div>
 
             </div>
 
@@ -44,7 +44,7 @@
 
                         <div class="btn-space d-flex justify-content-around align-items-center">
 
-                            <img class="w-25 img-fluid" src="../{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
+                            <img class="w-25 img-fluid" src="@if(isset($ajuste)){{$ajuste}}@endif{{ $vaga->empresa->user->nm_img }}" alt="Img da empresa">
 
                             <div class="p-4">
 

@@ -110,7 +110,13 @@ Route::get('Empresa/Perfil/{id}', [EmpresaController::class, 'show'])->name('com
 
 Route::get('Empresa/Minhas-vagas', [EmpresaController::class, 'jobsCompany'])->name('company.jobs');
 
+Route::get('Empresa/Minhas-vagas/Ativas', [EmpresaController::class, 'jobsCompanyActive'])->name('company.jobs.active');
+
+Route::get('Empresa/Minhas-vagas/Inativas', [EmpresaController::class, 'jobsCompanyInactive'])->name('company.jobs.inactive');
+
 Route::get('Empresa/Vaga/{id}/Candidatos', [EmpresaController::class, 'showCandidatos'])->name('show.candidatos');
+
+Route::get('Empresa/Vaga/{id_vaga}/{id_bairro}/Candidatos', [EmpresaController::class, 'showCandidatosBairro'])->name('show.candidatos.bairro');
 
 Route::get('filtrosVagasEmpresa', [EmpresaController::class, 'filtersVagas'])->name('filter.jobs-company');
 

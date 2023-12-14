@@ -49,9 +49,10 @@ class EstudanteController extends Controller
 
     public function store(Request $request)
     {
+        
         // Obter dados do formulário, exceto os que estão em except
         $data = $request->except('_token');
-
+        
         // Juntar o valor inteiro e sua unidade para salvar no banco
         $data['idade'] = \Carbon\Carbon::parse($data['data_nasc'])->diffInYears();
 
@@ -69,7 +70,7 @@ class EstudanteController extends Controller
 
         // Criar contato
         $create_contato = ContatoEstudante::create([
-            'telefone_celular' => $data['telefone'],
+            'telefone_celular' => preg_replace("/[^0-9]/","", $data['telefone']),
             'email' => $data['email'],
         ]);
 
@@ -77,7 +78,7 @@ class EstudanteController extends Controller
         $create_user->estudante()->create([
             'id_sexo' => $data['sexo'],
             'nome' => $data['nome'],
-            'cpf' => $data['cpf'],
+            'cpf' => preg_replace("/[^0-9]/","", $data['cpf']),
             'data_nasc' => $data['data_nasc'],
             'idade' => $data['idade'],
             'sobre' => $data['sobre'],

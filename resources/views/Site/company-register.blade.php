@@ -36,14 +36,14 @@
                                 <div class="form">
 
                                     <label for=""> <p>CNPJ <span>*</span> </p> </label>
-                                    <input type="text" name="cnpj" id="cnpj" value="04.712.500/0001-07." maxlength="18" oninput="aplicarMascaraCNPJ(this)">
+                                    <input type="text" name="cnpj" id="cnpj" maxlength="18" oninput="aplicarMascaraCNPJ(this)">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>IE <span>*</span> </p> </label>
-                                    <input type="text" name="ie" id="ie" value="594.474.247.589" maxlength="15" oninput="aplicarMascaraIE(this)">
+                                    <input type="text" name="ie" id="ie" maxlength="15" oninput="aplicarMascaraIE(this)">
 
                                 </div>
 
@@ -51,14 +51,14 @@
                                 <div class="form">
 
                                     <label for=""> <p>Nome Fantasia <span>*</span> </p> </label>
-                                    <input type="text" name="nm_fantasia" id="nm_fantasia" value="Microsoft Corporation">
+                                    <input type="text" name="nm_fantasia" id="nm_fantasia">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Razão Social <span>*</span> </p> </label>
-                                    <input type="text" name="razao_social" id="razao_social" value="MICROSOFT DO BRASIL IMPORTACAO E COMERCIO DE SOFTWARE E VIDEO GAMES LTDA">
+                                    <input type="text" name="razao_social" id="razao_social">
 
                                 </div>
 
@@ -100,21 +100,21 @@
                                 <div class="form">
 
                                     <label for=""> <p>Nome do representante <span>*</span></p> </label>
-                                    <input type="text" id="nm_representante" name="nm_representante" value="Mateus Sampaio">
+                                    <input type="text" id="nm_representante" name="nm_representante">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>CPF do representante <span>*</span></p> </label>
-                                    <input type="text" id="cpf_representante" name="cpf_representante" oninput="mascara(this)" maxlength="11" value="89214627839">
+                                    <input type="text" id="cpf_representante" name="cpf_representante" oninput="mascara(this)" maxlength="14">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>E-mail da empresa <span>*</span> </p> </label>
-                                    <input type="email" name="email" id="email" value="microsoft@gmail.com">
+                                    <input type="email" name="email" id="email">
 
                                 </div>
 
@@ -122,14 +122,14 @@
                                 <div class="form">
 
                                     <label for=""> <p>Telefone celular <span>*</span> (Com DDD) </p> </label>
-                                    <input type="text" id="tel_celular" name="tel_celular" value="(13) 98173-9833"> 
+                                    <input type="text" id="tel_celular" name="tel_celular" maxlength="16" placeholder="(XX) XXXXX-XXXX" oninput="formatarTelefone(this)"> 
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Telefone comercial <span>*</span> (Com DDD) </p> </label>
-                                    <input type="text" id="tel_comercial" name="tel_comercial" value="(13) 98173-9957">
+                                    <input type="text" id="tel_comercial" name="tel_comercial" maxlength="16" placeholder="(XX) XXXXX-XXXX" oninput="formatarTelefone(this)">
 
                                 </div>
 
@@ -177,7 +177,7 @@
                                         <div class="form m-3">
         
                                             <label for=""> <p>CEP <span>*</span> </p> </label>
-                                            <input name="cep" type="text" id="cep" value="11714000" size="10" maxlength="9"
+                                            <input name="cep" type="text" id="cep" size="10" maxlength="9"
                                             onblur="pesquisacep(this.value);">
         
                                         </div>
@@ -217,7 +217,7 @@
                                         <div class="form m-3">
         
                                             <label for=""> <p>Número <span>*</span></p> </label>
-                                            <input name="numero" type="text" id="numero" size="2" value="508">
+                                            <input name="numero" type="text" id="numero" size="2">
         
                                         </div>
         
@@ -288,7 +288,7 @@
                                 </div>
 
                                 <label for=""> <p>Sobre a empresa <span>*</span></p> </label>
-                                <textarea name="sobre" id="sobre" cols="30" rows="10">A Microsoft, fundada em 1975 por Bill Gates e Paul Allen, é uma potência global na tecnologia. Conhecida pelo MS-DOS e Windows, expandiu para áreas como Office, Xbox e Azure. Sob a liderança de Satya Nadella desde 2014, foca em inovação, inteligência artificial e computação em nuvem. Além do impacto nos negócios, é reconhecida por iniciativas filantrópicas, como a Fundação Bill e Melinda Gates.</textarea>
+                                <textarea name="sobre" id="sobre" cols="30" rows="10"></textarea>
 
                             </div>
 

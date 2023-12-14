@@ -36,21 +36,21 @@
                                 <div class="form">
 
                                     <label for=""> <p>Nome Completo <span>*</span> </p> </label>
-                                    <input type="text" name="nome_completo" id="nome_completo" value="Rodrigo Torres do Nascimento">
+                                    <input type="text" name="nome_completo" id="nome_completo">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>E-mail principal <span>*</span> </p> </label>
-                                    <input type="email" name="email" id="email" value="rodrigo@gmail.com">
+                                    <input type="email" name="email" id="email">
 
                                 </div>
 
                                 <div class="form">
 
                                     <label for=""> <p>Telefone <span>*</span> (com DD) </p> </label>
-                                    <input type="telefone" name="telefone" id="telefone" maxlength="15" placeholder="(XX) XXXXX-XXXX" oninput="formatarTelefone(this)">
+                                    <input type="telefone" name="telefone" id="telefone" maxlength="16" placeholder="(XX) XXXXX-XXXX" oninput="formatarTelefone(this)">
 
                                 </div>
 
@@ -92,7 +92,7 @@
                                 <div class="form">
 
                                     <label for=""> <p>CPF <span>*</span> </p> </label>
-                                    <input type="text" name="cpf" id="cpf" oninput="mascara(this)" maxlength="11" value="12345678909">
+                                    <input type="text" name="cpf" id="cpf" oninput="mascara(this)" maxlength="14">
 
                                 </div>
 
@@ -159,7 +159,7 @@
                                 <div class="form">
 
                                     <label for=""> <p>CEP <span>*</span> </p> </label>
-                                    <input name="cep" type="text" id="cep" value="11714000" size="10" maxlength="9" onblur="pesquisacep(this.value)">
+                                    <input name="cep" type="text" id="cep" size="10" maxlength="9" onblur="pesquisacep(this.value)">
 
                                 </div>
 
@@ -237,17 +237,17 @@
                                     <div id="profile-information">
 
                                         <label for=""> <p>Nome de Usuário <span>*</span></p> </label>
-                                        <input name="nome" type="text" id="nome" size="" value="Rodrigo Nascimento">
+                                        <input name="nome" type="text" id="nome">
 
                                         <label for="curriculo">Currículo:</label>
-                                        <input class="form-control" type="file" name="curriculo" accept=".pdf, .doc, .docx" required>
+                                        <input class="form-control" type="file" name="curriculo" accept=".pdf, .doc, .docx">
 
                                     </div>
 
                                 </div>
 
                                 <label for=""> <p>Sobre mim <span>*</span></p> </label>
-                                <textarea name="soz'bre" id="sobre" cols="30" rows="10">Sou um estudante, buscando um estágio na área de programação para aperfeiçõar minhas habilidades</textarea>
+                                <textarea name="sobre" id="sobre" cols="30" rows="10"></textarea>
                                 
                             </div>
 
@@ -284,7 +284,7 @@
 
                                 <div class="form">
 
-                                    <input type="text" name="password" id="password" placeholder="Coloque aqui a sua senha" value="123">
+                                    <input type="text" name="password" id="password" placeholder="Coloque aqui a sua senha">
 
                                     <div id="security-indicator">
 
@@ -327,10 +327,7 @@
                     </div>
 
                 </div>
-
-                <div class="swiper-pagination"></div>
-                <!-- <button id="next-button">Continuar</button> -->
-                <!-- <button id="prev-button"><</button> -->
+                
             </div>
 
         </form>
